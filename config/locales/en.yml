@@ -142,6 +142,9 @@ en:
     help:
       content: "This is help page"
       title: "Help"
+    job_bookmark:
+      unbookmark: "Unbookmark"
+      bookmark_job: "Bookmark"
   layouts:
     message:
       success_title: "Success"

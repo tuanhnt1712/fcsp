@@ -70,7 +70,7 @@ namespace :db do
           postable_id: user.id,
           postable_type: "User"
         }
-        post = Post.create! post_params
+        Post.create! post_params
       end
 
       puts "Create jobs"
@@ -79,7 +79,8 @@ namespace :db do
           title = FFaker::Lorem.sentence
           describe = FFaker::Lorem.paragraph
           Job.create! company_id: rand(1..2), title: title, describe: describe,
-            type_of_candidates: 1, who_can_apply: 1, status: i
+            type_of_candidates: 1, who_can_apply: 1, status: i,
+            posting_time: Time.zone.now
         end
       end
 
