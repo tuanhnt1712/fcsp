@@ -1,5 +1,5 @@
 <% if bookmarked? current_user, job %>
-  <%= button_tag id: job.id, class: "btn rm_bookmark btn-bookmarled" do %>
+  <%= button_tag id: job.id, class: "btn rm_bookmark btn-bookmarked" do %>
     <i class="glyphicon glyphicon-bookmark" aria-hidden="true"></i>
     <span class="tooltiptext tooltip-left"><%= t ".unbookmark" %></span>
   <% end %>

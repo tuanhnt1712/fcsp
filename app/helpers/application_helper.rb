@@ -40,7 +40,7 @@ module ApplicationHelper
 
   def request_friends
     if current_user && user_signed_in?
-      current_user.requested_friends.includes :avatar
+      current_user.requested_friends.includes :avatar, :friends
     end
   end
 
@@ -72,6 +72,6 @@ module ApplicationHelper
   end
 
   def class_hidden object
-    "hidden" unless object.present?
+    "hidden" if object.blank?
   end
 end

@@ -9,8 +9,8 @@ class Employer::CandidatesController < Employer::BaseController
         sort_by, params[:type]).page(params[:page])
         .per Settings.employer.candidates.per_page
     else
-      @candidates = @object.candidates.page(params[:page])
-        .per Settings.employer.candidates.per_page
+      @candidates = @object.candidates.includes(:job, :avatar)
+        .page(params[:page]).per Settings.employer.candidates.per_page
     end
 
     if request.xhr?
