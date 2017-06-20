@@ -61,3 +61,22 @@ function add_fields(link, association, content) {
   var regexp = new RegExp('new_' + association, 'g');
   $(link).parent().before(content.replace(regexp, new_id));
 }
+
+$('body').on('click', '.remove_introduction', function(e){
+  e.preventDefault();
+  if($('.remove_introduction').length > 1){
+    swal({
+      type: 'success',
+      title: I18n.t('employer.teams.new.success'),
+      text: I18n.t('employer.teams.new.success_text'),
+    });
+    $(this).parent().siblings('[id$=_destroy]').val('true');
+    $(this).parent().remove();
+  } else {
+    swal({
+      type: 'error',
+      title: I18n.t('employer.teams.new.error'),
+      text: I18n.t('employer.teams.new.error_text')
+    });
+  }
+});
