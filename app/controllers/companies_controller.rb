@@ -1,6 +1,18 @@
 class CompaniesController < ApplicationController
   load_resource
 
+  def create
+    @company.creator = current_user
+
+    if @company.save
+      flash[:success] = t ".success"
+      redirect_to employer_company_dashboards_path @company
+    else
+      flash[:danger] = t ".fail"
+      redirect_back fallback_location: :back
+    end
+  end
+
   def show
     @company_jobs = @company.jobs.includes(:images)
       .page(params[:page]).per Settings.company.per_page
@@ -21,5 +33,11 @@ class CompaniesController < ApplicationController
         addresses: @company.addresses
       }
     end
+  end
+
+  private
+
+  def company_params
+    params.require(:company).permit Company::ATTRIBUTES
   end
 end

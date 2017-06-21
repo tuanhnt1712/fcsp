@@ -213,6 +213,7 @@ vi:
       message: "Messages"
       sign_out: "Sign out"
       create_new_post: "Tạo bài viết mới"
+      create_company: "Tạo mới công ty"
     job_bookmark:
       bookmark: "Bookmark"
       bookmarked: "Bookmarked"

@@ -56,8 +56,7 @@ class User < ApplicationRecord
   has_one :user_group, ->{where is_default_group: true},
     class_name: UserGroup.name
   has_one :group, class_name: Group.name, through: :user_group, source: :group
-  has_one :company, through: :user_group, source: :company,
-    class_name: Company.name
+  has_many :companies, foreign_key: :creator_id
   has_many :user_links, dependent: :destroy
   has_many :posts, as: :postable
   has_many :social_networks, as: :owner, dependent: :destroy
@@ -71,7 +70,7 @@ class User < ApplicationRecord
   delegate :introduce, :ambition, :address, :phone, :quote, :info_statuses,
     to: :info_user, prefix: true
 
-  enum role: [:user, :admin]
+  enum role: [:user, :admin, :employer, :employee]
   enum education_status: [:blocked, :active], _prefix: true
 
   after_create :create_user_group

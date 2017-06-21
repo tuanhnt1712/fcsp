@@ -145,7 +145,9 @@ ActiveRecord::Schema.define(version: 20170703035525) do
     t.datetime "updated_at",     null: false
     t.integer  "avatar_id"
     t.integer  "cover_image_id"
+    t.integer  "creator_id"
     t.index ["avatar_id", "cover_image_id"], name: "index_companies_on_avatar_id_and_cover_image_id", unique: true, using: :btree
+    t.index ["creator_id"], name: "index_companies_on_creator_id", using: :btree
     t.index ["name"], name: "index_companies_on_name", using: :btree
     t.index ["website"], name: "index_companies_on_website", using: :btree
   end
@@ -462,10 +464,10 @@ ActiveRecord::Schema.define(version: 20170703035525) do
     t.string   "friendable_type"
     t.integer  "friendable_id"
     t.integer  "friend_id"
+    t.integer  "status"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "blocker_id"
-    t.integer  "status"
     t.index ["friendable_id"], name: "index_friendships_on_friendable_id", using: :btree
     t.index ["friendable_type"], name: "index_friendships_on_friendable_type", using: :btree
   end
@@ -817,6 +819,7 @@ ActiveRecord::Schema.define(version: 20170703035525) do
     t.integer  "cover_image_id"
     t.integer  "avatar_id"
     t.string   "provider"
+    t.integer  "company_id"
     t.index ["avatar_id"], name: "index_users_on_avatar_id", using: :btree
     t.index ["cover_image_id"], name: "index_users_on_cover_image_id", using: :btree
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
