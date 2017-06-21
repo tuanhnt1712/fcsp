@@ -630,7 +630,7 @@ vi:
       public: "Công khai"
       only_me: "Chỉ mình tôi"
     org_search:
-      people: "%{num} người khác"      
+      people: "%{num} người khác"
   user_projects:
     create:
       create_success: "Thêm dự án thành công!"

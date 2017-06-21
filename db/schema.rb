@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170622083528) do
+ActiveRecord::Schema.define(version: 20170703035525) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -462,10 +462,10 @@ ActiveRecord::Schema.define(version: 20170622083528) do
     t.string   "friendable_type"
     t.integer  "friendable_id"
     t.integer  "friend_id"
-    t.integer  "status"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "blocker_id"
+    t.integer  "status"
     t.index ["friendable_id"], name: "index_friendships_on_friendable_id", using: :btree
     t.index ["friendable_type"], name: "index_friendships_on_friendable_type", using: :btree
   end
@@ -559,10 +559,12 @@ ActiveRecord::Schema.define(version: 20170622083528) do
     t.string   "profile_requests",   default: "[]", null: false
     t.integer  "candidates_count",   default: 0
     t.datetime "posting_time"
+    t.integer  "user_id"
     t.index ["company_id"], name: "index_jobs_on_company_id", using: :btree
     t.index ["deleted_at"], name: "index_jobs_on_deleted_at", using: :btree
     t.index ["team_id"], name: "index_jobs_on_team_id", using: :btree
     t.index ["title"], name: "index_jobs_on_title", using: :btree
+    t.index ["user_id"], name: "index_jobs_on_user_id", using: :btree
   end
 
   create_table "languages", force: :cascade do |t|
@@ -853,6 +855,7 @@ ActiveRecord::Schema.define(version: 20170622083528) do
   add_foreign_key "job_teams", "jobs"
   add_foreign_key "job_teams", "teams"
   add_foreign_key "jobs", "teams"
+  add_foreign_key "jobs", "users"
   add_foreign_key "likes", "posts"
   add_foreign_key "likes", "users"
   add_foreign_key "messages", "chat_rooms"

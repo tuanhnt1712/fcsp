@@ -6,9 +6,11 @@
       </div>
     </div>
     <div>
-      <div class="tooltip-x">
-        <%= render "candidate", job: @job, job_object: @job_object %>
-      </div>
+      <% if @job_object.can_apply_job? %>
+        <div class="tooltip-x">
+          <%= render "candidate", job: @job, job_object: @job_object %>
+        </div>
+      <% end %>
     </div>
   </div>
 <% end %>

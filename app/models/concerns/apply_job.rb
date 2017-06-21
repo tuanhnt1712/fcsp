@@ -4,6 +4,6 @@ module ApplyJob
   end
 
   def unapply_job job
-    candidates.find_by(job_id: job.id).destroy if job.present?
+    candidates.find_by(job_id: job.id).destroy
   end
 end

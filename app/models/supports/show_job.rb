@@ -1,6 +1,6 @@
 module Supports
   class ShowJob
-    attr_reader :job, :company, :benefits, :members, :team_introduction,
+    attr_reader :job, :company, :benefits, :team_introduction,
       :hiring_types, :published_date, :qualified_profile
 
     delegate :benefits, :founder_on, to: :company, prefix: true
@@ -52,6 +52,15 @@ module Supports
       Job.posting_job @job
     end
 
+    def can_apply_job?
+      return true if @job.everyone?
+      return is_friend_of_member? if @job.friends_of_members?
+
+      if @job.friends_of_friends_of_member?
+        return is_friend_of_friends_of_member?
+      end
+    end
+
     private
 
     def education? requests
@@ -64,6 +73,23 @@ module Supports
 
     def introduce? requests
       requests.exclude?("introduce") || @user.info_user_introduce.present?
+    end
+
+    def is_friend_of_member?
+      friends_of_member.any?(&friend_block)
+    end
+
+    def is_friend_of_friends_of_member?
+      friends_of_member.any?{|member| member.friends.any?(&friend_block)}
+    end
+
+    def friends_of_member
+      company.users.joins(:friends).where.not(id: @user.id)
+        .includes :friends, :friendships
+    end
+
+    def friend_block
+      proc{|user| user.friends_with? @user}
     end
   end
 end
