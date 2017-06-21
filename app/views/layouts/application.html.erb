@@ -12,9 +12,10 @@
         <%= render "layouts/message" %>
         <%= yield %>
       </div>
-      <%= render "layouts/footer" %>
+      <% unless controller.controller_name == "messages" %>
+        <%= render "layouts/footer" %>
+      <% end %>
     </div>
-
     <div id="gotoTop" class="icon-angle-up"></div>
     <%= javascript_include_tag "template" %>
     <%= yield :javascript %>
