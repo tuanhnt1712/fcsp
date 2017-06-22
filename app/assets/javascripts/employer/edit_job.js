@@ -1,10 +1,9 @@
-
 $(document).ready(function(){
   $('.next-step-2').on('click', function(){
     var caption_img = $('.caption-image').val();
     var title_job = $('.title-job').val();
     var text_job = $('.text-job').val();
-    if (caption_img && title_job && text_job){ 
+    if (caption_img && title_job && text_job){
       $('#step-1').hide();
       $('#step-2').slideDown();
       $('#a_step1').removeClass('selected').addClass('done');
@@ -22,7 +21,7 @@ $(document).ready(function(){
       });
     }
   });
-  
+
   $('.edit .buttonPrevious').click(function(){
     $('#step-1').show();
     $('#step-2').hide();

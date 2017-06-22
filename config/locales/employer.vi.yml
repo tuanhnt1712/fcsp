@@ -11,6 +11,19 @@ vi:
         confirm_delete: "Bạn chắc chắn?"
         mess_text: "Bạn sẽ không thể lấy lại được nó!"
         confirm_text: "Có, xóa nó!"
+      show:
+        profile: "Thông tin ứng viên"
+        name: "Tên: "
+        email: "Email: "
+        interested: "Quan tâm: "
+        process: "Tiến trình: "
+        desc: "Mô tả: "
+        type: "Công việc: "
+        position: "Vị trí: "
+        skill: "Kỹ năng yêu cầu: "
+        details_job: "Chi tiết công việc"
+        details_profile: "Chi tiết ứng viên"
+        job_info: "Thông tin công việc"
     articles:
       update:
         update: "Cập nhật thành công"

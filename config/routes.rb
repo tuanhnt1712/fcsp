@@ -47,7 +47,7 @@ Rails.application.routes.draw do
       resources :dashboards, only: :index
       resources :teams
       resources :team_introductions, only: [:create, :new]
-      resources :candidates, only: [:index, :update]
+      resources :candidates, only: [:index, :update, :show]
       resources :articles, except: :show
       delete "candidates", to: "candidates#destroy"
     end

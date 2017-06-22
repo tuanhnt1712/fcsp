@@ -17,6 +17,57 @@
   }
 }
 
+.show-candidates-popup {
+  .btn-p {
+    background: $btn-p;
+  }
+
+  .btn-f {
+    background: $btn-f;
+  }
+
+  .btn-a {
+    background: $btn-a;
+  }
+
+  .btn-w {
+    background: $btn-w;
+  }
+
+  .btn-j {
+    background: $btn-j;
+  }
+
+  .col-process {
+
+    .process {
+      position: relative;
+    }
+
+    .popup-change-status {
+      background: $white;
+      border-radius: 20px;
+      box-shadow: 2px 2px 2px $gray-9;
+      display: none;
+      height: 40px;
+      padding: 8px 15px;
+      position: absolute;
+      text-align: center;
+      top: 28px;
+      width: 355px;
+    }
+
+    .btn {
+      color: $white;
+    }
+  }
+
+  .btn-cancel {
+    color: $gray-9 !important;
+  }
+}
+
+
 .table {
 
   .btn-p {
@@ -350,3 +401,56 @@
 .btn-delete-candidate {
   float: right;
 }
+
+.img-default-size {
+  border-color: $slate-gray-color;
+  border-radius: 5px;
+  border-style: solid;
+  border-width: 2px;
+  height: 200px;
+  padding: 2px;
+  width: 200px;
+
+  img {
+    height: 100%;
+    width: 100%;
+  }
+}
+
+.candidate-title {
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
+.candidate-fullname {
+  font-size: 25px;
+  font-weight: bold;
+  padding-left: 50px;
+  text-transform: uppercase;
+}
+
+.candidate-border {
+  border-color: $slate-gray-color;
+  border-radius: 5px;
+  border-style: solid;
+  border-width: 2px;
+  overflow: auto;
+  padding: 2px;
+}
+
+.candidate-padding {
+  padding: 10px;
+}
+
+.candidate-job-title {
+  font-style: italic;
+  font-weight: bold;
+  text-align: center;
+  text-transform: capitalize;
+}
+
+.candidate-bor {
+  border-color: $slate-gray-color;
+  border-width: 1px;
+}
+

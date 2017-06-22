@@ -27,6 +27,12 @@ class Employer::CandidatesController < Employer::BaseController
     end
   end
 
+  def show
+    @candidate = Candidate.find_by id: params[:id]
+    return_not_found unless @candidate
+    @job_skills = JobSkill.of_job(@candidate.job)
+  end
+
   def update
     if params[:type]
       @object.change_process_status params[:id], params[:type]
@@ -52,7 +58,8 @@ class Employer::CandidatesController < Employer::BaseController
             html_candidate: render_to_string(partial: "candidate",
               locals: {candidates: @candidates}, layout: false),
             pagination_candidate: render_to_string(partial: "paginate",
-              layout: false), flash: t(".success"), status: 200
+              layout: false, locals: {candidates: @candidates}),
+              flash: t(".success"), status: 200
           }
         else
           respond_to do |format|

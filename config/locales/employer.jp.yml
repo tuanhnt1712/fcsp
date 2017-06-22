@@ -11,6 +11,19 @@ jp:
         confirm_delete: "本気ですか？"
         mess_text: "これを元に戻すことはできません！"
         confirm_text: "はい、削除してください！"
+      show:
+        profile: "プロファイル候補"
+        name: "フルネーム: "
+        email: "Eメール: "
+        interested: "に興味がある: "
+        process: "プロセス: "
+        desc: "説明: "
+        type: "ジョブの種類: "
+        position: "ポジション: "
+        skill: "スキルが必要: "
+        details_job: "詳細ジョブ"
+        details_profile: "詳細プロフィール"
+        job_info: "求人情報"
     articles:
       update:
         update: "記事が更新されました"
