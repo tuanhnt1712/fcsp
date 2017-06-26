@@ -197,6 +197,24 @@ namespace :db do
           friend_id: user_id, status: 1
       end
 
+      puts "Create ChatRoom"
+      (2..4).each do |id|
+        ChatRoom.create! name: User.find(id).name
+      end
+
+      puts "Create ChatRoom"
+      user_first = User.first
+      (1..3).each do |id|
+        ChatRoom.find(id).messages.create! user: user_first,
+          content: FFaker::Lorem.sentence
+        ChatRoom.find(id).messages.create! user_id: User.limit(4)[id].id,
+          content: FFaker::Lorem.sentence
+        ChatRoom.find(id).messages.create! user: user_first,
+          content: FFaker::Lorem.sentence
+        ChatRoom.find(id).messages.create! user_id: User.limit(4)[id].id,
+          content: FFaker::Lorem.sentence
+      end
+
       puts "Create Education informations"
       Rake::Task["education:education_seeding"].invoke
 
