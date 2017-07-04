@@ -19,7 +19,7 @@ var candidate = {
           var qualified_profile = data['qualified_profile'];
           if(qualified_profile){
             $('#apply_job_modal').modal('show');
-          }else {
+          } else {
             $('#apply_job_failed_modal').modal('show');
           }
         }

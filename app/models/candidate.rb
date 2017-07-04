@@ -1,4 +1,6 @@
 class Candidate < ApplicationRecord
+  after_create :send_apply_job_mail
+
   belongs_to :user
   belongs_to :job, counter_cache: true
   delegate :title, to: :job, allow_nil: true
@@ -24,5 +26,11 @@ class Candidate < ApplicationRecord
 
   scope :delete_candidate, ->list_candidate do
     where("id IN (?)", list_candidate).destroy_all
+  end
+
+  private
+
+  def send_apply_job_mail
+    JobMailer.apply_job(user, job).deliver_later
   end
 end

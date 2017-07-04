@@ -4,7 +4,10 @@ class Job < ApplicationRecord
 
   include JobShare
 
+  after_create :send_posting_job_mail
+
   belongs_to :company
+  belongs_to :creator, class_name: User.name, foreign_key: :user_id
   has_many :job_teams, dependent: :destroy
   has_many :teams, through: :job_teams
   has_many :images, as: :imageable, dependent: :destroy
@@ -35,9 +38,9 @@ class Job < ApplicationRecord
   delegate :name, to: :hiring_types, prefix: true
 
   ATTRIBUTES = [:title, :describe, :type_of_candidates, :who_can_apply, :status,
-    :company_id, :candidates_count, :posting_time, hiring_type_ids: [],
-    team_ids: [], images_attributes: [:id, :imageable_id, :imageable_type,
-      :picture, :caption]]
+    :company_id, :user_id, :candidates_count, :posting_time,
+    hiring_type_ids: [], team_ids: [], images_attributes:
+    [:id, :imageable_id, :imageable_type, :picture, :caption]]
 
   TYPEOFCANDIDATES = Job.type_of_candidates
     .map{|temp,| [I18n.t(".type_of_candidates.#{temp}"), temp]}
@@ -79,5 +82,11 @@ class Job < ApplicationRecord
 
   def check_posting_time
     check_time posting_time
+  end
+
+  private
+
+  def send_posting_job_mail
+    JobMailer.posting_job(creator, self).deliver_later
   end
 end

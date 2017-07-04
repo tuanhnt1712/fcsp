@@ -31,6 +31,7 @@ class User < ApplicationRecord
     as: :imageable, dependent: :destroy
   has_many :candidates, dependent: :destroy
   has_many :jobs, through: :candidates
+  has_many :created_jobs, class_name: Job.name, dependent: :destroy
   has_many :bookmarks, dependent: :destroy
   has_many :bookmarked_jobs, class_name: Job.name, through: :bookmarks,
     source: :job

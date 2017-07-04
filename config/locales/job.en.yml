@@ -1,0 +1,10 @@
+en:
+  job_mailer:
+    apply_job:
+      subject: "Thank you for applying!"
+      hi: "Hi %{name},"
+      end: "Thank you for applying to visit %{link}"
+    posting_job:
+      subject: "\"%{job_title}\" has been successfully posted"
+      hi: "Hi %{name},"
+      posting_job: "Your job posting %{link} has been published."

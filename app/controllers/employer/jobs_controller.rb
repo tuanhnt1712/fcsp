@@ -40,6 +40,7 @@ class Employer::JobsController < Employer::BaseController
   def create
     @job = @company.jobs.build job_params
     @job.posting_time = Time.zone.now unless @job.posting_time
+
     if @job.save
       flash[:success] = t "employer.jobs.create.created"
       redirect_to @job
