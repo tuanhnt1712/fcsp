@@ -15,7 +15,7 @@ var limitPostingTime = {
         this.setOptions({
           minDate: minDate,
           maxDate: maxDate
-        })
+        });
       }
     });
   },
@@ -29,7 +29,7 @@ var limitPostingTime = {
       }
     });
   }
-}
+};
 
 function showCandidateByjob() {
   $('.show-candidates').on('click', function() {

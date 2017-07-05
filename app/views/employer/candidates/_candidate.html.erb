@@ -21,24 +21,29 @@
       <%= load_avatar_candidate candidate %>
     </td>
     <td class="col-username">
-      <p class="title"><b><%= candidate.user_name %></b></p>
+      <p class="title">
+        <strong>
+          <%= link_to candidate.user_name,
+            employer_company_candidate_path(id: candidate.id) %>
+        </strong>
+      </p>
       <p class="summary"><%= candidate.user_email %></p>
       <p class="job-title"><%= candidate.job_title %></p>
     </td>
     <td class="col-interested">
       <span class="media-meta pull-left">
-        <b>
+        <strong>
           <%= Candidate.human_enum_name :interested_in,
             candidate.interested_in %>
-        </b>
+        </strong>
       </span>
     </td>
     <td class="col-process">
       <span class="media-meta pull-left process">
-        <b class="btn btn-<%= candidate.process.first %> btn-xs">
+        <strong class="btn btn-<%= candidate.process.first %> btn-xs">
           <%= Candidate.human_enum_name :process,
             candidate.process %>
-        </b>
+        </strong>
         <div class="popup-change-status"
           data-candidate-id="<%= candidate.id %>">
           <%= render "change_process", process: candidate.process %>

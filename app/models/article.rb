@@ -23,7 +23,7 @@ class Article < ApplicationRecord
   end
 
   # only use with user's view
-  scope :time_filter, -> time_show do
+  scope :time_filter, ->time_show do
     where("#{time_show} <= ?", format_time(Time.zone.now, :format_datetime))
       .order "#{time_show} DESC"
   end

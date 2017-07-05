@@ -27,6 +27,12 @@ class Employer::CandidatesController < Employer::BaseController
     end
   end
 
+  def show
+    @candidate = Candidate.find_by id: params[:id]
+    return_not_found unless @candidate
+    @job_skills = JobSkill.of_job(@candidate.job)
+  end
+
   def update
     if params[:type]
       @object.change_process_status params[:id], params[:type]

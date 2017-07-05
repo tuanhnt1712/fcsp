@@ -89,4 +89,8 @@ class Job < ApplicationRecord
   def send_posting_job_mail
     JobMailer.posting_job(creator, self).deliver_later
   end
+
+  def image_url
+    images.any? ? images.first.picture_url : Settings.jobs.image_url
+  end
 end

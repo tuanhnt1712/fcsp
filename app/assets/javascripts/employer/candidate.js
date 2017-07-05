@@ -105,7 +105,7 @@ $(document).ready(function() {
     case 'job-team':
       url_request = '/employer/companies/' + company_id + '/job_team';
       tbody = $('.teams-list');
-      break;  
+      break;
     }
 
     $.ajax({
@@ -175,7 +175,7 @@ $(document).ready(function() {
       company_id = $('#company-id').val(),
       url_request = '/employer/companies/' + company_id + '/candidates/'
         + candidate_id,
-      button_process = $(this).closest('.process').find('b'),
+      button_process = $(this).closest('.process').find('strong'),
       box_process = $(this).closest('.popup-change-status'),
       candidate_name = $(this).closest('tr')
         .find('.col-username .title b').text(),
@@ -274,7 +274,7 @@ var action_candidate = {
             arrchecked.push(id);
           }
         });
-        var count_delete = arrchecked.length;  
+        var count_delete = arrchecked.length;
         action_candidate.delete_candidate(params, count_delete);
       });
     });

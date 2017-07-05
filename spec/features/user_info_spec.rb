@@ -28,7 +28,7 @@ RSpec.feature "UserInfos", type: :feature, js: true do
     end
 
     it "defaut message if quote is nil", skip_before: true do
-      @info_user.update_attribute :quote, nil
+      @info_user.update_attributes :quote, nil
       visit user_path user
       find(:xpath, '//a[@data-target="tab-information"]').click
       expect(page).to have_content I18n.t "users.social_network.add_quote"
@@ -42,7 +42,8 @@ RSpec.feature "UserInfos", type: :feature, js: true do
       end
 
       it "show edit introducton modal" do
-        expect(page).to have_content I18n.t "info_users.edit_introduction_modal.edit_introduction"
+        expect(page).to have_content
+          I18n.t "info_users.edit_introduction_modal.edit_introduction"
       end
 
       it "edit introduce success" do
@@ -60,7 +61,8 @@ RSpec.feature "UserInfos", type: :feature, js: true do
         fill_in "Introduce", with: edited_content
         click_button I18n.t "info_users.update.update_button"
 
-        expect(page).to have_content full_error InfoUser, :quote, :too_long, Settings.info_users.max_length_introduce
+        expect(page).to have_content full_error InfoUser, :quote, :too_long,
+          Settings.info_users.max_length_introduce
       end
     end
 
@@ -70,7 +72,8 @@ RSpec.feature "UserInfos", type: :feature, js: true do
       end
 
       it "show edit ambition modal" do
-        expect(page).to have_content I18n.t "info_users.edit_ambition_modal.edit_ambition"
+        expect(page).to have_content
+          I18n.t "info_users.edit_ambition_modal.edit_ambition"
       end
 
       it "edit introduce success" do
@@ -88,7 +91,8 @@ RSpec.feature "UserInfos", type: :feature, js: true do
         fill_in "Ambition", with: edited_content
         click_button I18n.t "info_users.update.update_button"
 
-        expect(page).to have_content full_error InfoUser, :quote, :too_long, Settings.info_users.max_length_ambition
+        expect(page).to have_content full_error InfoUser, :quote, :too_long,
+          Settings.info_users.max_length_ambition
       end
     end
 
@@ -134,7 +138,8 @@ RSpec.feature "UserInfos", type: :feature, js: true do
         fill_in "Quote", with: quote_content
         click_button I18n.t "info_users.update.update_button"
 
-        expect(page).to have_content full_error InfoUser, :quote, :too_long, Settings.info_users.max_length_quote
+        expect(page).to have_content full_error InfoUser, :quote, :too_long,
+          Settings.info_users.max_length_quote
       end
     end
   end

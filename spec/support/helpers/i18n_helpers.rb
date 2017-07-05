@@ -8,7 +8,7 @@ module Features
           .generate_message attribute, message, count: count
       else
         errors = @_i18n_dummies[model_class].errors
-          .generate_message attribute, message        
+          .generate_message attribute, message
       end
       (errors.is_a? String) ? errors : errors[:other]
     end
