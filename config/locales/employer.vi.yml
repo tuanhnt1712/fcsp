@@ -21,3 +21,10 @@ vi:
         job_recruitment: "Tuyển dụng"
       info_hiring_type:
         posting_time: "Thời gian đăng bài"
+    teams:
+      new:
+        new_team: "Tạo team mới"
+        success: "Thành công"
+        success_tẽt: "Xóa thành công !!"
+        error: "Xảy ra lỗi"
+        error_text: "Xóa thất bại !!"

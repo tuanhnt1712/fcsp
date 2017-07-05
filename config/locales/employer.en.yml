@@ -276,6 +276,10 @@ en:
         team_action: "Action"
       new:
         new_team: "New Team"
+        success: "Success"
+        success_text: "Delete success !!"
+        error: "Error"
+        error_text: "Delete error !!"
       form:
         add_introduct: "Add a Introduction"
         search: "Search"

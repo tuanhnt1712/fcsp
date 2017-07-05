@@ -11,7 +11,7 @@ $(document).ready(function () {
     x = (x+3 <= size_li) ? x+3 : size_li;
     $('.user-skill:lt('+x+')').show();
     if (size_li <= x) {
-       $('#loadMore').addClass('hidden');
+      $('#loadMore').addClass('hidden');
     }
   });
   $('#showLess').click(function () {

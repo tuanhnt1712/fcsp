@@ -12,7 +12,7 @@ class Team < ApplicationRecord
   ATTRIBUTES = [:company_id, :name,
     images_attributes: [:id, :imageable_id, :imageable_type,
     :picture, :caption], team_introductions_attributes:
-    [:id, :team_target_id, :team_target_type, :title, :content]]
+    [:id, :team_target_id, :team_target_type, :title, :content, :_destroy]]
 
   scope :filter, ->(list_filter, sort_by, type) do
     where("#{type} IN (?)", list_filter).order "#{type} #{sort_by}"

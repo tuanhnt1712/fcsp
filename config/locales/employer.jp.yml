@@ -21,3 +21,10 @@ jp:
         job_recruitment: "仕事の募集"
       info_hiring_type:
         posting_time: "投稿時間"
+    teams:
+      new:
+        new_team: "新しいチーム"
+        success: "成功"
+        success_text: "削除成功 !!"
+        error: "エラー"
+        error_text: "エラーの削除 !!"
