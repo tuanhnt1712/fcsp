@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   devise_for :users, controllers: {omniauth_callbacks: :omniauth_callbacks}
   root "pages#index"
   resources :tms_synchronize, only: :index
-  resources :companies, only: :show
+  resources :companies, only: [:show, :create]
 
   namespace :education do
     namespace :management do

@@ -52,6 +52,13 @@ en:
       save: "Save"
     company_jobs:
       see_more: "See more"
+    create:
+      success: "Create Success !!"
+      fail: "Create Fails !!"
+    modal_create_company:
+      create_company: "Create Company"
+      create: "Create"
+      close: "Close"
   admin:
     layouts:
       admin_header:

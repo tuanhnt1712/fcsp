@@ -56,6 +56,7 @@ jp:
       about: "About"
       login: "Login"
       logout: "Logout"
+      create_company: "会社を作る"
   pages:
     home:
       title: "Home"

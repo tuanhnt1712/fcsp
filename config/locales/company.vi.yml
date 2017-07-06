@@ -1,0 +1,9 @@
+vi:
+  companies:
+    create:
+      success: "Tạo mới thành công !!"
+      fail: "Tạo mới thất bại !!"
+    modal_create_company:
+      create_company: "Tạo mới công ty"
+      create: "Xác nhận"
+      close: "Đóng"

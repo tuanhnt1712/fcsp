@@ -1,0 +1,9 @@
+jp:
+  companies:
+    create:
+      success: "成功を創造する !!"
+      fail: "作成に失敗する !!"
+    modal_create_company:
+      create_company: "会社を作る"
+      create: "作成する"
+      close: "閉じる"
