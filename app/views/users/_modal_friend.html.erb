@@ -10,15 +10,18 @@
         </h3>
       </div>
       <div class="modal-content-friend">
-        <% friend.friends.each do |friend| %>
+        <% friend_of_friends.each do |friend| %>
           <div class="row  panding-friend">
             <div class="col-md-3 col-sm-3 col-xs-3">
-              <%= link_to load_user_avatar(friend), user_path(friend) %>
+              <%= link_to load_user_avatar(friend), friend %>
             </div>
             <div class="col-md-6 col-sm-6 col-xs-6">
-              <%= link_to friend.name, user_path(friend) %>
+              <%= link_to friend.name, friend %>
               <br>
-              <i class="mutual-friend"><%= current_user.mutual_friends(friend).size %> <%= t ".mutual-friends" %></i>
+              <i class="mutual-friend">
+                <%= current_user.mutual_friends_in_lists(friend.list_friends).size %>
+                <%= t ".mutual-friends" %>
+              </i>
             </div>
           </div>
         <% end %>
@@ -39,15 +42,18 @@
         </h3>
       </div>
       <div class="modal-content-friend">
-        <% friend.mutual_friends(current_user).each do |friend| %>
+        <% current_user.mutual_friends_in_lists(friend_of_friends).each do |friend| %>
           <div class="row  panding-friend">
             <div class="col-md-3 col-sm-3 col-xs-3">
-              <%= link_to load_user_avatar(friend), user_path(friend) %>
+              <%= link_to load_user_avatar(friend), friend %>
             </div>
             <div class="col-md-6 col-sm-6 col-xs-6">
-              <%= link_to friend.name, user_path(friend) %>
+              <%= link_to friend.name, friend %>
               <br>
-              <i class="mutual-friend"><%= current_user.mutual_friends(friend).size %> <%= t ".mutual-friends" %></i>
+              <i class="mutual-friend">
+                <%= current_user.mutual_friends_in_lists(friend.list_friends).count %>
+                <%= t ".mutual-friends" %>
+              </i>
             </div>
           </div>
         <% end %>

@@ -33,9 +33,8 @@ module Supports
       ShareJob.shared_jobs(shared_job_ids).includes :job, user: :avatar
     end
 
-    def list_friends
-      @user.friends.search(name_cont: @params[:friend_search]).result
-        .includes :avatar
+    def search_friends
+      @user.list_friends.search(name_cont: @params[:friend_search]).result
     end
 
     def user_jobs

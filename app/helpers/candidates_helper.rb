@@ -4,8 +4,8 @@ module CandidatesHelper
   end
 
   def load_avatar_candidate candidate
-    if candidate.avatar.present?
-      img = candidate.avatar.picture
+    if candidate.user.avatar.present?
+      img = candidate.user.avatar.picture
     else
       img = PictureUploader.new.picture_url
     end

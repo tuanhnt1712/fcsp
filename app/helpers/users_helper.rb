@@ -39,17 +39,19 @@ module UsersHelper
   end
 
   def suggest_friend user, friend
+    friend_of_friends = friend.list_friends
     if user.friends.include?(friend) &&
       current_user.friends.include?(friend) || friend == current_user
       content_tag :a, href: "#", "data-toggle": "modal", class: "friend",
         "data-target": "#modal_friend-#{friend.id}", "data-whatever": "@mdo" do
-        friend.friends.size.to_s + t(".friends")
+        friend_of_friends.size.to_s << " " << t(".friends")
       end
     else
       content_tag :a, href: "#", "data-toggle": "modal", class: "friend",
         "data-target": "#modal_mutual_friend-#{friend.id}",
         "data-whatever": "@mdo" do
-        current_user.mutual_friends(friend).size.to_s + t(".mutual_friends")
+        current_user.mutual_friends_in_lists(friend_of_friends)
+          .size.to_s << " " <<  t(".mutual_friends")
       end
     end
   end
