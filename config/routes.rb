@@ -42,8 +42,8 @@ Rails.application.routes.draw do
 
   namespace :employer do
     resources :companies, only: [:edit, :update] do
-      resources :jobs, except: [:show]
       delete "jobs", to: "jobs#destroy"
+      resources :jobs, except: [:show]
       resources :dashboards, only: :index
       resources :teams
       resources :team_introductions, only: [:create, :new]
