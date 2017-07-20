@@ -57,6 +57,7 @@ config/application.yml
 /.framgia-ci-reports
 .framgia-ci-result.temp.yml
 .idea/
+.editorconfig
 app/assets/videos/*
 /coverage/
 

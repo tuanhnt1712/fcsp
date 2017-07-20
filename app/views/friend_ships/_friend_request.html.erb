@@ -21,7 +21,10 @@
               <div class="col-md-6 col-sm-6 col-xs-6">
                 <%= link_to user_request.name, user_path(user_request) %>
                 <br>
-                <i class="friend-suggest"><%= current_user.mutual_friends(user_request).size %> <%= t ".mutual-friends" %></i>
+                <i class="friend-suggest">
+                  <%= current_user.mutual_friends_in_lists(user_request.list_friends).size %>
+                  <%= t ".mutual-friends" %>
+                </i>
               </div>
               <div class="col-md-3 col-sm-3 col-xs-3">
                 <%= link_to "#", class: "right-icon friend-ship",

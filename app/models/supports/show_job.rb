@@ -18,6 +18,10 @@ module Supports
       company.users.includes :avatar
     end
 
+    def has_member?
+      company.users.try :any?
+    end
+
     def company_address
       company.addresses
     end

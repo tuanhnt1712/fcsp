@@ -2,7 +2,7 @@
   <%= t ".members", company: job.company_name %>
 </h3>
 <div class="instragram-follow">
-  <% if job_object.members.present? %>
+  <% if job_object.has_member? %>
     <% job_object.members
       .limit(Settings.jobs.limit_user_show).each do |member| %>
       <%= link_to load_user_avatar(member,

@@ -162,8 +162,16 @@ class User < ApplicationRecord
     self.friends & user.friends
   end
 
+  def mutual_friends_in_lists user_friends
+    self.friends & user_friends
+  end
+
   def link_social_network type
     self.social_networks.send(type).first.url if self.social_networks.any?
+  end
+
+  def list_friends
+    friends.includes :avatar
   end
 
   private
