@@ -1,14 +1,14 @@
-$(document).ready(function() {
-  $('.friend-ship').on('click', function() {
+$(document).ready(function () {
+  $('.friend-ship').on('click', function () {
     var id = this.dataset.id;
     update_friend('accept', id);
   });
 
-  $('.request-waiting').on('click', function() {
+  $('.request-waiting').on('click', function () {
     $.growl.notice({message: I18n.t('users.friend_ship_form.request_waiting')});
   });
 
-  $('.friend-ship-decline').on('click', function() {
+  $('.friend-ship-decline').on('click', function () {
     var id = this.dataset.id;
     update_friend('decline', id);
   });
@@ -20,11 +20,13 @@ function update_friend(status, id) {
     dataType: 'json',
     url: '/friend_ships/' + id,
     data: {status: status},
-    success: function(data) {
+    success: function (data) {
       $('.friendships-' + id).remove();
       $.growl.notice({title: '', message: data['message']});
+      var friend_requests = $('.friend-ship-show').find('.badge');
+      friend_requests.html(parseInt(friend_requests.html()) - 1);
     },
-    error: function(error_message) {
+    error: function (error_message) {
       $.growl.error({message: error_message});
       location.reload();
     }
