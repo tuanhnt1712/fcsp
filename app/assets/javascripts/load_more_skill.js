@@ -17,6 +17,9 @@ $(document).ready(function () {
   $('#showLess').click(function () {
     $('#loadMore').removeClass('hidden');
     x=(x-3<0) ? 1 : x-3;
+    if(size_li < 6){
+      x = 3;
+    }
     $('.user-skill').not(':lt('+x+')').hide();
     if (3 >= x) {
       $('#showLess').addClass('hidden');
