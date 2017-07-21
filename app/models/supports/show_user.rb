@@ -17,6 +17,11 @@ module Supports
       ArrayJob.get_job job_active, @user
     end
 
+    def user_jobs_any?
+      ArrayJob.get_job(Job.active.includes(:skills, :job_skills),
+        @user).try :any?
+    end
+
     def portfolios
       @user.user_portfolios.includes(:images).order created_at: :DESC
     end

@@ -5,11 +5,13 @@ class CompaniesController < ApplicationController
     @company.creator = current_user
 
     if @company.save
-      flash[:success] = t ".success"
-      redirect_to employer_company_dashboards_path @company
+      render json: {status: :success, message: t(".success"),
+        location: employer_company_dashboards_path(@company)}
     else
-      flash[:danger] = t ".fail"
-      redirect_back fallback_location: :back
+      render json: {
+        status: :error, message: t(".fail"),
+        errors: @company.errors.messages
+      }
     end
   end
 

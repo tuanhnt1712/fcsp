@@ -28,6 +28,10 @@ class Article < ApplicationRecord
       .order "#{time_show} DESC"
   end
 
+  class << self
+    include ApplicationHelper
+  end
+
   def background_image
     images.first.picture
   end

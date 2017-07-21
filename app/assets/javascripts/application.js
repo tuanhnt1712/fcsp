@@ -43,3 +43,5 @@
 //= require search_friends
 //= require posts
 //= require share_post
+//= require custom_jquery_ajax
+//= require company

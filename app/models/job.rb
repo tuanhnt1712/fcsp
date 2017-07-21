@@ -84,13 +84,13 @@ class Job < ApplicationRecord
     check_time posting_time
   end
 
+  def image_url
+    images.any? ? images.first.picture_url : Settings.jobs.image_url
+  end
+
   private
 
   def send_posting_job_mail
     JobMailer.posting_job(creator, self).deliver_later
-  end
-
-  def image_url
-    images.any? ? images.first.picture_url : Settings.jobs.image_url
   end
 end

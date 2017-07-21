@@ -445,6 +445,11 @@
   }
 }
 
+.slow-spin {
+  animation: fa-spin 6s infinite linear;
+  -webkit-animation: fa-spin 6s infinite linear;
+}
+
 @media all and (max-width: 991px) {
   .column-main {
     border-right: 0 !important;
