@@ -95,4 +95,5 @@ Rails.application.routes.draw do
   resources :friend_requests, only: :index
   resources :skill_users
   resources :messages
+  resources :skills, only: :index
 end
