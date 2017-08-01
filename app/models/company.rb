@@ -36,6 +36,9 @@ class Company < ApplicationRecord
   validates :name, presence: true,
     length: {maximum: Settings.company.max_length_name}
   validates :website, presence: true
+  validates :company_size,
+    numericality: {greater_than: Settings.company.company_size.greater_than},
+    length: {maximum: Settings.company.company_size.max_length}
 
   def create_organization
     org = Organization.find_or_create_by name: self.name

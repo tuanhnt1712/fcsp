@@ -136,6 +136,9 @@ company:
   per_page: 5
   cover_default: "welcome1.jpg"
   avatar_default: "avatar.jpg"
+  company_size:
+    greater_than: 0
+    max_length: 8
 default_user_password: {"password": "123456"}
 courses:
   modal_detail: "#modal_detail"

@@ -34,6 +34,8 @@ jp:
         job_recruitment: "仕事の募集"
       info_hiring_type:
         posting_time: "投稿時間"
+        job_list_skills: "リストジョブのスキルを入力してください"
+        skill_require: "スキルが必要です"
       update:
         success_title: "成功"
         change_success: "ステータスの変更を成功させる！"

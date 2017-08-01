@@ -228,3 +228,35 @@
   height: 100%;
   width: 100%;
 }
+
+.image-preview {
+  width: 200px;
+  height: 200px;
+  margin-top: 10px;
+}
+
+.bootstrap-tagsinput {
+  .tag {
+    font-size: 12px;
+    font-weight: bold;
+  }
+}
+
+.tt-dataset-skills_suggest {
+  background: $white;
+  border: solid 1px $border-color-label;
+  .skills-suggest {
+    cursor: pointer;
+    padding: 5px;
+    border-bottom: dashed 1px $border-color-label;
+    &:hover {
+      background: $gray-blue;
+    }
+  }
+}
+
+.job-list-skills {
+  i {
+    color: $blue;
+  }
+}

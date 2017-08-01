@@ -29,25 +29,30 @@
   </label>
   <div class="col-md-6 col-sm-6 col-xs-12">
     <ul class="collection-wrapper">
-      <li>
-        <%= f.radio_button :who_can_apply, :everyone, checked: true %>
-        <%= t ".everyone" %>
-      </li>
-      <li>
-        <%= f.radio_button :who_can_apply, :friends_of_members %>
-        <%= t ".friends_om" %>
-      </li>
-      <li>
-        <%= f.radio_button :who_can_apply, :friends_of_friends_of_member %>
-        <%= t ".of_friends_om" %>
-      </li>
+      <% Job.who_can_applies.keys.each do |type| %>
+        <li>
+          <%= f.radio_button :who_can_apply, type %>
+          <%= t ".#{type}" %>
+        </li>
+      <% end %>
     </ul>
   </div>
 </div>
+
+<div class="form-group job-list-skills">
+  <label class="control-label col-md-3 col-sm-3 col-xs-12">
+    <%= t ".skill_require" %>
+  </label>
+  <div class="col-md-6 col-sm-6 col-xs-12">
+    <%= f.text_field :list_skills, id: "job_list_skills", autocomplete: false,
+      placeholder: t(".job_list_skills"), class: "form-control" %>
+    <i class="fa fa-spinner form-control-feedback fa-spin slow-spin hide fa-2x"></i>
+  </div>
+</div>
+
 <%= f.fields_for :images do |ff| %>
-  <div class="form-group">
+  <div class="form-group form-inline">
     <label class="control-label col-md-3 col-sm-3 col-xs-12"><%= t ".image" %>
-      <span class="required">*</span>
     </label>
     <div class="col-md-9 col-sm-9 col-xs-12">
       <div class="custab job-image">
@@ -84,7 +89,7 @@
     <%= t ".title" %><span class="required">*</span>
   </label>
   <div class="col-md-6 col-sm-6 col-xs-12">
-    <%= f.text_field :title, required: true, class: "form-control title-job",
+    <%= f.text_field :title, class: "form-control title-job",
       placeholder: t(".placeholder_title") %>
   </div>
 </div>
@@ -93,7 +98,7 @@
     <span class="required">*</span>
   </label>
   <div class="col-md-6 col-sm-6 col-xs-12">
-    <%= f.text_area :describe, required: true, class: "form-control text-job",
+    <%= f.text_area :describe, class: "form-control text-job",
       rows: 5, placeholder: t(".placeholder_des") %>
   </div>
 </div>
@@ -104,7 +109,7 @@
     </a>
   </div>
   <div class="col-md-3 col-md-offset-6">
-    <a href="#" class = "next-step-2 btn btn-success text-right">
+    <a href="##" class="next-step-2 btn btn-success text-right">
       <%= t "employer.jobs.new.next_step" %>
     </a>
   </div>

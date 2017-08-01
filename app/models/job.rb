@@ -3,8 +3,11 @@ class Job < ApplicationRecord
   acts_as_paranoid
 
   include JobShare
+  include CreateJob
 
+  attr_accessor :list_skills
   after_create :send_posting_job_mail
+  before_validation :list_skills_to_array
 
   belongs_to :company
   belongs_to :creator, class_name: User.name, foreign_key: :user_id
@@ -30,14 +33,15 @@ class Job < ApplicationRecord
 
   accepts_nested_attributes_for :job_hiring_types,
     reject_if: :all_blank, allow_destroy: true
-  accepts_nested_attributes_for :images
+  accepts_nested_attributes_for :images, reject_if: :image_blank?
   accepts_nested_attributes_for :job_teams
+  accepts_nested_attributes_for :skills
 
   delegate :name, to: :company, prefix: true
   delegate :name, to: :hiring_types, prefix: true
 
   ATTRIBUTES = [:title, :describe, :type_of_candidates, :who_can_apply, :status,
-    :company_id, :user_id, :candidates_count, :posting_time,
+    :company_id, :user_id, :candidates_count, :posting_time, :list_skills,
     hiring_type_ids: [], team_ids: [], images_attributes:
     [:id, :imageable_id, :imageable_type, :picture, :caption]]
 
@@ -95,5 +99,9 @@ class Job < ApplicationRecord
 
   def send_posting_job_mail
     JobMailer.posting_job(creator, self).deliver_later
+  end
+
+  def image_blank? image
+    image['picture'].blank?
   end
 end

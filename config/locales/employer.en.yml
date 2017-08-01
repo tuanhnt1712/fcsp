@@ -156,7 +156,7 @@ en:
       new:
         success: "Create success"
         step_1_sussess: "Step 1 finished"
-        step_1_danger: "Danger"
+        step_1_danger: "You have something error"
         job_recruitment: "Post job recruitment"
         job: "Create job"
         members: "Add members"
@@ -265,6 +265,10 @@ en:
           I will buy you a drink!"
         save_continue: "Save and Continue"
         previous: "Previous"
+        job_list_skills: "Enter list job skill required"
+        skill_require: "Skill require"
+      skill_suggest:
+        no_match: "No match any skill"
     companies:
       edit:
         company_info: "Company Info"

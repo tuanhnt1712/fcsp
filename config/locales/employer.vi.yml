@@ -34,6 +34,8 @@ vi:
         job_recruitment: "Tuyển dụng"
       info_hiring_type:
         posting_time: "Thời gian đăng bài"
+        job_list_skills: "Nhập danh sách các kỹ năng yêu cầu"
+        skill_require: "Kỹ năng yêu c"
       update:
         success_title: "Thành công"
         change_success: "Thay đổi trạng thái thành công !!"

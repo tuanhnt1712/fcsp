@@ -26,3 +26,6 @@
 //= require jqvmap/maps/jquery.vmap.usa
 //= require_tree ../../../vendor/assets/javascripts/js/gentelella
 //= require datetimepicker
+//= require education/growl.custom
+//= require js/bootstrap-tagsinput.min
+//= require js/typeahead.bundle.min
