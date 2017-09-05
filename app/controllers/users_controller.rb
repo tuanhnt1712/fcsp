@@ -37,14 +37,9 @@ class UsersController < ApplicationController
 
   def find_user
     @user = User.includes(:info_user).find_by id: params[:id]
-    if @user
-      if @user.education_status_blocked?
-        flash[:danger] = t ".blocked"
-        redirect_to root_url
-      end
-    else
-      flash[:danger] = t ".not_found"
-      redirect_to root_url
-    end
+
+    return if @user
+    flash[:danger] = t ".not_found"
+    redirect_to root_url
   end
 end
