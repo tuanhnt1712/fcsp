@@ -31,8 +31,6 @@ class Employer::JobsController < Employer::BaseController
   def new
     @job = Job.new
     @job.images.build
-    @teams = @company.teams.includes(:images).page(Settings.employer.page)
-      .per Settings.employer.team.per_page
   end
 
   def create
@@ -57,8 +55,6 @@ class Employer::JobsController < Employer::BaseController
   def update
     params[:job].delete :posting_time if @job.is_posted?
     if @job.update_attributes job_params
-      @teams = @company.teams.includes(:images).page(Settings.employer.page)
-        .per Settings.employer.team.per_page
       respond_to do |format|
         format.json {render json: {
           status: Job.human_enum_name(:status, @job.status)
@@ -96,7 +92,6 @@ class Employer::JobsController < Employer::BaseController
   end
 
   def load_hiring_types
-    @hiring_types = HiringType.select :id, :name
   end
 
   def update_status

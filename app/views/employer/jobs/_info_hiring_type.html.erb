@@ -11,17 +11,7 @@
   <label class="control-label col-md-3 col-sm-3 col-xs-12"><%= t ".hiring_type" %>
     <span class="required">*</span>
   </label>
-  <div class="col-md-6 col-sm-6 col-xs-12">
-    <ul class="collection-wrapper">
-      <%= f.collection_check_boxes :hiring_type_ids, hiring_types,
-        :id, :name do |hiring_type| %>
-        <li>
-          <%= hiring_type.check_box %>
-          <%= hiring_type.text %>
-        </li>
-      <% end %>
-    </ul>
-  </div>
+  <div class="col-md-6 col-sm-6 col-xs-12"></div>
 </div>
 <div class="form-group">
   <label class="control-label col-md-3 col-sm-3 col-xs-12"><%= t ".who_can_apply" %>

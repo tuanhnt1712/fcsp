@@ -5,7 +5,7 @@
       data-target="#edit-about-me-modal" class="pull-right nomargin">
       <span class="icon-pencil"></span> <%= t ".edit" %>
     </a>
-    <%= render "info_users/edit_about_me_modal", info_user: info_user %>
+
   <% end %>
 </div>
 <% if user.info_user.present? %>
@@ -24,7 +24,7 @@
       <% end %>
     </p>
   </div>
-  <%= render "info_users/edit_quote_modal", info_user: info_user %>
+
   <div class="top-cart-item clearfix">
     <i class="i-rounded i-small i-bordered icon-home"></i>
     <div class="top-cart-item-desc">

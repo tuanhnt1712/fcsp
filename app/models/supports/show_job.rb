@@ -26,14 +26,6 @@ module Supports
       company.addresses
     end
 
-    def team_introduction
-      @job.team_introductions.includes :images
-    end
-
-    def hiring_types
-      @job.hiring_types
-    end
-
     def job_skills
       @job.skills
     end
@@ -52,13 +44,9 @@ module Supports
         (requests.exclude?("ambition") || @user.info_user_ambition.present?)
     end
 
-    def posting_job
-      Job.posting_job @job
-    end
-
     def can_apply_job?
       return true if @job.everyone?
-      return is_friend_of_member? if @job.friends_of_members?
+      # return is_friend_of_member? if @job.friends_of_members?
 
       if @job.friends_of_friends_of_member?
         return is_friend_of_friends_of_member?
@@ -79,9 +67,9 @@ module Supports
       requests.exclude?("introduce") || @user.info_user_introduce.present?
     end
 
-    def is_friend_of_member?
-      friends_of_member.any?(&friend_block)
-    end
+    # def is_friend_of_member?
+    #   friends_of_member.any?(&friend_block)
+    # end
 
     def is_friend_of_friends_of_member?
       friends_of_member.any?{|member| member.friends.any?(&friend_block)}

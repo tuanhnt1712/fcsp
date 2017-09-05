@@ -22,10 +22,6 @@ module Supports
         @user).try :any?
     end
 
-    def portfolios
-      @user.user_portfolios.includes(:images).order created_at: :DESC
-    end
-
     def awards
       @user.awards.order created_at: :DESC
     end
@@ -36,10 +32,6 @@ module Supports
 
     def shared_jobs
       ShareJob.shared_jobs(shared_job_ids).includes :job, user: :avatar
-    end
-
-    def search_friends
-      @user.list_friends.search(name_cont: @params[:friend_search]).result
     end
 
     def user_jobs
@@ -54,11 +46,6 @@ module Supports
         @current_user.bookmarked_jobs.page(@params[:bookmarked_jobs_page])
           .per Settings.user.per_page
       end
-    end
-
-    def list_post
-      @user.posts.newest.page(@params[:user_post_page])
-        .per Settings.post.per_page
     end
 
     def user_shared

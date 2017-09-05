@@ -18,11 +18,7 @@ class CompaniesController < ApplicationController
   def show
     @company_jobs = @company.jobs.includes(:images)
       .page(params[:page]).per Settings.company.per_page
-    @company_articles = @company.articles
-      .select(:id, :title, :description, :time_show)
-      .time_filter(:time_show)
-      .page(params[:page])
-      .per Settings.article.page
+
 
     if request.xhr?
       render json: {

@@ -172,20 +172,11 @@
         <div id="mainNav" >
           <ul class="main-menu user-show">
             <li class="active">
-              <a data-target="tab-new-feed">
-                <i class="icon-rss2"></i> <b><%= t ".new_feed" %></b>
-              </a>
-            </li>
-            <li>
               <a data-target="tab-information">
                 <i class="icon-info-sign"> </i><b> <%= t ".information" %></b>
               </a>
             </li>
-            <li>
-              <a data-target="tab-posts">
-                <i class="icon-pencil2"></i> <b><%= t ".posts" %></b>
-              </a>
-            </li>
+
             <% if user.is_user? current_user %>
               <li>
                 <a data-target="tab-suggest-job">
@@ -199,16 +190,6 @@
                 </a>
               </li>
             <% end %>
-            <li>
-              <a data-target="tab-list-friend">
-                <i class="icon-users"></i>
-                <b><%= t ".friends" %>
-                  <% if user.list_friends.present? %>
-                    (<%= user.list_friends.size %>)
-                  <% end %>
-                </b>
-              </a>
-            </li>
           </ul>
         </div>
       </article>

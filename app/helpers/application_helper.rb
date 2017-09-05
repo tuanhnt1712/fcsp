@@ -26,10 +26,6 @@ module ApplicationHelper
     Devise.mappings[:user]
   end
 
-  # def resource_name
-  #   devise_mapping.name
-  # end
-
   def resource_class
     devise_mapping.to
   end
@@ -45,7 +41,6 @@ module ApplicationHelper
   end
 
   def check_show_newfeed? user
-    user.friends_with?(current_user) || user.is_user?(current_user)
   end
 
   def link_to_add_fields name, form, options = {}

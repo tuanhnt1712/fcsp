@@ -3,7 +3,7 @@
     <div class="navbar-header">
       <span class="notification-header">
         <% if user_signed_in? %>
-          <%= render "friend_ships/friend_request" %>
+
           <%= render "jobs/message" %>
         <% end %>
         <span class="dropdown profile">
@@ -90,7 +90,7 @@
         <a href="#"><i class="fa fa-google-plus"></i></a>
         <a href="#"><i class="fa fa-instagram"></i></a>
         <% if user_signed_in? %>
-          <%= render "friend_ships/friend_request" %>
+
           <%= render "jobs/message" %>
         <% end %>
         <span class="dropdown profile" id="none-responsive">
