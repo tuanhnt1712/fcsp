@@ -69,11 +69,6 @@
         </p>
         <p>
           <span class="candidate-title"><%= t ".position" %></span>
-          <span>
-            <% @candidate.job.hiring_types.each do |hiring_type| %>
-              <%= hiring_type.name %><%= t ".comma" %>
-            <% end %>
-          </span>
         </p>
         <p>
           <span class="candidate-title"><%= t ".skill" %></span>

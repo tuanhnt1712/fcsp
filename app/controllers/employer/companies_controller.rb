@@ -1,6 +1,6 @@
 class Employer::CompaniesController < Employer::BaseController
   load_and_authorize_resource
-  before_action :load_address, :load_industry, only: :edit
+  before_action :load_address, only: :edit
 
   def edit
     @company.images.build
@@ -21,9 +21,5 @@ class Employer::CompaniesController < Employer::BaseController
 
   def load_address
     @address = @company.addresses.head_office.first
-  end
-
-  def load_industry
-    @industries = Industry.all
   end
 end
