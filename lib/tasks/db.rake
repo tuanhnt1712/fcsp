@@ -62,17 +62,6 @@ namespace :db do
       InfoUser.create! user_id: user.id, introduce: Faker::Lorem.paragraph,
         address: "Da Nang, Viet Nam"
 
-      puts "Create user posts"
-      10.times do |i|
-        post_params = {
-          title: Faker::Lorem.sentence(3),
-          content: Faker::Lorem.paragraph(100),
-          postable_id: user.id,
-          postable_type: "User"
-        }
-        Post.create! post_params
-      end
-
       puts "Create jobs"
       2.times do |i|
         20.times do
@@ -101,16 +90,6 @@ namespace :db do
         Job.update_counters job.id, candidates_count: job.candidates.length
       end
 
-      # puts "Create team introduction"
-      # Job.all.each do |job|
-      #   3.times do |n|
-      #     TeamIntroduction.create! team_target_id: job.id,
-      #       team_target_type: "Job",
-      #       title: "Team introduction #{n+1}",
-      #       content: FFaker::Lorem.paragraph
-      #   end
-      # end
-
       puts "Create employee of company"
       User.all.each do |user|
         Employee.create! user_id: user.id, company_id: 1,
@@ -122,32 +101,6 @@ namespace :db do
         Address.create! company_id: company.id,
           address: FFaker::Address.city,
           head_office: 1
-      end
-
-      puts "Create industries"
-      5.times do |i|
-        name = "Industry #{i}"
-        Industry.create! name: name
-      end
-
-      puts "Create company industries"
-      Company.all.each do |company|
-        industries = Industry.order("Random()").limit(2).pluck(:id)
-        industries.each do |industry|
-          CompanyIndustry.create! company_id: company.id,
-            industry_id: industry
-        end
-      end
-
-      puts "Create benefit of company"
-      benefits = ["Free snacks / lunch", "Students welcome",
-        "Come visit with friends", "Weekend commitment only",
-        "Foreign nationalities welcome", "Talk on Skype"]
-      Company.all.each do |company|
-        benefits.sample(2).each do |benefit|
-          Benefit.create! company_id: company.id, name: benefit,
-            description: FFaker::Lorem.sentence
-        end
       end
 
       puts "Create skills"

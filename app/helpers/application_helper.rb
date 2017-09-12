@@ -53,6 +53,10 @@ module ApplicationHelper
       class: options[:class], title: options[:title]
   end
 
+  def is_notice_flash? message_type
+    %w(success notice).include? message_type
+  end
+
   private
 
   def fields_factory form, association, object

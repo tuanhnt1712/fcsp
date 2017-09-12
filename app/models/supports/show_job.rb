@@ -1,9 +1,9 @@
 module Supports
   class ShowJob
-    attr_reader :job, :company, :benefits, :team_introduction,
+    attr_reader :job, :company, :team_introduction,
       :hiring_types, :published_date, :qualified_profile
 
-    delegate :benefits, :founder_on, to: :company, prefix: true
+    # delegate :benefits, :founder_on, to: :company, prefix: true
 
     def initialize job, user
       @job = job
@@ -46,7 +46,6 @@ module Supports
 
     def can_apply_job?
       return true if @job.everyone?
-      # return is_friend_of_member? if @job.friends_of_members?
 
       if @job.friends_of_friends_of_member?
         return is_friend_of_friends_of_member?
@@ -66,10 +65,6 @@ module Supports
     def introduce? requests
       requests.exclude?("introduce") || @user.info_user_introduce.present?
     end
-
-    # def is_friend_of_member?
-    #   friends_of_member.any?(&friend_block)
-    # end
 
     def is_friend_of_friends_of_member?
       friends_of_member.any?{|member| member.friends.any?(&friend_block)}
