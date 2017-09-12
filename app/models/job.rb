@@ -68,15 +68,6 @@ class Job < ApplicationRecord
 
   scope :popular_job, ->{order candidates_count: :desc}
 
-  scope :posting_job, ->job_id do
-    joins(:skills, :hiring_types)
-      .where("job_skills.skill_id IN (?)
-      and job_hiring_types.hiring_type_id IN (?)",
-        Skill.require_by_job(job_id).pluck(:id),
-        HiringType.job_hiring_type(job_id).pluck(:id))
-      .distinct.limit Settings.posting_job.job_limit
-  end
-
   scope :job_posting_time, ->{where "posting_time <= ?", Time.zone.now}
 
   scope :delete_job, ->list_job do

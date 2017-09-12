@@ -1,4 +1,4 @@
-class FriendShipsController < ApplicationController
+tclass FriendShipsController < ApplicationController
   before_action :authenticate_user!
   before_action :load_user
 

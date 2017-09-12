@@ -101,15 +101,15 @@ namespace :db do
         Job.update_counters job.id, candidates_count: job.candidates.length
       end
 
-      puts "Create team introduction"
-      Job.all.each do |job|
-        3.times do |n|
-          TeamIntroduction.create! team_target_id: job.id,
-            team_target_type: "Job",
-            title: "Team introduction #{n+1}",
-            content: FFaker::Lorem.paragraph
-        end
-      end
+      # puts "Create team introduction"
+      # Job.all.each do |job|
+      #   3.times do |n|
+      #     TeamIntroduction.create! team_target_id: job.id,
+      #       team_target_type: "Job",
+      #       title: "Team introduction #{n+1}",
+      #       content: FFaker::Lorem.paragraph
+      #   end
+      # end
 
       puts "Create employee of company"
       User.all.each do |user|
@@ -150,23 +150,6 @@ namespace :db do
         end
       end
 
-      puts "Create hiring types"
-      hiring_types = ["Entry Career Level", "Internship",
-        "Experienced Career Level", "Part Time / Contract Work"]
-      hiring_types.each do |hiring_type|
-        HiringType.create! name: hiring_type,
-          description: FFaker::Lorem.sentence,
-          status: 1
-      end
-
-      puts "Create job hiring type"
-      Job.all.each do |job|
-        hiring_types = HiringType.order("Random()").limit(2).pluck(:id)
-        hiring_types.each do |hiring_type|
-          JobHiringType.create! job_id: job.id, hiring_type_id: hiring_type
-        end
-      end
-
       puts "Create skills"
       6.times do
         Skill.create name: FFaker::Skill.tech_skill
@@ -188,35 +171,6 @@ namespace :db do
           JobSkill.create! job_id: job.id, skill_id: skill
         end
       end
-
-      puts "Create request friends"
-      (2..8).each do |user_id|
-        Friendship.create! friendable_type: User.name, friendable_id: user_id,
-          friend_id: 1, status: 0
-        Friendship.create! friendable_type: User.name, friendable_id: 1,
-          friend_id: user_id, status: 1
-      end
-
-      puts "Create ChatRoom"
-      (2..4).each do |id|
-        ChatRoom.create! name: User.find(id).name
-      end
-
-      puts "Create ChatRoom"
-      user_first = User.first
-      (1..3).each do |id|
-        ChatRoom.find(id).messages.create! user: user_first,
-          content: FFaker::Lorem.sentence
-        ChatRoom.find(id).messages.create! user_id: User.limit(4)[id].id,
-          content: FFaker::Lorem.sentence
-        ChatRoom.find(id).messages.create! user: user_first,
-          content: FFaker::Lorem.sentence
-        ChatRoom.find(id).messages.create! user_id: User.limit(4)[id].id,
-          content: FFaker::Lorem.sentence
-      end
-
-      puts "Create Education informations"
-      Rake::Task["education:education_seeding"].invoke
 
       puts "Create Employer"
       Rake::Task["db:employer"].invoke

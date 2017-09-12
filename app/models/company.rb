@@ -6,19 +6,16 @@ class Company < ApplicationRecord
   has_many :benefits, dependent: :destroy
   has_many :addresses, dependent: :destroy
   has_many :employees, dependent: :destroy
-  has_many :teams, dependent: :destroy
   has_many :articles, dependent: :destroy
   has_many :images, as: :imageable, dependent: :destroy
   has_many :users, through: :employees
   has_many :company_industries, dependent: :destroy
   has_many :industries, through: :company_industries
-  has_many :team_introductions, as: :team_target
   has_many :groups
   has_one :avatar, class_name: Image.name, foreign_key: :id,
     primary_key: :avatar_id
   has_one :cover_image, class_name: Image.name, foreign_key: :id,
     primary_key: :cover_image_id
-  has_many :posts, as: :postable
   has_many :social_networks, as: :owner, dependent: :destroy
   belongs_to :creator, foreign_key: :creator_id, class_name: User.name
 

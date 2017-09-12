@@ -24,7 +24,7 @@ namespace :db do
         is_default_group: true
 
       puts "Create company permission"
-      models = ["Company", "Job", "Candidate", "TeamIntroduction"]
+      models = ["Company", "Job", "Candidate"]
       models.each do |model|
         Permission.create! entry: model, group_id: 2,
           optional: {create: true, read: true, update: true, destroy: true}

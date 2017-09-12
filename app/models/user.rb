@@ -9,26 +9,15 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
     :recoverable, :rememberable, :trackable, :validatable, :omniauthable
   has_many :articles, dependent: :destroy
-  has_many :education_posts, class_name: Education::Post.name
-  has_many :education_socials, class_name: Education::Social.name
-  has_many :education_comments, class_name: Education::Comment.name
-  has_many :education_rates, class_name: Education::Rate.name
-  has_many :education_project_members, class_name: Education::ProjectMember.name
-  has_many :course_members, class_name: Education::CourseMember.name
   has_many :education_courses, through: :course_members, source: :course
   has_many :education_projects, through: :education_project_members,
     source: :project
-  has_many :education_user_groups, class_name: Education::UserGroup.name
-  has_many :education_groups, class_name: Education::Group.name,
-    through: :education_user_groups, source: :group
-  has_one :education_program_member, class_name: Education::ProgramMember.name
   has_one :education_learning_program, through: :education_program_member
   has_many :user_groups, dependent: :destroy
   has_many :employer_groups, class_name: Group.name, through: :user_groups,
     source: :group
   has_many :images, as: :imageable, dependent: :destroy
-  has_many :education_images, class_name: Education::Image.name,
-    as: :imageable, dependent: :destroy
+
   has_many :candidates, dependent: :destroy
   has_many :jobs, through: :candidates
   has_many :created_jobs, class_name: Job.name, dependent: :destroy
@@ -38,7 +27,6 @@ class User < ApplicationRecord
   has_one :info_user, dependent: :destroy
   has_many :skill_users, dependent: :destroy
   has_many :skills, through: :skill_users
-  has_many :user_portfolios, dependent: :destroy
   has_many :awards, dependent: :destroy
   has_many :user_educations, dependent: :destroy
   has_many :user_works, dependent: :destroy
@@ -46,16 +34,12 @@ class User < ApplicationRecord
   has_many :schools, through: :user_educations, source: :school
   has_many :shares, class_name: ShareJob.name, dependent: :destroy
   has_many :shared_jobs, through: :shares, source: :job
-  has_many :user_projects, dependent: :destroy
   has_many :certificates, dependent: :destroy
   has_many :user_languages, dependent: :destroy
   has_one :avatar, class_name: Image.name, foreign_key: :id,
     primary_key: :avatar_id
   has_one :cover_image, class_name: Image.name, foreign_key: :id,
     primary_key: :cover_image_id
-  has_one :user_group, ->{where is_default_group: true},
-    class_name: UserGroup.name
-  has_one :group, class_name: Group.name, through: :user_group, source: :group
   has_many :companies, foreign_key: :creator_id
   has_many :user_links, dependent: :destroy
   has_many :posts, as: :postable
@@ -146,10 +130,6 @@ class User < ApplicationRecord
     end
   end
 
-  # def default_user_group
-  #   user_groups.default
-  # end
-
   def is_user? user
     user == self
   end
@@ -168,10 +148,6 @@ class User < ApplicationRecord
 
   def link_social_network type
     self.social_networks.send(type).first.url if self.social_networks.any?
-  end
-
-  def list_friends
-    friends.includes :avatar
   end
 
   private
