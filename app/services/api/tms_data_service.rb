@@ -16,7 +16,7 @@ class Api::TmsDataService
   end
 
   def tms_user_exist?
-    params = {email: @current_user.email}
+    params = {email: current_user.email}
     http_request = Api::HttpActionService.new @url, params, @auth_token
     response = http_request.get_data
     response && response.code.to_i == 404 ? false : true
@@ -24,12 +24,32 @@ class Api::TmsDataService
 
   private
 
-  def synchronize_user_education response_json
-    data_user = response_json["data"]["user"]
-    school = School.find_or_create_by name: data_user["profile"]["university"]
-    user_education = UserEducation.find_or_create_by school_id: school.id,
-      user_id: @current_user.id
-    user_education.update graduation: data_user["profile"]["graduation"]
+  def synchronize_user_education data_user
+    unless data_user["profile"]["university"].nil?
+      school = School.find_or_create_by name: data_user["profile"]["university"]
+      user_school = UserSchool.find_or_create_by school_id: school.id, user_id: @current_user.id
+      user_school.update end_date: data_user["profile"]["graduation"]
+    end
+  end
+
+  def synchronize_user_programming_language data_user
+    unless data_user["profile"]["language"].nil?
+      programming_language = ProgrammingLanguage.find_or_create_by name: data_user["profile"]["language"]
+    end
+  end
+
+  def synchronize_user_courses_data data_user
+    unless data_user["courses"].nil?
+      data_user["courses"].each do |course|
+        synchronize_user_course course
+      end
+    end
+  end
+
+  def synchronize_user_course course
+    course = Course.find_or_create_by name: course["name"], status: course["status"]
+    UserCourse.find_or_create_by course_id: course.id, user_id: @current_user.id
+    course.update start_date: course["start_date"], end_date: course["end_date"]
   end
 
   def synchronize_user_skill response_json
@@ -50,8 +70,11 @@ class Api::TmsDataService
   def synchronize_data response_json
     begin
       ActiveRecord::Base.transaction do
-        synchronize_user_education response_json
-        synchronize_user_skill response_json
+        data_user = response_json["data"]["user"]
+        synchronize_user_education data_user
+        synchronize_user_programming_language data_user
+        synchronize_user_courses_data data_user
+        # synchronize_user_skill response_json
       end
     rescue StandardError
       return false
