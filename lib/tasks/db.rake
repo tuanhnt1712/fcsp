@@ -42,15 +42,13 @@ namespace :db do
       }
 
       users.each do |email, name|
-        user = User.create! name: name, email: email, password:
-          123456, education_status: 1
+        user = User.create! name: name, email: email, password: "123456"
         InfoUser.create! user_id: user.id, introduce: Faker::Lorem.paragraph,
           address: "Da Nang, Viet Nam"
       end
 
       edu_admin = User.create! name: "Education admin",
         password: "123456",
-        education_status: 1,
         email: "admin.education@framgia.com"
       InfoUser.create! user_id: edu_admin.id, introduce: Faker::Lorem.paragraph,
         address: "Da Nang, Viet Nam"

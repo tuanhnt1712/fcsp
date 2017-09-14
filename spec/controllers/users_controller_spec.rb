@@ -9,7 +9,7 @@ RSpec.describe UsersController, type: :controller do
 
   describe "GET #show" do
     context "load blocked user" do
-      let!(:user){FactoryGirl.create :user, education_status: 0}
+      let!(:user){FactoryGirl.create :user}
       it do
         get :show, params: {id: user}
         expect(flash[:danger]).to be_present
