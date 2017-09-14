@@ -28,7 +28,7 @@ class Api::TmsDataService
     if data_user["profile"]["university"]
       school = School.find_or_create_by name: data_user["profile"]["university"]
       user_school = UserSchool.find_or_create_by school_id: school.id, user_id: @current_user.id
-      user_school.update end_date: data_user["profile"]["graduation"]
+      user_school.update_attributes end_date: data_user["profile"]["graduation"]
     end
   end
 
@@ -48,8 +48,21 @@ class Api::TmsDataService
 
   def synchronize_user_course data_course
     course = Course.find_or_create_by name: data_course["name"], status: data_course["status"]
+    course.update_attributes start_date: data_course["start_date"], end_date: data_course["end_date"]
     UserCourse.find_or_create_by course_id: course.id, user_id: @current_user.id
-    course.update start_date: data_course["start_date"], end_date: data_course["end_date"]
+
+    synchronize_user_subject data_course, course.id
+  end
+
+  def synchronize_user_subject data_course, course_id
+    if data_course["subjects"]
+      data_course["subjects"].each do |data_subject|
+        subject = Subject.find_or_create_by name: data_subject["name"]
+        course_subject = CourseSubject.find_or_create_by course_id: course_id, subject_id: subject.id
+        course_subject.update_attributes start_date: data_subject["start_date"], end_date: data_subject["end_date"], status: data_subject["status"]
+        UserCourseSubject.find_or_create_by user_id: @current_user.id, course_subject_id: course_subject.id
+      end
+    end
   end
 
   def synchronize_user_skill response_json
