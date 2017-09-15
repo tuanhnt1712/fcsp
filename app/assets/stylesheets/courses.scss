@@ -1,0 +1,160 @@
+@import 'variables/color';
+
+.breadcrumb-arrow {
+  height: 36px;
+  padding: 0;
+  line-height: 36px;
+  list-style: none;
+  li {
+    &:first-child a {
+      border-radius: 4px 0 0 4px;
+      -webkit-border-radius: 4px 0 0 4px;
+      -moz-border-radius: 4px 0 0 4px;
+    }
+    display: inline-block;
+    vertical-align: top;
+    a, span {
+      display: inline-block;
+      vertical-align: top;
+    }
+    &:not(:first-child) {
+      margin-left: -5px;
+    }
+    + li:before {
+      padding: 0;
+      content: "";
+    }
+    span {
+      padding: 0 10px;
+    }
+    a, &:not(:first-child) span {
+      height: 36px;
+      padding: 0 10px 0 25px;
+      line-height: 36px;
+    }
+    &:first-child a {
+      padding: 0 10px;
+    }
+    a {
+      position: relative;
+      color: $white;
+      text-decoration: none;
+      background-color: $scooter;
+      border: 1px solid $scooter;
+    }
+    &:first-child a {
+      padding-left: 10px;
+    }
+    a {
+      &:after {
+        position: absolute;
+        top: -1px;
+        width: 0;
+        height: 0;
+        content: '';
+        border-top: 18px solid transparent;
+        border-bottom: 18px solid transparent;
+      }
+      &:before {
+        position: absolute;
+        top: -1px;
+        width: 0;
+        height: 0;
+        content: '';
+        border-top: 18px solid transparent;
+        border-bottom: 18px solid transparent;
+        right: -10px;
+        z-index: 3;
+        border-left-color: $scooter;
+        border-left-style: solid;
+        border-left-width: 11px;
+      }
+      &:after {
+        right: -11px;
+        z-index: 2;
+        border-left: 11px solid $mine_shaft;
+      }
+      &:focus, &:hover {
+        background-color: $flamingo;
+        border: 1px solid $flamingo;
+      }
+      &:focus:before, &:hover:before {
+        border-left-color: $flamingo;
+      }
+      &:active {
+        background-color: $curious_blue;
+        border: 1px solid $curious_blue;
+        &:after, &:before {
+          border-left-color: $curious_blue;
+        }
+      }
+    }
+    span {
+      color: $mako;
+    }
+  }
+}
+
+.course-subject {
+  background-color: #3c586a;
+  box-shadow: 0 1px 1px 1px #666;
+  color: #fff;
+  margin-bottom: 10px;
+  position: relative;
+  width: 100%;
+  border-radius: 5px;
+  padding: 5px;
+  float: left;
+
+  .image-course {
+    width: 100px;
+    height: 100px;
+    float: left;
+    img {
+      border-radius: 100%;
+    }
+  }
+
+  .course-header {
+    padding-left: 10px;
+    float: left;
+    display: inline-block;
+
+    .title_course {
+      color: $flamingo;
+      font-size: 16pt;
+    }
+
+    .status {
+      background-color: #fb6e52;
+      width: 66px;
+      border-radius: 3px;
+      margin-left: 2px;
+      padding: 5px;
+      left: 12px;
+    }
+
+    .avatar {
+      img {
+        float: left;
+        border-radius: 100%;
+        width: 25px;
+        height: 25px;
+      }
+
+      .name_trainer {
+        padding-left: 7px;
+        color: $white;
+      }
+
+      .description {
+        padding-top: 5px;
+      }
+    }
+
+    .date {
+      position: absolute;
+      right: 16px;
+    }
+  }
+}

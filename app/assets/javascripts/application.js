@@ -45,3 +45,5 @@
 //= require share_post
 //= require custom_jquery_ajax
 //= require company
+//= require_tree ../../../vendor/assets/javascripts/js/gentelella
+//= require datatable
