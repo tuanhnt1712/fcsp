@@ -24,12 +24,32 @@ class Api::TmsDataService
 
   private
 
-  def synchronize_user_education response_json
-    data_user = response_json["data"]["user"]
-    school = School.find_or_create_by name: data_user["profile"]["university"]
-    user_education = UserEducation.find_or_create_by school_id: school.id,
-      user_id: @current_user.id
-    user_education.update graduation: data_user["profile"]["graduation"]
+  def synchronize_user_school data_user
+    if data_user["profile"]["university"]
+      school = School.find_or_create_by name: data_user["profile"]["university"]
+      user_school = UserSchool.find_or_create_by school_id: school.id, user_id: @current_user.id
+      user_school.update end_date: data_user["profile"]["graduation"]
+    end
+  end
+
+  def synchronize_user_programming_language data_user
+    if data_user["profile"]["language"]
+      programming_language = ProgrammingLanguage.find_or_create_by name: data_user["profile"]["language"]
+    end
+  end
+
+  def synchronize_user_courses_data data_user
+    if data_user["courses"]
+      data_user["courses"].each do |data_course|
+        synchronize_user_course data_course
+      end
+    end
+  end
+
+  def synchronize_user_course data_course
+    course = Course.find_or_create_by name: data_course["name"], status: data_course["status"]
+    UserCourse.find_or_create_by course_id: course.id, user_id: @current_user.id
+    course.update start_date: data_course["start_date"], end_date: data_course["end_date"]
   end
 
   def synchronize_user_skill response_json
@@ -50,8 +70,11 @@ class Api::TmsDataService
   def synchronize_data response_json
     begin
       ActiveRecord::Base.transaction do
-        synchronize_user_education response_json
-        synchronize_user_skill response_json
+        data_user = response_json["data"]["user"]
+        synchronize_user_school data_user
+        synchronize_user_programming_language data_user
+        synchronize_user_courses_data data_user
+        # synchronize_user_skill response_json
       end
     rescue StandardError
       return false

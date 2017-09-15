@@ -30,6 +30,8 @@ class User < ApplicationRecord
   has_many :shared_posts, through: :share_jobs, source: :post
   has_many :user_course_subjects
   has_many :user_courses
+  has_many :courses, through: :user_courses
+  has_many :course_subjects, through: :user_course_subjects
   has_many :online_contacts, dependent: :destroy
 
   has_one :avatar, class_name: Image.name, foreign_key: :id,
