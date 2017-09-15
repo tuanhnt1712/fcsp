@@ -1087,3 +1087,6 @@ en:
     index:
       synchronize_success: "Synchronize Success"
       synchronize_fail: "Something wrong, please try again later"
+  time:
+    formats:
+      date_month_year: "%m/%d/%Y"

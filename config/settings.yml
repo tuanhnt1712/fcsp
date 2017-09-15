@@ -153,6 +153,9 @@ courses:
   number_filter: 4
   detail_rows: 5
   new_course_image: "/assets/default.jpg"
+  init: "init"
+  in_progress: "in_progress"
+  finished: "finished"
 user:
   max_length_name: 50
   per_page: 5

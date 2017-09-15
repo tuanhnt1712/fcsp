@@ -6,8 +6,8 @@
         <article class="post show-tab-user">
           <div class="clearfix">
             <% if check_show_newfeed? @user %>
-              <div class="hide-tab active" id="tab-new-feed">
-                <%= render "new_feed", user_shared: @user_object.user_shared %>
+              <div class="hide-tab hide-tab" id="tab-new-feed">
+                <%= render "course_details", user_shared: @user_object.user_shared %>
               </div>
             <% end %>
             <% if @user.is_user? current_user %>
@@ -15,7 +15,9 @@
                 <%= render "user_job", user: @user, user_object: @user_object %>
               </div>
             <% end %>
-            <div class="hide-tab clearfix" id="tab-information"></div>
+            <div class="hide-tab active" id="tab-information">
+              <%= render "courses_user", user: @user %>
+            </div>
           </div>
         </article>
       </div>

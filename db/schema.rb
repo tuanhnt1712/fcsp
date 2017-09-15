@@ -327,8 +327,6 @@ ActiveRecord::Schema.define(version: 20170914040644) do
     t.integer  "subject_id"
     t.string   "name"
     t.string   "description"
-    t.datetime "start_date"
-    t.datetime "end_date"
     t.string   "status"
     t.integer  "type"
     t.datetime "created_at",  null: false
@@ -385,6 +383,8 @@ ActiveRecord::Schema.define(version: 20170914040644) do
   create_table "user_tasks", force: :cascade do |t|
     t.integer  "user_course_subject_id"
     t.integer  "task_id"
+    t.datetime "start_date"
+    t.datetime "end_date"
     t.integer  "status"
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
