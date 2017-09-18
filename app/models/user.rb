@@ -49,7 +49,6 @@ class User < ApplicationRecord
 
   enum role: [:user, :admin, :employer, :employee]
 
-
   validates :name, presence: true,
     length: {maximum: Settings.user.max_length_name}
   validates :email, presence: true
@@ -71,8 +70,6 @@ class User < ApplicationRecord
         Skill.require_by_job(job_id).pluck(:id))
       .distinct.order("level desc").limit Settings.recommend.user_limit
   end
-
-  # scope :by_active, ->{where education_status: :active}
 
   class << self
     def import file

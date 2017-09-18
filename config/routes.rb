@@ -51,6 +51,5 @@ Rails.application.routes.draw do
   resource :user_covers, only: :update
   resources :info_users, only: :update
   resources :user_languages, except: :show
-  resources :user_languages
   resources :skills, only: :index
 end

@@ -1,0 +1,6 @@
+vi:
+  time:
+    formats:
+      format_datetime_js: "YYYY/MM/DD HH:mm"
+      format_datetime: "%Y/%m/%d %H:%M"
+      format_date: "%Y/%m/%d"

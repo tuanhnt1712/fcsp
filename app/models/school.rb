@@ -5,8 +5,4 @@ class School < ApplicationRecord
   validates :name, presence: true, length: {
     maximum: Settings.user_educations.school_max
   }
-
-  def student_count
-    self.users.count
-  end
 end

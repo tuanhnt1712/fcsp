@@ -73,4 +73,13 @@ module ApplicationHelper
   def class_hidden object
     "hidden" if object.blank?
   end
+
+  def status_color status
+    case status
+    when Settings.courses.status.init then "label label-warning"
+    when Settings.courses.status.in_progress then "label label-success"
+    when Settings.courses.status.finished then "label label-danger"
+    else "label label-default"
+    end
+  end
 end

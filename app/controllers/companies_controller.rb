@@ -19,7 +19,6 @@ class CompaniesController < ApplicationController
     @company_jobs = @company.jobs.includes(:images)
       .page(params[:page]).per Settings.company.per_page
 
-
     if request.xhr?
       render json: {
         content: render_to_string(partial: "company_jobs",

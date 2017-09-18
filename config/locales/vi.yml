@@ -1054,8 +1054,3 @@ vi:
     index:
       synchronize_success: "Đồng bộ thành công"
       synchronize_fail: "Đồng bộ không thành công, vui lòng thử lại sau"
-  time:
-    formats:
-      format_datetime_js: "YYYY/MM/DD HH:mm"
-      format_datetime: "%Y/%m/%d %H:%M"
-      format_date: "%Y/%m/%d"
