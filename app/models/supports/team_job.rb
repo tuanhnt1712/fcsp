@@ -14,9 +14,9 @@ module Supports
         # @teams = @company.teams.includes(:images)
         #   .filter(listarr, sort_by, params[:type])
         #   .page(params[:page]).per Settings.employer.team.per_page
-      # else
-      #   # @teams = @company.teams.includes(:images).page(params[:page])
-      #   #   .per Settings.employer.team.per_page
+        # else
+        #   @teams = @company.teams.includes(:images).page(params[:page])
+        #     .per Settings.employer.team.per_page
       end
     end
   end

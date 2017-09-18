@@ -5,7 +5,7 @@ module CreateJob
       return true if build_skills
       raise ActiveRecord::Rollback
     end
-    rescue ActiveRecord::RecordInvalid
+  rescue ActiveRecord::RecordInvalid
     return false
   end
 
@@ -15,7 +15,7 @@ module CreateJob
       return true if update_skills
       raise ActiveRecord::Rollback
     end
-    rescue ActiveRecord::RecordInvalid
+  rescue ActiveRecord::RecordInvalid
     return false
   end
 
@@ -24,7 +24,7 @@ module CreateJob
     list_skills.each do |skill|
       skills << Skill.find_or_create_by!(name: skill)
     end
-    rescue ActiveRecord::RecordInvalid => exception
+  rescue ActiveRecord::RecordInvalid => exception
     errors[:list_skills] << exception.message
     return false
   end
@@ -32,7 +32,7 @@ module CreateJob
   def update_skills
     skills.delete_all
     update_new_skills
-    rescue ActiveRecord::RecordInvalid => exception
+  rescue ActiveRecord::RecordInvalid => exception
     errors[:lists_skill] << exception.message
     return false
   end

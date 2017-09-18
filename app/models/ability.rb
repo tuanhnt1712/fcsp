@@ -18,7 +18,6 @@ class Ability
     user.employer_groups.each do |group|
       get_permission_of_group_for_authentication group
     end
-
   end
 
   private

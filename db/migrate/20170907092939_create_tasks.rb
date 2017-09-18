@@ -5,7 +5,7 @@ class CreateTasks < ActiveRecord::Migration[5.0]
       t.string :name
       t.string :description
       t.string :status
-      t.integer :type
+      t.integer :task_type
       t.timestamps
     end
   end

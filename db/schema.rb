@@ -328,7 +328,7 @@ ActiveRecord::Schema.define(version: 20170914040644) do
     t.string   "name"
     t.string   "description"
     t.string   "status"
-    t.integer  "type"
+    t.integer  "task_type"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end

@@ -93,6 +93,6 @@ class Job < ApplicationRecord
   end
 
   def image_blank? image
-    image['picture'].blank?
+    image["picture"].blank?
   end
 end

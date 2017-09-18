@@ -18,10 +18,10 @@ class Employer::JobsController < Employer::BaseController
     respond_to do |format|
       format.js{
         render json: {
-        html_job: render_to_string(partial: "job",
-          locals: {jobs: @jobs, company: @company}, collection: @jobs),
-        pagination_job: render_to_string(partial: "paginate",
-          locals: {jobs: @jobs}, layout: false)
+          html_job: render_to_string(partial: "job",
+            locals: {jobs: @jobs, company: @company}, collection: @jobs),
+          pagination_job: render_to_string(partial: "paginate",
+            locals: {jobs: @jobs}, layout: false)
         }
       }
       format.html
@@ -56,9 +56,9 @@ class Employer::JobsController < Employer::BaseController
     params[:job].delete :posting_time if @job.is_posted?
     if @job.update_attributes job_params
       respond_to do |format|
-        format.json {render json: {
-          status: Job.human_enum_name(:status, @job.status)
-        }}
+        format.json {
+          render json: {status: Job.human_enum_name(:status, @job.status)}
+        }
         format.js {render "update.js.erb", locals: {job: @job}}
         format.html {redirect_to employer_company_jobs_path @company}
       end
@@ -75,10 +75,10 @@ class Employer::JobsController < Employer::BaseController
     respond_to do |format|
       format.js{
         render json: {
-        html_job: render_to_string(partial: "job",
-          locals: {jobs: @jobs, company: @company}, collection: @jobs),
-        pagination_job: render_to_string(partial: "paginate",
-          locals: {jobs: @jobs}, layout: false)
+          html_job: render_to_string(partial: "job",
+            locals: {jobs: @jobs, company: @company}, collection: @jobs),
+          pagination_job: render_to_string(partial: "paginate",
+            locals: {jobs: @jobs}, layout: false)
         }
       }
       format.html
