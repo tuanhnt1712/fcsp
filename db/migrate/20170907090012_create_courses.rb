@@ -3,7 +3,7 @@ class CreateCourses < ActiveRecord::Migration[5.0]
     create_table :courses do |t|
       t.integer :programming_language_id
       t.string :name
-      t.string :status
+      t.integer :status
       t.datetime :start_date
       t.datetime :end_date
       t.timestamps

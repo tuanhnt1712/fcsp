@@ -40,7 +40,8 @@ namespace :db do
         "user@gmail.com": "User",
         "ttkt1994@gmail.com": "User",
         "chu.kim.thang@framgia.com": "Chu Kim Thang",
-        "bui.khanh.huyen@framgia.com": "Bui Khanh Huyen"
+        "bui.khanh.huyen@framgia.com": "Bui Khanh Huyen",
+        "sonnguyenngoc1604@gmail.com": "Nguyen Ngoc Son"
       }
 
       users.each do |email, name|

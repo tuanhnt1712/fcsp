@@ -97,7 +97,6 @@ ActiveRecord::Schema.define(version: 20170914040644) do
     t.integer  "subject_id"
     t.datetime "start_date"
     t.datetime "end_date"
-    t.string   "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -105,7 +104,7 @@ ActiveRecord::Schema.define(version: 20170914040644) do
   create_table "courses", force: :cascade do |t|
     t.integer  "programming_language_id"
     t.string   "name"
-    t.string   "status"
+    t.integer  "status"
     t.datetime "start_date"
     t.datetime "end_date"
     t.datetime "created_at",              null: false
@@ -327,7 +326,6 @@ ActiveRecord::Schema.define(version: 20170914040644) do
     t.integer  "subject_id"
     t.string   "name"
     t.string   "description"
-    t.string   "status"
     t.integer  "task_type"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
@@ -336,6 +334,7 @@ ActiveRecord::Schema.define(version: 20170914040644) do
   create_table "user_course_subjects", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "course_subject_id"
+    t.integer  "status"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
   end
