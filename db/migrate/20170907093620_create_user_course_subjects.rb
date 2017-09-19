@@ -3,6 +3,8 @@ class CreateUserCourseSubjects < ActiveRecord::Migration[5.0]
     create_table :user_course_subjects do |t|
       t.integer :user_id
       t.integer :course_subject_id
+      t.integer :status
+
       t.timestamps
     end
   end

@@ -35,23 +35,31 @@ class Api::TmsDataService
 
   def synchronize_user_programming_language data_user
     if data_user["profile"]["language"]
-      ProgrammingLanguage.find_or_create_by name: data_user["profile"]["language"]
+      ProgrammingLanguage.find_or_create_by name:
+        data_user["profile"]["language"]
     end
   end
 
   def synchronize_user_courses_data data_user
+    if data_user["profile"]
+      language = data_user["profile"]["language"]
+    else
+      language = "unknown"
+    end
+
     if data_user["courses"]
       data_user["courses"].each do |data_course|
-        synchronize_user_course data_course
+        synchronize_user_course data_course, language
       end
     end
   end
 
-  def synchronize_user_course data_course
-    course = Course.find_or_create_by name: data_course["name"],
-      status: data_course["status"]
+  def synchronize_user_course data_course, language
+    course = Course.find_or_create_by name: data_course["name"]
+    programming_language = ProgrammingLanguage.find_by name: language
     course.update_attributes start_date: data_course["start_date"],
-      end_date: data_course["end_date"]
+      end_date: data_course["end_date"], status: data_course["status"],
+      programming_language_id: programming_language.id
     UserCourse.find_or_create_by course_id: course.id, user_id: @current_user.id
 
     synchronize_user_subject data_course, course.id
@@ -60,13 +68,29 @@ class Api::TmsDataService
   def synchronize_user_subject data_course, course_id
     if data_course["subjects"]
       data_course["subjects"].each do |data_subject|
-        subject = Subject.find_or_create_by name: data_subject["name"]
+        subject = Subject.find_or_create_by name: data_subject["subject_name"]
         course_subject = CourseSubject.find_or_create_by course_id: course_id,
           subject_id: subject.id
         course_subject.update_attributes start_date: data_subject["start_date"],
-          end_date: data_subject["end_date"], status: data_subject["status"]
-        UserCourseSubject.find_or_create_by user_id: @current_user.id,
-          course_subject_id: course_subject.id
+          end_date: data_subject["end_date"]
+        user_course_subject = UserCourseSubject.find_or_create_by user_id:
+          @current_user.id, course_subject_id: course_subject.id
+        user_course_subject.update_attributes status: data_subject["status"]
+        synchronize_user_task data_subject, user_course_subject.id, subject.id
+      end
+    end
+  end
+
+  def synchronize_user_task data_subject, user_course_subject_id, subject_id
+    if data_subject["tasks"]
+      data_subject["tasks"].each do |data_task|
+        task_type = data_task.keys[0]
+        task = Task.find_or_create_by name: data_task[task_type]["name"],
+          task_type: task_type, subject_id: subject_id
+        task.update_attributes description: data_task[task_type]["content"]
+        user_task = UserTask.find_or_create_by user_course_subject_id:
+          user_course_subject_id, task_id: task.id
+        user_task.update_attributes status: data_task[task_type]["status"]
       end
     end
   end
