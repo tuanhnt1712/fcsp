@@ -3,4 +3,7 @@ class CourseSubject < ApplicationRecord
 
   belongs_to :course
   belongs_to :subject
+
+
+  delegate :name, to: :subject
 end
