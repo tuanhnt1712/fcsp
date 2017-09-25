@@ -420,17 +420,6 @@ en:
         show_all_course: "All studying IT courses at Framgia"
         training_program: "Training program"
         language_program: "Language program"
-  time:
-    formats:
-      date_month_year_concise: '%d-%m-%y'
-      time_date_month_year: '%-d %B %Y, %H:%M %p '
-      format_datetime_js: "YYYY/MM/DD HH:mm"
-      format_datetime: "%Y/%m/%d %H:%M"
-      format_date: "%Y/%m/%d"
-  date:
-    formats:
-      month_year_format: "%B %Y"
-      short_month_year: "%d-%m-%Y"
   copy: "Copyright by Framgia"
   error: "error"
   comment:

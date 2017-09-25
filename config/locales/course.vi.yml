@@ -1,0 +1,28 @@
+vi:
+  courses:
+    course_details:
+      subjects: "Danh sách môn học trong khóa học "
+    show:
+      course_not_found: "Không tìm thấy khóa học nào!"
+      user_not_found: "Không tìm thấy người dùng nào!"
+  users:
+    courses_user:
+      all_courses: "Danh sách khóa học của tôi"
+      courses: "Khóa học"
+      end_date: "Ngày kết thúc"
+      name: "Tên khóa học"
+      no_data: "không có dữ liệu"
+      start_date: "Ngày bắt đầu"
+      status: "Trạng thái"
+  subjects:
+    show:
+      course_not_found: "Không tìm thấy khóa học nào!"
+      subject_not_found: "Không tìm thấy môn học nào!"
+      user_not_found: "Không tìm thấy người dùng nào!"
+    subject_details:
+      content: "Nội dung"
+      courses: "Khóa học"
+      name: "Tên môn học"
+      status: "Trạng thái"
+      tasks: "Danh sách các công việc trong "
+      type: "Loại công việc"

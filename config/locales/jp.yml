@@ -222,9 +222,6 @@ jp:
       create_new: "Create new post"
       older: "&larr;Older"
       newer: "Newer &rarr;"
-  time:
-    formats:
-      date_month_year_concise: '%d-%m-%y'
   copy: "Copyright by Framgia"
   error: "error"
   users:

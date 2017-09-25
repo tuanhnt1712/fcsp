@@ -1,6 +1,12 @@
 vi:
   time:
     formats:
-      format_datetime_js: "YYYY/MM/DD HH:mm"
+      date_month_year_concise: "%d-%m-%y"
+      format_date: "%b %d, %Y"
       format_datetime: "%Y/%m/%d %H:%M"
-      format_date: "%Y/%m/%d"
+      format_datetime_js: "YYYY/MM/DD HH:mm"
+      time_date_month_year: "%-d %B %Y, %H:%M %p"
+  date:
+    formats:
+      month_year_format: "%B %Y"
+      short_month_year: "%d-%m-%Y"
