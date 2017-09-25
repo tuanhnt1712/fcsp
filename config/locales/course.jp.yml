@@ -1,0 +1,28 @@
+jp:
+  courses:
+    course_details:
+      subjects: "すべての "
+    show:
+      course_not_found: "コースが見つかりません"
+      user_not_found: "ユーザーが見つかりません"
+  users:
+    courses_user:
+      all_courses: "すべての私のコース"
+      courses: "コース"
+      end_date: "終了日"
+      name: "名"
+      no_data: "データなし"
+      start_date: "開始日"
+      status: "コース"
+  subjects:
+    show:
+      course_not_found: "コースが見つかりません"
+      subject_not_found: "件名が見つかりません"
+      user_not_found: "ユーザーが見つかりません"
+    subject_details:
+      content: "コンテンツ"
+      courses: "コース"
+      name: "名"
+      status: "コース"
+      tasks: "すべてのタスク "
+      type: "タイプ"

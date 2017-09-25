@@ -1,14 +1,28 @@
 en:
+  courses:
+    course_details:
+      subjects: "All subjects in "
+    show:
+      course_not_found: "Course not found"
+      user_not_found: "User not found"
   users:
     courses_user:
-      status: "Status"
-      start_date: "Start Date"
+      all_courses: "All my Courses"
+      courses: "Courses"
       end_date: "End Date"
       name: "Name"
-      all_courses: "All Courses"
-      courses: "Courses"
       no_data: "no data"
-  courses:
+      start_date: "Start Date"
+      status: "Status"
+  subjects:
     show:
-      user_not_found: "User not found"
       course_not_found: "Course not found"
+      subject_not_found: "Subject not found"
+      user_not_found: "User not found"
+    subject_details:
+      content: "Content"
+      courses: "Courses"
+      name: "Name"
+      status: "Status"
+      tasks: "All tasks in "
+      type: "Type"
