@@ -1,796 +1,438 @@
 vi:
-  jobs:
-    job_form:
-      next: "Next"
-    candidate:
-      apply_job: "Job"
-    show:
-      apply_job: "Apply Job"
-      currently: "Currently "
-      person_applied: " person has applied."
-      location: "Location"
-      recommend: "Recommend"
-      apply_modal_header: "We have notified %{company_name} of your interest."
-      interest_heading: "Please tell us what you are interested in."
-      let_s_work_together: "Let’s work together!"
-      let_s_have_chat: "Let’s have a chat."
-      interest_me: "This opportunity interests me."
-      your_entry_complete: "Your entry is complete!"
-      success_heading: "Let's wait to hear from the person"
-      success_description: "If the person take an interest in you, you will receive an invitation message."
-      apply_success_alt: "Apply success"
-      entry: "Entry"
-      apply_failed_title: "Apply failed"
-      need_update_profile_alt: "You should update your profile before apply this job"
-      should_update_heading: "Employer needs more on your profile"
-      should_update_heading_description: "Update your profile and comeback to us"
-      cancel: "Cancel"
-      edit_profile: "Edit my profile"
-      no_result: "No one matches these skills"
-      total_views: "Total views"
-    index:
-      table:
-        thead:
-          id: "Id"
-          title: "Title"
-          describe: "Describe"
-      title: "List jobs"
-    search_form:
-      search: "Enter your search"
-    job_title:
-      sales: "Sales"
-      show:
-        job_type: "Job type"
-        total_views: "Total views"
-    members_of_company:
-      members: "members"
-      views_all: "All members( "
-      views_all_close: ")"
-      edit_posting: "Edit posting"
-    introduction_company:
-      what_we_do: "What we do"
-      message_team_introduc_null: "Team introduction null"
-      edit_posting: "Edit posting"
-    job_description:
-      description: "Description"
-      edit_posting: "Edit posting"
-    basic_infor:
-      sales: "Sales"
-      basic_info_job: "Basic Information"
-      look_for: "Looking for"
-      job_type: "Job type"
-      posting_feature: "Posting features"
-      company_info: "Company information"
-      founded: "Founded"
-      industries: "Industries"
-      learn_more_info: "Learn more about the company"
-      comma: ", "
-      benefit_null: "Benefit null"
-      indus_info: "IT / Automobiles / Industrial Machinery/ Industrial Supplies"
-      skill_require: "Skill require"
-    job_form:
-      next: "Next"
-    posting_jobs:
-      title: "Other jobs posting you may like"
-    popular_job:
-      comments: "35 comments"
-      person_applied: " person has applied"
-    bookmark:
-      bookmark: "Bookmark"
-      bookmark_job: "Bookmark job"
-      bookmarked: "Bookmarked"
-      unbookmark: "Unbookmark"
-    candidate:
-      apply_job: "Apply Job"
-      unapply_job: "Unapply Job"
-      currently: "Currently"
-      person_applied: "Person applied"
-    job:
-      read_more: "Read more"
-      type_of_candidates: "Type of candidates: "
-  share_posts:
-    share: "Bạn có chắc muốn chia sẻ bài viết này?"
-    unshare: "Bạn có chắc không muốn chia sẻ bài viết này?"
+  activerecord:
+    errors:
+      models:
+        user_project:
+          attributes:
+            end_date:
+              after: "Thời gian bắt đầu phải nhỏ hơn thời gian kết thúc"
+              invalid_date: "Thời gian bắt đầu phải nhỏ hơn thời gian kết thúc"
+        user_work:
+          attributes:
+            end_time:
+              after: "Thời gian bắt đầu phải nhỏ hơn thời gian kết thúc"
+  awards:
     create:
-      not_found: "Không tìm thấy bài viết."
-      share_success: "Chia sẻ bài viết thành công!"
-      share_fail: "Chia sẻ bài viết thất bại!"
+      failed: "Tạo giải thưởng thất bại"
+      success: "Tạo giải thưởng thành công"
     destroy:
-      not_found: "Bài viết không tìm thấy"
-      unshare_success: "Hủy chia sẻ bài viết thành công!"
-      unshare_fail: "Hủy chia sẻ bài viết thất bại!"
-  employer:
-    companies:
-      edit:
-        company_info: "Company Info"
-        edit_company_info: "Edit company info"
-        manage_members: "Manage members"
-        manage_images: "Manage images"
-        manage_accounts: "Manage accounts on social network"
-      edit_company_info:
-        update_company_info: "Update Company"
-        required: "(required)"
-        article: "Add article"
-    team_introductions:
-      form:
-        title: "Title"
-        contents: "Content"
-        images: "Image"
-        submit: "Save"
-      image_fields:
-        caption: "write caption"
-        team_introduction: "Team Introduction"
-      new:
-        team_introduction: "Team Introduction"
-        team_introduction_1: "Team Introduction 1"
-        team_introduction_2: "Team Introduction 2"
-        team_introduction_3: "Team Introduction 3"
-        team_introduction_recruitment: "Team Introduction Recruiment"
-        submit: "Submit"
-      not_found: "Team Introduction not found"
-      success: "Successfully added team introduction"
-      create_confirm: "Are you sure to set up this company introduction?"
-    dashboards:
-      index:
-        title: "Công ty"
-      dashboard:
-        menu: "Menu"
-        manager_postings: "Manager Postings"
-        candidates: "Candidates"
-        messages: "Messages"
-        recommendations: "Recommendations"
-        view_mores: "View mores"
-        current_plans: "Current Plans"
-        contact: "Contact Us"
-        trial: "Trial"
-        view_candidates: "Current viewable candidates"
-        mail: "Mail"
-        help: "Help"
-        company_info: "Company Info"
-    layouts:
-      header:
-        dashboard: "Dashboard"
-        jobs: "Jobs"
-        feed: "Feed"
-        tools: "Tools"
-        edit_profile: "Edit Profile"
-        account_info: "Account Info"
-        company_info: "Company Info"
-        setting: "Setting"
-        logout: "Logout"
-    candidates:
-      not_found: "Candidate not found"
+      failed: "Xóa giải thưởng thất bại"
+      success: "Xóa giải thưởng thành công"
+    form_award:
+      award_header: "giải thưởng"
+      close: "Đóng"
+      made: "Năm nhận giải"
+      title: "Tên giải thưởng"
+    new:
+      update: "Cập Nhật"
+    show_award:
+      award_not_found: "Không có giải thưởng nào"
+      delete: "Xóa"
+      edit: "Sửa"
+      sure: "Bạn chắc chắn muốn xóa?"
+    update:
+      failed: "Cập Nhật giải thưởng thất bại"
+      success: "Cập Nhật giải thưởng thành công"
+    user_award:
+      add: "Thêm"
+      only_me: "Chỉ mình tôi"
+      public: "Công khai"
+      user_award: "Giải thưởng(s)"
+  certificates:
+    certificate:
+      delete: "Xóa"
+      edit: "Chỉnh sửa"
+      sure: "Bạn chắc chắn không?"
+    certificate_form:
+      certificate: "Chứng chỉ"
+      certificate_header: "Chứng chỉ"
+      close: "Đóng"
+      qualified_organization: "Cấp bởi"
+      qualified_time: "Thời gian cấp"
+    create:
+      failed: "Tạo chứng chỉ thất bại"
+      success: "Tạo chứng chỉ thành công"
+    destroy:
+      failed: "Xóa chứng chỉ thất bại"
+      success: "Xóa chứng chỉ thành công"
+    edit:
+      update: "Cập nhật"
+    load_certificate:
+      not_found: "Không tìm thấy chứng chỉ"
+    new:
+      create: "Tạo"
+    update:
+      failed: "Cập nhật chứng chỉ thất bại"
+      success: "Cập nhật chứng chỉ thành công"
+  comment:
+    comment_count: " Bình luận"
+    content: "Bình luận cái gì đó"
+    edit_button: "Lưu"
+    more_comment: "Xem thêm bình luận"
+    person: "Được bình luận bởi "
+    submit_button: "Tạo bình luận"
+  comments:
+    comment_form:
+      content: "Viết bình luận..."
+      submit_button: "Bình luận"
+    comment_item:
+      delete_confirm: "Bạn chắc chắn chứ?"
+    comments:
+      comments: "Bình luận"
+      login_to_comment: "Đăng nhập để bình luận"
+    create:
+      create_failed: "Bình luận không thành công"
+    destroy:
+      destroy_failed: "Xóa bình luận không thành công"
+    edit_comment_form:
+      edit_button: "Chỉnh sửa"
+    update:
+      update_failed: "Cập nhật bình luận không thành công"
   companies:
-    show:
-      info: "Info"
-      news: "News"
-      jobs: "Jobs"
-      members: "Members"
-      stats: "Stats"
-      founder: "Founder"
-      founded: "Founded on"
-      no_of_members: "# of Members"
-      about_us: "About us"
-      social_profiles: "Social Profiles"
-      follow: "Follow"
     follow_form:
       follow: "Theo dõi"
       unfollow: "Hủy theo dõi"
-  follow_companies:
-    create:
-      follow: "Theo dõi công ty thành công!"
-      not_found: "Không tìm thấy công ty!"
-    destroy:
-      unfollow: "Hủy theo dõi công ty thành công!"
-      not_found: "Không tìm thấy công ty!"
-  pages:
-    home:
-      title: "Home"
-      job_opportunity: "Jobs Opportunity"
-    about:
-      content: "This is about page"
-      title: "About"
-    help:
-      content: "This is help page"
-      title: "Help"
-  layouts:
-    message:
-      success_title: "Thành công"
-      failed_title: "Thất bại"
-      warning_title: "Cảnh báo"
-    base_title: "FCSP"
-    header:
-      home: "Home"
+    show:
+      about_us: "About us"
+      follow: "Follow"
+      founded: "Founded on"
+      founder: "Founder"
+      info: "Info"
       jobs: "Jobs"
-      employer: "Employer"
-      admin: "Admin"
-      messages: "Messages"
-      help: "Help"
-      about: "About"
-      login: "Login"
-      logout: "Logout"
-      profile: "Profile"
-      message: "Messages"
-      sign_out: "Sign out"
-      create_new_post: "Tạo bài viết mới"
-      create_company: "Tạo mới công ty"
-    job_bookmark:
-      bookmark: "Bookmark"
-      bookmarked: "Bookmarked"
-      unbookmark: "Unbookmark"
-  title: "Framgia code school platform"
+      members: "Members"
+      news: "News"
+      no_of_members: "# of Members"
+      social_profiles: "Social Profiles"
+      stats: "Stats"
   copy: "Copyright by Framgia"
-  invalid_datetime: "Thời gian không hợp lệ"
-  invalid_time: "Không thể chọn thời gian đăng bài trong quá khứ"
-  flash:
-    deleted_success: "deleted successfully!"
+  copy: "Copyright by Framgia"
   education:
+    courses:
+      index:
+        courses: "courses"
+        language_program: "Language program"
+        show_all: "Show all"
+        show_all_course: "All studying IT courses at Framgia"
+        techniques: "Techniques"
+        training_program: "Training program"
+    feedback:
+      description: "Get in Touch with Us"
+      failed_title: "Failed!"
+      feedback_error: "Something was wrong, check your feedback form again."
+      feedback_success: "Thanks for your feedback."
+      message: "message"
+      send_feed_back: "Send Feedback"
+      send_us_an_email: "Send us an Email"
+      success_title: "Success!"
+      title: "Phản hồi"
     header:
-      home: "Trang chủ"
-      project: "Dự án"
-      posts: "Bài viết"
-      trainers: "Trainers"
-      trainees: "Trainees"
-      search: "Type & Hit Enter.."
       feedback: "Phản hồi"
+      home: "Trang chủ"
+      posts: "Bài viết"
+      project: "Dự án"
+      search: "Type & Hit Enter.."
+      trainees: "Trainees"
+      trainers: "Trainers"
       trainings: "Khóa đào tạo"
     home:
-      our_trainings:
-        techniques: "Công nghệ"
-        our_trainings: "Chương trình đào tạo"
-        see_more: "Xem thêm"
       clients_say:
         heading: "Khách hàng nói gì?"
       our_projects:
         heading: "Các dự án"
       our_team:
         heading: "Gặp đội của chúng tôi"
-    trainings:
-      training_not_found: "Khóa học không tồn tại."
-      index:
-        title: "Đào tạo Giáo dục"
-        home: "Trang chủ"
-        page_title: "Tất cả các khoá đào tạo"
+      our_trainings:
+        our_trainings: "Chương trình đào tạo"
+        see_more: "Xem thêm"
         techniques: "Công nghệ"
-        view_courses: "Xem danh sách các khóa học"
-        hot: "Mới"
-      show:
-        not_found: "Không thể tìm thấy khóa đào tạo"
-        home: "Trang chủ"
-        trainings: "Đào tạo"
-        training_info: "Thông tin Đào tạo"
-        techniques: "Công nghệ"
-        share: "Chia sẻ"
-        new_courses: "Khóa học mới nhất"
-        view_courses: "Xem danh sách các khóa học"
-      new:
-        create_training: "Tạo mới"
-      edit:
-        update_project: "Cập nhật"
-      update:
-        training_updated_successfully: "Khóa Đào tạo được cập nhật thành công!"
-      create:
-        training_created: "Khóa đào tạo đã được tạo mới !"
-        training_create_failed: "Tạo mới khóa đào tạo thất bại !"
-      image_fields:
-        remove: "Xóa"
-      form:
-        description: "Description"
-        name: "Name"
-    see_more: "Xem thêm"
-    title: "Framgia Awesome Academy"
+    index:
+      learning_program: "Learning Programs"
     logo_alt: "Framgia logo"
-    project:
-      not_found: "Project not found!"
-      title: "Dự Án"
-      detail: "Detail"
-      php: "PHP"
-      android: "Android"
-      ruby: "Ruby"
-      ios: "IOS"
-      other: "Other"
-      name: "+ Project"
-      see_more: "See more"
-      next_page: "Next Page"
-      back_page: "Previous Page"
-      total_project:
-        title: "+ project of education"
-        subtitle: "Total project education of Framgia"
-      platform:
-        title: "4+ platform for education"
-        subtitle: "Ruby, PHP, Android, IOS..."
-      rate_avg:
-        title: "3rate"
-        subtitle: "rate avg"
-    projects:
-      project_not_found: "Dự án không tồn tại."
-      more: "Thêm"
-      detail_project:
-        members: "Thành viên"
-        name: "Tên"
-        related_project: "Dự án liên quan:"
-        read_more: "Xem thêm"
-        technique: "Công nghệ:"
-        project_info: "Thông tin dự án:"
-        share: "Chia sẻ:"
-        server_info: "Máy chủ:"
-        plat_form: "Nền tảng:"
-        git_repo: "Git Repo:"
-        pm_url: " PM Url:"
-      read_more:
-        close: "Đóng"
-        description: "Miêu tả"
-        core_features: "Tính năng cốt lõi"
-        release_note: "Ghi chú Phát hành"
-      form:
-        name: "Tên"
-        add_image: "Thêm ảnh"
-        description: "Miêu tả"
-        core_features: "Tính năng cốt lõi"
-        server_info: "Thông tin máy chủ"
-        pm_url: "PM URL"
-        plat_form: "Nền tảng"
-        release_note: "Ghi chú Phát hành"
-        git_repo: "Kho chứa"
-      new:
-        create_project: "Tạo mới"
-      edit:
-        edit_project: "Chỉnh sửa"
-        update_project: "Cập nhật"
-      create:
-        project_created: "Project created!"
-      update:
-        project_updated_successfully: "Project updated successfully!"
-      destroy:
-        delete: "Xóa"
-        project_deleted: "Project deleted"
-        project_delete_fail: "Fail to delete project."
-      home:
-        title: "Tiêu đề dự án"
-        description: "Mô tả dự án"
-        filter: "Bộ Lọc"
-    feedback:
-      title: "Phản hồi"
-      description: "Get in Touch with Us"
-      message: "message"
-      send_feed_back: "Send Feedback"
-      send_us_an_email: "Send us an Email"
-      feedback_success: "Thanks for your feedback."
-      feedback_error: "Something was wrong, check your feedback form again."
-      success_title: "Success!"
-      failed_title: "Failed!"
+    post:
+      post_not_found: "Không tìm thấy post"
     posts:
-      title: "Member's Posts"
-      title_des: "Lastest posts of our Members"
-      read_more: "Read more"
-      date_format: "%d-%m-%Y"
-      create_new: "Create new post"
-      older: "&larr;Older"
-      newer: "Newer &rarr;"
-      index:
-        posts: "Posts"
-        search_placeholder: "Search"
-        show_all: "Show all"
-        more: "More"
-        placeholder_search: "Search"
-        title_description: "Lastest posts of our Members"
-        title: "Member's posts"
-        filter: "Filter"
-      nav_search:
-        new: "Create new post"
-        show_all: "Show all"
-        keyword: "Search"
-      show:
-        follow_us_on_twitter: "Theo dõi chúng tôi trên Twitter"
-        share_this_post: "Chia sẻ bài viết:"
-        posted_by: "Đăng bởi"
-        related_posts: "Bài đăng liên quan:"
-        popular: "Nổi tiếng"
-        recent: "Mới nhất"
-        heading: "Bài đăng"
-        comments: "Bình luận"
-        heading_description: "Tất cả bài viết của chúng tôi"
-        name: "Tên"
-        email: "Email"
-        post_not_found: "Không tìm thấy post"
-        next_post: "Bài tiếp theo"
-        previous_post: "Bài trước"
-      create:
-        post_create_success: "Tạo mới thành công"
-      update:
-        post_not_found: "Không tìm thấy bài đăng"
-        post_update_success: "Cập nhật thành công"
-      destroy:
-        post_not_found: "Không tìm thấy bài đăng"
-        post_delete_fail: "Xóa bài đăng thất bại"
-        post_delete_success: "Xóa bài đăng thành công"
-      share_post:
-        share_this_post: "Chia sẻ bài đăng"
-      posted_by:
-        posted_by: "Đăng bởi"
+      comment_form:
+        comment: "Bình Luận"
+        leave_a: "Để Lại"
+        submit_comment: "Đăng bình luận"
       comments:
         comments: "Bình luận"
-      comment_form:
-        leave_a: "Để Lại"
-        comment: "Bình Luận"
-        submit_comment: "Đăng bình luận"
-      twitter_feed:
-        twitter_feed: "Twitter Feed"
-        follow_us_on_twitter: "Theo dõi chúng tôi trên Twitter"
-      flickr_photo:
-        flickr_photo_stream: "Flickr Photostream"
-      portfolio_coursel:
-        portfolio_coursel: "Portfolio Carousel"
-      tag_cloud:
-        tag_cloud: "Tag Cloud"
-      post_form:
-        publish_now: "Đăng ngay"
-        pick_image: "Chọn hình ảnh"
-        delete: "Xóa"
-      insert_image_modal:
-        dropzone_hint: "Kẻo và thả hoặc nhấp chuột để tải ảnh lên"
-        modal_header: "Thêm hình ảnh"
-        cancel: "Bỏ qua"
-        modal_header: "Thêm hình ảnh"
-      new:
-        heading: "Tạo mới"
-        heading_description: "Make it awesome!"
+      create:
+        post_create_success: "Tạo mới thành công"
+      create_new: "Create new post"
+      date_format: "%d-%m-%Y"
+      destroy:
+        post_delete_fail: "Xóa bài đăng thất bại"
+        post_delete_success: "Xóa bài đăng thành công"
+        post_not_found: "Không tìm thấy bài đăng"
       edit:
         heading: "Chỉnh sửa"
         heading_description: "Make is awesome!"
-    post:
-      post_not_found: "Không tìm thấy post"
-    slider:
-      welcome: "Welcome to Framgia Awesome Academy"
-      description: "Master your self. Come with us"
-    index:
-      learning_program: "Learning Programs"
-    courses:
+      flickr_photo:
+        flickr_photo_stream: "Flickr Photostream"
       index:
+        filter: "Filter"
+        more: "More"
+        placeholder_search: "Search"
+        posts: "Posts"
+        search_placeholder: "Search"
         show_all: "Show all"
-        techniques: "Techniques"
-        courses: "courses"
-        show_all_course: "All studying IT courses at Framgia"
-        training_program: "Training program"
-        language_program: "Language program"
-  copy: "Copyright by Framgia"
-  error: "lỗi"
-  comment:
-    content: "Bình luận cái gì đó"
-    person: "Được bình luận bởi "
-    more_comment: "Xem thêm bình luận"
-    comment_count: " Bình luận"
-    submit_button: "Tạo bình luận"
-    edit_button: "Lưu"
-  users:
-    find_user:
-      not_found: "Không tìm thấy người dùng"
-    list_friend:
-      remove_request: " Hủy yêu cầu"
-      request_friend: " Kết bạn"
-      unfriend: " Hủy kết bạn"
-      mutual_friends: "Bạn chung"
-      friends: "Bạn bè"
-      no_friend: "Không có bạn bè nào!"
-    friend_ship_form:
-      remove_request: " Hủy yêu cầu"
-      request_friend: " Kết bạn"
-      unfriend: " Hủy kết bạn"
-      waiting: " Đang đợi..."
-      request_waiting: "Đã gửi yêu cầu đến bạn!"
-    show:
-      new_feed: "Bảng tin"
-      information: "Cá nhân"
-      posts: "Bài đăng"
-      blocked: "Người dùng này đã bị khóa!"
-      not_found: "Không tìm thấy người dùng"
-      job_suggest: "Gợi ý công việc"
-    header:
-      add_language: "Thêm ngôn ngữ"
-      add_language_description: "Thêm ngôn ngữ của bạn"
-      add_education: "Thêm học vấn"
-      add_education_description: "Thêm các trường học của bạn"
-      add_work: "Thêm công việc"
-      add_work_description: "Thêm công việc của bạn"
-      add_project: "Thêm dự án"
-      add_project_description: "Thêm các dự án bạn đã tham gia"
-      add_portfolio: "Thêm danh mục"
-      add_portfolio_description: "Thêm danh mục của bạn"
-      add_award: "Thêm giải thưởng"
-      add_award_description: "Thêm các giải thưởng của bạn"
-      add_link: "Thêm liên kết"
-      add_link_description: "Thêm các liên kết của bạn"
-      add_certificate: "Thêm chứng nhận"
-      add_certificate_description: "Thêm chứng nhận của bạn"
-      add_skill: "Thêm kỹ năng"
-      add_skill_description: "Thêm ký năng của bạn"
-      friends: "Bạn bè"
-      add_friend: "Thêm bạn"
-      message: "Tin nhắn"
-      edit_profile: "Chỉnh sửa hồ sơ"
-      location: "Vị trí"
-      working_at: "Đang làm việc tại"
-      change_cover: "Thay đổi ảnh bìa"
-      new_feed: "Bảng tin"
-      information: "Cá nhân"
-      posts: "Bài đăng"
-      add_profile_section: "Thêm phần tiểu sử mới"
-      background: "Lý lịch"
-      skills: "Kỹ năng"
-      accomplishments: "Khả năng"
-      bookmarked_jobs: "Công việc được đánh dấu"
-      job_suggest: "Công việc đề xuất"
-    social_network:
-      about_me: "Về tôi"
-      social_profiles: "Kết nối với tôi"
-      address: "Địa chỉ"
-      phone: "Điện thoại"
-      add_quote: "Thêm trích dẫn yêu thích"
-      edit: "Chỉnh sửa"
-      facebook: "Facebook"
-      google: "Google +"
-      twitter: "Twitter"
-      linkedin: "LinkedIn"
-      skype: "Skype"
-      youtube: "Youtube"
-      instagram: "Instagram"
-    edit_social_network_modal:
-      header: "Cập nhật liên kết mạng xã hội"
-      facebook: "Facebook"
-      google: "Google +"
-      twitter: "Twitter"
-      linkedin: "LinkedIn"
-      skype: "Skype"
-      youtube: "Youtube"
-      instagram: "Instagram"
-      save: "Lưu lại"
-      close: "Đóng"
-    change_avatar:
-      title: "Thay đổi ảnh đại diện"
-      save: "Lưu lại"
-      close: "Đóng"
-      from_album: "Chọn từ bộ sưu tập"
-    change_cover:
-      title: "Thay đổi ảnh bìa"
-      save: "Lưu lại"
-      close: "Đóng"
-      from_album: "Chọn từ bộ sưu tập"
-    album_image:
-      no_image: "Không có hình ảnh nào"
-    user_education:
-      education: "Học vấn"
-      add: "Thêm"
-      public: "Công khai"
-      only_me: "Chỉ mình tôi"
-    search_friend:
-      search: "Nhập tìm kiếm"
-    user_link:
-      links: "Liên kết"
-      add: "Thêm"
-      public: "Công khai"
-      only_me: "Chỉ mình tôi"
-    user_certificate:
-      certificate: "Chứng chỉ"
-      add: "Thêm"
-      public: "Công khai"
-      only_me: "Chỉ mình tôi"
-    user_languages:
-      languages: "Ngôn ngữ"
-      add: "Thêm"
-      public: "Công khai"
-      only_me: "Chỉ mình tôi"
-    skill_user:
-      skills: "Kỹ năng"
-      add: "Thêm"
-  user_works:
-    create:
-      create_success: "Add work successfully!"
-      create_faild: "Add work failed!"
-    update:
-      update_success: "Update work successfully!"
-      update_faild: "Update work failed!"
-    destroy:
-      destroy_success: "Delete work successfully!"
-      destroy_faild: "Delete work failed!"
-    org_search:
-      people: "%{num} others"
-    user_work_form:
-      all_status:
-        full_time: "Toàn thời gian"
-        part_time: "Bán thời gian"
-        internship: "Thực tập sinh"
-      header: "Cập nhật công việc"
-      company: "Công ty"
-      position: "Vị trí"
-      start_time: "Thời gian bắt đầu"
-      end_time: "Thời gian kết thúc"
-      status: "Tình trạng"
-      description: "Mô tả"
-      update: "Cập nhật"
-      close: "Đóng"
-    user_work:
-      edit: "Sửa"
-      delete: "Xóa"
-      all_status:
-        full_time: "Toàn thời gian"
-        part_time: "Bán thời gian"
-        internship: "Thực tập sinh"
-      split: " - "
-      sure: "Bạn chắc chứ?"
-    work:
-      add: "Thêm"
-      user_work: "Công việc"
-      public: "Công khai"
-      only_me: "Chỉ mình tôi"
-    org_search:
-      people: "%{num} người khác"
-  user_projects:
-    create:
-      create_success: "Thêm dự án thành công!"
-      create_faild: "Thêm dự án không thành công!"
-      not_found: "Không tìm thấy dự án!"
-    update:
-      update_success: "Cập nhật dự án thành công!"
-      update_faild: "Cập nhật dự án không thành công!"
-      not_found: "Không tìm thấy dự án!"
-    destroy:
-      destroy_success: "Xóa dự án thành công!"
-      destroy_faild: "Xóa dự án không thành công!"
-      not_found: "Không tìm thấy dự án!"
-    user_project_form:
-      header: "Cập nhật dự án"
-      title: "Tên dự án"
-      url: "Trang web"
-      start_date: "Thời gian bắt đầu"
-      end_date: "Thời gian kết thúc"
-      description: "Mô tả"
-      update: "Cập nhật"
-      close: "Đóng"
+        title: "Member's posts"
+        title_description: "Lastest posts of our Members"
+      insert_image_modal:
+        cancel: "Bỏ qua"
+        dropzone_hint: "Kẻo và thả hoặc nhấp chuột để tải ảnh lên"
+        modal_header: "Thêm hình ảnh"
+        modal_header: "Thêm hình ảnh"
+      nav_search:
+        keyword: "Search"
+        new: "Create new post"
+        show_all: "Show all"
+      new:
+        heading: "Tạo mới"
+        heading_description: "Make it awesome!"
+      newer: "Newer &rarr;"
+      older: "&larr;Older"
+      portfolio_coursel:
+        portfolio_coursel: "Portfolio Carousel"
+      post_form:
+        delete: "Xóa"
+        pick_image: "Chọn hình ảnh"
+        publish_now: "Đăng ngay"
+      posted_by:
+        posted_by: "Đăng bởi"
+      read_more: "Read more"
+      share_post:
+        share_this_post: "Chia sẻ bài đăng"
+      show:
+        comments: "Bình luận"
+        email: "Email"
+        follow_us_on_twitter: "Theo dõi chúng tôi trên Twitter"
+        heading: "Bài đăng"
+        heading_description: "Tất cả bài viết của chúng tôi"
+        name: "Tên"
+        next_post: "Bài tiếp theo"
+        popular: "Nổi tiếng"
+        post_not_found: "Không tìm thấy post"
+        posted_by: "Đăng bởi"
+        previous_post: "Bài trước"
+        recent: "Mới nhất"
+        related_posts: "Bài đăng liên quan:"
+        share_this_post: "Chia sẻ bài viết:"
+      tag_cloud:
+        tag_cloud: "Tag Cloud"
+      title: "Member's Posts"
+      title_des: "Lastest posts of our Members"
+      twitter_feed:
+        follow_us_on_twitter: "Theo dõi chúng tôi trên Twitter"
+        twitter_feed: "Twitter Feed"
+      update:
+        post_not_found: "Không tìm thấy bài đăng"
+        post_update_success: "Cập nhật thành công"
+    project:
+      android: "Android"
+      back_page: "Previous Page"
+      detail: "Detail"
+      ios: "IOS"
+      name: "+ Project"
+      next_page: "Next Page"
+      not_found: "Project not found!"
+      other: "Other"
+      php: "PHP"
+      platform:
+        subtitle: "Ruby, PHP, Android, IOS..."
+        title: "4+ platform for education"
+      rate_avg:
+        subtitle: "rate avg"
+        title: "3rate"
+      ruby: "Ruby"
+      see_more: "See more"
+      title: "Dự Án"
+      total_project:
+        subtitle: "Total project education of Framgia"
+        title: "+ project of education"
     projects:
-      user_project: "Dự án"
-      add: "Thêm"
-      public: "Công khai"
-      only_me: "Chỉ mình tôi"
-    user_project:
-      split: " - "
-      sure: "Bạn chắc chứ?"
-      edit: "Sửa"
-      delete: "Xóa"
-  skill_users:
-    skill_user:
-      edit: "Cập nhật"
-      delete: "Xóa"
-      sure: "Bạn chắc chứ?"
-    form_skill_user:
-      update: "Cập nhật"
-      skill: "Kỹ năng"
-      close: "Đóng"
-      title: "Kỹ năng"
-    result:
-      no_result: "Không có kết quả nào"
+      create:
+        project_created: "Project created!"
+      destroy:
+        delete: "Xóa"
+        project_delete_fail: "Fail to delete project."
+        project_deleted: "Project deleted"
+      detail_project:
+        git_repo: "Git Repo:"
+        members: "Thành viên"
+        name: "Tên"
+        plat_form: "Nền tảng:"
+        pm_url: " PM Url:"
+        project_info: "Thông tin dự án:"
+        read_more: "Xem thêm"
+        related_project: "Dự án liên quan:"
+        server_info: "Máy chủ:"
+        share: "Chia sẻ:"
+        technique: "Công nghệ:"
+      edit:
+        edit_project: "Chỉnh sửa"
+        update_project: "Cập nhật"
+      form:
+        add_image: "Thêm ảnh"
+        core_features: "Tính năng cốt lõi"
+        description: "Miêu tả"
+        git_repo: "Kho chứa"
+        name: "Tên"
+        plat_form: "Nền tảng"
+        pm_url: "PM URL"
+        release_note: "Ghi chú Phát hành"
+        server_info: "Thông tin máy chủ"
+      home:
+        description: "Mô tả dự án"
+        filter: "Bộ Lọc"
+        title: "Tiêu đề dự án"
+      more: "Thêm"
+      new:
+        create_project: "Tạo mới"
+      project_not_found: "Dự án không tồn tại."
+      read_more:
+        close: "Đóng"
+        core_features: "Tính năng cốt lõi"
+        description: "Miêu tả"
+        release_note: "Ghi chú Phát hành"
+      update:
+        project_updated_successfully: "Project updated successfully!"
+    see_more: "Xem thêm"
+    slider:
+      description: "Master your self. Come with us"
+      welcome: "Welcome to Framgia Awesome Academy"
+    title: "Framgia Awesome Academy"
+    trainings:
+      create:
+        training_create_failed: "Tạo mới khóa đào tạo thất bại !"
+        training_created: "Khóa đào tạo đã được tạo mới !"
+      edit:
+        update_project: "Cập nhật"
+      form:
+        description: "Description"
+        name: "Name"
+      image_fields:
+        remove: "Xóa"
+      index:
+        home: "Trang chủ"
+        hot: "Mới"
+        page_title: "Tất cả các khoá đào tạo"
+        techniques: "Công nghệ"
+        title: "Đào tạo Giáo dục"
+        view_courses: "Xem danh sách các khóa học"
+      new:
+        create_training: "Tạo mới"
+      show:
+        home: "Trang chủ"
+        new_courses: "Khóa học mới nhất"
+        not_found: "Không thể tìm thấy khóa đào tạo"
+        share: "Chia sẻ"
+        techniques: "Công nghệ"
+        training_info: "Thông tin Đào tạo"
+        trainings: "Đào tạo"
+        view_courses: "Xem danh sách các khóa học"
+      training_not_found: "Khóa học không tồn tại."
+      update:
+        training_updated_successfully: "Khóa Đào tạo được cập nhật thành công!"
+  employer:
+    candidates:
+      not_found: "Candidate not found"
+    companies:
+      edit:
+        company_info: "Company Info"
+        edit_company_info: "Edit company info"
+        manage_accounts: "Manage accounts on social network"
+        manage_images: "Manage images"
+        manage_members: "Manage members"
+      edit_company_info:
+        article: "Add article"
+        required: "(required)"
+        update_company_info: "Update Company"
+    dashboards:
+      dashboard:
+        candidates: "Candidates"
+        company_info: "Company Info"
+        contact: "Contact Us"
+        current_plans: "Current Plans"
+        help: "Help"
+        mail: "Mail"
+        manager_postings: "Manager Postings"
+        menu: "Menu"
+        messages: "Messages"
+        recommendations: "Recommendations"
+        trial: "Trial"
+        view_candidates: "Current viewable candidates"
+        view_mores: "View mores"
+      index:
+        title: "Công ty"
+    layouts:
+      header:
+        account_info: "Account Info"
+        company_info: "Company Info"
+        dashboard: "Dashboard"
+        edit_profile: "Edit Profile"
+        feed: "Feed"
+        jobs: "Jobs"
+        logout: "Logout"
+        setting: "Setting"
+        tools: "Tools"
+    team_introductions:
+      create_confirm: "Are you sure to set up this company introduction?"
+      form:
+        contents: "Content"
+        images: "Image"
+        submit: "Save"
+        title: "Title"
+      image_fields:
+        caption: "write caption"
+        team_introduction: "Team Introduction"
+      new:
+        submit: "Submit"
+        team_introduction: "Team Introduction"
+        team_introduction_1: "Team Introduction 1"
+        team_introduction_2: "Team Introduction 2"
+        team_introduction_3: "Team Introduction 3"
+        team_introduction_recruitment: "Team Introduction Recruiment"
+      not_found: "Team Introduction not found"
+      success: "Successfully added team introduction"
+  error: "lỗi"
+  flash:
+    deleted_success: "deleted successfully!"
+  follow_companies:
     create:
-      success: "Tạo kỹ năng thành công"
-      fail: "Tạo kỹ năng thất bại"
+      follow: "Theo dõi công ty thành công!"
+      not_found: "Không tìm thấy công ty!"
     destroy:
-      destroy_success: "Xóa kỹ năng thành công"
-      destroy_faild: "Xóa kỹ năng thất bại"
-    update:
-      success: "cập nhật kỹ năng thành công"
-      faild: "cập nhật kỹ năng thất bại"
-    new:
-      add: "Thêm"
-      edit: "cập nhật"
-  user_portfolios:
-    edit:
-      update: "cập nhật"
-    new:
-      update: "cập nhật"
-    destroy:
-      success: "Xóa thành công"
-      failed: "Xóa thất bại"
-    create:
-      portfolio_created: "Tạo thành công"
-      portfolio_create_failed: "Tạo thất bại"
-      success: "Tạo thành công"
-      failed: "Tạo thất bại"
-      update: "Cập nhật"
-    update:
-      portfolio_updated: "cập nhật thành công"
-      portfolio_update_failed: "cập nhật thất bại"
-      success: "cập nhật thành công"
-      failed: "cập nhật thất bại"
-      update: "Cập nhật"
-      fail_image: "Bạn nên cập nhật ảnh"
-    form_image:
-      portfolio_header_image: "Ảnh"
-      add_image: "Thêm ảnh"
-      close: "bỏ qua"
-      portfolio_notification_image: "You can skip!"
-    load_portfolio:
-      not_found: "Không tồn tại!"
-      delete: "Xóa"
-      edit: "Sửa"
-    form_portfolio:
-      add_image: "Thêm ảnh"
-      title: "Tiêu đề"
-      description: "Miêu tả"
-      made: "Ngày tạo"
-      image: "Ảnh"
-      url: "địa chỉ liên kết"
-      update: "Cập nhật"
-      close: "Đóng"
-      portfolio_header: "Danh mục"
-    show_portfolio:
-      portfolio_not_found: "Không có danh mục nào"
-      delete: "Xóa"
-      edit: "Sửa"
-      sure: "Bạn chắc chứ?"
-    user_portfolio:
-      user_portfolio: "Danh mục"
-      add: "Thêm"
-      public: "Công khai"
-      only_me: "Chỉ mình tôi"
-  info_users:
-    update:
-      success: "Cập nhật thành công!"
-      fail: "Cập nhật thất bại!"
-      infor_user_not_found: "Không tìm thấy thông tin!"
-      update_button: "Cập nhật"
-    introduction:
-      introduction: "Giới thiệu"
-      edit: "Sửa"
+      not_found: "Không tìm thấy công ty!"
+      unfollow: "Hủy theo dõi công ty thành công!"
+  friend_request_mailer:
+    friend_request:
+      end: "Email này được gửi tự động từ FCSP, vui lòng đừng trả lời!"
+      hi: "Chào %{name},"
+      subject: "Bạn có một yêu cầu kết bạn từ %{name}"
+  friend_requests:
+    index:
+      confirm: "Xác nhận"
+      friend_requests: "Yêu cầu kết bạn"
+      mutual-friends: "Bạn chung"
+      reject: "Xóa yêu cầu"
+      request_not_found: "không có yêu cầu kết bạn nào"
+    suggest_friends:
       friends: "Bạn bè"
-      friends_of_friends: "Bạn của bạn bè"
-      public: "Công khai"
-      only_me: "Chỉ mình tôi"
-    edit_introduction_modal:
-      update_button: "Cập nhật"
-      cannot_button: "Hủy bỏ"
-      edit_introduction: "Chỉnh sửa giới thiệu"
-      introduce_placeholder: "Giới thiệu bản thân..."
-    find_info_user:
-      infor_user_not_found: "Không tìm thấy thông tin của người dùng"
-    ambition:
-      ambition: "Tham vọng"
-      edit: "Sửa"
-      friends: "Bạn bè"
-      friends_of_friends: "Bạn của bạn bè"
-      public: "Công khai"
-      only_me: "Chỉ mình tôi"
-    edit_ambition_modal:
-      update_button: "Cập nhật"
-      cannot_button: "Hủy bỏ"
-      edit_ambition: "Chỉnh sửa tham vọng"
-      ambition_placeholder: "Tham vọng của tôi..."
-    edit_about_me_modal:
-      update_button: "Cập nhật"
-      cancel_button: "Hủy bỏ"
-    quote:
-      quote: "Trích dẫn"
-      edit: "Sửa"
-      friends: "Bạn bè"
-      friends_of_friends: "Bạn của bạn bè"
-      public: "Công khai"
-    edit_quote_modal:
-      update_button: "Cập nhật"
-      cannot_button: "Hủy bỏ"
-      edit_quote: "Chỉnh sửa trích dẫn"
-      quote_placeholder: "Trích dẫn của tôi..."
+      mutual_friends: "Bạn chung"
+      people_know: "Những người bạn có thể biết"
+      remove_request: " Hủy yêu cầu"
+      request_friend: " Kết bạn"
+      unfriend: " Hủy kết bạn"
   friend_ships:
     create:
-      request_friend: "Đã gửi yêu cầu đến %{name}"
       not_found: "Không tìm thấy người dùng"
+      request_friend: "Đã gửi yêu cầu đến %{name}"
     destroy:
+      not_found: "Không tìm thấy người dùng"
       remove_request: "Đã hủy yêu cầu với %{name}"
       unfriend: "Đã hủy kết bạn với %{name}"
-      not_found: "Không tìm thấy người dùng"
-    load_user:
-      not_found: "người dùng không tồn tại"
-    update:
-      success: "Xác nhận thành công"
-      failed: "Xác nhận thất bại"
-      reject_success: "hủy kết bạn thành công"
-      reject_failed: "hủy kết bạn thất bại"
     friend_request:
       confirm: "Chấp nhận"
       friend-ship: "Lời mời kết bạn"
@@ -799,250 +441,608 @@ vi:
       reject: "xóa yêu cầu"
       request_not_found: "Không có lời mời kết bạn"
       view_all: "Xem tất cả"
-  user_avatars:
-    create:
-      success: "Đã cập nhật ảnh đại diện thành công!"
-      fail: "Cập nhật ảnh đại diện thất bại"
+    load_user:
+      not_found: "người dùng không tồn tại"
     update:
-      success: "Đã cập nhật ảnh đại diện thành công!"
-      fail: "Cập nhật ảnh đại diện thất bại"
-      not_found: "Không tìm thấy ảnh"
-  user_covers:
-    create:
-      success: "Đã cập nhật ảnh bìa thành công!"
-      fail: "Cập nhật ảnh bìa thất bại"
-    update:
-      success: "Đã cập nhật ảnh bìa thành công!"
-      fail: "Cập nhật ảnh bìa thất bại"
-      not_found: "Không tìm thấy ảnh"
-  friend_request_mailer:
-    friend_request:
-      subject: "Bạn có một yêu cầu kết bạn từ %{name}"
-      hi: "Chào %{name},"
-      end: "Email này được gửi tự động từ FCSP, vui lòng đừng trả lời!"
-  javascripts:
-    user_portfolio_alert: "Bạn chắc muốn xoá?"
-    user_award_alert: "Bạn chắc muốn xoá?"
-  awards:
-    show_award:
-      award_not_found: "Không có giải thưởng nào"
-      delete: "Xóa"
-      edit: "Sửa"
-      sure: "Bạn chắc chắn muốn xóa?"
-    user_award:
-      user_award: "Giải thưởng(s)"
-      add: "Thêm"
-      public: "Công khai"
-      only_me: "Chỉ mình tôi"
-    form_award:
-      title: "Tên giải thưởng"
-      made: "Năm nhận giải"
-      close: "Đóng"
-      award_header: "giải thưởng"
-    new:
-      update: "Cập Nhật"
-    destroy:
-      success: "Xóa giải thưởng thành công"
-      failed: "Xóa giải thưởng thất bại"
-    create:
-      success: "Tạo giải thưởng thành công"
-      failed: "Tạo giải thưởng thất bại"
-    update:
-      success: "Cập Nhật giải thưởng thành công"
-      failed: "Cập Nhật giải thưởng thất bại"
-  user_educations:
-    form_user_education:
-      title: "Cập nhật học vấn của bạn"
-      close: "Đóng"
-      update: "Cập nhật"
-      school: "Trường"
-      major: "Ngành"
-      graduation: "Ngày tốt nghiệp"
-      description: "Thông tin thêm"
-    result:
-      no_result: "Không tìm thấy kết quả cho"
-      studied: "người đã học tại đây."
-    create:
-      success: "Cập nhật thành công!"
-      fail: "Cập nhật thất bại!"
-      school_not_found: "Không tìm thấy trường học"
-    user_education:
-      edit: "Chỉnh sửa"
-      delete: "Xóa"
-      sure: "Bạn chắc chắn muốn xóa?"
-    edit:
-      not_found: "Không tìm thấy học vấn này"
-    update:
-      not_found: "Không tìm thấy học vấn này"
-      success: "Cập nhật thành công!"
-      fail: "Cập nhật thất bại!"
-      school_not_found: "Không tìm thấy trường học"
-    destroy:
-      not_found: "Không tìm thấy học vấn này"
-      success: "Xóa thành công!"
-      fail: "Xóa thất bại!"
-  user_links:
-    user_link:
-      edit: "Chỉnh sửa"
-      delete: "Xóa"
-      sure: "Bạn chắc chắn muốn xóa?"
-    form_user_link:
-      title: "Cập nhật liên kết của bạn"
-      close: "Đóng"
-      save: "Lưu những thay đổi của bạn"
-      link: "Liên kết"
-    create:
-      success: "Cập nhật thành công!"
-      fail: "Cập nhật thất bại!"
-    edit:
-      not_found: "Không tìm thấy liên kết này"
-    update:
-      not_found: "Không tìm thấy liên kết này"
-      success: "Cập nhật thành công!"
-      fail: "Cập nhật thất bại!"
-    destroy:
-      not_found: "Không tìm thấy liên kết này"
-      success: "Xóa thành công!"
-      fail: "Xóa thất bại!"
-  user_posts:
-    new:
-      header: "Tạo một bài viết mới"
-    form_post:
-      title: "Tiêu đề"
-      content: "Nội dung"
-      create: "Lưu bài viết của bạn"
-      cancel: "Hủy bỏ"
-    create:
-      success: "Tạo bài viết thành công!"
-      fail: "Created post Tạo bài viết thất bại!"
-    show:
-      heading: "Bài viết"
-      home: "Trang chủ"
-      posts: "Bài viết"
-      comments: "bình luận"
-      edit: "Chỉnh sửa"
-      delete: "Xóa"
-      sure: "Bạn chắc chắn chứ?"
-      related_posts: "Những bài viết liên quan"
-      not_found: "Không tìm thấy bài viết"
-    edit:
-      header: "Chỉnh sửa bài viết của bạn"
-      not_found: "Không tìm thấy bài viết"
-    update:
-      success: "Cập nhật bài viết thành công!"
-      fail: "Cập nhật bài viết thất bại!"
-      not_found: "Không tìm thấy bài viết"
-    destroy:
-      success: "Xóa bài viết thành công!"
-      fail: "Xóa bài viết thất bại!"
-      not_found: "Không tìm thấy bài viết"
-    user_post:
-      read_more: "Xem thêm"
-      delete: "Xóa"
-      confirm_delete: "Bạn chắc chắn không?"
-    search_form:
-      search_placeholder: "Tìm kiếm..."
+      failed: "Xác nhận thất bại"
+      reject_failed: "hủy kết bạn thất bại"
+      reject_success: "hủy kết bạn thành công"
+      success: "Xác nhận thành công"
   growl_title:
-    notice: "Thông báo!"
     error: "Lỗi!"
+    notice: "Thông báo!"
     warning: "Cảnh báo!"
-  certificates:
-    new:
-      create: "Tạo"
-    edit:
-      update: "Cập nhật"
-    create:
-      success: "Tạo chứng chỉ thành công"
-      failed: "Tạo chứng chỉ thất bại"
+  info_users:
+    ambition:
+      ambition: "Tham vọng"
+      edit: "Sửa"
+      friends: "Bạn bè"
+      friends_of_friends: "Bạn của bạn bè"
+      only_me: "Chỉ mình tôi"
+      public: "Công khai"
+    edit_about_me_modal:
+      cancel_button: "Hủy bỏ"
+      update_button: "Cập nhật"
+    edit_ambition_modal:
+      ambition_placeholder: "Tham vọng của tôi..."
+      cannot_button: "Hủy bỏ"
+      edit_ambition: "Chỉnh sửa tham vọng"
+      update_button: "Cập nhật"
+    edit_introduction_modal:
+      cannot_button: "Hủy bỏ"
+      edit_introduction: "Chỉnh sửa giới thiệu"
+      introduce_placeholder: "Giới thiệu bản thân..."
+      update_button: "Cập nhật"
+    edit_quote_modal:
+      cannot_button: "Hủy bỏ"
+      edit_quote: "Chỉnh sửa trích dẫn"
+      quote_placeholder: "Trích dẫn của tôi..."
+      update_button: "Cập nhật"
+    find_info_user:
+      infor_user_not_found: "Không tìm thấy thông tin của người dùng"
+    introduction:
+      edit: "Sửa"
+      friends: "Bạn bè"
+      friends_of_friends: "Bạn của bạn bè"
+      introduction: "Giới thiệu"
+      only_me: "Chỉ mình tôi"
+      public: "Công khai"
+    quote:
+      edit: "Sửa"
+      friends: "Bạn bè"
+      friends_of_friends: "Bạn của bạn bè"
+      public: "Công khai"
+      quote: "Trích dẫn"
     update:
-      success: "Cập nhật chứng chỉ thành công"
-      failed: "Cập nhật chứng chỉ thất bại"
-    destroy:
-      success: "Xóa chứng chỉ thành công"
-      failed: "Xóa chứng chỉ thất bại"
-    load_certificate:
-      not_found: "Không tìm thấy chứng chỉ"
-    certificate:
-      edit: "Chỉnh sửa"
-      sure: "Bạn chắc chắn không?"
-      delete: "Xóa"
-    certificate_form:
-      certificate_header: "Chứng chỉ"
-      certificate: "Chứng chỉ"
-      qualified_time: "Thời gian cấp"
-      qualified_organization: "Cấp bởi"
-      close: "Đóng"
-  user_social_networks:
-    create:
+      fail: "Cập nhật thất bại!"
+      infor_user_not_found: "Không tìm thấy thông tin!"
       success: "Cập nhật thành công!"
-      fail: "URL không đúng! Vui lòng kiểm tra lại!"
-    update:
-      success: "Cập nhật thành công!"
-      fail: "URL không đúng! Vui lòng kiểm tra lại!"
-  comments:
-    create:
-      create_failed: "Bình luận không thành công"
-    update:
-      update_failed: "Cập nhật bình luận không thành công"
-    destroy:
-      destroy_failed: "Xóa bình luận không thành công"
-    comment_form:
-      content: "Viết bình luận..."
-      submit_button: "Bình luận"
-    comment_item:
-      delete_confirm: "Bạn chắc chắn chứ?"
-    comments:
-      login_to_comment: "Đăng nhập để bình luận"
-      comments: "Bình luận"
-    edit_comment_form:
-      edit_button: "Chỉnh sửa"
+      update_button: "Cập nhật"
+  invalid_datetime: "Thời gian không hợp lệ"
+  invalid_time: "Không thể chọn thời gian đăng bài trong quá khứ"
+  javascripts:
+    user_award_alert: "Bạn chắc muốn xoá?"
+    user_portfolio_alert: "Bạn chắc muốn xoá?"
+  jobs:
+    basic_infor:
+      basic_info_job: "Basic Information"
+      benefit_null: "Benefit null"
+      comma: ", "
+      company_info: "Company information"
+      founded: "Founded"
+      indus_info: "IT / Automobiles / Industrial Machinery/ Industrial Supplies"
+      industries: "Industries"
+      job_type: "Job type"
+      learn_more_info: "Learn more about the company"
+      look_for: "Looking for"
+      posting_feature: "Posting features"
+      sales: "Sales"
+      skill_require: "Skill require"
+    bookmark:
+      bookmark: "Bookmark"
+      bookmark_job: "Bookmark job"
+      bookmarked: "Bookmarked"
+      unbookmark: "Unbookmark"
+    candidate:
+      apply_job: "Apply Job"
+      currently: "Currently"
+      person_applied: "Person applied"
+      unapply_job: "Unapply Job"
+    candidate:
+      apply_job: "Job"
+    index:
+      table:
+        thead:
+          describe: "Describe"
+          id: "Id"
+          title: "Title"
+      title: "List jobs"
+    introduction_company:
+      edit_posting: "Edit posting"
+      message_team_introduc_null: "Team introduction null"
+      what_we_do: "What we do"
+    job:
+      read_more: "Read more"
+      type_of_candidates: "Type of candidates: "
+    job_description:
+      description: "Description"
+      edit_posting: "Edit posting"
+    job_form:
+      next: "Next"
+    job_form:
+      next: "Next"
+    job_title:
+      sales: "Sales"
+      show:
+        job_type: "Job type"
+        total_views: "Total views"
+    members_of_company:
+      edit_posting: "Edit posting"
+      members: "members"
+      views_all: "All members( "
+      views_all_close: ")"
+    popular_job:
+      comments: "35 comments"
+      person_applied: " person has applied"
+    posting_jobs:
+      title: "Other jobs posting you may like"
+    search_form:
+      search: "Enter your search"
+    show:
+      apply_failed_title: "Apply failed"
+      apply_job: "Apply Job"
+      apply_modal_header: "We have notified %{company_name} of your interest."
+      apply_success_alt: "Apply success"
+      cancel: "Cancel"
+      currently: "Currently "
+      edit_profile: "Edit my profile"
+      entry: "Entry"
+      interest_heading: "Please tell us what you are interested in."
+      interest_me: "This opportunity interests me."
+      let_s_have_chat: "Let’s have a chat."
+      let_s_work_together: "Let’s work together!"
+      location: "Location"
+      need_update_profile_alt: "You should update your profile before apply this job"
+      no_result: "No one matches these skills"
+      person_applied: " person has applied."
+      recommend: "Recommend"
+      should_update_heading: "Employer needs more on your profile"
+      should_update_heading_description: "Update your profile and comeback to us"
+      success_description: "If the person take an interest in you, you will receive an invitation message."
+      success_heading: "Let's wait to hear from the person"
+      total_views: "Total views"
+      your_entry_complete: "Your entry is complete!"
+  layouts:
+    base_title: "FCSP"
+    header:
+      about: "About"
+      admin: "Admin"
+      create_company: "Tạo mới công ty"
+      create_new_post: "Tạo bài viết mới"
+      employer: "Employer"
+      help: "Help"
+      home: "Home"
+      jobs: "Jobs"
+      login: "Login"
+      logout: "Logout"
+      message: "Messages"
+      messages: "Messages"
+      profile: "Profile"
+      sign_out: "Sign out"
+    job_bookmark:
+      bookmark: "Bookmark"
+      bookmarked: "Bookmarked"
+      unbookmark: "Unbookmark"
+    message:
+      failed_title: "Thất bại"
+      success_title: "Thành công"
+      warning_title: "Cảnh báo"
   likes:
-    load_user_post:
-      not_found: "Không tìm thấy bài viết"
+    like_user_post:
+      orthers_like: "%{count} người khác"
+      you_and_orthers_like: "Bạn và %{count - 1} người khác "
     load_like:
       not_found: "Lượt thích của bài viết này không tìm thấy"
-    like_user_post:
-      you_and_orthers_like: "Bạn và %{count - 1} người khác "
-      orthers_like: "%{count} người khác"
+    load_user_post:
+      not_found: "Không tìm thấy bài viết"
   omniauth_callbacks:
-    hr_system:
-      auth_failure: "Auth failure"
     failure:
+      auth_failure: "Auth failure"
+    hr_system:
       auth_failure: "Auth failure"
   organizations:
     show:
-      org_infor: "Nội dung trang này dựa trên dữ liệu từ người dùng của FCSP"
-      people_worked_here: "Những người đã làm việc ở đây"
-      people_worked: "Họ cũng từng làm ở:"
       new_job: "Những công việc mới nhất"
+      org_infor: "Nội dung trang này dựa trên dữ liệu từ người dùng của FCSP"
       org_not_found: "Không tìm thấy tổ chức"
-  activerecord:
-    errors:
-      models:
-        user_project:
-          attributes:
-            end_date:
-              invalid_date: "Thời gian bắt đầu phải nhỏ hơn thời gian kết thúc"
-              after: "Thời gian bắt đầu phải nhỏ hơn thời gian kết thúc"
-        user_work:
-          attributes:
-            end_time:
-              after: "Thời gian bắt đầu phải nhỏ hơn thời gian kết thúc"
-  friend_requests:
+      people_worked: "Họ cũng từng làm ở:"
+      people_worked_here: "Những người đã làm việc ở đây"
+  pages:
+    about:
+      content: "This is about page"
+      title: "About"
+    help:
+      content: "This is help page"
+      title: "Help"
+    home:
+      job_opportunity: "Jobs Opportunity"
+      title: "Home"
+  share_posts:
+    create:
+      not_found: "Không tìm thấy bài viết."
+      share_fail: "Chia sẻ bài viết thất bại!"
+      share_success: "Chia sẻ bài viết thành công!"
+    destroy:
+      not_found: "Bài viết không tìm thấy"
+      unshare_fail: "Hủy chia sẻ bài viết thất bại!"
+      unshare_success: "Hủy chia sẻ bài viết thành công!"
+    share: "Bạn có chắc muốn chia sẻ bài viết này?"
+    unshare: "Bạn có chắc không muốn chia sẻ bài viết này?"
+  skill_users:
+    create:
+      fail: "Tạo kỹ năng thất bại"
+      success: "Tạo kỹ năng thành công"
+    destroy:
+      destroy_faild: "Xóa kỹ năng thất bại"
+      destroy_success: "Xóa kỹ năng thành công"
+    form_skill_user:
+      close: "Đóng"
+      skill: "Kỹ năng"
+      title: "Kỹ năng"
+      update: "Cập nhật"
+    new:
+      add: "Thêm"
+      edit: "cập nhật"
+    result:
+      no_result: "Không có kết quả nào"
+    skill_user:
+      delete: "Xóa"
+      edit: "Cập nhật"
+      sure: "Bạn chắc chứ?"
+    update:
+      faild: "cập nhật kỹ năng thất bại"
+      success: "cập nhật kỹ năng thành công"
+  title: "Framgia code school platform"
+  tms_synchronize:
     index:
-      friend_requests: "Yêu cầu kết bạn"
-      request_not_found: "không có yêu cầu kết bạn nào"
-      mutual-friends: "Bạn chung"
-      confirm: "Xác nhận"
-      reject: "Xóa yêu cầu"
-    suggest_friends:
-      people_know: "Những người bạn có thể biết"
+      synchronize_fail: "Đồng bộ không thành công, vui lòng thử lại sau"
+      synchronize_success: "Đồng bộ thành công"
+  user_avatars:
+    create:
+      fail: "Cập nhật ảnh đại diện thất bại"
+      success: "Đã cập nhật ảnh đại diện thành công!"
+    update:
+      fail: "Cập nhật ảnh đại diện thất bại"
+      not_found: "Không tìm thấy ảnh"
+      success: "Đã cập nhật ảnh đại diện thành công!"
+  user_covers:
+    create:
+      fail: "Cập nhật ảnh bìa thất bại"
+      success: "Đã cập nhật ảnh bìa thành công!"
+    update:
+      fail: "Cập nhật ảnh bìa thất bại"
+      not_found: "Không tìm thấy ảnh"
+      success: "Đã cập nhật ảnh bìa thành công!"
+  user_educations:
+    create:
+      fail: "Cập nhật thất bại!"
+      school_not_found: "Không tìm thấy trường học"
+      success: "Cập nhật thành công!"
+    destroy:
+      fail: "Xóa thất bại!"
+      not_found: "Không tìm thấy học vấn này"
+      success: "Xóa thành công!"
+    edit:
+      not_found: "Không tìm thấy học vấn này"
+    form_user_education:
+      close: "Đóng"
+      description: "Thông tin thêm"
+      graduation: "Ngày tốt nghiệp"
+      major: "Ngành"
+      school: "Trường"
+      title: "Cập nhật học vấn của bạn"
+      update: "Cập nhật"
+    result:
+      no_result: "Không tìm thấy kết quả cho"
+      studied: "người đã học tại đây."
+    update:
+      fail: "Cập nhật thất bại!"
+      not_found: "Không tìm thấy học vấn này"
+      school_not_found: "Không tìm thấy trường học"
+      success: "Cập nhật thành công!"
+    user_education:
+      delete: "Xóa"
+      edit: "Chỉnh sửa"
+      sure: "Bạn chắc chắn muốn xóa?"
+  user_links:
+    create:
+      fail: "Cập nhật thất bại!"
+      success: "Cập nhật thành công!"
+    destroy:
+      fail: "Xóa thất bại!"
+      not_found: "Không tìm thấy liên kết này"
+      success: "Xóa thành công!"
+    edit:
+      not_found: "Không tìm thấy liên kết này"
+    form_user_link:
+      close: "Đóng"
+      link: "Liên kết"
+      save: "Lưu những thay đổi của bạn"
+      title: "Cập nhật liên kết của bạn"
+    update:
+      fail: "Cập nhật thất bại!"
+      not_found: "Không tìm thấy liên kết này"
+      success: "Cập nhật thành công!"
+    user_link:
+      delete: "Xóa"
+      edit: "Chỉnh sửa"
+      sure: "Bạn chắc chắn muốn xóa?"
+  user_portfolios:
+    create:
+      failed: "Tạo thất bại"
+      portfolio_create_failed: "Tạo thất bại"
+      portfolio_created: "Tạo thành công"
+      success: "Tạo thành công"
+      update: "Cập nhật"
+    destroy:
+      failed: "Xóa thất bại"
+      success: "Xóa thành công"
+    edit:
+      update: "cập nhật"
+    form_image:
+      add_image: "Thêm ảnh"
+      close: "bỏ qua"
+      portfolio_header_image: "Ảnh"
+      portfolio_notification_image: "You can skip!"
+    form_portfolio:
+      add_image: "Thêm ảnh"
+      close: "Đóng"
+      description: "Miêu tả"
+      image: "Ảnh"
+      made: "Ngày tạo"
+      portfolio_header: "Danh mục"
+      title: "Tiêu đề"
+      update: "Cập nhật"
+      url: "địa chỉ liên kết"
+    load_portfolio:
+      delete: "Xóa"
+      edit: "Sửa"
+      not_found: "Không tồn tại!"
+    new:
+      update: "cập nhật"
+    show_portfolio:
+      delete: "Xóa"
+      edit: "Sửa"
+      portfolio_not_found: "Không có danh mục nào"
+      sure: "Bạn chắc chứ?"
+    update:
+      fail_image: "Bạn nên cập nhật ảnh"
+      failed: "cập nhật thất bại"
+      portfolio_update_failed: "cập nhật thất bại"
+      portfolio_updated: "cập nhật thành công"
+      success: "cập nhật thành công"
+      update: "Cập nhật"
+    user_portfolio:
+      add: "Thêm"
+      only_me: "Chỉ mình tôi"
+      public: "Công khai"
+      user_portfolio: "Danh mục"
+  user_posts:
+    create:
+      fail: "Created post Tạo bài viết thất bại!"
+      success: "Tạo bài viết thành công!"
+    destroy:
+      fail: "Xóa bài viết thất bại!"
+      not_found: "Không tìm thấy bài viết"
+      success: "Xóa bài viết thành công!"
+    edit:
+      header: "Chỉnh sửa bài viết của bạn"
+      not_found: "Không tìm thấy bài viết"
+    form_post:
+      cancel: "Hủy bỏ"
+      content: "Nội dung"
+      create: "Lưu bài viết của bạn"
+      title: "Tiêu đề"
+    new:
+      header: "Tạo một bài viết mới"
+    search_form:
+      search_placeholder: "Tìm kiếm..."
+    show:
+      comments: "bình luận"
+      delete: "Xóa"
+      edit: "Chỉnh sửa"
+      heading: "Bài viết"
+      home: "Trang chủ"
+      not_found: "Không tìm thấy bài viết"
+      posts: "Bài viết"
+      related_posts: "Những bài viết liên quan"
+      sure: "Bạn chắc chắn chứ?"
+    update:
+      fail: "Cập nhật bài viết thất bại!"
+      not_found: "Không tìm thấy bài viết"
+      success: "Cập nhật bài viết thành công!"
+    user_post:
+      confirm_delete: "Bạn chắc chắn không?"
+      delete: "Xóa"
+      read_more: "Xem thêm"
+  user_projects:
+    create:
+      create_faild: "Thêm dự án không thành công!"
+      create_success: "Thêm dự án thành công!"
+      not_found: "Không tìm thấy dự án!"
+    destroy:
+      destroy_faild: "Xóa dự án không thành công!"
+      destroy_success: "Xóa dự án thành công!"
+      not_found: "Không tìm thấy dự án!"
+    projects:
+      add: "Thêm"
+      only_me: "Chỉ mình tôi"
+      public: "Công khai"
+      user_project: "Dự án"
+    update:
+      not_found: "Không tìm thấy dự án!"
+      update_faild: "Cập nhật dự án không thành công!"
+      update_success: "Cập nhật dự án thành công!"
+    user_project:
+      delete: "Xóa"
+      edit: "Sửa"
+      split: " - "
+      sure: "Bạn chắc chứ?"
+    user_project_form:
+      close: "Đóng"
+      description: "Mô tả"
+      end_date: "Thời gian kết thúc"
+      header: "Cập nhật dự án"
+      start_date: "Thời gian bắt đầu"
+      title: "Tên dự án"
+      update: "Cập nhật"
+      url: "Trang web"
+  user_social_networks:
+    create:
+      fail: "URL không đúng! Vui lòng kiểm tra lại!"
+      success: "Cập nhật thành công!"
+    update:
+      fail: "URL không đúng! Vui lòng kiểm tra lại!"
+      success: "Cập nhật thành công!"
+  user_works:
+    create:
+      create_faild: "Add work failed!"
+      create_success: "Add work successfully!"
+    destroy:
+      destroy_faild: "Delete work failed!"
+      destroy_success: "Delete work successfully!"
+    org_search:
+      people: "%{num} người khác"
+    org_search:
+      people: "%{num} others"
+    update:
+      update_faild: "Update work failed!"
+      update_success: "Update work successfully!"
+    user_work:
+      all_status:
+        full_time: "Toàn thời gian"
+        internship: "Thực tập sinh"
+        part_time: "Bán thời gian"
+      delete: "Xóa"
+      edit: "Sửa"
+      split: " - "
+      sure: "Bạn chắc chứ?"
+    user_work_form:
+      all_status:
+        full_time: "Toàn thời gian"
+        internship: "Thực tập sinh"
+        part_time: "Bán thời gian"
+      close: "Đóng"
+      company: "Công ty"
+      description: "Mô tả"
+      end_time: "Thời gian kết thúc"
+      header: "Cập nhật công việc"
+      position: "Vị trí"
+      start_time: "Thời gian bắt đầu"
+      status: "Tình trạng"
+      update: "Cập nhật"
+    work:
+      add: "Thêm"
+      only_me: "Chỉ mình tôi"
+      public: "Công khai"
+      user_work: "Công việc"
+  users:
+    album_image:
+      no_image: "Không có hình ảnh nào"
+    change_avatar:
+      close: "Đóng"
+      from_album: "Chọn từ bộ sưu tập"
+      save: "Lưu lại"
+      title: "Thay đổi ảnh đại diện"
+    change_cover:
+      close: "Đóng"
+      from_album: "Chọn từ bộ sưu tập"
+      save: "Lưu lại"
+      title: "Thay đổi ảnh bìa"
+    edit_social_network_modal:
+      close: "Đóng"
+      facebook: "Facebook"
+      google: "Google +"
+      header: "Cập nhật liên kết mạng xã hội"
+      instagram: "Instagram"
+      linkedin: "LinkedIn"
+      save: "Lưu lại"
+      skype: "Skype"
+      twitter: "Twitter"
+      youtube: "Youtube"
+    find_user:
+      not_found: "Không tìm thấy người dùng"
+    friend_ship_form:
+      remove_request: " Hủy yêu cầu"
+      request_friend: " Kết bạn"
+      request_waiting: "Đã gửi yêu cầu đến bạn!"
+      unfriend: " Hủy kết bạn"
+      waiting: " Đang đợi..."
+    header:
+      accomplishments: "Khả năng"
+      add_award: "Thêm giải thưởng"
+      add_award_description: "Thêm các giải thưởng của bạn"
+      add_certificate: "Thêm chứng nhận"
+      add_certificate_description: "Thêm chứng nhận của bạn"
+      add_education: "Thêm học vấn"
+      add_education_description: "Thêm các trường học của bạn"
+      add_friend: "Thêm bạn"
+      add_language: "Thêm ngôn ngữ"
+      add_language_description: "Thêm ngôn ngữ của bạn"
+      add_link: "Thêm liên kết"
+      add_link_description: "Thêm các liên kết của bạn"
+      add_portfolio: "Thêm danh mục"
+      add_portfolio_description: "Thêm danh mục của bạn"
+      add_profile_section: "Thêm phần tiểu sử mới"
+      add_project: "Thêm dự án"
+      add_project_description: "Thêm các dự án bạn đã tham gia"
+      add_skill: "Thêm kỹ năng"
+      add_skill_description: "Thêm ký năng của bạn"
+      add_work: "Thêm công việc"
+      add_work_description: "Thêm công việc của bạn"
+      background: "Lý lịch"
+      bookmarked_jobs: "Công việc được đánh dấu"
+      change_cover: "Thay đổi ảnh bìa"
+      edit_profile: "Chỉnh sửa hồ sơ"
+      friends: "Bạn bè"
+      information: "Cá nhân"
+      job_suggest: "Công việc đề xuất"
+      location: "Vị trí"
+      message: "Tin nhắn"
+      new_feed: "Bảng tin"
+      posts: "Bài đăng"
+      skills: "Kỹ năng"
+      working_at: "Đang làm việc tại"
+    list_friend:
+      friends: "Bạn bè"
+      mutual_friends: "Bạn chung"
+      no_friend: "Không có bạn bè nào!"
       remove_request: " Hủy yêu cầu"
       request_friend: " Kết bạn"
       unfriend: " Hủy kết bạn"
-      mutual_friends: "Bạn chung"
-      friends: "Bạn bè"
-  tms_synchronize:
-    index:
-      synchronize_success: "Đồng bộ thành công"
-      synchronize_fail: "Đồng bộ không thành công, vui lòng thử lại sau"
+    search_friend:
+      search: "Nhập tìm kiếm"
+    show:
+      blocked: "Người dùng này đã bị khóa!"
+      information: "Cá nhân"
+      job_suggest: "Gợi ý công việc"
+      new_feed: "Bảng tin"
+      not_found: "Không tìm thấy người dùng"
+      posts: "Bài đăng"
+    skill_user:
+      add: "Thêm"
+      skills: "Kỹ năng"
+    social_network:
+      about_me: "Về tôi"
+      add_quote: "Thêm trích dẫn yêu thích"
+      address: "Địa chỉ"
+      edit: "Chỉnh sửa"
+      facebook: "Facebook"
+      google: "Google +"
+      instagram: "Instagram"
+      linkedin: "LinkedIn"
+      phone: "Điện thoại"
+      skype: "Skype"
+      social_profiles: "Kết nối với tôi"
+      twitter: "Twitter"
+      youtube: "Youtube"
+    user_certificate:
+      add: "Thêm"
+      certificate: "Chứng chỉ"
+      only_me: "Chỉ mình tôi"
+      public: "Công khai"
+    user_education:
+      add: "Thêm"
+      education: "Học vấn"
+      only_me: "Chỉ mình tôi"
+      public: "Công khai"
+    user_languages:
+      add: "Thêm"
+      languages: "Ngôn ngữ"
+      only_me: "Chỉ mình tôi"
+      public: "Công khai"
+    user_link:
+      add: "Thêm"
+      links: "Liên kết"
+      only_me: "Chỉ mình tôi"
+      public: "Công khai"

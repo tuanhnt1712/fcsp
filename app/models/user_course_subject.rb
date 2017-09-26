@@ -6,4 +6,5 @@ class UserCourseSubject < ApplicationRecord
 
   enum status: %i(init in_progress finished closed)
   delegate :name, to: :subject, prefix: true
+  delegate :description, to: :subject, prefix: true
 end

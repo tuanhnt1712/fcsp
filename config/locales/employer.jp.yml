@@ -1,73 +1,73 @@
 jp:
   employer:
+    articles:
+      update:
+        fail: "記事が更新されなかった"
+        update: "記事が更新されました"
     candidates:
+      destroy:
+        confirm_delete: "本気ですか？"
+        confirm_text: "はい、削除してください！"
+        fail: "削除が失敗しました！"
+        mess_text: "これを元に戻すことはできません！"
+        success: "削除された成功！"
+        warning: "候補はチェックされず、削除できません!"
       index:
         action: "アクション"
         delete_candidate: "X 候補を削除する"
-      destroy:
-        success: "削除された成功！"
-        fail: "削除が失敗しました！"
-        warning: "候補はチェックされず、削除できません!"
-        confirm_delete: "本気ですか？"
-        mess_text: "これを元に戻すことはできません！"
-        confirm_text: "はい、削除してください！"
       show:
-        profile: "プロファイル候補"
-        name: "フルネーム: "
-        email: "Eメール: "
-        interested: "に興味がある: "
-        process: "プロセス: "
         desc: "説明: "
-        type: "ジョブの種類: "
-        position: "ポジション: "
-        skill: "スキルが必要: "
         details_job: "詳細ジョブ"
         details_profile: "詳細プロフィール"
+        email: "Eメール: "
+        interested: "に興味がある: "
         job_info: "求人情報"
-    articles:
-      update:
-        update: "記事が更新されました"
-        fail: "記事が更新されなかった"
+        name: "フルネーム: "
+        position: "ポジション: "
+        process: "プロセス: "
+        profile: "プロファイル候補"
+        skill: "スキルが必要: "
+        type: "ジョブの種類: "
     jobs:
-      not_found: "ジョブが見つかりません"
       index:
         job_recruitment: "仕事の募集"
       info_hiring_type:
-        posting_time: "投稿時間"
         job_list_skills: "リストジョブのスキルを入力してください"
-        skill_require: "スキルが必要です"
-      update:
-        success_title: "成功"
-        change_success: "ステータスの変更を成功させる！"
-        error_title: "エラー"
-        change_error: "状態エラーを変更！"
-        draft_error: "このジョブはアクティブで、ドラフトできません"
-        update_success: "アップデート成功！"
-        update_error: "アップデートエラー!!"
-      modal_job_form:
-        status: "状態"
-        edit: "仕事を編集する"
-        close: "閉じる"
         posting_time: "投稿時間"
-        image: "画像"
+        skill_require: "スキルが必要です"
+      job:
+        active: "アクティブ"
+        draft: "ドラフト"
+      modal_job_form:
         caption: "キャプションイメージ"
-        looking_for: "探している"
-        hiring_type: "採用タイプ"
-        who_can_apply: "応募可能な人"
+        close: "閉じる"
+        edit: "仕事を編集する"
         everyone: "誰もが応募できます"
-        friends_of_members: "メンバーの友人のみ"
         friends_of_friends_of_member: "メンバーの友人の友人のみ"
-        placeholder_title: "より良い職場をつくるために私たちと一緒に"
+        friends_of_members: "メンバーの友人のみ"
+        hiring_type: "採用タイプ"
+        image: "画像"
+        looking_for: "探している"
         placeholder_des: "あなたがクールなロッキングの若手エンジニアであれば
            慈善団体、あなたが私の新しいアイデアについて何を考えているか聞いてみたい。
            私はあなたに飲み物を買うでしょう！"
-      job:
-        draft: "ドラフト"
-        active: "アクティブ"
+        placeholder_title: "より良い職場をつくるために私たちと一緒に"
+        posting_time: "投稿時間"
+        status: "状態"
+        who_can_apply: "応募可能な人"
+      not_found: "ジョブが見つかりません"
+      update:
+        change_error: "状態エラーを変更！"
+        change_success: "ステータスの変更を成功させる！"
+        draft_error: "このジョブはアクティブで、ドラフトできません"
+        error_title: "エラー"
+        success_title: "成功"
+        update_error: "アップデートエラー!!"
+        update_success: "アップデート成功！"
     teams:
       new:
+        error: "エラー"
+        error_text: "エラーの削除 !!"
         new_team: "新しいチーム"
         success: "成功"
         success_text: "削除成功 !!"
-        error: "エラー"
-        error_text: "エラーの削除 !!"

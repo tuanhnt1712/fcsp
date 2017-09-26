@@ -1,0 +1,32 @@
+<ul class="timeline">
+  <li>
+    <% if course_subject.start_date? %>
+      <div class="tldate">
+        <%= l course_subject.start_date, format: :format_date_eng %>
+      </div>
+    <% end %>
+  </li>
+  <li class="timeline-inverted">
+    <div class="tl-circ <%= status_color(course_subject.status)[6..-1] %>"></div>
+    <div class="timeline-panel">
+      <div class="tl-heading">
+        <div class="image-subject">
+          <img src="<%= check_language course %>">
+        </div>
+        <div class="title_subject">
+          <%= course_subject.subject_name %>
+        </div>
+      </div>
+      <div class="tl-body">
+        <%= course_subject.subject_description %>
+      </div>
+    </div>
+  </li>
+  <li>
+    <% if course_subject.end_date? %>
+      <div class="enddate">
+        <%= l course_subject.end_date, format: :format_date_eng %>
+      </div>
+    <% end %>
+  </li>
+</ul>
