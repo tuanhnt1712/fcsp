@@ -19,8 +19,8 @@
         <div class="date">
           <% if course.start_date? && course.end_date? %>
             <span>
-              <%= l course.start_date, format: :format_date %> ~
-              <%= l course.end_date, format: :format_date %>
+              <%= l course.start_date, format: :format_date_eng %> ~
+              <%= l course.end_date, format: :format_date_eng %>
             </span>
           <% end %>
         </div>

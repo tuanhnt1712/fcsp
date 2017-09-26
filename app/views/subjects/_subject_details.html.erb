@@ -20,8 +20,8 @@
         <div class="date">
           <% if subject.start_date? && subject.end_date? %>
             <span>
-              <%= l subject.start_date, format: :format_date %> ~
-              <%= l subject.end_date, format: :format_date %>
+              <%= l subject.start_date, format: :format_date_eng %> ~
+              <%= l subject.end_date, format: :format_date_eng %>
             </span>
           <% end %>
         </div>

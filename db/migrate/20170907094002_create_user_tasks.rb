@@ -7,6 +7,8 @@ class CreateUserTasks < ActiveRecord::Migration[5.0]
       t.integer :task_id
       t.datetime :start_date
       t.datetime :end_date
+      t.float :estimate_time
+      t.text :meta
       t.integer :status
 
       t.timestamps

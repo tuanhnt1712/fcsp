@@ -4,6 +4,8 @@ class UserTask < ApplicationRecord
   belongs_to :course
   belongs_to :subject
 
+  serialize :meta, Hash
+
   enum status: %i(init in_progress finished closed)
   delegate :name, :task_type, :description, to: :task, prefix: true
 

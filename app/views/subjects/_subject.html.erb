@@ -11,14 +11,14 @@
   </td>
   <td>
     <% if course_subject.start_date? %>
-      <%= l course_subject.start_date, format: :format_date %>
+      <%= l course_subject.start_date, format: :format_date_eng %>
     <% else %>
       <%= t ".no_data" %>
     <% end %>
   </td>
   <td>
     <% if course_subject.end_date? %>
-      <%= l course_subject.end_date, format: :format_date %>
+      <%= l course_subject.end_date, format: :format_date_eng %>
     <% else %>
       <%= t ".no_data" %>
     <% end %>

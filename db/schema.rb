@@ -380,9 +380,11 @@ ActiveRecord::Schema.define(version: 20170914040644) do
     t.integer  "task_id"
     t.datetime "start_date"
     t.datetime "end_date"
+    t.float    "estimate_time"
+    t.text     "meta"
     t.integer  "status"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
   create_table "users", force: :cascade do |t|
