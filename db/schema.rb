@@ -188,7 +188,7 @@ ActiveRecord::Schema.define(version: 20170914040644) do
     t.integer  "company_id"
     t.string   "title"
     t.string   "describe"
-    t.integer  "type_of_candidates",      default: 0
+    t.integer  "type_of_candidate",       default: 0
     t.integer  "who_can_apply",           default: 0
     t.datetime "deleted_at"
     t.datetime "posting_time"
@@ -390,8 +390,6 @@ ActiveRecord::Schema.define(version: 20170914040644) do
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "phone"
-    t.integer  "cover_image_id"
-    t.integer  "avatar_id"
     t.string   "provider"
     t.integer  "company_id"
     t.integer  "role",                   default: 0
@@ -415,8 +413,6 @@ ActiveRecord::Schema.define(version: 20170914040644) do
     t.string   "country"
     t.string   "occupation"
     t.string   "status"
-    t.index ["avatar_id"], name: "index_users_on_avatar_id", using: :btree
-    t.index ["cover_image_id"], name: "index_users_on_cover_image_id", using: :btree
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end

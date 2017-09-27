@@ -12,15 +12,11 @@ class Job < ApplicationRecord
   belongs_to :company
   belongs_to :creator, class_name: User.name, foreign_key: :user_id
   has_many :job_teams, dependent: :destroy
-  has_many :teams, through: :job_teams
   has_many :images, as: :imageable, dependent: :destroy
-  has_many :job_hiring_types, dependent: :destroy
-  has_many :hiring_types, through: :job_hiring_types
   has_many :candidates, dependent: :destroy
   has_many :bookmarks, dependent: :destroy
   has_many :job_skills, dependent: :destroy
   has_many :skills, through: :job_skills
-  has_many :team_introductions, as: :team_target, dependent: :destroy
   has_many :shares, as: :shareable, class_name: ShareJob.name,
     dependent: :destroy
   has_many :sharers, through: :shares, source: :user
@@ -28,11 +24,9 @@ class Job < ApplicationRecord
   enum status: [:active, :close, :draft]
   enum who_can_apply: [:everyone, :friends_of_members,
     :friends_of_friends_of_member]
-  enum type_of_candidates: [:engineer, :creative, :director, :business_admin,
+  enum type_of_candidate: [:engineer, :creative, :director, :business_admin,
     :sales, :marketing, :medical, :others]
 
-  accepts_nested_attributes_for :job_hiring_types,
-    reject_if: :all_blank, allow_destroy: true
   accepts_nested_attributes_for :images, reject_if: :image_blank?
   accepts_nested_attributes_for :job_teams
   accepts_nested_attributes_for :skills
@@ -40,7 +34,7 @@ class Job < ApplicationRecord
   delegate :name, to: :company, prefix: true
   delegate :name, to: :hiring_types, prefix: true
 
-  ATTRIBUTES = [:title, :describe, :type_of_candidates, :who_can_apply, :status,
+  ATTRIBUTES = [:title, :describe, :type_of_candidate, :who_can_apply, :status,
     :company_id, :user_id, :candidates_count, :posting_time, :list_skills,
     hiring_type_ids: [], team_ids: [], images_attributes:
     [:id, :imageable_id, :imageable_type, :picture, :caption]]
@@ -51,7 +45,7 @@ class Job < ApplicationRecord
 
   validates :title, presence: true, length: {maximum: Settings.max_length_title}
   validates :describe, presence: true
-  validates :type_of_candidates, presence: true
+  validates :type_of_candidate, presence: true
   validates :who_can_apply, presence: true
   validates :profile_requests, presence: true
   validate :check_posting_time

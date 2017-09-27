@@ -71,3 +71,13 @@ jp:
         new_team: "新しいチーム"
         success: "成功"
         success_text: "削除成功 !!"
+  type_of_candidates:
+      business_admin: "ビジネス管理者（財務、人事など）"
+      creative: "クリエイティブ（デザイナー、作家など）"
+      director: "ディレクター/マネージャー"
+      engineer: "エンジニア/プログラマー"
+      marketing: "マーケティング"
+      medical: "医療"
+      others: "その他"
+      prompt: "候補のタイプを選択する"
+      sales: "販売"

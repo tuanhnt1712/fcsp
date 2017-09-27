@@ -3,8 +3,8 @@ require "rails_helper"
 RSpec.describe Candidate, type: :model do
   describe "Candidate associations" do
     context "columns" do
-      it{should have_db_column(:user_id).of_type(:integer)}
-      it{should have_db_column(:job_id).of_type(:integer)}
+      it{is_expected.to have_db_column(:user_id).of_type :integer}
+      it{is_expected.to have_db_column(:job_id).of_type :integer}
     end
 
     context "validates" do
@@ -13,8 +13,8 @@ RSpec.describe Candidate, type: :model do
     end
 
     context "associations" do
-      it{expect belong_to :job}
-      it{expect belong_to :user}
+      it{is_expected.to belong_to :job}
+      it{is_expected.to belong_to :user}
     end
   end
 end

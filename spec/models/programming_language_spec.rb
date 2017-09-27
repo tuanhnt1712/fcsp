@@ -1,5 +1,12 @@
 require "rails_helper"
 
 RSpec.describe ProgrammingLanguage, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  context "association" do
+    it{is_expected.to have_many :courses}
+  end
+
+  context "column_specifications" do
+    it{is_expected.to have_db_column(:name).of_type :string}
+    it{is_expected.to have_db_column(:description).of_type :string}
+  end
 end

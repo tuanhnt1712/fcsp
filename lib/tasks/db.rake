@@ -69,7 +69,7 @@ namespace :db do
           title = FFaker::Lorem.sentence
           describe = FFaker::Lorem.paragraph
           Job.create! company_id: rand(1..2), title: title, describe: describe,
-            type_of_candidates: 1, who_can_apply: 1, status: i,
+            type_of_candidate: 1, who_can_apply: 1, status: i,
             posting_time: Time.zone.now
         end
       end

@@ -22,12 +22,11 @@ class User < ApplicationRecord
   has_many :user_schools, dependent: :destroy
   has_many :schools, through: :user_schools
   has_many :shares, class_name: ShareJob.name, dependent: :destroy
-  has_many :shared_jobs, through: :shares, source: :job
+  has_many :share_jobs, source: :job
   has_many :user_languages, dependent: :destroy
   has_many :languages, through: :user_languages
   has_many :companies, foreign_key: :creator_id
   has_many :share_posts, class_name: ShareJob.name, dependent: :destroy
-  has_many :shared_posts, through: :share_jobs, source: :post
   has_many :user_course_subjects
   has_many :user_courses
   has_many :subjects, through: :user_course_subjects

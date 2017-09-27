@@ -70,3 +70,13 @@ vi:
         new_team: "Tạo team mới"
         success: "Thành công"
         success_tẽt: "Xóa thành công !!"
+  type_of_candidates:
+    business_admin: "Quản trị viên doanh nghiệp (Tài chính, Nhân sự, vv)"
+    creative: "Tạo(Nhà thiết kế, Nhà văn, etc..)"
+    director: "Giám đốc / Quản lí"
+    engineer: "Kĩ sư / lập trình viên"
+    marketing: "Marketing"
+    medical: "Y học"
+    others: "Khác"
+    prompt: "Chọn kiểu ứng tuyển"
+    sales: "bán hàng"
