@@ -1,0 +1,112 @@
+@import 'variables/color';
+
+.timeline {
+  left: 10%;
+  list-style: none;
+  padding: 20px 0 20px;
+  position: relative;
+  &:before {
+    top: 0;
+    bottom: 0;
+    position: absolute;
+    content: " ";
+    width: 3px;
+    background-color: $white-eee;
+    margin-left: -1.5px;
+  }
+}
+
+.tldate {
+  display: block;
+  width: 100px;
+  background: $green;
+  border-radius: 10%;
+  margin-left: -80px;
+  padding: 3px 0;
+  font-weight: bold;
+  text-align: center;
+  -webkit-box-shadow: 0 0 11px rgba(0, 0, 0, 0.35);
+}
+
+.enddate {
+  display: block;
+  width: 100px;
+  background: $persimmon;
+  border-radius: 10%;
+  padding: 3px 0;
+  font-weight: bold;
+  text-align: center;
+  -webkit-box-shadow: 0 0 11px rgba(0, 0, 0, 0.35);
+}
+
+.image-subject {
+  float: left;
+  img {
+    width: 100px;
+    height: 90px;
+    border-radius: 100%;
+  }
+}
+
+.title_subject {
+  margin-left: 30px;
+  color: $picton_blue;
+  font-size: 16pt;
+}
+
+.timeline li {
+  position: relative;
+  &:before {
+    content: " ";
+    display: table;
+  }
+  &:after {
+    content: " ";
+    display: table;
+    clear: both;
+  }
+  &:before, &:after {
+    content: " ";
+    display: table;
+  }
+  .timeline-panel {
+    width: 80%;
+    float: left;
+    background: $white;
+    border: 1px solid $alto;
+    margin-left: 35px;
+    padding: 20px;
+    position: relative;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  }
+  &.timeline-inverted .timeline-panel {
+    &:before {
+      border-left-width: 0;
+      border-right-width: 15px;
+      left: -15px;
+      right: auto;
+    }
+    &:after {
+      border-left-width: 0;
+      border-right-width: 14px;
+      left: -14px;
+      right: auto;
+    }
+  }
+  .tl-circ {
+    position: absolute;
+    top: 23px;
+    text-align: center;
+    color: $white;
+    width: 35px;
+    height: 35px;
+    line-height: 35px;
+    margin-left: -16px;
+    border: 3px solid $nepal;
+    border-top-right-radius: 50%;
+    border-top-left-radius: 50%;
+    border-bottom-right-radius: 50%;
+    border-bottom-left-radius: 50%;
+    z-index: 99999;
+  }
+}

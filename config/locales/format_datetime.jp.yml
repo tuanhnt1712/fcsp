@@ -1,4 +1,8 @@
 jp:
+  date:
+    formats:
+      month_year_format: "%B %Y"
+      short_month_year: "%d-%m-%Y"
   time:
     formats:
       date_month_year_concise: "%d-%m-%y"
@@ -7,7 +11,3 @@ jp:
       format_datetime: "%Y/%m/%d %H:%M"
       format_datetime_js: "YYYY/MM/DD HH:mm"
       time_date_month_year: "%-d %B %Y, %H:%M %p"
-  date:
-    formats:
-      month_year_format: "%B %Y"
-      short_month_year: "%d-%m-%Y"

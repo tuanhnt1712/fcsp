@@ -1,94 +1,94 @@
 en:
-  companies:
-    avatar:
-      success: "Success"
-      danger: "Danger"
-      not_found: "Not Found"
-    cover:
-      success: "Success"
-      danger: "Danger"
-      not_found: "Not Found"
-    show:
-      info: "Info"
-      news: "News"
-      jobs: "Jobs"
-      members: "Members"
-      stats: "Stats"
-      founder: "Founder"
-      founded: "Founded on"
-      no_of_members: "# of Members"
-      about_us: "About us"
-      social_profiles: "Social Profiles"
-      follow: "Follow"
-    follow_form:
-      follow: "Follow"
-      unfollow: "Unfollow"
-    show_left_main_content:
-      info: "Info"
-      news: "News"
-      jobs: "Jobs"
-      members: "Members"
-      stats: "Stats"
-      founder: "Founder"
-      founded: "Founded on"
-      no_of_members: "# of Members"
-    show_right_main_content:
-      about_us: "About us"
-      social_profiles: "Social Profiles"
-      location: "Location"
-    show_header:
-      follow: "Follow"
-      change_cover: "Change your cover image"
-      info: "Info"
-      news: "News"
-      jobs: "Jobs"
-      members: "Members"
-      stats: "Stats"
-    modal_change_avatar_company:
-      update_avatar: "Update avatar image"
-      save: "Save"
-    modal_change_cover_company:
-      update_cover: "Update cover image"
-      save: "Save"
-    company_jobs:
-      see_more: "See more"
-    create:
-      success: "Create Success !!"
-      fail: "Create Fails !!"
-    modal_create_company:
-      create_company: "Create Company"
-      create: "Create"
-      close: "Close"
   admin:
-    layouts:
-      admin_header:
-        fcsp_dash: "Dashboard"
-        welcome: "Welcome"
-        general: "General Management"
-        companies: "Companies"
-        users: "Users"
-        log_out: "Log out"
-        articles: "Articles"
-      admin_footer:
-        footer_content: "Framgia Code School Platform by"
     companies:
-      new:
-        company_registration: "Company registration"
       company_form:
         next: "Next"
-        required: "Required"
         optional: "Optional"
+        required: "Required"
         term: "By signing up you agree to our Enterprise Terms of Service,
           Terms of Use and Policy"
       create:
         company_created: "Create company successfully! Please create company introductions"
         company_failed: "Error(s) occur when create company"
+      new:
+        company_registration: "Company registration"
+    layouts:
+      admin_footer:
+        footer_content: "Framgia Code School Platform by"
+      admin_header:
+        articles: "Articles"
+        companies: "Companies"
+        fcsp_dash: "Dashboard"
+        general: "General Management"
+        log_out: "Log out"
+        users: "Users"
+        welcome: "Welcome"
     users:
+      create:
+        create_fail: "Fail to create employer"
+        user_created: "Create employer successfully"
       new:
         employer_registration: "Employer registration"
         next: "Finish"
-        required: "Required"
         optional: "Optional"
-      create:
-        user_created: "Create employer successfully"
-        create_fail: "Fail to create employer"
+        required: "Required"
+  companies:
+    avatar:
+      danger: "Danger"
+      not_found: "Not Found"
+      success: "Success"
+    company_jobs:
+      see_more: "See more"
+    cover:
+      danger: "Danger"
+      not_found: "Not Found"
+      success: "Success"
+    create:
+      fail: "Create Fails !!"
+      success: "Create Success !!"
+    follow_form:
+      follow: "Follow"
+      unfollow: "Unfollow"
+    modal_change_avatar_company:
+      save: "Save"
+      update_avatar: "Update avatar image"
+    modal_change_cover_company:
+      save: "Save"
+      update_cover: "Update cover image"
+    modal_create_company:
+      close: "Close"
+      create: "Create"
+      create_company: "Create Company"
+    show:
+      about_us: "About us"
+      follow: "Follow"
+      founded: "Founded on"
+      founder: "Founder"
+      info: "Info"
+      jobs: "Jobs"
+      members: "Members"
+      news: "News"
+      no_of_members: "# of Members"
+      social_profiles: "Social Profiles"
+      stats: "Stats"
+    show_header:
+      change_cover: "Change your cover image"
+      follow: "Follow"
+      info: "Info"
+      jobs: "Jobs"
+      members: "Members"
+      news: "News"
+      stats: "Stats"
+    show_left_main_content:
+      founded: "Founded on"
+      founder: "Founder"
+      info: "Info"
+      jobs: "Jobs"
+      members: "Members"
+      news: "News"
+      no_of_members: "# of Members"
+      stats: "Stats"
+    show_right_main_content:
+      about_us: "About us"
+      location: "Location"
+      social_profiles: "Social Profiles"

@@ -25,6 +25,13 @@ class UsersController < ApplicationController
     end
     respond_to do |format|
       format.html
+      format.json {
+        render json: {
+          status: :success,
+          html: render_to_string(partial: "users/course_users", formats: :html,
+          locals: {user: @user, courses: @courses, subjects: @subjects}, layout: false)
+        }
+      }
       format.js
     end
   end

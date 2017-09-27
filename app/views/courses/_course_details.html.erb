@@ -2,8 +2,9 @@
   <div class="page-title">
     <div class="title_left">
       <ol class="breadcrumb-arrow">
-        <li><%= link_to t(".courses"), user_path(user) %></li>
-        <li><%= link_to course.name, "#" %></li>
+        <li><%= link_to t(".courses"), user_path(user),
+          class: "course-user", id: user.id %></li>
+        <li><a> <%= course.name %></a></li>
       </ol>
     </div>
 
@@ -18,10 +19,8 @@
         </div>
         <div class="date">
           <% if course.start_date? && course.end_date? %>
-            <span>
-              <%= l course.start_date, format: :format_date_eng %> ~
-              <%= l course.end_date, format: :format_date_eng %>
-            </span>
+            <span><%= l course.start_date, format: :format_date_eng %> ~ <%= l course.end_date,
+              format: :format_date_eng %></span>
           <% end %>
         </div>
       </div>
@@ -35,23 +34,9 @@
           <div class="x_title">
           </div>
           <div class="x_content">
-            <table id="datatable" class="table table-striped table-bordered">
-              <thead>
-                <tr>
-                  <th>#</th>
-                  <th><%= t ".name" %></th>
-                  <th><%= t ".status" %></th>
-                  <th><%= t ".start_date" %></th>
-                  <th><%= t ".end_date" %></th>
-                </tr>
-              </thead>
-              <tbody>
-                <% subjects.each do |course_subject| %>
-                  <%= render "subjects/subject", course_subject: course_subject,
-                    user: user, course: course %>
-                <% end %>
-              </tbody>
-            </table>
+            <% @user_course_subjects.each do |course_subject| %>
+              <%= render "course_detail", course_subject: course_subject, course: course %>
+            <% end %>
           </div>
         </div>
       </div>

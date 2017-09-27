@@ -86,6 +86,7 @@ group :development do
   gem "spring-watcher-listen", "~> 2.0.0"
   gem "bullet"
   gem "pry"
+  gem "i18n_yaml_sorter"
 end
 
 group :test do

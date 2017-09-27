@@ -1,10 +1,10 @@
 jp:
   job_mailer:
     apply_job:
-      subject: "応募ありがとうございます！"
-      hi: "こんにちは％{name}"
       end: "%{link}にお越しいただきありがとうございます"
+      hi: "こんにちは％{name}"
+      subject: "応募ありがとうございます！"
     posting_job:
-      subject: "\"%{job_title}\"が正常に投稿されました"
       hi: "こんにちは％{name}"
       posting_job: "あなたの求人％{link}は公開されています"
+      subject: "\"%{job_title}\"が正常に投稿されました"
