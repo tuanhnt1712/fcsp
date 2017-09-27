@@ -4,7 +4,7 @@ class CreateJobs < ActiveRecord::Migration[5.0]
       t.references :company
       t.string :title
       t.string :describe
-      t.integer :type_of_candidates, default: 0
+      t.integer :type_of_candidate, default: 0
       t.integer :who_can_apply, default: 0
       t.datetime :deleted_at
       t.datetime :posting_time

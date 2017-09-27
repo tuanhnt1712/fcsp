@@ -7,13 +7,13 @@ RSpec.describe Language, type: :model do
   end
 
   context "column_specifications" do
-    it{expect have_db_column(:name).of_type(:string)}
+    it{is_expected.to have_db_column(:name).of_type :string}
   end
 
   context "validation" do
     it{is_expected.to validate_presence_of :name}
     it do
-      expect validate_length_of(:name)
+      is_expected.to validate_length_of(:name)
         .is_at_most Settings.language.name_max_length
     end
   end

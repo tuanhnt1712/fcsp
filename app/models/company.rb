@@ -12,7 +12,6 @@ class Company < ApplicationRecord
     primary_key: :avatar_id
   has_one :cover_image, class_name: Image.name, foreign_key: :id,
     primary_key: :cover_image_id
-  has_many :social_networks, as: :owner, dependent: :destroy
   belongs_to :creator, foreign_key: :creator_id, class_name: User.name
 
   ATTRIBUTES = [:name, :website, :introduction, :founder, :country,

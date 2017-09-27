@@ -14,7 +14,7 @@
       <%= link_to job.title, edit_employer_company_job_path(id: job.id), class: "job-title", remote: true %>
       <div class="hidden-xs">
         <span class="icon-job-type sales">
-          <%= Job.human_enum_name :type_of_candidates, job.type_of_candidates %>
+          <%= Job.human_enum_name :type_of_candidates, job.type_of_candidate %>
         </span>
       </div>
       <div>

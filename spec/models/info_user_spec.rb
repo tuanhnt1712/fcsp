@@ -3,10 +3,10 @@ require "rails_helper"
 RSpec.describe InfoUser, type: :model do
   describe "InfoUser validation" do
     context "column_specifications" do
-      it{expect have_db_column(:introduce).of_type(:text)}
-      it{expect have_db_column(:quote).of_type(:string)}
-      it{expect have_db_column(:ambition).of_type(:string)}
-      it{expect have_db_column(:relationship_status).of_type(:integer)}
+      it{is_expected.to have_db_column(:introduce).of_type :text}
+      it{is_expected.to have_db_column(:quote).of_type :string}
+      it{is_expected.to have_db_column(:ambition).of_type :string}
+      it{is_expected.to have_db_column(:relationship_status).of_type :integer}
     end
 
     context "associations" do
