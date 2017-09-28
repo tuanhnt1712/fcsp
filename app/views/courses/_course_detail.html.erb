@@ -14,7 +14,10 @@
           <img src="<%= check_language course %>">
         </div>
         <div class="title_subject">
-          <%= course_subject.subject_name %>
+          <%= link_to course_subject.subject_name,
+            user_course_subject_path(@user.id, @course.id,course_subject.id),
+            class: "subject-all", data: {"user-id": @user.id,
+              "course-id": course.id, "subject-id": course_subject.id} %>
         </div>
       </div>
       <div class="tl-body">

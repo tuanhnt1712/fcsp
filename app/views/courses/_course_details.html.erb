@@ -2,8 +2,10 @@
   <div class="page-title">
     <div class="title_left">
       <ol class="breadcrumb-arrow">
-        <li><%= link_to t(".courses"), user_path(user),
-          class: "course-user", id: user.id %></li>
+        <li>
+          <%= link_to t(".courses"), user_path(user),
+            class: "course-user", data: {"user-id": user.id} %>
+        </li>
         <li><a> <%= course.name %></a></li>
       </ol>
     </div>
@@ -19,8 +21,10 @@
         </div>
         <div class="date">
           <% if course.start_date? && course.end_date? %>
-            <span><%= l course.start_date, format: :format_date_eng %> ~ <%= l course.end_date,
-              format: :format_date_eng %></span>
+            <span>
+              <%= l course.start_date, format: :format_date_eng %> ~
+              <%= l course.end_date, format: :format_date_eng %>
+            </span>
           <% end %>
         </div>
       </div>
@@ -34,7 +38,7 @@
           <div class="x_title">
           </div>
           <div class="x_content">
-            <% @user_course_subjects.each do |course_subject| %>
+            <% subjects.each do |course_subject| %>
               <%= render "course_detail", course_subject: course_subject, course: course %>
             <% end %>
           </div>

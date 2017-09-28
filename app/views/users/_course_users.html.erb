@@ -29,8 +29,11 @@
                 <% courses.each do |course| %>
                   <tr>
                     <td></td>
-                    <td><%= link_to course.name, user_course_path(user.id, course.id),
-                      id: course.id, class: "course-all", data: {"user-id": user.id} %></td>
+                    <td>
+                      <%= link_to course.name, user_course_path(user.id, course.id),
+                        class: "course-all", data: {"user-id": user.id,
+                          "course-id": course.id} %>
+                    </td>
                     <td>
                       <span class="<%= status_color course.status %>"><%= course.status %></span>
                     </td>

@@ -4,18 +4,19 @@ class CoursesController < ApplicationController
 
   def show
     @user_object = Supports::ShowUser.new @user, current_user, params
-    @user_course_subjects = @course.user_course_subjects.includes :subject
+    user_course_subjects = @course.user_course_subjects.includes :subject
     render json: {
       status: :success,
-      html: render_to_string(partial: "courses/course_details", locals: {user: @user,
-        course: @course, subjects: @subjects}, layout: false)
+      html: render_to_string(partial: "courses/course_details",
+        locals: {user: @user, course: @course, subjects: user_course_subjects},
+        layout: false)
     }
   end
 
   private
 
   def find_user
-    @user = User.includes(:info_user).find_by id: params[:user_id]
+    @user = User.find_by id: params[:user_id]
 
     return if @user
     flash[:danger] = t ".user_not_found"

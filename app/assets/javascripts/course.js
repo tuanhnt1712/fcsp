@@ -1,27 +1,28 @@
 $(document).ready(function(){
   $('body').on('click', '.course-all', function(e){
     e.preventDefault();
-    var id = $(this).attr('id');
+    var id_course = $(this).data('course-id');
     var id_user = $(this).data('user-id');
     $.ajax({
-      url: id_user + '/courses/' + id,
+      url: id_user + '/courses/' + id_course,
       type: 'GET',
       dataType: 'json',
       success: function(result){
-        $('body').find('#tab-information').html(result.html);
+        $('#tab-information').html(result.html);
       }
     });
   });
 
   $('body').on('click', '.course-user', function(e){
     e.preventDefault();
-    var id = $(this).attr('id');
+    var id_user = $(this).data('user-id');
+    var id_course = $(this).data('course-id');
     $.ajax({
-      url: id,
+      url: id_user + '/courses/' + id_course,
       type: 'GET',
       dataType: 'json',
       success: function(result){
-        $('body').find('#tab-information').html(result.html);
+        $('#tab-information').html(result.html);
       }
     });
   });

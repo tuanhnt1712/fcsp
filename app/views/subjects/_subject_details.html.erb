@@ -2,8 +2,15 @@
   <div class="page-title">
     <div class="title_left">
       <ol class="breadcrumb-arrow">
-        <li><%= link_to t(".courses"), user_path(user) %></li>
-        <li><%= link_to course.name, user_course_path(user.id, course.id) %></li>
+        <li>
+          <%= link_to t(".courses"), user_path(user),
+            class: "course-user", data: {"user-id": user.id} %>
+        </li>
+        <li>
+          <%= link_to course.name, user_course_path(user.id, course.id),
+            class: "course-user",
+            data: {"user-id": user.id, "course-id": course.id} %>
+        </li>
         <li><a><%= subject.subject_name %></a></li>
       </ol>
     </div>
