@@ -48,3 +48,4 @@
 //= require company
 //= require_tree ../../../vendor/assets/javascripts/js/gentelella
 //= require datatable
+//= require subject

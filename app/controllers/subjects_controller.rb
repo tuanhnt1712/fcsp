@@ -3,14 +3,21 @@ class SubjectsController < ApplicationController
 
   def show
     @user_object = Supports::ShowUser.new @user, current_user, params
-    @user_tasks = @user.user_tasks.includes(:task)
-      .check_course_subject params[:course_id], params[:id]
+    user_tasks = @user.user_tasks.includes(:task)
+      .check_course_subject params[:course_id], @user_course_subject.subject_id
+    render json: {
+      status: :success,
+      html: render_to_string(
+        partial: "subjects/subject_details",
+        locals: {user: @user, course: @course, subject: @user_course_subject,
+          tasks: user_tasks}, layout: false)
+    }
   end
 
   private
 
   def find_user
-    @user = User.includes(:info_user).find_by id: params[:user_id]
+    @user = User.find_by id: params[:user_id]
 
     return if @user
     flash[:danger] = t ".user_not_found"
@@ -27,7 +34,7 @@ class SubjectsController < ApplicationController
 
   def find_subject
     @user_course_subject = @user.user_course_subjects
-      .find_by subject_id: params[:id]
+      .find_by id: params[:id]
 
     return if @user_course_subject
     flash[:danger] = t ".subject_not_found"
