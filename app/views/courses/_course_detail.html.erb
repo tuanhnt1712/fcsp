@@ -18,6 +18,9 @@
             user_course_subject_path(@user.id, @course.id,course_subject.id),
             class: "subject-all", data: {"user-id": @user.id,
               "course-id": course.id, "subject-id": course_subject.id} %>
+          <span class="<%= status_color course_subject.status %>">
+            <%= course_subject.status %>
+          </span>
         </div>
       </div>
       <div class="tl-body">
