@@ -49,3 +49,5 @@
 //= require_tree ../../../vendor/assets/javascripts/js/gentelella
 //= require datatable
 //= require subject
+//= require js/template_course/custom
+//= require js/template_course/jquery.easing.min

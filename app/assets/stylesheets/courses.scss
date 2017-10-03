@@ -75,11 +75,11 @@
         border-left: 11px solid $mine_shaft;
       }
       &:focus, &:hover {
-        background-color: $flamingo;
-        border: 1px solid $flamingo;
+        background-color: $zest;
+        border: 1px solid $zest;
       }
       &:focus:before, &:hover:before {
-        border-left-color: $flamingo;
+        border-left-color: $zest;
       }
       &:active {
         background-color: $curious_blue;
