@@ -11,50 +11,33 @@
     <div class="row">
       <div class="col-md-12 col-sm-12 col-xs-12">
         <div class="x_panel">
-          <div class="x_title">
-          </div>
           <div class="x_content">
-            <table id="datatable" class="table table-striped table-bordered">
-              <thead>
-                <tr>
-                  <th>#</th>
-                  <th><%= t ".name" %></th>
-                  <th><%= t ".status" %></th>
-                  <th><%= t ".start_date" %></th>
-                  <th><%= t ".end_date" %></th>
-                </tr>
-              </thead>
-
-              <tbody>
+            <section id ="courses" class="section-padding">
+              <div class="row">
                 <% courses.each do |course| %>
-                  <tr>
-                    <td></td>
-                    <td>
-                      <%= link_to course.name, user_course_path(user.id, course.id),
-                        class: "course-all", data: {"user-id": user.id,
-                          "course-id": course.id} %>
-                    </td>
-                    <td>
-                      <span class="<%= status_color course.status %>"><%= course.status %></span>
-                    </td>
-                    <td>
-                      <% if course.start_date? %>
-                        <%= l course.start_date, format: :format_date_eng %>
-                      <% else %>
-                        <%= t ".no_data" %>
-                      <% end %>
-                    </td>
-                    <td>
-                      <% if course.start_date? %>
-                        <%= l course.end_date, format: :format_date_eng %>
-                      <% else %>
-                        <%= t ".no_data" %>
-                      <% end %>
-                    </td>
-                  </tr>
+                  <div class="col-md-4 padleft-right">
+                    <%= link_to user_course_path(user.id, course.id),
+                      class: "course-all",
+                      data: {"user-id": user.id, "course-id": course.id} do %>
+                      <figure class="imghvr-fold-up">
+                        <%= image_tag check_language(course), class: "img-responsive" %>
+                        <figcaption>
+                          <h3>
+                            <%= course.name %>
+                          </h3>
+                          <% if course.start_date? && course.end_date? %>
+                            <p>
+                              <%= l course.start_date, format: :format_date_eng %> ~
+                              <%= l course.end_date, format: :format_date_eng %>
+                            </p>
+                          <% end %>
+                        </figcaption>
+                      </figure>
+                    <% end %>
+                  </div>
                 <% end %>
-              </tbody>
-            </table>
+              </div>
+            </section>
           </div>
         </div>
       </div>

@@ -5,7 +5,7 @@ class UsersController < ApplicationController
 
   def show
     @user_object = Supports::ShowUser.new @user, current_user, params
-    @courses = @user.courses
+    @courses = @user.courses.includes :programming_language
 
     if request.xhr?
       if params[:suggest_jobs_page]
