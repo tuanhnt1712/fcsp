@@ -1,8 +1,8 @@
 require "rails_helper"
 
 RSpec.describe JobsController, type: :controller do
-  let(:user){FactoryGirl.create :user, role: 1}
-  let!(:job){FactoryGirl.create :job}
+  let(:user) {FactoryGirl.create :user, role: 1}
+  let!(:job) {FactoryGirl.create :job}
 
   describe "GET #index" do
     before :each do

@@ -3,7 +3,6 @@ class CompaniesController < ApplicationController
 
   def create
     @company.creator = current_user
-
     if @company.save
       render json: {status: :success, message: t(".success"),
         location: employer_company_dashboards_path(@company)}
@@ -11,7 +10,7 @@ class CompaniesController < ApplicationController
       render json: {
         status: :error, message: t(".fail"),
         errors: @company.errors.messages
-      }
+      }, status: :error
     end
   end
 

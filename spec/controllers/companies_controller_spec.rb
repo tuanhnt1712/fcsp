@@ -10,4 +10,18 @@ RSpec.describe CompaniesController, type: :controller do
       expect(response).to have_http_status(200)
     end
   end
+
+  describe "company created" do
+    let!(:company) {FactoryGirl.create :company}
+    it "company created success" do
+      post :create, company: {name: company.name,
+        website: company.website, company_size: company.company_size}
+      expect(response).to have_http_status :success
+    end
+
+    it "company created error" do
+      post :create, company: {name: company.name}
+      expect(response).to have_http_status :error
+    end
+  end
 end
