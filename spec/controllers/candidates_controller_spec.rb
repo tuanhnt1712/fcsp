@@ -1,8 +1,8 @@
 require "rails_helper"
 
 RSpec.describe CandidatesController, type: :controller do
-  let(:user){FactoryGirl.create :user}
-  let!(:job){FactoryGirl.create :job}
+  let(:user) {FactoryGirl.create :user}
+  let!(:job) {FactoryGirl.create :job}
 
   before :each do
     sign_in user

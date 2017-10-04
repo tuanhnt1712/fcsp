@@ -6,6 +6,10 @@ RSpec.describe CompaniesAvatarsController, type: :controller do
     Rack::Test::UploadedFile
       .new(Rails.root.join("spec", "support", "education", "image", "test.jpg"))
   end
+  let!(:image_fail) do
+    Rack::Test::UploadedFile
+      .new(Rails.root.join("spec", "support", "education", "image", "fail_test.txt"))
+  end
 
   describe "POST #create" do
     it "change avatar successfully" do
@@ -15,9 +19,8 @@ RSpec.describe CompaniesAvatarsController, type: :controller do
     end
 
     it "change avatar fail" do
-      post :create, params: {id: company.id, picture: "file.jpg"}
-      expect(controller).to set_flash[:danger]
-        .to(I18n.t "companies.avatar.danger")
+      post :create, params: {id: company.id, picture: image_fail}
+      expect(controller).to set_flash[:danger].to(I18n.t "companies.avatar.danger")
     end
   end
 

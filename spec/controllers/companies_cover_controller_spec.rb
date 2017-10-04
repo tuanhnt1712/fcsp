@@ -1,10 +1,14 @@
 require "rails_helper"
 
 RSpec.describe CompaniesCoverController, type: :controller do
-  let!(:company){FactoryGirl.create :company}
+  let!(:company) {FactoryGirl.create :company}
   let!(:image) do
     Rack::Test::UploadedFile
       .new(Rails.root.join("spec", "support", "education", "image", "test.jpg"))
+  end
+  let!(:image_fail) do
+    Rack::Test::UploadedFile
+      .new(Rails.root.join("spec", "support", "education", "image", "fail_test.txt"))
   end
 
   describe "POST #create" do
@@ -15,7 +19,7 @@ RSpec.describe CompaniesCoverController, type: :controller do
     end
 
     it "change cover fail" do
-      post :create, params: {id: company.id, picture: "file.jpg"}
+      post :create, params: {id: company.id, picture: image_fail}
       expect(controller).to set_flash[:danger]
         .to(I18n.t "companies.cover.danger")
     end
