@@ -480,6 +480,10 @@ vi:
       update_button: "Cập nhật"
     find_info_user:
       infor_user_not_found: "Không tìm thấy thông tin của người dùng"
+    index:
+      profile_private: "Trang cá nhân của bạn đã được đóng"
+      profile_public: "Trang cá nhân của bạn được công khai"
+      update_fail: "Cập nhật không thành công"
     introduction:
       edit: "Sửa"
       friends: "Bạn bè"
@@ -991,6 +995,7 @@ vi:
       message: "Tin nhắn"
       new_feed: "Bảng tin"
       posts: "Bài đăng"
+      refresh: "Đồng bộ dữ liệu"
       skills: "Kỹ năng"
       working_at: "Đang làm việc tại"
     list_friend:
@@ -1008,7 +1013,10 @@ vi:
       job_suggest: "Gợi ý công việc"
       new_feed: "Bảng tin"
       not_found: "Không tìm thấy người dùng"
+      page_error: "Trang này bạn không được quyền xem"
       posts: "Bài đăng"
+      public_profile: "Công khai trang cá nhân"
+      private_profile: "Chỉ mình tôi"
     skill_user:
       add: "Thêm"
       skills: "Kỹ năng"

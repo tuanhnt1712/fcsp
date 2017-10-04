@@ -431,6 +431,10 @@ en:
       update_button: "Update"
     find_info_user:
       infor_user_not_found: "Infomation of user not found"
+    index:
+      profile_private: "Your profile is private"
+      profile_public: "Your profile is public"
+      update_fail: "Update Failed"
     introduction:
       edit: "Edit"
       friends: "Friends"
@@ -563,6 +567,7 @@ en:
       message: "Messages"
       messages: "Messages"
       profile: "Profile"
+      refresh: "Refresh"
       search: "Search and hit enter..."
       sign_out: "Sign out"
     job_bookmark:
@@ -1034,8 +1039,10 @@ en:
       job_suggest: "Suggest job"
       new_feed: "New feed"
       not_found: "User not found"
+      page_error: "This is not the web page you are looking for"
       posts: "Posts"
-      synchronize_tms: "Synchronize TMS"
+      private_profile: "Private Profile"
+      public_profile: "Public Profile"
     skill_user:
       add: "Add"
       skills: "Skills"

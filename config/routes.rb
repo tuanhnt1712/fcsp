@@ -53,7 +53,7 @@ Rails.application.routes.draw do
   resources :companies_cover
   resources :user_covers, only: :create
   resource :user_covers, only: :update
-  resources :info_users, only: :update
+  resources :info_users, only: [:update, :index]
   resources :user_languages, except: :show
   resources :skills, only: :index
   resources :user_skills

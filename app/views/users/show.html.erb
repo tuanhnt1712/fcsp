@@ -10,15 +10,19 @@
                 <%= render "user_job", user: @user, user_object: @user_object %>
               </div>
             <% end %>
-            <div class="hide-tab active" id="tab-information">
-              <%= render "course_users", user: @user, courses: @courses %>
-            </div>
+            <% if check_permission_profile || @user.is_user?(current_user) %>
+              <div class="hide-tab active" id="tab-information">
+                <%= render "course_users", user: @user, courses: @courses %>
+              </div>
+            <% else %>
+              <h1><%= t ".page_error" %></h1>
+            <% end %>
           </div>
         </article>
       </div>
       <div class="col-md-3">
         <article class="post show-tab-user">
-          <%= tms_synchronize_button %>
+          <%= publish_info_button %>
           <%= render "social_network", user: @user, info_user: @info_user %>
         </article>
       </div>

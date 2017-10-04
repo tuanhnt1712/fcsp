@@ -162,9 +162,10 @@ ActiveRecord::Schema.define(version: 20170914040644) do
     t.string   "phone"
     t.string   "address"
     t.text     "info_statuses"
+    t.boolean  "is_public",           default: false
     t.integer  "user_id"
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
     t.index ["user_id"], name: "index_info_users_on_user_id", using: :btree
   end
 

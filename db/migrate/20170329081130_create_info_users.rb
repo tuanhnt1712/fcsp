@@ -8,6 +8,7 @@ class CreateInfoUsers < ActiveRecord::Migration[5.0]
       t.string :phone
       t.string :address
       t.text :info_statuses
+      t.boolean :is_public, default: false
       t.references :user, index: true, unique: true, foreign_key: true
 
       t.timestamps
