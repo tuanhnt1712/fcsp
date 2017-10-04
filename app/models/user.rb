@@ -64,11 +64,7 @@ class User < ApplicationRecord
   end
 
   scope :recommend, ->job_id do
-    select("users.id, users.name, users.avatar_id,
-      skill_users.skill_id, skill_users.level")
-      .joins(:skills).where("skill_users.skill_id IN (?)",
-        Skill.require_by_job(job_id).pluck(:id))
-      .distinct.order("level desc").limit Settings.recommend.user_limit
+    select("users.id, users.name, users.avatar").limit Settings.recommend.user_limit
   end
 
   class << self

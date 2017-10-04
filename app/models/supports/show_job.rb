@@ -15,7 +15,7 @@ module Supports
     end
 
     def members
-      company.users.includes :avatar
+      company.users
     end
 
     def has_member?
@@ -35,7 +35,7 @@ module Supports
     end
 
     def recommend
-      User.recommend(@job).includes :avatar
+      User.recommend @job
     end
 
     def qualified_profile?
