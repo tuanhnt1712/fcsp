@@ -2,12 +2,14 @@
   <div class="col-md-2 avatar-task">
     <%= load_user_avatar user %>
   </div>
-  <div class="tl-circ-task <%= status_color(task.status)[6..-1] %>"></div>
+  <div class="tl-circ-task <%= status_color(task.status)[6..-1] %>"
+    class="tooltip" role="tooltip" data-toggle="tooltip"
+    title="<%= task.status %>">
+  </div>
   <div class="col-md-10 info-detail">
     <div class="title-assignment">
       <div>
         <span class="title_course"><%= task.task_name %></span>
-        <span class="<%= status_color task.status %>"><%= task.status %></span>
       </div>
       <span class="description-text"><%= task.task_description %></span>
     </div>

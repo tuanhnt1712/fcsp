@@ -7,7 +7,10 @@
     <% end %>
   </li>
   <li class="timeline-inverted">
-    <div class="tl-circ <%= status_color(course_subject.status)[6..-1] %>"></div>
+    <div class="tl-circ <%= status_color(course_subject.status)[6..-1] %>"
+      class="tooltip" role="tooltip" data-toggle="tooltip"
+      title="<%= course_subject.status %>">
+    </div>
     <div class="timeline-panel">
       <div class="tl-heading">
         <div class="image-subject">
@@ -18,9 +21,6 @@
             user_course_subject_path(@user.id, @course.id,course_subject.id),
             class: "subject-all", data: {"user-id": @user.id,
               "course-id": course.id, "subject-id": course_subject.id} %>
-          <span class="<%= status_color course_subject.status %>">
-            <%= course_subject.status %>
-          </span>
         </div>
       </div>
       <div class="tl-body">
