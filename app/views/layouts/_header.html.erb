@@ -101,6 +101,7 @@
             </button>
             <ul class="dropdown-menu profile-box">
               <li><%= link_to t(".profile"), user_path(current_user) %></li>
+              <li><%= tms_synchronize_button %></li>
               <li>
                 <%= link_to t(".sign_out"), destroy_user_session_path,
                   method: :delete %>
