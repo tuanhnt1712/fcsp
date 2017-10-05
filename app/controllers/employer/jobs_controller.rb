@@ -1,7 +1,6 @@
 class Employer::JobsController < Employer::BaseController
-  before_action :load_hiring_types, only: [:new, :create, :edit]
   before_action :update_status, only: :create
-  before_action :load_job, only: [:edit, :update]
+  before_action :load_job, only: %i(edit update)
 
   def index
     if params[:type]
@@ -20,7 +19,7 @@ class Employer::JobsController < Employer::BaseController
         render json: {
           html_job: render_to_string(partial: "job",
             locals: {jobs: @jobs, company: @company}, collection: @jobs),
-          pagination_job: render_to_string(partial: "paginate",
+            pagination_job: render_to_string(partial: "paginate",
             locals: {jobs: @jobs}, layout: false)
         }
       }
@@ -36,7 +35,7 @@ class Employer::JobsController < Employer::BaseController
   def create
     @job = @company.jobs.build job_params
     @job.posting_time = Time.zone.now unless @job.posting_time
-    if @job.create_transaction_post_skills
+    if @job.save
       flash[:success] = t "employer.jobs.create.created"
       redirect_to @job
     else
@@ -56,11 +55,11 @@ class Employer::JobsController < Employer::BaseController
     params[:job].delete :posting_time if @job.is_posted?
     if @job.update_attributes job_params
       respond_to do |format|
-        format.json {
+        format.json{
           render json: {status: Job.human_enum_name(:status, @job.status)}
         }
-        format.js {render "update.js.erb", locals: {job: @job}}
-        format.html {redirect_to employer_company_jobs_path @company}
+        format.js{render "update.js.erb", locals: {job: @job}}
+        format.html{redirect_to employer_company_jobs_path @company}
       end
     else
       redirect_back fallback_location: :back
@@ -89,9 +88,6 @@ class Employer::JobsController < Employer::BaseController
 
   def job_params
     params.require(:job).permit Job::ATTRIBUTES
-  end
-
-  def load_hiring_types
   end
 
   def update_status

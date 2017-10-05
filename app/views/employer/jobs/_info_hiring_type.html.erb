@@ -3,15 +3,9 @@
     <span class="required">*</span>
   </label>
   <div class="col-md-6 col-sm-6 col-xs-12">
-    <%= f.select :type_of_candidates, Job::TYPEOFCANDIDATES,
-      {selected: job.type_of_candidates}, class: "form-control" %>
+    <%= f.select :type_of_candidate, Job::TYPEOFCANDIDATES,
+      {selected: job.type_of_candidate}, class: "form-control" %>
   </div>
-</div>
-<div class="form-group">
-  <label class="control-label col-md-3 col-sm-3 col-xs-12"><%= t ".hiring_type" %>
-    <span class="required">*</span>
-  </label>
-  <div class="col-md-6 col-sm-6 col-xs-12"></div>
 </div>
 <div class="form-group">
   <label class="control-label col-md-3 col-sm-3 col-xs-12"><%= t ".who_can_apply" %>
@@ -28,18 +22,6 @@
     </ul>
   </div>
 </div>
-
-<div class="form-group job-list-skills">
-  <label class="control-label col-md-3 col-sm-3 col-xs-12">
-    <%= t ".skill_require" %>
-  </label>
-  <div class="col-md-6 col-sm-6 col-xs-12">
-    <%= f.text_field :list_skills, id: "job_list_skills", autocomplete: false,
-      placeholder: t(".job_list_skills"), class: "form-control" %>
-    <i class="fa fa-spinner form-control-feedback fa-spin slow-spin hide fa-2x"></i>
-  </div>
-</div>
-
 <%= f.fields_for :images do |ff| %>
   <div class="form-group form-inline">
     <label class="control-label col-md-3 col-sm-3 col-xs-12"><%= t ".image" %>

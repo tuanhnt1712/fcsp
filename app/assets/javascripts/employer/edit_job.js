@@ -5,7 +5,7 @@ $(document).ready(function () {
     var text_job = $('.text-job').val();
     var fields = ['.caption-image', '.title-job', '.text-job'];
     $('.form-group').removeClass('has-error');
-    if (caption_img && title_job && text_job && !unchecked_hiring_type()) {
+    if (caption_img && title_job && text_job) {
       $('#step-1').hide();
       $('#step-2').slideDown();
       $('#a_step1').removeClass('selected').addClass('done');
@@ -16,10 +16,6 @@ $(document).ready(function () {
           $(value).closest('.form-group').addClass('has-error');
         }
       });
-      if (unchecked_hiring_type()) {
-        $('input[name="job[hiring_type_ids][]"]')
-          .closest('.form-group').addClass('has-error');
-      }
       $.growl.error({message: I18n.t('employer.jobs.new.step_1_danger')});
     }
   });
@@ -51,14 +47,4 @@ function image_preview(input) {
     $('#image_preview').html('<img src="' +
       _file.target.result + '" class="image-preview"/>');
   }
-}
-
-function unchecked_hiring_type() {
-  var $check = true;
-  $('input[name="job[hiring_type_ids][]"]').each(function (index, value) {
-    if ($(this).is(':checked')) {
-      $check = false;
-    }
-  });
-  return $check;
 }
