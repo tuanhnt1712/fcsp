@@ -10,7 +10,7 @@ module Supports
     end
 
     def job_active
-      Job.active.includes :company, :images, :skills, :job_skills
+      Job.active.includes :company, :images
     end
 
     def job_skill
@@ -18,8 +18,7 @@ module Supports
     end
 
     def user_jobs_any?
-      ArrayJob.get_job(Job.active.includes(:skills, :job_skills),
-        @user).try :any?
+      ArrayJob.get_job(Job.active, @user).try :any?
     end
 
     def awards

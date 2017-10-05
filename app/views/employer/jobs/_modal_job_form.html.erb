@@ -58,24 +58,8 @@
                 <span class="required">*</span>
               </label>
               <div class="col-md-9 col-sm-9 col-xs-12">
-                <%= f.select :type_of_candidates, Job::TYPEOFCANDIDATES,
-                  {selected: job.type_of_candidates}, class: "form-control" %>
-              </div>
-            </div>
-            <div class="form-group">
-              <label class="control-label col-md-3 col-sm-3 col-xs-12"><%= t ".hiring_type" %>
-                <span class="required">*</span>
-              </label>
-              <div class="col-md-9 col-sm-9 col-xs-12">
-                <ul class="collection-wrapper">
-                  <%= f.collection_check_boxes :hiring_type_ids, hiring_types,
-                    :id, :name do |hiring_type| %>
-                    <li>
-                      <%= hiring_type.check_box %>
-                      <%= hiring_type.text %>
-                    </li>
-                  <% end %>
-                </ul>
+                <%= f.select :type_of_candidate, Job::TYPEOFCANDIDATES,
+                  {selected: job.type_of_candidate}, class: "form-control" %>
               </div>
             </div>
             <div class="form-group">

@@ -10,7 +10,7 @@
     <div class="padding-job">
       <div class="title-icons job-label">
         <span class="icon-job-type sales">
-          <%= Job.human_enum_name :type_of_candidates, job.type_of_candidate %>
+          <%= Job.human_enum_name :type_of_candidate, job.type_of_candidate %>
         </span>
       </div>
       <h3><%= link_to job.title, job_path(job) %></h3>
