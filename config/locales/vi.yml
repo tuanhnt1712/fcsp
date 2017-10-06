@@ -377,6 +377,12 @@ vi:
         logout: "Logout"
         setting: "Setting"
         tools: "Tools"
+      modal_sync:
+        auto_sync: "Tự động đồng bộ dữ liệu"
+        refresh: "Đồng bộ dữ liệu"
+        refresh_now: "Đồng bộ dữ liệu ngay! Bấm vào đây"
+        sync_data: "Đồng bộ dữ liệu"
+        want_to_sync: "Bạn có muốn tự động đồng bộ dữ liệu?"
     team_introductions:
       create_confirm: "Are you sure to set up this company introduction?"
       form:

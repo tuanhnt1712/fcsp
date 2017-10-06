@@ -567,7 +567,6 @@ en:
       message: "Messages"
       messages: "Messages"
       profile: "Profile"
-      refresh: "Refresh"
       search: "Search and hit enter..."
       sign_out: "Sign out"
     job_bookmark:
@@ -578,6 +577,12 @@ en:
       failed_title: "Fail"
       success_title: "Success"
       warning_title: "Warning"
+    modal_sync:
+      auto_sync: "Auto synchronize"
+      refresh: "Refresh"
+      refresh_now: "Refresh data now! Click here..."
+      sync_data: "Synchronize Data"
+      want_to_sync: "Do you want to auto synchronize data?"
   likes:
     like_user_post:
       orthers_like: "%{count} orthers"

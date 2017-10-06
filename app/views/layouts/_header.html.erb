@@ -89,8 +89,8 @@
         <a href="#"><i class="fa fa-linkedin"></i></a>
         <a href="#"><i class="fa fa-google-plus"></i></a>
         <a href="#"><i class="fa fa-instagram"></i></a>
+        <i class="fa fa-refresh" data-toggle="modal" data-target="#sync"></i>
         <% if user_signed_in? %>
-
           <%= render "jobs/message" %>
         <% end %>
         <span class="dropdown profile" id="none-responsive">
@@ -101,7 +101,6 @@
             </button>
             <ul class="dropdown-menu profile-box">
               <li><%= link_to t(".profile"), user_path(current_user) %></li>
-              <li><%= tms_synchronize_button %></li>
               <li>
                 <%= link_to t(".sign_out"), destroy_user_session_path,
                   method: :delete %>
@@ -121,3 +120,4 @@
   </div>
 </nav>
 <%= render "companies/modal_create_company"%>
+<%= render "layouts/modal_sync" %>
