@@ -193,6 +193,12 @@ jp:
         logout: "Logout"
         setting: "Setting"
         tools: "Tools"
+      modal_sync:
+        auto_sync: "自動同期"
+        refresh: "リフレッシュする"
+        refresh_now: "今すぐデータを更新してください！ ここをクリック..."
+        sync_data: "データの同期"
+        want_to_sync: "データを自動同期しますか?"
   error: "error"
   flash:
     deleted_success: "deleted successfully!"
