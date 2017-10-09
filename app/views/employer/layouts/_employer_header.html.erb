@@ -46,8 +46,13 @@
             </ul>
           </li>
           <li>
+            <%= link_to employer_company_trainees_path do %>
+              <i class="fa fa-user"></i><%= t ".trainees" %>
+            <% end %>
+          </li>
+          <li>
             <%= link_to employer_company_candidates_path(company) do %>
-              <i class="fa fa-users"></i> <%= t ".candidates" %>
+              <i class="fa fa-users"></i><%= t ".candidates" %>
             <% end %>
           </li>
           <li>
