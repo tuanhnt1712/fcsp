@@ -1,0 +1,26 @@
+<tr data-status="pagado">
+  <td>
+    <%= load_user_avatar trainee, class: "img-circle trainee-avatar" %>
+  </td>
+  <td>
+    <p class="title">
+      <strong>
+        <%= link_to trainee.name, user_path(trainee) %>
+      </strong>
+    </p>
+    <p class="summary"><%= trainee.email %></p>
+  </td>
+  <td>
+    <% if trainee.birthday %>
+      <%= l trainee.birthday, format: :format_date_eng %>
+    <% else %>
+      <%= t ".no_data" %>
+    <% end %>
+  </td>
+  <td>
+    <%= trainee.occupation? ? trainee.occupation : t(".no_data") %>
+  </td>
+  <td>
+    <%= trainee.phone? ? trainee.phone : t(".no_data") %>
+  </td>
+</tr>

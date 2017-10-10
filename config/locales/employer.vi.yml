@@ -70,6 +70,16 @@ vi:
         new_team: "Tạo team mới"
         success: "Thành công"
         success_tẽt: "Xóa thành công !!"
+    trainees:
+      index:
+        title: "Danh sách học viên"
+      trainee:
+        birthday: "Ngày sinh"
+        name: "Họ tên"
+        no_data: "Không có dữ liệu"
+        occupation: "Nghề Nghiệp"
+        phone: "Điện Thoại"
+        total_rows: "Không có học viên nào"
   type_of_candidates:
     business_admin: "Quản trị viên doanh nghiệp (Tài chính, Nhân sự, vv)"
     creative: "Tạo(Nhà thiết kế, Nhà văn, etc..)"

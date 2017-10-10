@@ -47,7 +47,7 @@ class User < ApplicationRecord
   delegate :introduce, :ambition, :address, :phone, :quote, :info_statuses,
     to: :info_user, prefix: true
 
-  enum role: [:user, :admin, :employer, :employee]
+  enum role: %i(user admin employer trainee)
 
   validates :name, presence: true,
     length: {maximum: Settings.user.max_length_name}
@@ -66,6 +66,14 @@ class User < ApplicationRecord
   scope :recommend, ->job_id do
     select("users.id, users.name, users.avatar").limit Settings.recommend.user_limit
   end
+
+  scope :select_role, (lambda do |role|
+    where role: role
+  end)
+
+  scope :filter_trainee, (lambda do |list_filter, sort_by, type|
+    where("#{type} IN (?)", list_filter).order "#{type} #{sort_by}"
+  end)
 
   class << self
     def import file

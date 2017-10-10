@@ -1,0 +1,53 @@
+<% provide :title, t(".title") %>
+<h1 class="text-left"><%= t ".title" %></h1>
+<div class="clearfix">
+  <div class="container table-candidates">
+    <div class="row">
+      <section class="content">
+        <div class="col-md-12">
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <div class="table-container">
+                <table class="table">
+                  <thead>
+                    <tr class="headings">
+                      <th class="col-avatar"></th>
+                      <th class="column-title col-traineename">
+                        <%= t ".name" %>
+                      </th>
+                      <th class="column-title col-dob">
+                        <%= t ".birthday" %>
+                      </th>
+                      <th class="column-title col-occupation">
+                        <%= t ".occupation" %>
+                      </th>
+                      <th class="column-title col-phone">
+                        <%= t ".phone" %>
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody id="list-candidates" class="show-list-candidates">
+                    <% if @trainees.empty? %>
+                      <tr class="show-filter-result">
+                        <td colspan="<%= Settings.employer.trainees.index.colspan %>"
+                          align="center">
+                          <strong><%= t ".total_rows" %></strong>
+                        </td>
+                      </tr>
+                    <% else %>
+                      <%= render partial: "trainee", collection: @trainees,
+                        as: :trainee %>
+                    <% end %>
+                  </tbody>
+                </table>
+                <div class="pagination-bar">
+                  <%= render "paginate", trainee: @trainees %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</div>

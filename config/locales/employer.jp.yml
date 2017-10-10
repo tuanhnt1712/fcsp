@@ -71,6 +71,16 @@ jp:
         new_team: "新しいチーム"
         success: "成功"
         success_text: "削除成功 !!"
+    trainees:
+      index:
+        title: "すべての研修生のリスト"
+      trainee:
+        birthday: "お誕生日"
+        name: "名"
+        no_data: "データなし"
+        occupation: "職業"
+        phone: "電話"
+        total_rows: "研修生はいません"
   type_of_candidates:
       business_admin: "ビジネス管理者（財務、人事など）"
       creative: "クリエイティブ（デザイナー、作家など）"

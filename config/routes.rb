@@ -3,15 +3,15 @@ Rails.application.routes.draw do
   devise_for :users, controllers: {omniauth_callbacks: :omniauth_callbacks}
   root "pages#index"
   resources :tms_synchronize, only: :index
-  resources :companies, only: [:show, :create]
+  resources :companies, only: %i(show create)
 
   namespace :education do
     namespace :management do
       resources :groups, only: :index
       resources :permissions, only: :create
       resource :group_users, only: :destroy
-      resources :group_users, only: [:create, :index]
-      resources :users, only: [:index, :update, :create]
+      resources :group_users, only: %i(create index)
+      resources :users, only: %i(index update create)
       root "users#index"
     end
     root "home#index"
@@ -20,12 +20,13 @@ Rails.application.routes.draw do
   end
 
   namespace :employer do
-    resources :companies, only: [:edit, :update] do
+    resources :companies, only: %i(edit update) do
       delete "jobs", to: "jobs#destroy"
-      resources :jobs, except: [:show]
+      resources :jobs, except: :show
       resources :dashboards, only: :index
       resources :teams
-      resources :candidates, only: [:index, :update, :show]
+      resources :candidates, only: %i(index update show)
+      resources :trainees, only: :index
       delete "candidates", to: "candidates#destroy"
     end
   end
@@ -33,27 +34,27 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :dashboards, only: :index
     root "dashboards#index"
-    resources :companies, only: [:new, :create, :show]
-    resources :users, only: [:new, :create]
+    resources :companies, only: %i(new create show)
+    resources :users, only: %i(new create)
   end
 
-  resources :jobs, only: [:index, :show]
-  resources :share_jobs, only: [:create, :destroy]
-  resources :candidates, only: [:create, :destroy]
-  resources :bookmarks, only: [:create, :destroy]
-  resources :follow_companies, only: [:create, :destroy]
-  resources :users, only: [:show, :new] do
+  resources :jobs, only: %i(index show)
+  resources :share_jobs, only: %i(create destroy)
+  resources :candidates, only: %i(create destroy)
+  resources :bookmarks, only: %i(create destroy)
+  resources :follow_companies, only: %i(create destroy)
+  resources :users, only: %i(show new) do
     resources :courses do
       resources :subjects
     end
   end
   resources :user_avatars, only: :create
   resource :user_avatars, only: :update
-  resources :companies_avatars, only: [:create, :update]
+  resources :companies_avatars, only: %i(create update)
   resources :companies_cover
   resources :user_covers, only: :create
   resource :user_covers, only: :update
-  resources :info_users, only: [:update, :index]
+  resources :info_users, only: %i(update index)
   resources :user_languages, except: :show
   resources :skills, only: :index
   resources :user_skills

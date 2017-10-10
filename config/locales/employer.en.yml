@@ -325,6 +325,7 @@ en:
         profile: "Profile"
         recommendations: "Recommendations"
         setting: "Setting"
+        trainees: "List all trainees"
         view_more: "View more"
         welcome: "Welcome"
     ok: "OK"
@@ -382,6 +383,16 @@ en:
       update:
         update_fail: "Fail to update team"
         update_success: "Update successfully"
+    trainees:
+      index:
+        title: "Trainees"
+      trainee:
+        birthday: "Birthday"
+        name: "Name"
+        no_data: "No Data"
+        occupation: "Occupation"
+        phone: "Phone"
+        total_rows: "There are no trainees"
   type_of_candidates:
     business_admin: "Business admin(Finance, HR etc)"
     creative: "Creative(Designer, Writer, etc..)"
