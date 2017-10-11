@@ -1,3 +1,5 @@
+@import "variables/color";
+
 .col-occupation {
   width: 20%;
 }
@@ -6,6 +8,19 @@
   width: 35%;
 }
 
+.col-phone {
+  width: 15%;
+}
+
+.col-birthday {
+  width: 15%;
+}
+
 .trainee-avatar {
   width: 45px;
+}
+
+#heading-index-trainees {
+  background-color: $pickle-blueewood;
+  color: $white;
 }

@@ -1,16 +1,49 @@
-$(document).ready(function() {
-  $('.select-job').on('change', function() {
-    var job_id = $(this).val(),
-      company_id = $('#company-id').val();
+$(document).ready(function(){
+  $('.select-job').change(function(){
+    var job_id, company_id, employer_type, language_id;
+
+    job_id = $(this).val();
+    company_id = $('#company-id').val();
+    employer_type = $('#employer-type').val();
+    language_id = $('.select-language').val();
     $.ajax({
       dataType: 'json',
-      url: '/employer/companies/' + company_id + '/candidates',
+      url: '/employer/companies/' + company_id + '/' + employer_type,
       method: 'get',
-      data: {select: job_id},
+      data: {select: job_id, select_language: language_id},
       success: function(data) {
-        $('#list-candidates').html(data.html_job);
+        $('#list-' + employer_type).html(data.html_job);
+        $('.pagination-bar').html(data.pagination_candidate);
+        if (employer_type == 'trainees') {
+          $('.filter-traineename').html(data.filter_name);
+          $('.filter-dob').html(data.filter_birthday);
+          $('.filter-language').html(data.filter_programming_language);
+        }
       },
-      error: function() {
+      error: function(){
+        alert(I18n.t('employer.candidates.not_found'));
+      }
+    });
+  });
+
+  $('.select-language').change(function(){
+    var language_id, company_id, job_id;
+
+    language_id = $(this).val();
+    company_id = $('#company-id').val();
+    job_id = $('.select-job').val();
+    $.ajax({
+      dataType: 'json',
+      url: '/employer/companies/' + company_id + '/trainees',
+      method: 'get',
+      data: {select: job_id, select_language: language_id},
+      success: function(data){
+        $('#list-trainees').html(data.html_job);
+        $('.filter-traineename').html(data.filter_name);
+        $('.filter-dob').html(data.filter_birthday);
+        $('.filter-language').html(data.filter_programming_language);
+      },
+      error: function(){
         alert(I18n.t('employer.candidates.not_found'));
       }
     });
@@ -25,6 +58,7 @@ $(document).ready(function() {
       checkboxes.prop('checked', false);
     }
   });
+
   $('body').on('change', function() {
     var checkboxes = $('#checkbox-check-all').parents('table')
       .find('tbody input[type = "checkbox"]');
@@ -67,45 +101,47 @@ $(document).ready(function() {
     $('.dropdown-toggle').dropdown();
   });
 
-  $('.main_container').on('click', '.sortAlpha, .btn-ok', function(e){
+  $('body').on('click', '.sortAlpha, .btn-ok', function(e){
     e.preventDefault();
-    var typefilter = $(this).parents().eq(2).attr('data-filter');
-    var sort_by = $(this).attr('data-sort-by');
-    var listcheckbox = $(this).parents('ul').children().find('.checkboxitem');
-    var arrchecked = [];
-    var company_id = $('#company-id').val();
-    var filter_mode = $(this).parents().eq(2).attr('data-model');
+    var typefilter, sort_by, listcheckbox, arrchecked, company_id, filter_mode,
+      params, tbody, url_request, job_id, language_id;
+
+    job_id = $('.select-job').val();
+    language_id = $('.select-language').val();
+    typefilter = $(this).parents('div').attr('data-filter');
+    sort_by = $(this).attr('data-sort-by');
+    listcheckbox = $(this).parents('ul').children().find('.checkboxitem');
+    arrchecked = [];
+    company_id = $('#company-id').val();
+    filter_mode = $(this).parents('div').attr('data-model');
 
     listcheckbox.each(function(){
-      if ($(this).is(':checked')) {
+      if ($(this).is(':checked')){
         arrchecked.push($(this).attr('data-list-id'));
       }
     });
 
-    var params = {type: typefilter, sort: sort_by, array_id: arrchecked};
-    var tbody = '';
-    var url_request = '';
+    params = {type: typefilter, sort: sort_by, array_id: arrchecked, select: job_id,
+      select_language: language_id};
+    tbody = '';
+    url_request = '';
 
     switch (filter_mode) {
-    case 'candidate':
-      url_request = '/employer/companies/' + company_id + '/candidates';
-      tbody = $('#list-candidates');
-      break;
 
-    case 'job':
-      url_request = '/employer/companies/' + company_id + '/jobs';
-      tbody = $('.jobs-list');
-      break;
+      case 'candidate':
+        url_request = '/employer/companies/' + company_id + '/candidates';
+        tbody = $('#list-candidates');
+        break;
 
-    case 'team':
-      url_request = '/employer/companies/' + company_id + '/teams';
-      tbody = $('.jobs-list');
-      break;
+      case 'job':
+        url_request = '/employer/companies/' + company_id + '/jobs';
+        tbody = $('.jobs-list');
+        break;
 
-    case 'job-team':
-      url_request = '/employer/companies/' + company_id + '/job_team';
-      tbody = $('.teams-list');
-      break;
+      case 'trainee':
+        url_request = '/employer/companies/' + company_id + '/trainees';
+        tbody = $('#list-trainees');
+        break;
     }
 
     $.ajax({
@@ -113,27 +149,31 @@ $(document).ready(function() {
       url: url_request,
       method: 'GET',
       data: params,
-      success: function(data) {
+      success: function(data){
         tbody.html(data.html_job);
-        switch (filter_mode) {
-        case 'candidate':
-          $('.pagination-bar').html(data.pagination_candidate);
-          break;
+        switch (filter_mode){
 
-        case 'job':
-          $('.pagination-job').html(data.pagination_job);
-          break;
+          case 'candidate':
+            $('.pagination-bar').html(data.pagination_candidate);
+            break;
+
+          case 'job':
+            $('.pagination-job').html(data.pagination_job);
+            break;
+
+          case 'trainee':
+            $('.pagination-bar').html(data.pagination_candidate);
+            $('.filter-traineename').html(data.filter_name);
+            $('.filter-dob').html(data.filter_birthday);
+            $('.filter-language').html(data.filter_programming_language);
+            break;
         }
 
-        if (filter_mode === 'job-team') {
-          $('.pagination-job').html(data.pagination_job);
-        }
-
-        if ($('.btn-filter').hasClass('open')) {
+        if ($('.btn-filter').hasClass('open')){
           $('.btn-filter').removeClass('open');
         }
       },
-      error: function() {
+      error: function(){
         swal({
           type: 'danger',
           title: I18n.t('employer.team_introductions.danger'),
@@ -141,23 +181,31 @@ $(document).ready(function() {
         });
       }
     });
-
   });
 
   $('.search-user-filter').keyup(function(){
-    var value = $(this).val(),
-      object_checkbox = $(this).parents('.value-sort')
-        .children('.list-item-value').find('.checkbox');
-    if (value == '') {
+    var value, object_checkbox;
+    value = $(this).val();
+    object_checkbox = $(this).parents('.value-sort')
+      .children('.list-item-value').find('.checkbox');
+    if (value == ''){
       object_checkbox.show();
+      object_checkbox.children('input').prop('checked', true);
     }
-    else {
+    else{
       object_checkbox.each(function(){
-        if ($(this).children('label').html().toLowerCase().search(value.toLowerCase()) >= 0) {
-          $(this).show();
-        }else {
+        if ($(this).children('label').html().toLowerCase().search(value.toLowerCase()) >= 0){
+          if ($(this).children('label').html() == ''){
+            $(this).children('input').prop('checked', false);
+          }
+          else{
+            $(this).show();
+            $(this).children('input').prop('checked', true);
+          }
+        }
+        else{
           $(this).hide();
-          $(this).children('input').attr('checked', false);
+          $(this).children('input').prop('checked', false);
         }
       });
     }
@@ -217,16 +265,17 @@ $(document).ready(function() {
   });
 
   $('.table-candidates').on('click', '.pagination-bar .page-link', function(e){
+    var url_request, tbody;
     e.preventDefault();
-    var url_request = $(this).attr('href');
-    var tbody = $('#list-candidates');
+    url_request = $(this).attr('href');
+    tbody = '#' + $('tbody').attr('id');
 
     $.ajax({
       dataType: 'json',
       url: url_request,
       method: 'GET',
       success: function(data) {
-        tbody.html(data.html_job);
+        $(tbody).html(data.html_job);
         $('.pagination-bar').html(data.pagination_candidate);
       }
     });

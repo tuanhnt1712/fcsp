@@ -76,10 +76,13 @@ vi:
       trainee:
         birthday: "Ngày sinh"
         name: "Họ tên"
-        no_data: "Không có dữ liệu"
         occupation: "Nghề Nghiệp"
         phone: "Điện Thoại"
-        total_rows: "Không có học viên nào"
+        language: "Ngôn ngữ"
+        filter_trainee: "Lọc học viên"
+        all_course: "Tất cả các khóa học"
+      no_data: "Không có dữ liệu"
+      total_rows: "Không có học viên nào"
   type_of_candidates:
     business_admin: "Quản trị viên doanh nghiệp (Tài chính, Nhân sự, vv)"
     creative: "Tạo(Nhà thiết kế, Nhà văn, etc..)"

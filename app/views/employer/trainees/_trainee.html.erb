@@ -14,13 +14,13 @@
     <% if trainee.birthday %>
       <%= l trainee.birthday, format: :format_date_eng %>
     <% else %>
-      <%= t ".no_data" %>
+      <%= t "employer.trainees.no_data" %>
     <% end %>
   </td>
   <td>
-    <%= trainee.occupation? ? trainee.occupation : t(".no_data") %>
+    <%= trainee.occupation? ? trainee.occupation : t("employer.trainees.no_data") %>
   </td>
   <td>
-    <%= trainee.phone? ? trainee.phone : t(".no_data") %>
+    <%= trainee.phone? ? trainee.phone : t("employer.trainees.no_data") %>
   </td>
 </tr>

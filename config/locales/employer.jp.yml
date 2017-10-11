@@ -77,10 +77,13 @@ jp:
       trainee:
         birthday: "お誕生日"
         name: "名"
-        no_data: "データなし"
         occupation: "職業"
         phone: "電話"
-        total_rows: "研修生はいません"
+        filter_trainee: "フィルタトレーナー"
+        language: "言語"
+        all_course: "全コース"
+      no_data: "データなし"
+      total_rows: "研修生はいません"
   type_of_candidates:
       business_admin: "ビジネス管理者（財務、人事など）"
       creative: "クリエイティブ（デザイナー、作家など）"
