@@ -23,6 +23,7 @@
         <div>
           <span class="title_course"><%= subject.subject_name %></span>
           <span class="status"><%= subject.status %></span>
+          <div><%= subject.subject_description %></div>
         </div>
         <div class="date">
           <% if subject.start_date? && subject.end_date? %>
