@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170914040644) do
+ActiveRecord::Schema.define(version: 20171013033318) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -90,6 +90,16 @@ ActiveRecord::Schema.define(version: 20170914040644) do
     t.index ["creator_id"], name: "index_companies_on_creator_id", using: :btree
     t.index ["name"], name: "index_companies_on_name", using: :btree
     t.index ["website"], name: "index_companies_on_website", using: :btree
+  end
+
+  create_table "conversations", force: :cascade do |t|
+    t.integer  "recipient_id"
+    t.integer  "sender_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["recipient_id", "sender_id"], name: "index_conversations_on_recipient_id_and_sender_id", unique: true, using: :btree
+    t.index ["recipient_id"], name: "index_conversations_on_recipient_id", using: :btree
+    t.index ["sender_id"], name: "index_conversations_on_sender_id", using: :btree
   end
 
   create_table "courses", force: :cascade do |t|
@@ -211,6 +221,16 @@ ActiveRecord::Schema.define(version: 20170914040644) do
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.text     "body"
+    t.integer  "user_id"
+    t.integer  "conversation_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.index ["conversation_id"], name: "index_messages_on_conversation_id", using: :btree
+    t.index ["user_id"], name: "index_messages_on_user_id", using: :btree
   end
 
   create_table "online_contacts", force: :cascade do |t|
@@ -422,6 +442,8 @@ ActiveRecord::Schema.define(version: 20170914040644) do
   add_foreign_key "info_users", "users"
   add_foreign_key "job_teams", "jobs"
   add_foreign_key "jobs", "users"
+  add_foreign_key "messages", "conversations"
+  add_foreign_key "messages", "users"
   add_foreign_key "permissions", "groups"
   add_foreign_key "positions", "companies"
   add_foreign_key "share_jobs", "jobs"

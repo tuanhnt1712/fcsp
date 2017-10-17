@@ -58,4 +58,10 @@ Rails.application.routes.draw do
   resources :user_languages, except: :show
   resources :skills, only: :index
   resources :user_skills
+  resources :conversations, only: :create do
+    member do
+      post :close
+    end
+    resources :messages, only: :create
+  end
 end

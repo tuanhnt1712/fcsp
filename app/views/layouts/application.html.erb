@@ -12,6 +12,7 @@
         <%= render "layouts/message" %>
         <%= yield %>
       </div>
+      <%= render "layouts/conversation", conversations: @conversations %>
       <% unless controller.controller_name == "messages" %>
         <%= render "layouts/footer" %>
       <% end %>

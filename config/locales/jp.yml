@@ -250,3 +250,6 @@ jp:
       remove_request: " Cancel Request"
       request_friend: " Add Friend"
       unfriend: " Unfriend"
+  conversations:
+    conversation:
+      send: "送る"
