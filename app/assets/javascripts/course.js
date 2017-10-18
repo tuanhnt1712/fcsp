@@ -3,26 +3,29 @@ $(document).ready(function(){
     e.preventDefault();
     var id_course = $(this).data('course-id');
     var id_user = $(this).data('user-id');
+    var url = '/users/' + id_user + '/courses/' + id_course;
     $.ajax({
-      url: id_user + '/courses/' + id_course,
+      url: url,
       type: 'GET',
       dataType: 'json',
       success: function(result){
         $('#tab-information').html(result.html);
+        window.history.pushState("", "", url);
       }
     });
   });
 
-  $('body').on('click', '.course-user', function(e){
+  $('body').on('click', '.courses', function(e){
     e.preventDefault();
     var id_user = $(this).data('user-id');
-    var id_course = $(this).data('course-id');
+    var url = '/users/' + id_user;
     $.ajax({
-      url: id_user + '/courses/' + id_course,
+      url: '/users/' + id_user,
       type: 'GET',
       dataType: 'json',
       success: function(result){
         $('#tab-information').html(result.html);
+        window.history.pushState("", "", url);
       }
     });
   });

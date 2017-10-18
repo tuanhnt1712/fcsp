@@ -5,12 +5,16 @@ class CoursesController < ApplicationController
   def show
     @user_object = Supports::ShowUser.new @user, current_user, params
     user_course_subjects = @course.user_course_subjects.includes :subject
-    render json: {
-      status: :success,
-      html: render_to_string(partial: "courses/course_details",
-        locals: {user: @user, course: @course, subjects: user_course_subjects},
-        layout: false)
-    }
+    if request.xhr?
+      render json: {
+        status: :success,
+        html: render_to_string(partial: "courses/course_details",
+          locals: {user: @user, course: @course, subjects: user_course_subjects},
+          layout: false)
+      }
+    else
+      @user_course_subjects = user_course_subjects
+    end
   end
 
   private
