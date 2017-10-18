@@ -5,13 +5,17 @@ class SubjectsController < ApplicationController
     @user_object = Supports::ShowUser.new @user, current_user, params
     user_tasks = @user.user_tasks.includes(:task)
       .check_course_subject params[:course_id], @user_course_subject.subject_id
-    render json: {
-      status: :success,
-      html: render_to_string(
-        partial: "subjects/subject_details",
-        locals: {user: @user, course: @course, subject: @user_course_subject,
-          tasks: user_tasks}, layout: false)
-    }
+    if request.xhr?
+      render json: {
+        status: :success,
+        html: render_to_string(
+          partial: "subjects/subject_details",
+          locals: {user: @user, course: @course, subject: @user_course_subject,
+            tasks: user_tasks}, layout: false)
+      }
+    else
+      @user_tasks = user_tasks
+    end
   end
 
   private

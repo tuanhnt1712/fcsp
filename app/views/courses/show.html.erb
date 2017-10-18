@@ -1,0 +1,33 @@
+<%= render "users/header", user: @user, user_object: @user_object %>
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-9">
+        <article class="post show-tab-user">
+          <div class="clearfix">
+            <% if @user.is_user? current_user %>
+              <div class="clearfix hide-tab" id="tab-suggest-job">
+                <%= render "users/user_job", user: @user, user_object: @user_object %>
+              </div>
+            <% end %>
+            <% if check_permission_profile || @user.is_user?(current_user) %>
+              <div class="hide-tab active" id="tab-information">
+                <%= render "courses/course_details", user: @user,
+                  course: @course, subjects: @user_course_subjects %>
+              </div>
+            <% else %>
+              <h1><%= t ".page_error" %></h1>
+            <% end %>
+          </div>
+        </article>
+      </div>
+      <div class="col-md-3">
+        <article class="post show-tab-user">
+          <%= publish_info_button %>
+          <%= render "users/social_network", user: @user, info_user: @info_user %>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+<%= render "users/user_info" %>
