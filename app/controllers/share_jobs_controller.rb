@@ -1,6 +1,6 @@
 class ShareJobsController < ApplicationController
   before_action :authenticate_user!
-  before_action :load_job, only: [:create, :destroy]
+  load_resource only: %i(create destroy)
 
   def create
     share_job = @job.share current_user
@@ -26,11 +26,6 @@ class ShareJobsController < ApplicationController
   end
 
   private
-
-  def load_job
-    @job = Job.find_by(id: params[:id]) if params[:id]
-    render_json t(".not_found"), 404 unless @job
-  end
 
   def render_json message, status
     respond_to do |format|

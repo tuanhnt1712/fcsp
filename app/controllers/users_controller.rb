@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
-  before_action :find_user, only: [:show, :edit]
   before_action :authenticate_tms
+  load_resource only: :show
 
   def show
     @user_object = Supports::ShowUser.new @user, current_user, params
@@ -37,15 +37,5 @@ class UsersController < ApplicationController
   end
 
   def new
-  end
-
-  private
-
-  def find_user
-    @user = User.includes(:info_user).find_by id: params[:id]
-
-    return if @user
-    flash[:danger] = t ".not_found"
-    redirect_to root_url
   end
 end
