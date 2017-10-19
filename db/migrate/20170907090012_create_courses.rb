@@ -6,6 +6,7 @@ class CreateCourses < ActiveRecord::Migration[5.0]
       t.integer :status
       t.datetime :start_date
       t.datetime :end_date
+      t.string :description
       t.timestamps
     end
   end

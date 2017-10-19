@@ -42,8 +42,10 @@ class ApplicationController < ActionController::Base
   def after_sign_in_path_for _resourse
     if cookies.signed[:tms_user].nil?
       authenticate_tms
-      cookies.signed[:tms_user] = Api::TmsDataService.new(current_user,
-        cookies.signed[:authen_service]).tms_user_exist?
+      email = [current_user.email]
+      cookies.signed[:tms_user] = Api::HttpActionService.new(
+        Settings.api.tms_data_link, "", cookies.signed[:authen_service], email)
+        .tms_user_exist?
     end
     session[:previous_url] || root_path
   end
