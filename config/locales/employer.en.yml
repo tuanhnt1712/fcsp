@@ -328,6 +328,7 @@ en:
         trainees: "List all trainees"
         view_more: "View more"
         welcome: "Welcome"
+        trainees: "Trainees"
     ok: "OK"
     sortaz: "Sort by A → Z"
     sortvalue: "Sort follow value..."
@@ -386,13 +387,16 @@ en:
     trainees:
       index:
         title: "Trainees"
-      trainee:
         birthday: "Birthday"
         name: "Name"
-        no_data: "No Data"
         occupation: "Occupation"
         phone: "Phone"
-        total_rows: "There are no trainees"
+        language: "Language"
+        filter_trainee: "Filter Trainee"
+        all_course: "All Course"
+        all_language: "All Programming Language"
+      total_rows: "There are no trainees"
+      no_data: "(no data)"
   type_of_candidates:
     business_admin: "Business admin(Finance, HR etc)"
     creative: "Creative(Designer, Writer, etc..)"

@@ -71,8 +71,17 @@ class User < ApplicationRecord
     where role: role
   end)
 
-  scope :filter_trainee, (lambda do |list_filter, sort_by, type|
-    where("#{type} IN (?)", list_filter).order "#{type} #{sort_by}"
+  scope :filter_trainee, (lambda do |list_filter, sort_by, user_type|
+    list_filter.map!{|element| element == "" ? nil : element}
+    where("#{user_type}": list_filter).order "#{user_type} #{sort_by}"
+  end)
+
+  scope :filter_trainee_course, (lambda do |course|
+    where "courses.id": course
+  end)
+
+  scope :filter_trainee_programming_language, (lambda do |language|
+    where "programming_languages.id": language
   end)
 
   class << self

@@ -1,0 +1,10 @@
+<% if @trainees.empty? %>
+  <tr class="show-filter-result">
+    <td colspan="<%= Settings.employer.trainees.index.colspan %>"
+      align="center">
+      <strong><%= t "employer.trainees.total_rows" %></strong>
+    </td>
+  </tr>
+<% else %>
+  <%= render partial: "trainee", collection: @trainees.to_a.uniq, as: :trainee %>
+<% end %>

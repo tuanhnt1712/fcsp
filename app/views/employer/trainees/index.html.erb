@@ -1,6 +1,24 @@
 <% provide :title, t(".title") %>
 <h1 class="text-left"><%= t ".title" %></h1>
+<input type="hidden" id="company-id" value="<%= @company.id %>">
+<input type="hidden" id="employer-type" value="trainees">
 <div class="clearfix">
+  <div class="panel panel-default">
+    <div class="panel-heading" id="heading-index-trainees"><%= t ".filter_trainee" %></div>
+    <div class="panel-body">
+      <div class="col-md-6">
+        <%= select(:course, :course_id, @courses_all.collect{|p| [p.name, p.id]},
+          {include_blank: t(".all_course"), selected: params[:course_id]},
+          class: "form-control select-job") %>
+      </div>
+      <div class="col-md-6">
+        <%= select(:programming_language, :programming_language_id,
+          @programming_languages.collect{|p| [p.name, p.id]},
+          {include_blank: t(".all_language"), selected: params[:programming_language_id]},
+          class: "form-control select-language") %>
+      </div>
+    </div>
+  </div>
   <div class="container table-candidates">
     <div class="row">
       <section class="content">
@@ -13,9 +31,15 @@
                     <tr class="headings">
                       <th class="col-avatar"></th>
                       <th class="column-title col-traineename">
+                        <span class="filter-traineename">
+                          <%= render "filter_name" %>
+                        </span>
                         <%= t ".name" %>
                       </th>
                       <th class="column-title col-dob">
+                        <span class="filter-dob">
+                          <%= render "filter_birthday" %>
+                        </span>
                         <%= t ".birthday" %>
                       </th>
                       <th class="column-title col-occupation">
@@ -26,16 +50,16 @@
                       </th>
                     </tr>
                   </thead>
-                  <tbody id="list-candidates" class="show-list-candidates">
+                  <tbody id="list-trainees" class="show-list-candidates">
                     <% if @trainees.empty? %>
                       <tr class="show-filter-result">
                         <td colspan="<%= Settings.employer.trainees.index.colspan %>"
                           align="center">
-                          <strong><%= t ".total_rows" %></strong>
+                          <strong><%= t "employer.trainees.total_rows" %></strong>
                         </td>
                       </tr>
                     <% else %>
-                      <%= render partial: "trainee", collection: @trainees,
+                      <%= render partial: "trainee", collection: @trainees.to_a.uniq,
                         as: :trainee %>
                     <% end %>
                   </tbody>
