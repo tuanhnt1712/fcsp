@@ -98,6 +98,7 @@ ActiveRecord::Schema.define(version: 20170914040644) do
     t.integer  "status"
     t.datetime "start_date"
     t.datetime "end_date"
+    t.string   "description"
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
   end
@@ -330,6 +331,7 @@ ActiveRecord::Schema.define(version: 20170914040644) do
     t.datetime "start_date"
     t.datetime "end_date"
     t.integer  "status"
+    t.string   "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

@@ -7,6 +7,7 @@ class CreateUserCourseSubjects < ActiveRecord::Migration[5.0]
       t.datetime :start_date
       t.datetime :end_date
       t.integer :status
+      t.string :content
       t.timestamps
     end
   end

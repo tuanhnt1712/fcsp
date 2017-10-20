@@ -20,11 +20,9 @@
         <img src="<%= check_language course %>">
       </div>
       <div class="course-header">
-        <div>
-          <span class="title_course"><%= subject.subject_name %></span>
-          <span class="status"><%= subject.status %></span>
-          <div><%= subject.subject_description %></div>
-        </div>
+        <span class="title_course"><%= subject.subject_name %></span>
+        <span class="status"><%= subject.status %></span>
+        <div class="description"><%= subject.subject_description %></div>
         <div class="date">
           <% if subject.start_date? && subject.end_date? %>
             <span>

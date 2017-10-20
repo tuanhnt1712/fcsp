@@ -19,6 +19,9 @@
           <span class="title_course"><%= course.name %></span>
           <span class="status"><%= course.status %></span>
         </div>
+        <p class="description">
+          <i><%= course.description %></i>
+        </p>
         <div class="date">
           <% if course.start_date? && course.end_date? %>
             <span>

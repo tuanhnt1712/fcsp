@@ -117,13 +117,20 @@
   }
 
   .course-header {
-    padding-left: 10px;
-    float: left;
     display: inline-block;
+    float: left;
+    margin-right: 10px;
+    padding-left: 10px;
+    position: absolute;
+    width: 80%;
 
     .title_course {
       color: $flamingo;
       font-size: 16pt;
+    }
+
+    p {
+      margin-bottom: 0px;
     }
 
     .status {
@@ -155,7 +162,6 @@
     }
 
     .date {
-      padding-top: 50px;
       position: absolute;
       right: 16px;
     }
@@ -165,4 +171,8 @@
 .description-text {
   color: $dark-gray;
   font-style: italic;
+}
+
+.tl-body {
+  padding-left: 108px;
 }
