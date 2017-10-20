@@ -89,8 +89,8 @@
         <a href="#"><i class="fa fa-linkedin"></i></a>
         <a href="#"><i class="fa fa-google-plus"></i></a>
         <a href="#"><i class="fa fa-instagram"></i></a>
-        <i class="fa fa-refresh" data-toggle="modal" data-target="#sync"></i>
         <% if user_signed_in? %>
+          <i class="fa fa-refresh" data-toggle="modal" data-target="#sync"></i>
           <%= render "jobs/message" %>
         <% end %>
         <span class="dropdown profile" id="none-responsive">
@@ -119,5 +119,7 @@
     </div>
   </div>
 </nav>
-<%= render "companies/modal_create_company"%>
-<%= render "layouts/modal_sync" %>
+<% if user_signed_in? %>
+  <%= render "companies/modal_create_company" %>
+  <%= render "layouts/modal_sync" %>
+<% end %>
