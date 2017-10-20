@@ -1090,3 +1090,6 @@ en:
     user_link:
       add: "Add"
       links: "Links"
+  conversations:
+    conversation:
+      send: "Send"

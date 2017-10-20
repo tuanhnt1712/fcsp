@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :rack_mini_profiler_authorize_request, :set_locale,
-    :shared_jobs, :shared_posts
+    :shared_jobs, :shared_posts, :show_conversations
   after_action :store_location
 
   include ApplicationHelper
@@ -84,5 +84,11 @@ class ApplicationController < ActionController::Base
     if user_signed_in?
       @shared_post_ids = current_user.share_posts.pluck :shareable_id
     end
+  end
+
+  def show_conversations
+    session[:conversations] ||= []
+    @conversations = Conversation.includes(:recipient, :messages)
+      .find session[:conversations]
   end
 end

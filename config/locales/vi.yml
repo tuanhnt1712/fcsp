@@ -1060,3 +1060,6 @@ vi:
       links: "Liên kết"
       only_me: "Chỉ mình tôi"
       public: "Công khai"
+  conversations:
+    conversation:
+      send: "Gửi"

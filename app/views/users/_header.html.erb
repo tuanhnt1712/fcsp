@@ -140,6 +140,10 @@
                 </div>
               </div>
             </div>
+          <% else %>
+            <div class="btn btn-default message-button">
+              <%= link_to t(".message"), conversations_path(user_id: user), remote: true, method: :post %>
+            </div>
           <% end %>
         </div>
         <div id="mainNav" >
