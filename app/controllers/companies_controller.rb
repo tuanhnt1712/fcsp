@@ -1,5 +1,5 @@
 class CompaniesController < ApplicationController
-  load_resource
+  load_resource, only: %i(create show)
 
   def create
     @company.creator = current_user

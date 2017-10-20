@@ -1,7 +1,7 @@
 class CommentsController < ApplicationController
   before_action :authenticate_user!
-  before_action :load_post, only: [:new, :edit, :create, :destroy]
-  before_action :load_comment, only: [:destroy, :update, :edit]
+  load_resource :post, parent: false, except: %i(create update show)
+  load_resource through: :current_user, parent: false, only: %i(destroy update edit)
 
   def create
     @comment = @post.comments.build comment_params
@@ -52,22 +52,7 @@ class CommentsController < ApplicationController
     params.require(:comment).permit :content, :user_id
   end
 
-  def load_post
-    @post = Post.find_by id: params[:user_post_id]
-    unless @post
-      flash[:error] = t ".not_found"
-      redirect_to user_post_path params[:user_post_id]
-    end
-  end
-
-  def load_comment
-    return if @comment = current_user.comments.find_by(id: params[:id])
-    flash[:error] = t ".not_found"
-    redirect_to user_post_path params[:user_post_id]
-  end
-
   def get_list_comment
-    load_post
     @comments = @post.comments.newest
   end
 end

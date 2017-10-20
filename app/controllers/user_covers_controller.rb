@@ -1,6 +1,6 @@
 class UserCoversController < ApplicationController
   before_action :authenticate_user!
-  before_action :find_image, only: :update
+  load_resource :image, through: :current_user, parent: false, only: :update
 
   def create
     create_cover
@@ -13,14 +13,6 @@ class UserCoversController < ApplicationController
   end
 
   private
-
-  def find_image
-    @image = current_user.images.find_by id: params[:image_id]
-    unless @image
-      flash[:danger] = t ".not_found"
-      redirect_to user_path current_user
-    end
-  end
 
   def create_cover
     image = current_user.images.build picture: params[:picture]

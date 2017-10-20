@@ -1,5 +1,5 @@
 class BookmarksController < ApplicationController
-  before_action :load_job, only: [:create, :destroy]
+  load_resource :job, parent: false, only: %i(create destroy)
 
   def create
     current_user.bookmark @job
@@ -7,11 +7,5 @@ class BookmarksController < ApplicationController
 
   def destroy
     current_user.unbookmark @job
-  end
-
-  private
-
-  def load_job
-    @job = Job.find_by id: params[:id]
   end
 end
