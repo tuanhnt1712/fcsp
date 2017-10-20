@@ -1,33 +1,38 @@
 <%= content_for :javascript do %>
   <%= javascript_include_tag "company" %>
 <% end %>
-<div class="col-md-8">
+<div class="col-md-9">
   <article class="post show-tab-user">
     <div class="clearfix">
       <div class="hide-tab active" id="tab-info">
         <div class="table-responsive">
-          <table class="table table-bordered table-striped">
+          <table class="table table-striped">
             <colgroup>
               <col class="col-xs-3">
-              <col class="col-xs-5">
-              <col class="col-xs-4">
+              <col class="col-xs-9">
             </colgroup>
             <thead>
               <tr>
                 <th><%= t ".founder" %></th>
+                <td><%= company.founder %></td>
+              </tr>
+              <tr>
                 <th><%= t ".founded" %></th>
+                <td><%= company.founder_on %></td>
+              </tr>
+              <tr>
                 <th><%= t ".no_of_members" %></th>
+                <td><%= company.company_size %></td>
+              </tr>
+              <tr>
+                <th><%= t ".country" %></th>
+                <td><%= company.country %></td>
+              </tr>
+              <tr>
+                <th><%= t ".introduction" %></th>
+                <td><%= company.introduction %></td>
               </tr>
             </thead>
-            <tbody>
-              <tr>
-                <td>
-                  <%= company.founder %>
-                </td>
-                <td><code><%= company.founder_on %></code></td>
-                <td><code><%= company.company_size %></code></td>
-              </tr>
-            </tbody>
           </table>
         </div>
       </div>

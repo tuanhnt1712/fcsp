@@ -71,6 +71,8 @@ en:
       no_of_members: "# of Members"
       social_profiles: "Social Profiles"
       stats: "Stats"
+      country: "Country"
+      introduction: "Introduction"
     show_header:
       change_cover: "Change your cover image"
       follow: "Follow"
