@@ -91,6 +91,8 @@ en:
       no_of_members: "# of Members"
       stats: "Stats"
     show_right_main_content:
-      about_us: "About us"
+      following: "Following"
+      no_following: "There are no following"
       location: "Location"
       social_profiles: "Social Profiles"
+      load_more: "Load More"

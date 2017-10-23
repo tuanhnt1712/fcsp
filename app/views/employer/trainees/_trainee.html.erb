@@ -23,4 +23,7 @@
   <td>
     <%= trainee.phone? ? trainee.phone : t("employer.trainees.no_data") %>
   </td>
+  <td id="follow-trainee-<%= trainee.id %>">
+    <%= render "follow_trainee", trainee: trainee %>
+  </td>
 </tr>

@@ -395,6 +395,10 @@ en:
         filter_trainee: "Filter Trainee"
         all_course: "All Course"
         all_language: "All Programming Language"
+        following: "Following"
+      follow_trainee:
+        unfollow: "Unfollow"
+        follow: "Follow"
       total_rows: "There are no trainees"
       no_data: "(no data)"
   type_of_candidates:

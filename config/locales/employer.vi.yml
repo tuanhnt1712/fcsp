@@ -81,6 +81,10 @@ vi:
         language: "Ngôn ngữ"
         filter_trainee: "Lọc học viên"
         all_course: "Tất cả các khóa học"
+        following: "Theo dõi"
+      follow_trainee:
+        follow: "Theo dõi"
+        unfollow: "Bỏ theo dõi"
       no_data: "Không có dữ liệu"
       total_rows: "Không có học viên nào"
   type_of_candidates:

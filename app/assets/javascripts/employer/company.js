@@ -46,4 +46,20 @@ $(document).ready(function() {
       }
     });
   }
+
+  $('body').on('click', '#follow-trainee', function(){
+    var url, data_method, id;
+    url =  $(this).attr('href');
+    data_method = $(this).attr('data-method');
+    id = $(this).parent().attr('id');
+    $.ajax({
+      url: url,
+      method: data_method,
+      dataType: 'JSON'
+    })
+    .done(function(data){
+      $('#' + id).html(data.html);
+    })
+    return false;
+  });
 });

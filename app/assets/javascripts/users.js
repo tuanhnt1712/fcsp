@@ -123,6 +123,21 @@ $(document).ready(function(){
       }
     });
   });
+
+  $('.container').on('click', '#user-follow', function(){
+    var url, data_method;
+    url =  $(this).attr('href');
+    data_method = $(this).attr('data-method');
+    $.ajax({
+      url: url,
+      method: data_method,
+      dataType: 'JSON'
+    })
+    .done(function(data){
+      $('.follow-user').html(data.html);
+    })
+    return false;
+  });
 });
 
 function read_url(input) {

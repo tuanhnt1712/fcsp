@@ -1,9 +1,25 @@
 <div class="col-md-3">
   <article class="post show-tab-user">
     <div class="topmargin-custom title-border">
-      <h4><%= t ".about_us" %></h4>
+      <h4><%= t ".following" %></h4>
     </div>
-    <p><%= company.introduction %></p>
+    <% if @following.nil? %>
+      <%= t ".no_following" %>
+    <% else %>
+      <% @following.limit(Settings.company.per_page).each do |following| %>
+        <div class="company-following-user">
+          <%= load_user_avatar following, class: "img-circle following-avatar" %> |
+          <%= link_to following.name, user_path(following) %>
+        </div>
+      <% end %>
+      <ul class="main-menu user-show">
+        <li>
+          <a data-target="tab-following">
+            <%= t ".load_more" %>
+          </a>
+        </li>
+      </ul>
+    <% end %>
     <div class="topmargin-custom title-border">
       <div class="location-padding">
         <h4><%= t ".location" %></h4>

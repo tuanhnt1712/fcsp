@@ -7,3 +7,10 @@ jp:
       close: "閉じる"
       create: "作成する"
       create_company: "会社を作る"
+    show_right_main_content:
+      following: "以下"
+      no_following: "次のものはありません"
+      location: "ロケーション"
+      social_profiles: "社会的プロフィール"
+      load_more: "Tもっと読み込む"
+

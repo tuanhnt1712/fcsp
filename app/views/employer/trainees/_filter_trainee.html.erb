@@ -1,4 +1,4 @@
-<% if @trainees.empty? %>
+<% if trainee.empty? %>
   <tr class="show-filter-result">
     <td colspan="<%= Settings.employer.trainees.index.colspan %>"
       align="center">
@@ -6,5 +6,5 @@
     </td>
   </tr>
 <% else %>
-  <%= render partial: "trainee", collection: @trainees.to_a.uniq, as: :trainee %>
+  <%= render partial: "trainee", collection: trainee.to_a.uniq, as: :trainee %>
 <% end %>

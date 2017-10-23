@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
   before_action :authenticate_tms
-  load_resource only: :show
+  before_action :is_employer?, only: %i(show follow unfollow)
+  load_resource only: %i(show follow unfollow)
 
   def show
     @user_object = Supports::ShowUser.new @user, current_user, params
@@ -36,7 +37,6 @@ class UsersController < ApplicationController
     end
   end
 
-  def new; end
 
   def update
     if current_user.update_attributes auto_synchronize: params[:auto_synchronize]
@@ -45,5 +45,29 @@ class UsersController < ApplicationController
       flash[:error] = t ".auto_synchronize_error"
     end
     redirect_to current_user
+  end
+
+  def follow
+    @object.follow @user
+    render json: {
+      html: render_to_string(partial: "follow_user", layout: false, locals: {user: @user})
+    }
+  end
+
+  def unfollow
+    @object.stop_following @user
+    render json: {
+      html: render_to_string(partial: "follow_user", layout: false, locals: {user: @user})
+    }
+  end
+
+  private
+
+  def is_employer?
+    if current_user.employer?
+      @object = Company.find_by id: current_user.company_id
+    else
+      @object = current_user
+    end
   end
 end

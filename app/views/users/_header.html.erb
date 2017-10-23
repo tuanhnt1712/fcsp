@@ -28,6 +28,11 @@
         <span class="site-name"><b><%= user.name %></b></span>
         <span class="site-description"><%= user.email %></span>
         <div class="request-user">
+          <% unless user.is_user? current_user %>
+            <div class="follow-user btn btn-default message-button">
+              <%= render "follow_user", user: user %>
+            </div>
+          <% end %>
           <% if user.is_user? current_user %>
             <div class="dropdown">
               <button class="btn btn-default btn-xs dropdown-toggle margin-seven"

@@ -7,3 +7,9 @@ vi:
       close: "Đóng"
       create: "Xác nhận"
       create_company: "Tạo mới công ty"
+    show_right_main_content:
+      following: "Theo dõi"
+      no_following: "Không theo dõi người nào"
+      location: "Địa chỉ"
+      social_profiles: "thông tin mạng xã hội"
+      load_more: "Tải nhiều hơn"

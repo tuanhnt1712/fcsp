@@ -1060,6 +1060,9 @@ vi:
       links: "Liên kết"
       only_me: "Chỉ mình tôi"
       public: "Công khai"
+    follow_user:
+      follow: "Theo dõi"
+      unfollow: "Bỏ theo dõi"
   conversations:
     conversation:
       send: "Gửi"

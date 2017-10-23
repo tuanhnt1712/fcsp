@@ -116,6 +116,14 @@
         <div class="row topmargin-sm">
         </div>
       </div>
+      <div class="hide-tab clearfix" id="tab-following">
+        <div class="show-following-company">
+          <%= render "show_following" %>
+        </div>
+        <div class="col-md-12 pagination-bar">
+          <%= render "paginate", following: @following %>
+        </div>
+      </div>
     </div>
   </article>
 </div>
