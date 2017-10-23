@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   include ApplyJob
   include BookmarkJob
+  include PublicActivity::Model
 
   acts_as_follower
   acts_as_followable

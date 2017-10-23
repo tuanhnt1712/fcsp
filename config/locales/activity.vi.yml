@@ -1,0 +1,4 @@
+vi:
+  activity:
+    synchronize_success: "Đồng bộ thành công"
+    synchronize_error: "Đồng bộ thất bại"

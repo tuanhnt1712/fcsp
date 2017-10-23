@@ -1,0 +1,4 @@
+en:
+  activity:
+    synchronize_success: "synchronize successfully!"
+    synchronize_error: "synchronize error"

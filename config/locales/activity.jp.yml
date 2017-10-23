@@ -1,0 +1,4 @@
+jp:
+  activity:
+    synchronize_success: "同期は成功しました！"
+    synchronize_error: "同期エラー"
