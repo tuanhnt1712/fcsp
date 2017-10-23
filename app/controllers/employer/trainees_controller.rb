@@ -1,4 +1,6 @@
 class Employer::TraineesController < Employer::BaseController
+  load_resource :company, id_param: :company_id, parent: false
+  load_resource :user, id_param: :id, parent: false, only: %i(follow unfollow)
   before_action :courses_all, :trainees_all, :programming_languages_all, only: :index
 
   def index
@@ -25,6 +27,20 @@ class Employer::TraineesController < Employer::BaseController
         format.html
       end
     end
+  end
+
+  def follow
+    @company.follow @user
+    render json: {
+      html: render_to_string(partial: "follow_trainee", layout: false, locals: {trainee: @user})
+    }
+  end
+
+  def unfollow
+    @company.stop_following @user
+    render json: {
+      html: render_to_string(partial: "follow_trainee", layout: false, locals: {trainee: @user})
+    }
   end
 
   private

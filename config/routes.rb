@@ -26,7 +26,12 @@ Rails.application.routes.draw do
       resources :dashboards, only: :index
       resources :teams
       resources :candidates, only: %i(index update show)
-      resources :trainees, only: :index
+      resources :trainees, only: :index do
+        member do
+          post :follow
+          delete :unfollow
+        end
+      end
       delete "candidates", to: "candidates#destroy"
     end
   end
@@ -46,6 +51,10 @@ Rails.application.routes.draw do
   resources :users, only: %i(show new update) do
     resources :courses do
       resources :subjects
+    end
+    member do
+      post :follow
+      delete :unfollow
     end
   end
   resources :user_avatars, only: :create

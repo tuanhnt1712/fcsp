@@ -1090,6 +1090,9 @@ en:
     user_link:
       add: "Add"
       links: "Links"
+    follow_user:
+      follow: "Follow"
+      unfollow: "Unfollow"
   conversations:
     conversation:
       send: "Send"

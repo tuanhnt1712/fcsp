@@ -17,7 +17,6 @@ $(document).ready(function(){
         if (employer_type == 'trainees') {
           $('.filter-traineename').html(data.filter_name);
           $('.filter-dob').html(data.filter_birthday);
-          $('.filter-language').html(data.filter_programming_language);
         }
       },
       error: function(){
@@ -41,7 +40,6 @@ $(document).ready(function(){
         $('#list-trainees').html(data.html_job);
         $('.filter-traineename').html(data.filter_name);
         $('.filter-dob').html(data.filter_birthday);
-        $('.filter-language').html(data.filter_programming_language);
       },
       error: function(){
         alert(I18n.t('employer.candidates.not_found'));

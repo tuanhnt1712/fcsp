@@ -82,6 +82,10 @@ jp:
         filter_trainee: "フィルタトレーナー"
         language: "言語"
         all_course: "全コース"
+        following: "以下"
+      follow_trainee:
+        follow: "フォローする"
+        unfollow: "アンフォロー"
       no_data: "データなし"
       total_rows: "研修生はいません"
   type_of_candidates:

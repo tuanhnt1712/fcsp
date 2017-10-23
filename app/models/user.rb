@@ -3,6 +3,7 @@ class User < ApplicationRecord
   include BookmarkJob
 
   acts_as_follower
+  acts_as_followable
 
   devise :database_authenticatable, :registerable,
     :recoverable, :rememberable, :trackable, :validatable, :omniauthable
