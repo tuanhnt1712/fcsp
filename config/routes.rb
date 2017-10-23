@@ -43,7 +43,7 @@ Rails.application.routes.draw do
   resources :candidates, only: %i(create destroy)
   resources :bookmarks, only: %i(create destroy)
   resources :follow_companies, only: %i(create destroy)
-  resources :users, only: %i(show new) do
+  resources :users, only: %i(show new update) do
     resources :courses do
       resources :subjects
     end

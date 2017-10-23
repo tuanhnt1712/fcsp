@@ -52,6 +52,7 @@ class User < ApplicationRecord
   validates :name, presence: true,
     length: {maximum: Settings.user.max_length_name}
   validates :email, presence: true
+  validates :auto_synchronize, inclusion: {in: [true, false]}
 
   scope :newest, ->{order created_at: :desc}
 
@@ -83,6 +84,8 @@ class User < ApplicationRecord
   scope :filter_trainee_programming_language, (lambda do |language|
     where "programming_languages.id": language
   end)
+
+  scope :want_auto_sync, ->{where auto_synchronize: true}
 
   class << self
     def import file
