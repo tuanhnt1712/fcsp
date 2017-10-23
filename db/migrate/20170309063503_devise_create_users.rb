@@ -27,7 +27,8 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.0]
       t.string :name
       t.string :address
       t.integer :gender
-      t.string :avatar
+      t.integer :avatar_id
+      t.integer :cover_image_id
       t.datetime :birthday
       t.string :relationship_status
       t.string :country

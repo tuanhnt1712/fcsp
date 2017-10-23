@@ -64,7 +64,7 @@ class UsersController < ApplicationController
   private
 
   def is_employer?
-    if current_user.employer?
+    if current_user.employer? && current_user.company_id
       @object = Company.find_by id: current_user.company_id
     else
       @object = current_user
