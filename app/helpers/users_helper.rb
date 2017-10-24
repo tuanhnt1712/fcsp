@@ -1,6 +1,6 @@
 module UsersHelper
   def load_user_avatar user, options = {}
-    if user.avatar?
+    if user.avatar
       image_tag user.avatar.picture, alt: user.name.to_s,
         class: options[:class].to_s,
         size: options[:size].to_s
@@ -11,7 +11,7 @@ module UsersHelper
   end
 
   def load_user_cover user, options = {}
-    if user.cover_image.present?
+    if user.cover_image
       image_tag user.cover_image.picture, alt: user.name.to_s,
         class: options[:class].to_s, size: options[:size]
     else
