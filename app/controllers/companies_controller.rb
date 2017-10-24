@@ -3,14 +3,15 @@ class CompaniesController < ApplicationController
 
   def create
     @company.creator = current_user
-    if @company.save
+    if current_user.company.nil? && @company.save
+      current_user.update_attributes company_id: @company.id
       render json: {status: :success, message: t(".success"),
         location: employer_company_dashboards_path(@company)}
     else
       render json: {
         status: :error, message: t(".fail"),
         errors: @company.errors.messages
-      }, status: :error
+      }
     end
   end
 

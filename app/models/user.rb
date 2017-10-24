@@ -26,7 +26,7 @@ class User < ApplicationRecord
   has_many :share_jobs, source: :job
   has_many :user_languages, dependent: :destroy
   has_many :languages, through: :user_languages
-  has_many :companies, foreign_key: :creator_id
+  has_one :company, foreign_key: :creator_id
   has_many :share_posts, class_name: ShareJob.name, dependent: :destroy
   has_many :user_course_subjects
   has_many :user_courses
@@ -68,10 +68,6 @@ class User < ApplicationRecord
   scope :recommend, ->job_id do
     select("users.id, users.name, users.avatar").limit Settings.recommend.user_limit
   end
-
-  scope :select_role, (lambda do |role|
-    where role: role
-  end)
 
   scope :filter_trainee, (lambda do |list_filter, sort_by, user_type|
     list_filter.map!{|element| element == "" ? nil : element}

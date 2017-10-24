@@ -38,7 +38,9 @@
     </div>
   </div>
   <% if devise_mapping.omniauthable? %>
-    <h4 class="omb-authtitle"><%= t ".login_or" %> <a href="#"><%= t ".sign_up" %></a></h4>
+    <h4 class="omb-authtitle">
+      <%= t ".login_or" %><%= link_to t(".sign_up"), "#" %>
+    </h4>
     <div class="row omb-socialbuttons">
       <div class="col-xs-10 col-sm-12">
         <% resource_class.omniauth_providers.each do |provider| %>
