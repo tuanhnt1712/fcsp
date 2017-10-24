@@ -46,8 +46,7 @@ class Employer::TraineesController < Employer::BaseController
   private
 
   def trainees_all
-    @trainees_all = User.select_role(:trainee).includes(:avatar)
-      .left_outer_joins courses: :programming_language
+    @trainees_all = User.trainee.includes(:avatar).left_outer_joins courses: :programming_language
     @trainees_all = @trainees_all.filter_trainee_course params[:select] if params[:select].present?
     @trainees_all = @trainees_all.filter_trainee_programming_language params[:select_language] if params[:select_language].present?
   end
