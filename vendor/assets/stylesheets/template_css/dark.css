@@ -349,9 +349,6 @@ body.top-search-open .dark #header-wrap:not(.not-dark) #top-search a,
 
 .dark .breadcrumb a:hover { color: #EEE; }
 
-.dark #page-title.page-title-pattern { background-image: url('../pattern2.png'); }
-
-
 .dark .portfolio-filter { border-color: rgba(255,255,255,0.08); }
 
 .dark .portfolio-filter li a {

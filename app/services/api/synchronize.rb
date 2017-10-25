@@ -10,8 +10,10 @@ class Api::Synchronize
             synchronize_user_courses_data data_user, user
           end
         rescue StandardError
+          user.create_activity :update, params: {message: I18n.t("activity.synchronize_error")}
           return false
         end
+        user.create_activity :update, params: {message: I18n.t("activity.synchronize_success")}
       end
       true
     end

@@ -22,12 +22,12 @@ namespace :db do
       companies.each do |name, founder|
         Company.create! name: name, introduction: FFaker::Lorem.paragraph,
           website: FFaker::Internet.domain_name, founder: founder,
-          company_size: 100, founder_on: FFaker::Time.datetime
+          company_size: 100, founder_on: FFaker::Time.datetime,
+          creator_id: 1
       end
 
       puts "Create users"
       users = {
-        "hoang.thi.nhung@framgia.com": "Hoang Thi Nhung",
         "do.ha.long@framgia.com": "Do Ha Long",
         "do.van.nam@framgia.com": "Do Van Nam",
         "nguyen.ha.phan@framgia.com": "Nguyen Ha Phan",
@@ -43,6 +43,14 @@ namespace :db do
         "bui.khanh.huyen@framgia.com": "Bui Khanh Huyen",
         "sonnguyenngoc1604@gmail.com": "Nguyen Ngoc Son"
       }
+
+      user = User.create! name: "Hoang Thi Nhung",
+        email: "hoang.thi.nhung@framgia.com",
+        password: "123456",
+        company_id: 1,
+        role: 2
+      InfoUser.create! user_id: user.id, introduce: Faker::Lorem.paragraph,
+          address: "Da Nang, Viet Nam"
 
       users.each do |email, name|
         user = User.create! name: name, email: email, password: "123456"

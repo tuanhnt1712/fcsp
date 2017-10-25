@@ -1,7 +1,7 @@
 # Migration responsible for creating a table with activities
-class CreateActivities < ActiveRecord::Migration
+class CreateUserActivities < ActiveRecord::Migration
   def change
-    create_table :activities do |t|
+    create_table :user_activities do |t|
       t.integer :user_id
       t.string :name
       t.string :organization
