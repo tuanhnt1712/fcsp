@@ -1,64 +1,83 @@
 require "ffaker"
 
+puts "Create companies"
 companies = {
-  "Framgia VietNam": "Kobayashi Taihei",
   "FPT software": "Hoang Nam Tien",
   "BraveBits": "Alex Ferguson",
   "VC Corp": "Vuong Vu Thang",
   "Ipcoms": "Vu Minh Tuan"
 }
 
+default_user = User.create! name: "Hoang Thi Nhung",
+  email: "hoang.thi.nhung@framgia.com",
+  password: "123456",
+  role: "employer"
+
+default_company = Company.create! name: "Framgia VietNam",
+  introduction: FFaker::Lorem.paragraph,
+  website: FFaker::Internet.domain_name,
+  founder: "Kobayashi Taihei",
+  company_size: 100, founder_on: FFaker::Time.datetime,
+  creator_id: default_user.id
+
+InfoUser.create! user_id: default_user.id,
+  introduce: FFaker::Lorem.paragraph,
+  address: "Ha Noi, Viet Nam"
+
 companies.each do |name, founder|
   Company.create! name: name, introduction: FFaker::Lorem.paragraph,
     website: FFaker::Internet.domain_name, founder: founder,
-    company_size: 100, founder_on: FFaker::Time.datetime,
-    creator_id: 1
+    company_size: 100, founder_on: FFaker::Time.datetime
 end
 
+puts "Create users"
 users = {
   "do.ha.long@framgia.com": "Do Ha Long",
-  "do.van.nam@framgia.com": "Do Van Nam",
-  "nguyen.ha.phan@framgia.com": "Nguyen Ha Phan",
   "luu.thi.thom@framgia.com": "Luu Thi Thom",
   "thuy.viet.quoc@framgia.com": "Thuy Viet Quoc",
   "tran.anh.vu@fsramgia.com": "Tran Anh Vu",
   "le.quang.canh@sframgia.com": "Le Quang Anh",
-  "nguyen.ngoc.thinh@framgia.com": "Nguyen Ngoc Thinh",
-  "tran.xuan.nam@framgia.com": "Tran Xuan Nam",
   "user@gmail.com": "User",
   "ttkt1994@gmail.com": "User",
+}
+
+users.each do |email, name|
+  user = User.create! name: name, email: email, password: "123456"
+  InfoUser.create! user_id: user.id, introduce: FFaker::Lorem.paragraph,
+    address: "Da Nang, Viet Nam"
+end
+
+trainees = {
+  "do.van.nam@framgia.com": "Do Van Nam",
+  "nguyen.ha.phan@framgia.com": "Nguyen Ha Phan",
+  "nguyen.ngoc.thinh@framgia.com": "Nguyen Ngoc Thinh",
+  "tran.xuan.nam@framgia.com": "Tran Xuan Nam",
   "chu.kim.thang@framgia.com": "Chu Kim Thang",
   "bui.khanh.huyen@framgia.com": "Bui Khanh Huyen",
   "sonnguyenngoc1604@gmail.com": "Nguyen Ngoc Son"
 }
 
-user = User.create! name: "Hoang Thi Nhung",
-  email: "hoang.thi.nhung@framgia.com",
-  password: "123456",
-  company_id: 1,
-  role: 2
-InfoUser.create! user_id: user.id, introduce: Faker::Lorem.paragraph,
-    address: "Da Nang, Viet Nam"
-
-users.each do |email, name|
-  user = User.create! name: name, email: email, password: "123456"
-  InfoUser.create! user_id: user.id, introduce: Faker::Lorem.paragraph,
+trainees.each do |email, name|
+  trainee = User.create! name: name, email: email, password: "123456",
+    role: "trainee"
+  InfoUser.create! user_id: trainee.id, introduce: FFaker::Lorem.paragraph,
     address: "Da Nang, Viet Nam"
 end
 
 edu_admin = User.create! name: "Education admin",
   password: "123456",
   email: "admin.education@framgia.com"
-InfoUser.create! user_id: edu_admin.id, introduce: Faker::Lorem.paragraph,
+InfoUser.create! user_id: edu_admin.id, introduce: FFaker::Lorem.paragraph,
   address: "Da Nang, Viet Nam"
 
 user = User.create! name: "Adminprp",
   email: "admin@gmail.com",
   password: "123456",
-  role: 1
-InfoUser.create! user_id: user.id, introduce: Faker::Lorem.paragraph,
+  role: "admin"
+InfoUser.create! user_id: user.id, introduce: FFaker::Lorem.paragraph,
   address: "Da Nang, Viet Nam"
 
+puts "Create jobs"
 2.times do |i|
   20.times do
     title = FFaker::Lorem.sentence
@@ -69,6 +88,7 @@ InfoUser.create! user_id: user.id, introduce: Faker::Lorem.paragraph,
   end
 end
 
+puts "Create Candidate"
 users = User.limit(20).pluck(:id)
 users.each do |candidate|
   jobs = Job.order("Random()").limit(20).pluck :id
@@ -80,25 +100,30 @@ users.each do |candidate|
   end
 end
 
+puts "Update counter cache candidate"
 Job.all.each do |job|
   Job.update_counters job.id, candidates_count: job.candidates.length
 end
 
+puts "Create employee of company"
 User.all.each do |user|
   Employee.create! user_id: user.id, company_id: 1,
     description: FFaker::Lorem.sentence
 end
 
+puts "Create addresses of company"
 Company.all.each do |company|
   Address.create! company_id: company.id,
     address: FFaker::Address.city,
     head_office: 1
 end
 
+puts "Create skills"
 6.times do
   Skill.create name: FFaker::Skill.tech_skill
 end
 
+puts "Assign skill to user"
 User.all.each do |user|
   skills = Skill.order("Random()").limit(2).pluck(:id)
   skills.each do |skill|
@@ -107,6 +132,7 @@ User.all.each do |user|
   end
 end
 
+puts "Create skills are required by jobs"
 Job.all.each do |job|
   skills = Skill.order("Random()").limit(4).pluck(:id)
   skills.each do |skill|
