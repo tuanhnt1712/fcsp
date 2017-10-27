@@ -7,7 +7,7 @@ class Employer::TraineesController < Employer::BaseController
     if params[:type]
       sort_by = params[:sort].nil? ? "ASC" : params[:sort]
       @trainees = @trainees_all.filter_trainee(params[:array_id],
-        sort_by, params[:type]).page(params[:page])
+        sort_by, params[:type], params[:data_table]).page(params[:page])
         .per Settings.employer.trainees.per_page
     else
       @trainees = @trainees_all.page(params[:page]).per Settings.employer.trainees.per_page
@@ -46,9 +46,12 @@ class Employer::TraineesController < Employer::BaseController
   private
 
   def trainees_all
-    @trainees_all = User.trainee.includes(:avatar).left_outer_joins courses: :programming_language
-    @trainees_all = @trainees_all.filter_trainee_course params[:select] if params[:select].present?
-    @trainees_all = @trainees_all.filter_trainee_programming_language params[:select_language] if params[:select_language].present?
+    @trainees_all = User.trainee.includes(:info_user, :avatar)
+      .left_outer_joins courses: :programming_language
+    @trainees_all = @trainees_all.filter_trainee_course params[:select] if
+      params[:select].present?
+    @trainees_all = @trainees_all.filter_trainee_programming_language params[:select_language] if
+      params[:select_language].present?
   end
 
   def courses_all

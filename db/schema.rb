@@ -169,13 +169,16 @@ ActiveRecord::Schema.define(version: 20171023071217) do
   end
 
   create_table "info_users", force: :cascade do |t|
-    t.integer  "relationship_status"
+    t.integer  "relationship_status", default: 0,     null: false
     t.text     "introduce"
     t.string   "quote"
     t.string   "ambition"
     t.string   "phone"
     t.string   "address"
-    t.text     "info_statuses"
+    t.integer  "gender",              default: 0,     null: false
+    t.datetime "birthday"
+    t.string   "occupation"
+    t.string   "country"
     t.boolean  "is_public",           default: false
     t.integer  "user_id"
     t.datetime "created_at",                          null: false
@@ -428,7 +431,6 @@ ActiveRecord::Schema.define(version: 20171023071217) do
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "",    null: false
-    t.string   "phone"
     t.string   "provider"
     t.integer  "company_id"
     t.integer  "role",                   default: 0
@@ -444,15 +446,8 @@ ActiveRecord::Schema.define(version: 20171023071217) do
     t.datetime "created_at",                             null: false
     t.datetime "updated_at",                             null: false
     t.string   "name"
-    t.string   "address"
-    t.integer  "gender"
     t.integer  "avatar_id"
     t.integer  "cover_image_id"
-    t.datetime "birthday"
-    t.string   "relationship_status"
-    t.string   "country"
-    t.string   "occupation"
-    t.string   "status"
     t.boolean  "auto_synchronize",       default: false
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree

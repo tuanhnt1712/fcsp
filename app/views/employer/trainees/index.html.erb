@@ -62,7 +62,7 @@
                         </td>
                       </tr>
                     <% else %>
-                      <%= render partial: "trainee", collection: @trainees.to_a.uniq,
+                      <%= render partial: "trainee", collection: @trainees.distinct,
                         as: :trainee %>
                     <% end %>
                   </tbody>
