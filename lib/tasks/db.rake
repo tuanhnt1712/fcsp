@@ -6,55 +6,71 @@ namespace :db do
     if Rails.env.production?
       puts "Do not running in 'Production' task"
     else
-      %w[db:drop db:create db:migrate db:seed].each do |task|
+      %w[db:drop db:create db:migrate].each do |task|
         Rake::Task[task].invoke
       end
 
       puts "Create companies"
       companies = {
-        "Framgia VietNam": "Kobayashi Taihei",
         "FPT software": "Hoang Nam Tien",
         "BraveBits": "Alex Ferguson",
         "VC Corp": "Vuong Vu Thang",
         "Ipcoms": "Vu Minh Tuan"
       }
 
+      default_user = User.create! name: "Hoang Thi Nhung",
+        email: "hoang.thi.nhung@framgia.com",
+        password: "123456",
+        role: "employer"
+
+      default_company = Company.create! name: "Framgia VietNam",
+        introduction: FFaker::Lorem.paragraph,
+        website: FFaker::Internet.domain_name,
+        founder: "Kobayashi Taihei",
+        company_size: 100, founder_on: FFaker::Time.datetime,
+        creator_id: default_user.id
+
+      InfoUser.create! user_id: default_user.id,
+        introduce: Faker::Lorem.paragraph,
+        address: "Ha Noi, Viet Nam"
+
       companies.each do |name, founder|
         Company.create! name: name, introduction: FFaker::Lorem.paragraph,
           website: FFaker::Internet.domain_name, founder: founder,
-          company_size: 100, founder_on: FFaker::Time.datetime,
-          creator_id: 1
+          company_size: 100, founder_on: FFaker::Time.datetime
       end
 
       puts "Create users"
       users = {
         "do.ha.long@framgia.com": "Do Ha Long",
-        "do.van.nam@framgia.com": "Do Van Nam",
-        "nguyen.ha.phan@framgia.com": "Nguyen Ha Phan",
         "luu.thi.thom@framgia.com": "Luu Thi Thom",
         "thuy.viet.quoc@framgia.com": "Thuy Viet Quoc",
         "tran.anh.vu@fsramgia.com": "Tran Anh Vu",
         "le.quang.canh@sframgia.com": "Le Quang Anh",
-        "nguyen.ngoc.thinh@framgia.com": "Nguyen Ngoc Thinh",
-        "tran.xuan.nam@framgia.com": "Tran Xuan Nam",
         "user@gmail.com": "User",
         "ttkt1994@gmail.com": "User",
+      }
+
+      users.each do |email, name|
+        user = User.create! name: name, email: email, password: "123456"
+        InfoUser.create! user_id: user.id, introduce: Faker::Lorem.paragraph,
+          address: "Da Nang, Viet Nam"
+      end
+
+      trainees = {
+        "do.van.nam@framgia.com": "Do Van Nam",
+        "nguyen.ha.phan@framgia.com": "Nguyen Ha Phan",
+        "nguyen.ngoc.thinh@framgia.com": "Nguyen Ngoc Thinh",
+        "tran.xuan.nam@framgia.com": "Tran Xuan Nam",
         "chu.kim.thang@framgia.com": "Chu Kim Thang",
         "bui.khanh.huyen@framgia.com": "Bui Khanh Huyen",
         "sonnguyenngoc1604@gmail.com": "Nguyen Ngoc Son"
       }
 
-      user = User.create! name: "Hoang Thi Nhung",
-        email: "hoang.thi.nhung@framgia.com",
-        password: "123456",
-        company_id: 1,
-        role: 2
-      InfoUser.create! user_id: user.id, introduce: Faker::Lorem.paragraph,
-          address: "Da Nang, Viet Nam"
-
-      users.each do |email, name|
-        user = User.create! name: name, email: email, password: "123456"
-        InfoUser.create! user_id: user.id, introduce: Faker::Lorem.paragraph,
+      trainees.each do |email, name|
+        trainee = User.create! name: name, email: email, password: "123456",
+          role: "trainee"
+        InfoUser.create! user_id: trainee.id, introduce: Faker::Lorem.paragraph,
           address: "Da Nang, Viet Nam"
       end
 
@@ -67,7 +83,7 @@ namespace :db do
       user = User.create! name: "Adminprp",
         email: "admin@gmail.com",
         password: "123456",
-        role: 1
+        role: "admin"
       InfoUser.create! user_id: user.id, introduce: Faker::Lorem.paragraph,
         address: "Da Nang, Viet Nam"
 
