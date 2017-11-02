@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :rack_mini_profiler_authorize_request, :set_locale,
-    :shared_jobs, :shared_posts, :show_conversations
+    :show_conversations
   after_action :store_location
 
   include ApplicationHelper

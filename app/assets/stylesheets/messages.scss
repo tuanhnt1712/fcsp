@@ -106,7 +106,7 @@
   }
 }
 
-//*****************CHAT BODY *******************
+
 .chat-body {
   h6 {
     font-size: 20px;
@@ -237,7 +237,7 @@
   }
 }
 
-// **************ADD FORM ***************
+
 .chat-body .answer-add {
   background: $base-tone;
   clear: both;
@@ -299,7 +299,7 @@
 }
 
 .messages-list {
-  max-height: 200px;
+  height: 200px;
   overflow-x: hidden;
   overflow-y: auto;
 }
@@ -323,4 +323,32 @@
 
 .message-button {
   margin-right: 15px;
+}
+
+#conversations-list {
+  bottom: -20px;
+  display: inline-flex;
+  float: right;
+  position: fixed;
+  right: 0;
+}
+
+.send {
+  color: green;
+  float: right;
+}
+
+.box-message {
+  margin-right: 10px;
+  width: 247px;
+}
+
+.box-message-body {
+  bottom: 0;
+  position: absolute;
+  width: 247px;
+}
+
+.close {
+  float: right;
 }
