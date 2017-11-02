@@ -3,7 +3,6 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.0]
     create_table :users do |t|
       ## Database authenticatable
       t.string :email,              null: false, default: ""
-      t.string :phone
       t.string :provider
       t.integer :company_id
       t.integer :role, default: 0
@@ -25,15 +24,8 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.0]
 
       t.timestamps null: false
       t.string :name
-      t.string :address
-      t.integer :gender
       t.integer :avatar_id
       t.integer :cover_image_id
-      t.datetime :birthday
-      t.string :relationship_status
-      t.string :country
-      t.string :occupation
-      t.string :status
       t.boolean :auto_synchronize, default: false
     end
 

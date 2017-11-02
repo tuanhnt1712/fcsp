@@ -102,7 +102,7 @@ $(document).ready(function(){
   $('body').on('click', '.sortAlpha, .btn-ok', function(e){
     e.preventDefault();
     var typefilter, sort_by, listcheckbox, arrchecked, company_id, filter_mode,
-      params, tbody, url_request, job_id, language_id;
+      params, tbody, url_request, job_id, language_id, data_table;
 
     job_id = $('.select-job').val();
     language_id = $('.select-language').val();
@@ -112,6 +112,7 @@ $(document).ready(function(){
     arrchecked = [];
     company_id = $('#company-id').val();
     filter_mode = $(this).parents('div').attr('data-model');
+    data_table = $(this).parents('div').attr('data-table');
 
     listcheckbox.each(function(){
       if ($(this).is(':checked')){
@@ -120,7 +121,7 @@ $(document).ready(function(){
     });
 
     params = {type: typefilter, sort: sort_by, array_id: arrchecked, select: job_id,
-      select_language: language_id};
+      select_language: language_id, data_table: data_table};
     tbody = '';
     url_request = '';
 
@@ -163,7 +164,6 @@ $(document).ready(function(){
             $('.pagination-bar').html(data.pagination_candidate);
             $('.filter-traineename').html(data.filter_name);
             $('.filter-dob').html(data.filter_birthday);
-            $('.filter-language').html(data.filter_programming_language);
             break;
         }
 

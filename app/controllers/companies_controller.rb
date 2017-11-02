@@ -18,7 +18,7 @@ class CompaniesController < ApplicationController
   def show
     @company_jobs = @company.jobs.includes(:images)
       .page(params[:page]).per Settings.company.per_page
-    @following = User.filter_trainee(@company.all_following.pluck(:id), "ASC", "id")
+    @following = User.filter_trainee(@company.all_following.pluck(:id), "ASC", "id", "users")
       .includes(:avatar).page(params[:page]).per Settings.company.show.following.per_page
 
     if request.xhr?

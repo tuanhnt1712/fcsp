@@ -44,15 +44,12 @@ class User < ApplicationRecord
 
   accepts_nested_attributes_for :info_user
 
-  after_create :create_user_group
-
   delegate :introduce, :ambition, :address, :phone, :quote, :info_statuses,
-    to: :info_user, prefix: true
+    :birthday, :relationship_status, :occupation, :country, to: :info_user, prefix: true
 
-  enum role: %i(user admin employer trainee)
+  enum role: %i(employer trainee admin)
 
-  validates :name, presence: true,
-    length: {maximum: Settings.user.max_length_name}
+  validates :name, presence: true, length: {maximum: Settings.user.max_length_name}
   validates :email, presence: true
   validates :auto_synchronize, inclusion: {in: [true, false]}
 
@@ -71,9 +68,17 @@ class User < ApplicationRecord
       .limit Settings.recommend.user_limit
   end
 
-  scope :filter_trainee, (lambda do |list_filter, sort_by, user_type|
+  scope :filter_trainee, (lambda do |list_filter, sort_by, user_type, data_table|
     list_filter.map!{|element| element == "" ? nil : element}
-    where("#{user_type}": list_filter).order "#{user_type} #{sort_by}"
+    date_filter = ["birthday"]
+
+    if date_filter.include? user_type
+      list_filter = InfoUser.all.pluck(user_type).uniq.reject{
+        |element| list_filter.exclude? (element.to_date.to_s if element)}
+    end
+
+    where("#{data_table}.#{user_type}": list_filter).
+      order "#{data_table}.#{user_type} #{sort_by}"
   end)
 
   scope :filter_trainee_course, (lambda do |course|
@@ -130,11 +135,5 @@ class User < ApplicationRecord
 
   def is_user? user
     user == self
-  end
-
-  private
-
-  def create_user_group
-    self.user_groups.create
   end
 end

@@ -6,5 +6,5 @@
     </td>
   </tr>
 <% else %>
-  <%= render partial: "trainee", collection: trainee.to_a.uniq, as: :trainee %>
+  <%= render partial: "trainee", collection: trainee.distinct, as: :trainee %>
 <% end %>

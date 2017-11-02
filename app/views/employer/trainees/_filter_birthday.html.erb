@@ -4,7 +4,7 @@
     <i class="fa fa-filter" aria-hidden="true"></i>
   </button>
   <div class="dropdown-menu filter" data-filter="birthday"
-    data-model="trainee">
+    data-model="trainee" data-table="info_users">
     <ul>
       <li>
         <button class="button-sort sortAlpha" data-sort-by="ASC">
@@ -42,10 +42,12 @@
             <% trainee_arr_uniq(:birthday).each_with_index do |trainees, index| %>
               <div class="checkbox">
                 <input id="checkbox-name-<%= index + 1 %>"
-                  data-list-id="<%= trainees %>" type="checkbox"
+                  data-list-id="<%= trainees.to_date if
+                    trainees %>" type="checkbox"
                   class="styled checkboxitem list-user-filter" checked>
                 <label for="checkbox-name-<%= index + 1 %>" class="label-user-name">
-                  <%= trainees.nil? ? t("employer.trainees.no_data") : trainees %>
+                  <%= trainees.nil? ? t("employer.trainees.no_data") :
+                    (l trainees, format: :format_date_eng) %>
                 </label>
               </div>
             <% end %>
