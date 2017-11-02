@@ -67,7 +67,8 @@ class User < ApplicationRecord
   end
 
   scope :recommend, ->job_id do
-    select("users.id, users.name, users.avatar").limit Settings.recommend.user_limit
+    select("users.id, users.name, users.avatar_id").includes(:avatar)
+      .limit Settings.recommend.user_limit
   end
 
   scope :filter_trainee, (lambda do |list_filter, sort_by, user_type|
