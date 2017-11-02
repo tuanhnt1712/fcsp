@@ -1,7 +1,8 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
-  before_action :rack_mini_profiler_authorize_request, :set_locale,
-    :show_conversations
+  before_action :rack_mini_profiler_authorize_request, :set_locale, :shared_jobs,
+    :shared_posts, :show_conversations, :configure_permitted_parameters,
+    if: :devise_controller?
   after_action :store_location
 
   include ApplicationHelper
@@ -32,26 +33,17 @@ class ApplicationController < ActionController::Base
   end
 
   def store_location
-    unless request.path == "/users/sign_in" ||
-      request.path == "/users/sign_out" ||
-      request.xhr?
+    path = ["/users/sign_in", "/users/sign_out", "/users/sign_up",
+      "/users/password/edit", "/users/password", "/users/password/new",
+      "/users/confirmation", "/users/confirmation/new", "/users/edit", "/users"]
+
+    unless path.include? request.path || request.xhr?
       session[:previous_url] = request.fullpath
     end
   end
 
-  def after_sign_in_path_for _resourse
-    if cookies.signed[:tms_user].nil?
-      authenticate_tms
-      email = [current_user.email]
-      cookies.signed[:tms_user] = Api::HttpActionService.new(
-        Settings.api.tms_data_link, "", cookies.signed[:authen_service], email)
-        .tms_user_exist?
-    end
-    session[:previous_url] || root_path
-  end
-
   def shared_jobs
-    @shared_job_ids = current_user.shares.pluck :shareable_id if user_signed_in?
+    @shared_job_ids = current_user.shares.pluck(:shareable_id) if user_signed_in?
   end
 
   def render_js message, status
@@ -81,14 +73,34 @@ class ApplicationController < ActionController::Base
   end
 
   def shared_posts
-    if user_signed_in?
-      @shared_post_ids = current_user.share_posts.pluck :shareable_id
-    end
+    @shared_post_ids = current_user.share_posts.pluck(:shareable_id) if user_signed_in?
   end
 
   def show_conversations
     session[:conversations] ||= []
     @conversations = Conversation.includes(:recipient, :messages)
       .find session[:conversations]
+  end
+
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.permit :sign_up,
+      keys: [:name, :email, :password, :password_confirmation, :role,
+        info_user_attributes: %i(gender birthday phone occupation)]
+
+    devise_parameter_sanitizer.permit :account_update,
+      keys: [:name, :email, :password, :password_confirmation, :role,
+        :current_password, info_user_attributes: %i(gender birthday phone
+        occupation relationship_status introduce quote ambition address country)]
+  end
+
+  def after_sign_in_path_for resource
+    if cookies.signed[:tms_user].nil?
+      authenticate_tms
+      email = [current_user.email]
+      cookies.signed[:tms_user] = Api::HttpActionService.new(
+        Settings.api.tms_data_link, "", cookies.signed[:authen_service], email)
+        .tms_user_exist?
+    end
+    resource
   end
 end

@@ -105,4 +105,8 @@ module UsersHelper
         class: "form-control input-date"
     end
   end
+
+  def select_user_role
+    User.roles.keys.reject!{|n| n == "admin"}
+  end
 end

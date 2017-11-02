@@ -3,7 +3,6 @@ require "rails/all"
 require "roo"
 
 Bundler.require(*Rails.groups)
-
 module Fcsp
   class Application < Rails::Application
     config.assets.paths << Rails.root.join("app", "assets", "videos")

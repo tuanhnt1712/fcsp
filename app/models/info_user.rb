@@ -11,4 +11,5 @@ class InfoUser < ApplicationRecord
   validates :ambition, length: {maximum: Settings.info_users.max_length_ambition}
   validates :quote, length: {maximum: Settings.info_users.max_length_quote}
   validates :phone, length: {maximum: Settings.info_users.max_length_phone}
+  validates :user, presence: true
 end

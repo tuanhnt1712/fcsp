@@ -1,7 +1,9 @@
-# Additional translations at https://github.com/plataformatec/devise/wiki/I18n
 en:
   devise:
     confirmations:
+      new:
+        confirmation: "confirmation account"
+        resend_email: "Resend email"
       confirmed: "Your email address has been successfully confirmed."
       send_instructions: "You will receive an email with instructions for how to confirm your email address in a few minutes."
       send_paranoid_instructions: "If your email address exists in our database, you will receive an email with instructions for how to confirm your email address in a few minutes."
@@ -18,22 +20,38 @@ en:
     mailer:
       confirmation_instructions:
         subject: "Confirmation instructions"
+        welcome: "Welcome"
+        you_can_confirm: "You can confirm"
+        confirm_my_account: "Confirm my account"
       password_change:
         subject: "Password Changed"
       reset_password_instructions:
         subject: "Reset password instructions"
+        hello: "Hello"
+        someone: "Someone has requested a link to change your password. You can do this through the link below."
+        change_my_password: "Change my password"
+        if_you: "If you didn't request this, please ignore this email."
+        your_password: "Your password won't change until you access the link above and create a new one."
       unlock_instructions:
         subject: "Unlock instructions"
     omniauth_callbacks:
       failure: "Could not authenticate you from %{kind} because \"%{reason}\"."
       success: "Successfully authenticated from %{kind} account."
     passwords:
+      new:
+        reset_password: "Reset Password"
+      edit:
+        change_your_password: "Change your password"
       no_token: "You can't access this page without coming from a password reset email. If you do come from a password reset email, please make sure you used the full URL provided."
       send_instructions: "You will receive an email with instructions on how to reset your password in a few minutes."
       send_paranoid_instructions: "If your email address exists in our database, you will receive a password recovery link at your email address in a few minutes."
       updated: "Your password has been changed successfully. You are now signed in."
       updated_not_active: "Your password has been changed successfully."
     registrations:
+      new:
+        sign_up: "Sign Up"
+      edit:
+        change_information: "Change information"
       destroyed: "Bye! Your account has been successfully cancelled. We hope to see you again soon."
       signed_up: "Welcome! You have signed up successfully."
       signed_up_but_inactive: "You have signed up successfully. However, we could not sign you in because your account is not yet activated."
@@ -53,6 +71,7 @@ en:
         email_address: "email address"
         facebook: "Facebook"
         forgot_password: "Forgot your password?"
+        confirmation_account: "Confirmation account"
         google: "Google+"
         hr_system: "Hr System"
         login: "Login"

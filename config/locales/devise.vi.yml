@@ -1,0 +1,101 @@
+en:
+  devise:
+    confirmations:
+      new:
+        confirmation: "Xác thực tài khoản"
+        resend_email: "Gửi lại email"
+      confirmed: "Email của bạn đã được xác thực."
+      send_instructions: "Bạn sẽ nhận được email hướng dẫn xác thực địa chị email của bạn trong một vài phút."
+      send_paranoid_instructions: "Nếu như địa chỉ email của bạn đã tồn tại trong hệ thống của chúng tôi,bạn sẽ nhận được email hướng dẫn xác thực địa chỉ email của bạn trong một vài phút"
+    failure:
+      already_authenticated: "Bạn đã đăng kí tài khoản rồi."
+      inactive: "Tài khoản của bạn chưa được xác thực"
+      invalid: "Mật khẩu hoặc %{authentication_keys} không hợp lệ."
+      last_attempt: "Bạn còn một lần nữa trước khi tài khoản của bạn bị khóa."
+      locked: "Tài khoản của bạn đã bị khóa."
+      not_found_in_database: "Mật khẩu hoặc %{authentication_keys} không hợp lệ."
+      timeout: "Phiên làm việc của bạn đã hết hạn.Làm ơn đăng nhập lại để tiếp tục."
+      unauthenticated: "Bạn cần đăng nhập hoặc đăng kí trước khi tiếp tục."
+      unconfirmed: "Bạn cần xác thực địa chỉ email của bạn trước khi tiếp tục."
+    mailer:
+      confirmation_instructions:
+        subject: "Hướng dẫn xác thực"
+        welcome: "Chào mừng"
+        you_can_confirm: "Bạn có thể xác thực"
+        confirm_my_account: "Xác thực tài khoản của tôi"
+      password_change:
+        subject: "Mật khẩu đã bị thay đổi"
+      reset_password_instructions:
+        subject: "Hướng dẫn thay đổi mật khẩu"
+        hello: "Xin chào"
+        someone: "Một người nào đó đã yêu cầu đường dẫn để thay đổi mật khẩu của bạn.Bạn có thể làm điều đó thông qua đường dẫn phía dưới."
+        change_my_password: "Thay đổi mật khẩu của tôi"
+        if_you: "Nếu bạn không yêu cầu điều này, làm ơn bỏ qua email này."
+        your_password: "Mật khẩu của bạn sẽ không thay đổi cho đến khi bạn truy cập vào đường dẫn bên dưới và tạo một mật khẩu mới."
+      unlock_instructions:
+        subject: "Hướng dẫn mở khóa"
+    omniauth_callbacks:
+      failure: "Không thể xác thực bạn từ %{kind} vì \"%{reason}\"."
+      success: "Xác thực thành công từ %{kind} tài khoản."
+    passwords:
+      new:
+        reset_password: "Đặt lại mật khẩu"
+      edit:
+        change_your_password: "Thay đổi mật khẩu của bạn"
+      no_token: "Bạn không thể truy cập trang này mà không đi từ email đặt lại mật khẩu. Nếu bạn đi từ email đặt lại mật khẩu, làm ơn chắc chắn rằng bạn đã dùng đường dẫn đã được cung cấp."
+      send_instructions: "Bạn sẽ nhận được email với hướng dẫn thay đổi mật khẩu tài khoản của bạn trong một vài phút."
+      send_paranoid_instructions: "Nếu email của bạn đã tồn tại trong hệ thống của chúng tôi, bạn sẽ nhận được đường dẫn phục hồi mật khẩu của bạn trong một vài phút."
+      updated: "Mật khẩu của bạn đã được thay đổi thành công. Bạn đã được kích hoạt"
+      updated_not_active: "Mật khẩu của bạn đã được thay đổi thành công."
+    registrations:
+      new:
+        sign_up: "Đăng kí"
+      edit:
+        change_information: "Thay đổi thông tin"
+      destroyed: "Tạm biệt! Tài khoản của bạn đã được xóa thành công.Chúng tôi mong sẽ được gặp lại bạn."
+      signed_up: "Chào mừng! Bạn đã đăng kí thành công."
+      signed_up_but_inactive: "Bạn đã đăng kí thành công. Tuy nhiên, bạn chưa thể đăng nhập được bởi vì tài khoản của bạn chưa được kích hoạt."
+      signed_up_but_locked: "Bạn đã đăng kí thành công. Tuy nhiên, bạn không thể đăng nhập bởi vì tài khoản của bạn đã bị khóa."
+      signed_up_but_unconfirmed: "Một tin nhắn với đường dẫn xác nhận đã được gửi đến địa chỉ email của bạn.Làm ơn làm theo hướng dẫn để kích hoạt tài khoản của bạn."
+      update_needs_confirmation: "Bạn đã cập nhật tài khoản của bạn thành công, nhưng chúng tôi cần xác thực địa chỉ email mới của bạn. Làm ơn kiểm tra email của bạn và làm theo hướng dẫn để xác thực địa chỉ email mới của bạn."
+      updated: "Tài khoản của bạn đã được cập nhật thành công."
+    sessions:
+      already_signed_out: "Đăng xuất thành công."
+      form_login:
+        facebook: "Facebook"
+        forgot_password: "Quên mật khẩu của bạn?"
+        login: "Đăng nhập"
+        or_login_with: "Hoặc đăng nhập với"
+        twitter: "Twitter"
+      form_login_2:
+        email_address: "Địa chỉ email"
+        facebook: "Facebook"
+        forgot_password: "Quên mật khẩu của bạn?"
+        confirmation_account: "Xác thực tài khoản"
+        google: "Google+"
+        hr_system: "Hệ thống Hr"
+        login: "Đăng nhập"
+        login_or: "Đăng nhập hoặc"
+        or: "hoặc"
+        or_login_with: "Hoặc đăng nhập với"
+        password: "Mật khẩu"
+        sign_up: "Đăng kí"
+        twitter: "Twitter"
+      new:
+        login: "Đăng nhập"
+      signed_in: "Đăng nhập thành công."
+      signed_out: "Đăng xuất thành công."
+    unlocks:
+      send_instructions: "Bạn sẽ nhận được email với hướng dẫn mở khóa tài khoản của bạn trong một vài phút."
+      send_paranoid_instructions: "Nếu tài khoản của bạn đã tồn tại, bạn sẽ nhận  được email với hướng dẫn mở khóa nó trong một vài phút."
+      unlocked: "Tài khoản của bạn đã được mở khóa thành công. Làm ơn đăng nhập để tiếp tục."
+  errors:
+    messages:
+      already_confirmed: "Đã được xác nhận, làm ơn thử đăng nhập lại"
+      confirmation_period_expired: "cần được xác thực lại trong vòng %{period}, làm ơn yêu cầu một email mới"
+      expired: "đã hết hạn, làm ơn yêu cầu một email mới"
+      not_found: "không tìm thấy"
+      not_locked: "không bị khóa"
+      not_saved:
+        one: "một lỗi đã ngăn  %{resource} này được lưu lại:"
+        other: "%{count} lỗi đã ngăn %{resource} này được lưu lại:"
