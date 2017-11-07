@@ -23,6 +23,8 @@
       <div class="col-md-3">
         <article class="post show-tab-user">
           <%= publish_info_button %>
+          <%= link_to t(".edit_profile"), edit_user_registration_path,
+            class: "btn btn-default" %>
           <%= render "social_network", user: @user, info_user: @info_user, users: @users %>
         </article>
       </div>

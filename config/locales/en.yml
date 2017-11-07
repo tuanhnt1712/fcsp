@@ -1049,6 +1049,7 @@ en:
       posts: "Posts"
       private_profile: "Private Profile"
       public_profile: "Public Profile"
+      edit_profile: "Edit Profile"
     skill_user:
       add: "Add"
       skills: "Skills"

@@ -12,7 +12,8 @@
         <%= f.label :password, class: "login-form-password" %><br />
         <%= f.password_field :password,
           class: "form-control not-dark", autocomplete: "off" %>
-        <%= link_to t(".forgot_password"), "#", class: "forgot-password" %><br/>
+        <%= link_to t(".forgot_password"), new_user_password_path,
+          class: "forgot-password" %><br/>
       </div>
 
       <% if devise_mapping.rememberable? -%>

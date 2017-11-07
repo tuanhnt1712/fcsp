@@ -42,7 +42,7 @@ class User < ApplicationRecord
     primary_key: :cover_image_id
   has_one :info_user, dependent: :destroy
 
-  accepts_nested_attributes_for :info_user
+  accepts_nested_attributes_for :info_user, update_only: true
 
   delegate :introduce, :ambition, :address, :phone, :quote, :info_statuses,
     :birthday, :relationship_status, :occupation, :country, to: :info_user, prefix: true

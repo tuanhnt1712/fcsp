@@ -1023,6 +1023,7 @@ vi:
       posts: "Bài đăng"
       private_profile: "Chỉ mình tôi"
       public_profile: "Công khai trang cá nhân"
+      edit_profile: "Chỉnh sửa hồ sơ"
     skill_user:
       add: "Thêm"
       skills: "Kỹ năng"

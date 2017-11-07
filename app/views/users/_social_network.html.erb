@@ -1,12 +1,5 @@
 <div class="fancy-title title-border-custom">
   <h4><%= t ".about_me" %></h4>
-  <% if user.is_user? current_user %>
-    <a href="#" id="edit-quote" data-toggle="modal"
-      data-target="#edit-about-me-modal" class="pull-right nomargin">
-      <span class="icon-pencil"></span> <%= t ".edit" %>
-    </a>
-
-  <% end %>
 </div>
 <% if user.info_user.present? %>
   <div class="block-quote education-info">

@@ -253,6 +253,8 @@ jp:
     follow_user:
       follow: "フォローする"
       unfollow: "アンフォロー"
+    show:
+      edit_profile: "プロファイル編集"
   conversations:
     conversation:
       send: "送る"
