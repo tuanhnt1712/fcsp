@@ -1,8 +1,8 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :rack_mini_profiler_authorize_request, :set_locale, :shared_jobs,
-    :shared_posts, :show_conversations, :configure_permitted_parameters,
-    if: :devise_controller?
+    :shared_posts, :show_conversations
+  before_action :configure_permitted_parameters, if: :devise_controller?
   after_action :store_location
 
   include ApplicationHelper
