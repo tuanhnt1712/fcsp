@@ -3,7 +3,7 @@
     <div class="topmargin-custom title-border">
       <h4><%= t ".following" %></h4>
     </div>
-    <% if @following.nil? %>
+    <% if @following.blank? %>
       <%= t ".no_following" %>
     <% else %>
       <% @following.limit(Settings.company.per_page).each do |following| %>
