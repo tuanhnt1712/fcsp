@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: :show
   before_action :authenticate_tms
   before_action :is_employer?, only: %i(show follow unfollow)
   load_resource only: %i(show follow unfollow)
@@ -64,7 +64,7 @@ class UsersController < ApplicationController
   private
 
   def is_employer?
-    if current_user.employer? && current_user.company_id
+    if user_signed_in? && current_user.employer? && current_user.company_id
       @object = Company.find_by id: current_user.company_id
     else
       @object = current_user

@@ -69,5 +69,7 @@
     </div>
   </div>
 </div>
-<%= render "modal_change_avatar_company", company: company %>
-<%= render "modal_change_cover_company", company: company %>
+<% if can? :update, company %>
+  <%= render "modal_change_avatar_company", company: company %>
+  <%= render "modal_change_cover_company", company: company %>
+<% end %>
