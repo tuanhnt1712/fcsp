@@ -1,10 +1,14 @@
 FactoryGirl.define do
   factory :info_user do
     relationship_status 0
-    introduce Faker::Lorem.paragraph
-    quote Faker::Lorem.sentence
-    ambition Faker::Lorem.sentence
-    address Faker::Address.city
+    introduce FFaker::Lorem.paragraph
+    birthday FFaker::Time.date
+    phone FFaker::PhoneNumber.short_phone_number
+    quote FFaker::Lorem.sentence
+    ambition FFaker::Lorem.sentence
+    address FFaker::Address.city
+    occupation FFaker::Job.title
+    gender "male"
     user
   end
 end

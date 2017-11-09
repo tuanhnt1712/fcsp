@@ -1,4 +1,8 @@
 class SessionsController < Devise::SessionsController
+  def new
+    redirect_to root_url
+  end
+
   def create
     auth_options = {scope: :user, recall: "pages#index"}
     self.resource = warden.authenticate! auth_options

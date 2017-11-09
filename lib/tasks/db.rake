@@ -32,7 +32,11 @@ namespace :db do
 
       InfoUser.create! user_id: default_user.id,
         introduce: Faker::Lorem.paragraph,
-        address: "Ha Noi, Viet Nam"
+        address: "Ha Noi, Viet Nam",
+        phone: "0123456789",
+        birthday: "1990-01-01",
+        occupation: "student",
+        gender: "male"
 
       companies.each do |name, founder|
         Company.create! name: name, introduction: FFaker::Lorem.paragraph,
@@ -53,8 +57,10 @@ namespace :db do
 
       users.each do |email, name|
         user = User.create! name: name, email: email, password: "123456"
-        InfoUser.create! user_id: user.id, introduce: Faker::Lorem.paragraph,
-          address: "Da Nang, Viet Nam"
+        InfoUser.create! user_id: user.id, introduce: FFaker::Lorem.paragraph,
+          address: "Da Nang, Viet Nam",
+          phone: FFaker::PhoneNumber.short_phone_number,
+          birthday: FFaker::Time.date, occupation: "student", gender: "male"
       end
 
       trainees = {
@@ -70,22 +76,33 @@ namespace :db do
       trainees.each do |email, name|
         trainee = User.create! name: name, email: email, password: "123456",
           role: "trainee"
-        InfoUser.create! user_id: trainee.id, introduce: Faker::Lorem.paragraph,
-          address: "Da Nang, Viet Nam"
+        InfoUser.create! user_id: trainee.id, introduce: FFaker::Lorem.paragraph,
+          address: "Da Nang, Viet Nam",
+          phone: FFaker::PhoneNumber.short_phone_number,
+          birthday: FFaker::Time.date, occupation: "student", gender: "male"
       end
+
+      puts "create data course default for trainee"
+      Rake::Task["db:course"].invoke
+      Rake::Task["db:subject"].invoke
+      Rake::Task["db:task"].invoke
 
       edu_admin = User.create! name: "Education admin",
         password: "123456",
         email: "admin.education@framgia.com"
-      InfoUser.create! user_id: edu_admin.id, introduce: Faker::Lorem.paragraph,
-        address: "Da Nang, Viet Nam"
+      InfoUser.create! user_id: edu_admin.id, introduce: FFaker::Lorem.paragraph,
+        address: "Da Nang, Viet Nam",
+        phone: FFaker::PhoneNumber.short_phone_number,
+        birthday: FFaker::Time.date, occupation: "student", gender: "male"
 
       user = User.create! name: "Adminprp",
         email: "admin@gmail.com",
         password: "123456",
         role: "admin"
-      InfoUser.create! user_id: user.id, introduce: Faker::Lorem.paragraph,
-        address: "Da Nang, Viet Nam"
+      InfoUser.create! user_id: user.id, introduce: FFaker::Lorem.paragraph,
+        address: "Da Nang, Viet Nam",
+        phone: FFaker::PhoneNumber.short_phone_number,
+        birthday: FFaker::Time.date, occupation: "student", gender: "male"
 
       puts "Create jobs"
       2.times do |i|
