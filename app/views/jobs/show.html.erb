@@ -46,12 +46,6 @@
         </div>
         <div class="post-content">
           <header class="entry-header text-center text-uppercase">
-            <h6>
-              <a href="#">
-                <%= Job.human_enum_name :type_of_candidate,
-                  @job.type_of_candidate %>
-              </a>
-            </h6>
             <h1 class="entry-title">
               <a><%= @job.title %></a>
             </h1>
@@ -62,7 +56,7 @@
             </h5>
           </header>
           <div class="entry-content">
-            <p class="job-description"><%= @job.describe %></p>
+            <p class="job-description"><%= @job.describe.html_safe %></p>
           </div>
           <%= render "introduction_company", job_object: @job_object %>
           <div class="description">
