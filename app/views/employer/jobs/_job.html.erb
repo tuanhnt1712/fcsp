@@ -32,11 +32,6 @@
       <%= link_to t(".bookmark", count: job.bookmarks.length), "#" %>
     </div>
   </td>
-  <td>
-    <%= button_tag(type: "button", class: "btn btn-default") do %>
-      <i class="fa fa-comments-o"></i>
-    <% end %>
-  </td>
   <td class="action">
     <div class="btn-group">
       <%= active_button job %>

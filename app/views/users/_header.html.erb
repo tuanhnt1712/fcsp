@@ -24,7 +24,6 @@
           <% end %>
         </a>
         <span class="site-name"><b><%= user.name %></b></span>
-        <span class="site-description"><%= user.email %></span>
         <div class="request-user">
           <% if !user.is_user?(current_user) && user_signed_in?  %>
             <div class="follow-user btn btn-default message-button">
@@ -36,119 +35,6 @@
                 remote: true, method: :post %>
             </div>
           <% end %>
-          <% if user.is_user? current_user %>
-            <div class="dropdown">
-              <button class="btn btn-default btn-xs dropdown-toggle margin-seven"
-                type="button" data-toggle="dropdown">
-                <span class="glyphicon glyphicon-plus"></span>
-                <span class="hidden-xs"><%= t ".add_profile_section" %></span>
-                <span class="caret hidden-xs"></span>
-              </button>
-              <div class="dropdown-menu add-infomation">
-                <div class="clearfix">
-                  <div class="accordion margin-seven">
-                    <div class="acctitle">
-                      <i class="acc-closed icon-ok-circle"></i>
-                      <i class="acc-open icon-remove-circle"></i>
-                      <%= t ".background" %>
-                    </div>
-                    <div class="acc_content clearfix">
-                      <div class="top-cart-item clearfix add-information-item">
-                        <%= link_to new_user_language_path, remote: true do %>
-                          <i class="i-circled i-light i-small icon-plus"></i>
-                        <% end %>
-                        <div class="top-cart-item-desc">
-                          <b><%= t ".add_language" %></b>
-                          <span class="top-cart-item-price hidden-xs">
-                            <%= t ".add_language_description" %></span>
-                        </div>
-                      </div>
-                      <div class="top-cart-item clearfix add-information-item">
-                        <div class="top-cart-item-desc">
-                          <b><%= t ".add_education" %></b>
-                          <span class="top-cart-item-price">
-                            <%= t ".add_education_description" %>
-                          </span>
-                        </div>
-                      </div>
-                      <div class="top-cart-item clearfix add-information-item">
-                        <div class="top-cart-item-desc">
-                          <b><%= t ".add_work" %></b>
-                          <span class="top-cart-item-price">
-                            <%= t ".add_work_description" %>
-                          </span>
-                        </div>
-                      </div>
-                      <div class="top-cart-item clearfix add-information-item">
-                        <div class="top-cart-item-desc">
-                          <b><%= t ".add_project" %></b>
-                          <span class="top-cart-item-price">
-                            <%= t ".add_project_description" %>
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="acctitle">
-                      <i class="acc-closed icon-ok-circle"></i>
-                      <i class="acc-open icon-remove-circle"></i>
-                      <%= t ".skills" %>
-                    </div>
-                    <div class="acc_content clearfix">
-                      <div class="top-cart-item clearfix add-information-item">
-                        <div class="top-cart-item-desc">
-                          <b><%= t ".add_skill" %></b>
-                          <span class="top-cart-item-price">
-                            <%= t ".add_skill_description" %>
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="acc_content clearfix">
-                    </div>
-                    <div class="acctitle">
-                      <i class="acc-closed icon-ok-circle"></i>
-                      <i class="acc-open icon-remove-circle"></i>
-                      <%= t ".accomplishments" %>
-                    </div>
-                    <div class="acc_content clearfix">
-                      <div class="top-cart-item clearfix add-information-item">
-                        <div class="top-cart-item-desc">
-                          <b><%= t ".add_portfolio" %></b>
-                          <span class="top-cart-item-price">
-                            <%= t ".add_portfolio_description" %>
-                          </span>
-                        </div>
-                      </div>
-                      <div class="top-cart-item clearfix add-information-item">
-                        <div class="top-cart-item-desc">
-                          <b><%= t ".add_award" %></b>
-                          <span class="top-cart-item-price">
-                            <%= t ".add_award_description" %>
-                          </span>
-                        </div>
-                      </div>
-                      <div class="top-cart-item clearfix add-information-item">
-                        <div class="top-cart-item-desc">
-                          <b><%= t ".add_link" %></b>
-                          <span class="top-cart-item-price">
-                            <%= t ".add_link_description" %>
-                          </span>
-                        </div>
-                      </div>
-                      <div class="top-cart-item clearfix add-information-item">
-                        <div class="top-cart-item-desc">
-                          <b><%= t ".add_certificate" %></b>
-                          <span class="top-cart-item-price">
-                            <%= t ".add_certificate_description" %>
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          <% end %>
         </div>
         <div id="mainNav" >
           <ul class="main-menu user-show">
@@ -157,20 +43,6 @@
                 <i class="icon-info-sign"> </i><b> <%= t ".information" %></b>
               </a>
             </li>
-
-            <% if user.is_user? current_user %>
-              <li>
-                <a data-target="tab-suggest-job">
-                  <i class="icon-lightbulb"></i> <b><%= t ".job_suggest" %></b>
-                </a>
-              </li>
-              <li>
-                <a data-target="tab-bookmarked-job">
-                  <i class="glyphicon glyphicon-bookmark"></i>
-                  <b><%= t ".bookmarked_jobs" %></b>
-                </a>
-              </li>
-            <% end %>
           </ul>
         </div>
       </article>
