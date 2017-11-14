@@ -61,7 +61,6 @@ Navigation bar
 }
 .navbar-nav > li > a{
 	padding: 0px;
-	margin: 10px 5px;
 	padding: 10px 15px;
 }
 .navbar-default .navbar-nav > li > a:focus, .navbar-default .navbar-nav > li > a:hover

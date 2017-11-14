@@ -7,4 +7,6 @@ class SkillUser < ApplicationRecord
 
   delegate :name, to: :skill, prefix: true, allow_nil: true
   delegate :description, to: :skill, prefix: true
+
+  enum level: %i(Basic Independent Proficient)
 end

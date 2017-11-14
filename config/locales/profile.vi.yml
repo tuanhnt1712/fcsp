@@ -1,0 +1,9 @@
+vi:
+  users:
+    advance_profile:
+      language: "Ngôn ngữ"
+      self_introduction: "Giới thiệu bản thân"
+      skill: "Kĩ năng"
+      education: "Trường học"
+      project: "Project"
+      activities: "Hoạt động"

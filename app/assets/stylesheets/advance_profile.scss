@@ -1,0 +1,69 @@
+@import 'variables/color';
+
+.box-information {
+  border-radius: 10px;
+  padding: 5px 10px 5px 10px;
+
+  li {
+    list-style-type: square;
+  }
+
+  hr {
+    border-width: 2px;
+    border-color: $sliver;
+  }
+
+  .profile-title {
+    color: $orange;
+  }
+
+  .self_introduction {
+    margin-left: 15px;
+  }
+
+  .pull-right {
+    color: $gray-dark;
+    font-style: italic;
+  }
+
+  .section-padding {
+    padding: 0px;
+  }
+
+  .list-group-item {
+    padding: 5px 15px;
+  }
+}
+
+.show-course {
+  border-radius: 10px;
+  box-shadow: 1px 2px 2px 1px $sliver;
+  height: 370px;
+  margin-left: 15px;
+  padding: 10px;
+  width: 250px;
+
+  .course-description {
+    color: $gray-dark;
+    font-style: italic;
+  }
+
+  .course-name {
+    font: bold 17px Courier;
+  }
+}
+
+.list-group {
+  margin-bottom: 0px;
+}
+
+.occupation {
+  bottom: 30px;
+  color: $tundora;
+  left: 204px;
+  position: absolute;
+
+  .fa {
+    margin-right:10px;
+  }
+}

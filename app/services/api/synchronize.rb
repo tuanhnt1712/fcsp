@@ -28,7 +28,7 @@ class Api::Synchronize
           user_schools = UserSchool.all.map do |user_school|
             [user_school.user_id, user_school.school_id]
           end
-          if check_exists user_schools, [school.id, user.id]
+          if check_exists user_schools, [user.id, school.id]
             user_school = UserSchool.find_by school_id: school.id,
               user_id: user.id
             user_school.update_attributes end_date: data_user["profile"]["graduation"]

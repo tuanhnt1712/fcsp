@@ -1,13 +1,5 @@
 <div class="right_col" role="main">
   <div class="page-title">
-    <div class="title_left">
-      <ol class="breadcrumb-arrow">
-        <li><a href="#"><%= t ".courses" %></a></li>
-      </ol>
-    </div>
-
-    <h4><%= t ".all_courses" %></h4>
-
     <div class="row">
       <div class="col-md-12 col-sm-12 col-xs-12">
         <div class="x_panel">
@@ -15,25 +7,18 @@
             <section id ="courses" class="section-padding">
               <div class="row">
                 <% courses.each do |course| %>
-                  <div class="col-md-4 padleft-right">
+                  <div class="col-md-4 padleft-right show-course">
                     <%= link_to user_course_path(user.id, course.id),
-                      class: "course-all",
-                      data: {"user-id": user.id, "course-id": course.id} do %>
-                      <figure class="imghvr-fold-up">
+                      data: {"user-id": user.id, "course-id": course.id}, class: "course" do %>
                         <%= image_tag check_language(course), class: "img-responsive" %>
-                        <figcaption>
-                          <h3>
-                            <%= course.name %>
-                          </h3>
-                          <% if course.start_date? && course.end_date? %>
-                            <p>
-                              <%= l course.start_date, format: :format_date_eng %> ~
-                              <%= l course.end_date, format: :format_date_eng %>
-                            </p>
-                          <% end %>
-                        </figcaption>
-                      </figure>
+                        <span class="course-name">
+                          <%= course.name %>
+                        </span>
                     <% end %>
+                    <hr>
+                    <div class="course-description">
+                      <%= course.description.truncate_words 25 %>
+                    </div>
                   </div>
                 <% end %>
               </div>

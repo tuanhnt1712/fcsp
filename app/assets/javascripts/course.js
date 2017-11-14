@@ -14,19 +14,4 @@ $(document).ready(function(){
       }
     });
   });
-
-  $('body').on('click', '.courses', function(e){
-    e.preventDefault();
-    var id_user = $(this).data('user-id');
-    var url = '/users/' + id_user;
-    $.ajax({
-      url: '/users/' + id_user,
-      type: 'GET',
-      dataType: 'json',
-      success: function(result){
-        $('#tab-information').html(result.html);
-        window.history.pushState("", "", url);
-      }
-    });
-  });
 });
