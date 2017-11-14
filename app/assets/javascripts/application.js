@@ -54,3 +54,4 @@
 //= require cable
 //= require conversations
 //= require_tree ./channels
+//= require setting/profile

@@ -45,7 +45,8 @@ class User < ApplicationRecord
   accepts_nested_attributes_for :info_user, update_only: true
 
   delegate :introduce, :ambition, :address, :phone, :quote, :info_statuses,
-    :birthday, :relationship_status, :occupation, :country, :introduction, to: :info_user, prefix: true
+    :birthday, :relationship_status, :occupation, :country, :introduction, :gender,
+      to: :info_user, prefix: true
 
   enum role: %i(employer trainee admin)
 

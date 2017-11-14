@@ -187,12 +187,12 @@ jp:
         account_info: "Account Info"
         company_info: "Company Info"
         dashboard: "Dashboard"
-        edit_profile: "Edit Profile"
         feed: "Feed"
         jobs: "Jobs"
         logout: "Logout"
-        setting: "Setting"
+        settings: "設定"
         tools: "Tools"
+        view_profile: "プロフィールを見る"
       modal_sync:
         auto_sync: "自動同期"
         refresh: "リフレッシュする"
@@ -254,7 +254,19 @@ jp:
       follow: "フォローする"
       unfollow: "アンフォロー"
     show:
-      edit_profile: "プロファイル編集"
   conversations:
     conversation:
       send: "送る"
+  setting:
+    layouts:
+      setting_header:
+        edit_profile: "プロファイル編集"
+    profiles:
+      index:
+        something_wrong: "何かが間違っていた。 再度確認してください！"
+      left_navigation_col:
+        basic_information: "基本情報"
+        detail_information: "詳細情報"
+    shared:
+      cancel: "キャンセル"
+      submit: "提出する"

@@ -531,7 +531,6 @@ en:
       apply_modal_header: "We have notified %{company_name} of your interest."
       apply_success_alt: "Apply success"
       cancel: "Cancel"
-      edit_profile: "Edit my profile"
       entry: "Entry"
       interest_heading: "Please tell us what you are interested in."
       interest_me: "This opportunity interests me."
@@ -566,7 +565,8 @@ en:
       logout: "Logout"
       message: "Messages"
       messages: "Messages"
-      profile: "Profile"
+      view_profile: "View Profile"
+      settings: "Settings"
       search: "Search and hit enter..."
       sign_out: "Sign out"
     job_bookmark:
@@ -1097,3 +1097,16 @@ en:
   conversations:
     conversation:
       send: "Send"
+  setting:
+    profiles:
+      index:
+        something_wrong: "Something wrong happened. Please check again"
+      left_navigation_col:
+        basic_information: "Basic information"
+        detail_information: "Detail information"
+    layouts:
+      setting_header:
+        edit_profile: "Edit profile"
+    shared:
+      cancel: "Cancel"
+      submit: "Submit"

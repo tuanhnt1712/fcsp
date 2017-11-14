@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   mount Ckeditor::Engine => "/ckeditor"
-  devise_for :users, controllers: {omniauth_callbacks: :omniauth_callbacks, sessions: :sessions}
+  devise_for :users, controllers: {omniauth_callbacks: :omniauth_callbacks,
+    sessions: :sessions}
   root "pages#index"
   resources :tms_synchronize, only: :index
   resources :companies, only: %i(show create)
@@ -41,6 +42,10 @@ Rails.application.routes.draw do
     root "dashboards#index"
     resources :companies, only: %i(new create show)
     resources :users, only: %i(new create)
+  end
+
+  namespace :setting do
+    root "profiles#index"
   end
 
   resources :jobs, only: %i(index show)

@@ -1,0 +1,255 @@
+<div class="edit-user">
+  <div class="panel-body login-custom">
+
+    <h2><%= t ".basic_information" %></h2>
+
+    <div id="row1" class="row-edit">
+      <div class="col_full">
+        <a href="#edit-email" class="edit-toggle" data-toggle="collapse"
+          data-parent="#accordion">
+          <h3 class="orange-text"><%= t ".email_address" %></h3>
+          <span class="top-right-edit"><%= t ".click_to_change" %></span>
+          <div class="black-text"><%= @user.email %></div>
+        </a>
+        <div id="edit-email" class="collapse">
+          <span>
+            <%= t ".if_you_dont_want" %>
+          </span>
+          <%= form_for @user, url: user_registration_path,
+            method: :patch do |f| %>
+            <%= f.email_field :email, class: "form-control",
+              required: true %>
+            <%= render "setting/shared/button_group" %>
+          <% end %>
+        </div>
+      </div>
+
+      <div class="col_full">
+        <a href="#edit-name" class="edit-toggle" data-toggle="collapse"
+          data-parent="#accordion">
+          <h3 class="orange-text"><%= t ".username" %></h3>
+          <span class="top-right-edit"><%= t ".click_to_change" %></span>
+          <div class="black-text"><%= @user.name %></div>
+        </a>
+        <div id="edit-name" class="collapse">
+          <span>
+            <%= t ".if_you_dont_want" %>
+          </span>
+          <%= form_for @user, url: user_registration_path,
+            method: :patch do |f| %>
+            <%= f.text_field :name, class: "form-control",
+              required: true %>
+            <%= render "setting/shared/button_group" %>
+          <% end %>
+        </div>
+      </div>
+
+      <div class="col_full">
+        <a href="#edit-password" class="edit-toggle" data-toggle="collapse"
+          data-parent="#accordion">
+          <h3 class="orange-text"><%= t ".password" %></h3>
+          <span class="top-right-edit"><%= t ".click_to_change" %></span>
+        </a>
+        <div id="edit-password" class="collapse">
+          <div>
+            <%= t ".if_you_dont_want" %>
+          </div>
+          <%= form_for @user, url: user_registration_path,
+            method: :patch do |f| %>
+            <%= f.password_field :password,
+              class: "form-control", autocomplete: "off" %>
+
+            <%= f.password_field :password_confirmation,
+              class: "form-control" %>
+
+            <%= f.password_field :current_password,
+              class: "form-control", required: true %>
+            <%= render "setting/shared/button_group" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+    <hr class="hr-edit-user">
+
+    <div id="row2" class="row-edit">
+      <h2><%= t ".detail_information" %></h2>
+      <div class="col_full">
+        <a href="#edit-phone" class="edit-toggle" data-toggle="collapse"
+          data-parent="#accordion">
+          <h3 class="orange-text"><%= t ".phone" %></h3>
+          <span class="top-right-edit"><%= t ".click_to_change" %></span>
+          <div class="black-text"><%= @user.info_user_phone %></div>
+        </a>
+        <div id="edit-phone" class="collapse">
+          <%= form_for @user, url: info_user_path(@user),
+            method: :patch do |f| %>
+              <%= f.text_field :info_user_phone, class: "form-control",
+                required: true %>
+            <%= render "setting/shared/button_group" %>
+          <% end %>
+        </div>
+      </div>
+
+      <div class="col_full">
+        <a href="#edit-gender" class="edit-toggle" data-toggle="collapse"
+          data-parent="#accordion">
+          <h3 class="orange-text"><%= t ".gender" %></h3>
+          <span class="top-right-edit"><%= t ".click_to_change" %></span>
+          <div class="black-text"><%= @user.info_user_gender %></div>
+        </a>
+        <div id="edit-gender" class="collapse">
+          <%= form_for @user, url: info_user_path(@user),
+            method: :patch do |f| %>
+            <%= f.select :info_user_gender, select_info_user_gender, {},
+              required: true, class: "form-control" %>
+            <%= render "setting/shared/button_group" %>
+          <% end %>
+        </div>
+      </div>
+
+      <div class="col_full">
+        <a href="#edit-birthday" class="edit-toggle" data-toggle="collapse"
+          data-parent="#accordion">
+          <h3 class="orange-text"><%= t ".birthday" %></h3>
+          <span class="top-right-edit"><%= t ".click_to_change" %></span>
+          <div class="black-text"><%= @user.info_user_birthday %></div>
+        </a>
+        <div id="edit-birthday" class="collapse">
+          <%= form_for @user, url: info_user_path(@user),
+            method: :patch do |f| %>
+            <%= f.date_field :info_user_birthday, class: "form-control",
+              required: true %>
+            <%= render "setting/shared/button_group" %>
+          <% end %>
+        </div>
+      </div>
+
+      <div class="col_full">
+        <a href="#edit-occupation" class="edit-toggle" data-toggle="collapse"
+          data-parent="#accordion">
+          <h3 class="orange-text"><%= t ".occupation" %></h3>
+          <span class="top-right-edit"><%= t ".click_to_change" %></span>
+          <div class="black-text"><%= @user.info_user_occupation %></div>
+        </a>
+        <div id="edit-occupation" class="collapse">
+          <%= form_for @user, url: info_user_path(@user),
+            method: :patch do |f| %>
+            <%= f.text_field :info_user_occupation, class: "form-control",
+              required: true %>
+            <%= render "setting/shared/button_group" %>
+          <% end %>
+        </div>
+      </div>
+
+      <div class="col_full">
+        <a href="#edit-relationship" class="edit-toggle" data-toggle="collapse"
+          data-parent="#accordion">
+          <h3 class="orange-text"><%= t ".relationship" %></h3>
+          <span class="top-right-edit"><%= t ".click_to_change" %></span>
+          <div class="black-text">
+            <%= @user.info_user_relationship_status %>
+          </div>
+        </a>
+        <div id="edit-relationship" class="collapse">
+          <%= form_for @user, url: info_user_path(@user),
+            method: :patch do |f| %>
+            <%= f.select :info_user_relationship_status,
+              select_info_user_relationship_status, {}, class: "form-control" %>
+            <%= render "setting/shared/button_group" %>
+          <% end %>
+        </div>
+      </div>
+
+      <div class="col_full">
+        <a href="#edit-introduce" class="edit-toggle" data-toggle="collapse"
+          data-parent="#accordion">
+          <h3 class="orange-text"><%= t ".introduce" %></h3>
+          <span class="top-right-edit"><%= t ".click_to_change" %></span>
+          <div class="black-text">
+            <%= @user.info_user_introduce %>
+          </div>
+        </a>
+        <div id="edit-introduce" class="collapse">
+          <%= form_for @user, url: info_user_path(@user),
+            method: :patch do |f| %>
+            <%= f.text_field :info_user_introduce, class: "form-control" %>
+            <%= render "setting/shared/button_group" %>
+          <% end %>
+        </div>
+      </div>
+
+      <div class="col_full">
+        <a href="#edit-quote" class="edit-toggle" data-toggle="collapse"
+          data-parent="#accordion">
+          <h3 class="orange-text"><%= t ".quote" %></h3>
+          <span class="top-right-edit"><%= t ".click_to_change" %></span>
+          <div class="black-text">
+            <%= @user.info_user_quote %>
+          </div>
+        </a>
+        <div id="edit-quote" class="collapse">
+          <%= form_for @user, url: info_user_path(@user),
+            method: :patch do |f| %>
+            <%= f.text_field :info_user_quote, class: "form-control" %>
+            <%= render "setting/shared/button_group" %>
+          <% end %>
+        </div>
+      </div>
+
+      <div class="col_full">
+        <a href="#edit-ambition" class="edit-toggle" data-toggle="collapse"
+          data-parent="#accordion">
+          <h3 class="orange-text"><%= t ".ambition" %></h3>
+          <span class="top-right-edit"><%= t ".click_to_change" %></span>
+          <div class="black-text">
+            <%= @user.info_user_ambition %>
+          </div>
+        </a>
+        <div id="edit-ambition" class="collapse">
+          <%= form_for @user, url: info_user_path(@user),
+            method: :patch do |f| %>
+            <%= f.text_field :info_user_ambition, class: "form-control" %>
+            <%= render "setting/shared/button_group" %>
+          <% end %>
+        </div>
+      </div>
+
+      <div class="col_full">
+        <a href="#edit-address" class="edit-toggle" data-toggle="collapse"
+          data-parent="#accordion">
+          <h3 class="orange-text"><%= t ".address" %></h3>
+          <span class="top-right-edit"><%= t ".click_to_change" %></span>
+          <div class="black-text">
+            <%= @user.info_user_address %>
+          </div>
+        </a>
+        <div id="edit-address" class="collapse">
+          <%= form_for @user, url: info_user_path(@user),
+            method: :patch do |f| %>
+            <%= f.text_field :info_user_address, class: "form-control" %>
+            <%= render "setting/shared/button_group" %>
+          <% end %>
+        </div>
+      </div>
+
+      <div class="col_full">
+        <a href="#edit-country" class="edit-toggle" data-toggle="collapse"
+          data-parent="#accordion">
+          <h3 class="orange-text"><%= t ".country" %></h3>
+          <span class="top-right-edit"><%= t ".click_to_change" %></span>
+          <div class="black-text">
+            <%= @user.info_user_country %>
+          </div>
+        </a>
+        <div id="edit-country" class="collapse">
+          <%= form_for @user, url: info_user_path(@user),
+            method: :patch do |f| %>
+            <%= f.text_field :info_user_country, class: "form-control" %>
+            <%= render "setting/shared/button_group" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
