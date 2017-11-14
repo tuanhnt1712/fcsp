@@ -10,7 +10,7 @@
         btn-xs toggle-window fa fa-crosshairs pull-right" %>
     </div>
 
-    <div class="panel-body">
+    <div class="panel-body conversation">
       <div class="messages-list">
         <ul>
           <%= render "conversations/conversation_content", messages: conversation.messages, user: user %>
@@ -19,8 +19,10 @@
       <form class="new_message">
         <input name="conversation_id" type="hidden" value="<%= conversation.id %>">
         <input name="user_id" type="hidden" value="<%= user.id %>">
-        <textarea name="body" class="form-control"></textarea>
-        <input type="submit" class="btn btn-success send" value="<%= t ".send" %>">
+        <div class="text-mess">
+          <textarea name="body" class="form-control" rows="1"></textarea>
+          <input type="submit" class="btn send" value="<%= t ".send" %>">
+        </div>
       </form>
     </div>
   </div>

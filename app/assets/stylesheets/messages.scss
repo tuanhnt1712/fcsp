@@ -302,6 +302,10 @@
   height: 200px;
   overflow-x: hidden;
   overflow-y: auto;
+
+  ul {
+    list-style-type: none;
+  }
 }
 
 .message-sent {
@@ -336,6 +340,7 @@
 .send {
   color: green;
   float: right;
+  padding: 0 5px;
 }
 
 .box-message {
@@ -351,4 +356,20 @@
 
 .close {
   float: right;
+}
+
+.conversation {
+  display: none;
+}
+
+.text-mess {
+  display: inline-flex;
+}
+
+.new_message{
+  margin-bottom: 0;
+
+  textarea {
+    resize: none;
+  }
 }

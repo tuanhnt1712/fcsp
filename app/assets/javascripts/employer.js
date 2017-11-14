@@ -29,3 +29,6 @@
 //= require education/growl.custom
 //= require js/bootstrap-tagsinput.min
 //= require js/typeahead.bundle.min
+//= require cable
+//= require conversations
+//= require_tree ./channels
