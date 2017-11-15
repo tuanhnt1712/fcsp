@@ -44,7 +44,6 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav text-uppercase">
         <li><%= link_to t(".home"), root_path, class: "link-menu-header" %></li>
-        <li><%= link_to t(".jobs"), jobs_path, class: "link-menu-header" %></li>
         <% if current_user %>
           <% if current_user.admin? %>
             <li>
@@ -75,25 +74,9 @@
           <% end %>
         <% end %>
       </ul>
-      <div class="i-con">
-        <a class="search-form-job">
-          <i class="fa fa-search"></i>
-          <div class="show-search displaynone">
-            <form role="search" method="get" id="searchform" action="#">
-              <div>
-                <input type="text" placeholder='<%= t ".search" %>' name="s" id="s">
-              </div>
-            </form>
-          </div>
-        </a>
-        <a href="#"><i class="active fa fa-twitter"></i></a>
-        <a href="#"><i class="fa fa-facebook"></i></a>
-        <a href="#"><i class="fa fa-linkedin"></i></a>
-        <a href="#"><i class="fa fa-google-plus"></i></a>
-        <a href="#"><i class="fa fa-instagram"></i></a>
+      <div class="i-con sign-in">
         <% if user_signed_in? %>
           <i class="fa fa-refresh" data-toggle="modal" data-target="#sync"></i>
-          <%= render "jobs/message" %>
         <% end %>
         <span class="dropdown profile" id="none-responsive">
           <% if user_signed_in? %>

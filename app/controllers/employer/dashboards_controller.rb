@@ -1,4 +1,3 @@
 class Employer::DashboardsController < Employer::BaseController
-  def index
-  end
+  def index; end
 end
