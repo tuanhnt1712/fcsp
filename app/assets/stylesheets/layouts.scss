@@ -1,3 +1,5 @@
+@import 'variables/color';
+
 .image-welcome {
   width: 100%;
 }
@@ -16,4 +18,84 @@ nav.navbar.main-menu.navbar-default {
 
 .navbar-default .navbar-brand {
   margin: 0;
+}
+
+.field-compulsory::after {
+  color: $red;
+  content: ' *';
+  font-weight: bold;
+}
+
+.field-compulsory-before::before {
+  color: $red;
+  content: '* ';
+  font-weight: bold;
+}
+
+hr.hr-edit-user {
+  border-width: medium;
+  width: 95%;
+}
+
+.top-right-edit {
+  position: absolute;
+  right: 0;
+  top: 20px;
+}
+
+.button-group-edit {
+  margin-bottom: 50px;
+  margin-top: 8px;
+}
+
+.submit-edit {
+  position: absolute;
+  right: 30px;
+}
+
+.cancel-edit {
+  position: absolute;
+  right: 110px;
+}
+
+.setting-header {
+  background: white;
+  height: 70px;
+  opacity: 0.8;
+  position: sticky;
+  top: 100px;
+  z-index: 100;
+}
+
+.setting-header-text {
+  margin: 5px 0 0 70px;
+}
+
+.content-setting {
+  background: white;
+}
+
+.left-navigation-col {
+  margin-top: 30px;
+}
+
+.left-col-9-edit {
+  float: left;
+  max-width: 20%;
+  position: sticky;
+  top: 100px;
+}
+
+.right-col-9-edit {
+  float: right;
+  position: relative;
+  width: 75%;
+}
+
+.orange-text {
+  color: $orange;
+}
+
+.black-text {
+  color: black;
 }
