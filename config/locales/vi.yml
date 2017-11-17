@@ -1027,10 +1027,8 @@ vi:
       add: "Thêm"
       skills: "Kỹ năng"
     social_network:
-      about_me: "Về tôi"
-      add_quote: "Thêm trích dẫn yêu thích"
+      quote: "Châm ngôn sống"
       address: "Địa chỉ"
-      edit: "Chỉnh sửa"
       facebook: "Facebook"
       google: "Google +"
       instagram: "Instagram"
@@ -1071,11 +1069,33 @@ vi:
       setting_header:
         edit_profile: "Edit profile"
     profiles:
+      click_to_change: "Bấm vào để thay đổi"
+      if_you_dont_want: "Nếu bạn không muốn thay đổi, bâm vào nút hủy bỏ"
+      update_success: "Hồ sơ đã được cập nhật"
       index:
         something_wrong: "Có lỗi đã xảy ra. Làm ơn kiểm tra lại!"
       left_navigation_col:
         basic_information: "Thông tin cơ bản"
         detail_information: "Thông tin chi tiết"
+      update_information:
+        basic_information: "Thông tin cơ bản"
+        detail_information: "Thông tin chi tiết"
+      basic_information:
+        email_address: "Địa chỉ email"
+        username: "Tên người dùng"
+        password: "Mật khẩu"
+      detail_information:
+        phone: "Số điện thoại"
+        gender: "Giới tính"
+        birthday: "Ngày sinh"
+        occupation: "Nghề nghiệp"
+        relationship: "Tình trạng quan hệ"
+        self_introduction: "Giới thiệu bản thân"
+        quote: "Trích dẫn"
+        ambition: "Tham vọng"
+        address: "Địa chỉ"
+        country: "Quốc gia"
     shared:
-      cancel: "Hủy bỏ"
-      submit: "Xác nhận"
+      button_group:
+        cancel: "Hủy bỏ"
+        submit: "Xác nhận"

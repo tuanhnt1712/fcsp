@@ -11,7 +11,7 @@
           <span class="space"><%= t ".refresh_now" %></span>
         </div>
         <% if user_signed_in? %>
-          <%= form_tag user_path(current_user.id), method: :PATCH do %>
+          <%= form_tag update_auto_synchronize_user_path(current_user.id), method: :PATCH do %>
             <div class="form-group">
               <%= hidden_field_tag :auto_synchronize, false %>
               <label class="switch" id="auto_sync">

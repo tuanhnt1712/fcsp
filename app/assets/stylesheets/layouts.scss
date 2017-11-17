@@ -50,12 +50,12 @@ hr.hr-edit-user {
 
 .submit-edit {
   position: absolute;
-  right: 30px;
+  right: 0;
 }
 
 .cancel-edit {
   position: absolute;
-  right: 110px;
+  right: 80px;
 }
 
 .setting-header {
@@ -98,4 +98,9 @@ hr.hr-edit-user {
 
 .black-text {
   color: black;
+  overflow-wrap: break-word;
+}
+
+textarea.text-area-edit {
+  resize: none;
 }

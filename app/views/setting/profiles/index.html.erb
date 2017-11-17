@@ -1,12 +1,12 @@
 <div class="content-setting">
   <div class="container">
-    <%= render "shared/avatar_cover_image" %>
+    <%= render "shared/avatar_cover_image", user: current_user %>
     <div class="col-md-9">
       <div class="left-col-9-edit">
         <%= render "setting/profiles/left_navigation_col" %>
       </div>
       <div class="right-col-9-edit">
-        <%= render "devise/registrations/edit" %>
+        <%= render "update_information" %>
       </div>
     </div>
     <div class="col-md-3">
