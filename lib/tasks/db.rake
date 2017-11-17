@@ -79,7 +79,8 @@ namespace :db do
         InfoUser.create! user_id: trainee.id, introduce: FFaker::Lorem.paragraph,
           address: "Da Nang, Viet Nam",
           phone: FFaker::PhoneNumber.short_phone_number,
-          birthday: FFaker::Time.date, occupation: "student", gender: "male"
+          birthday: FFaker::Time.date, occupation: "student", gender: "male",
+          introduction: "i want become to development and help all people in the world!!"
       end
 
       puts "create data course default for trainee"
@@ -146,8 +147,10 @@ namespace :db do
       end
 
       puts "Create skills"
-      6.times do
-        Skill.create name: FFaker::Skill.tech_skill
+      skills = ["Mysql", "Ruby", "PHP", "Android", "Javascript", "Python"]
+
+      skills.each do |skill|
+        Skill.create! name: skill
       end
 
       puts "Assign skill to user"
@@ -155,7 +158,25 @@ namespace :db do
         skills = Skill.order("Random()").limit(2).pluck(:id)
         skills.each do |skill|
           SkillUser.create! user_id: user.id, skill_id: skill,
-          level: rand(1..6)
+          level: rand(0..2) , years: rand(1..3)
+        end
+      end
+
+      puts "Create language"
+
+      languages = ["English", "japan", "chinese", "vietnamese", "thai"]
+
+      languages.each do |language|
+        Language.create! name: language
+      end
+
+      puts "Assign language to trainee"
+
+      User.trainee.each do |trainee|
+        language_ids = Language.order("Random()").limit(3).pluck :id
+        language_ids.each do |language|
+          UserLanguage.create! user_id: trainee.id, language_id: language,
+            level: rand(0..2)
         end
       end
 

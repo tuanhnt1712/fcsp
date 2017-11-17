@@ -3,8 +3,8 @@
     <div class="title_left">
       <ol class="breadcrumb-arrow">
         <li>
-          <%= link_to t(".courses"), user_path(user),
-            class: "courses", data: {"user-id": user.id} %>
+          <%= link_to t(".home"), user_path(user),
+            data: {"user-id": user.id} %>
         </li>
         <li>
           <%= link_to course.name, user_course_path(user.id, course.id),

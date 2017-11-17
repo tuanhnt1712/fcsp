@@ -12,7 +12,7 @@
             <% end %>
             <% if check_permission_profile || @user.is_user?(current_user) %>
               <div class="hide-tab active" id="tab-information">
-                <%= render "course_users", user: @user, courses: @courses %>
+              <%= render "advance_profile", advance_profiles: @advance_profiles %>
               </div>
             <% else %>
               <h1><%= t ".page_error" %></h1>

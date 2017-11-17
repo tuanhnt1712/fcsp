@@ -1,0 +1,9 @@
+jp:
+  users:
+    advance_profile:
+      language: "言語"
+      self_introduction: "自己紹介"
+      skill: "スキル"
+      education: "教育"
+      project: "プロジェクト"
+      activities: "アクティビティ"

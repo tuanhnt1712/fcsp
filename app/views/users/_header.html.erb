@@ -3,27 +3,17 @@
     <div class="col-md-12">
       <article class="show-header-user post">
         <div class="cover-image">
-          <% if user.is_user? current_user %>
-            <%= load_user_cover user, class: "img-cover my-img-cover" %>
-            <div class="ico-upload-cover" data-toggle="modal"
-              data-target="#changeCoverModal">
-              <%= icon "camera" %>
-              <span><%= t ".change_cover" %></span>
-            </div>
-          <% else %>
-            <%= load_user_cover user, class: "img-cover" %>
-          <% end %>
+          <%= load_user_cover user, class: "img-cover" %>
         </div>
         <a class="navbar-brand avatar-user" href="#" data-toggle="modal"
           data-target="#changeAvatarModal">
           <%= load_user_avatar user, class: "img-avatar" %>
-          <% if user.is_user? current_user %>
-            <div class="icon-upload-avatar">
-              <h3 class="glyphicon glyphicon-camera"></h3>
-            </div>
-          <% end %>
         </a>
         <span class="site-name"><b><%= user.name %></b></span>
+        <span class="occupation">
+          <i class="fa fa-briefcase"></i>
+          <%= @user.info_user_occupation %>
+        </span>
         <div class="request-user">
           <% if !user.is_user?(current_user) && user_signed_in?  %>
             <div class="follow-user btn btn-default message-button">
@@ -36,19 +26,8 @@
             </div>
           <% end %>
         </div>
-        <div id="mainNav" >
-          <ul class="main-menu user-show">
-            <li class="active">
-              <a data-target="tab-information">
-                <i class="icon-info-sign"> </i><b> <%= t ".information" %></b>
-              </a>
-            </li>
-          </ul>
-        </div>
       </article>
     </div>
   </div>
 </div>
-<%= render "users/change_avatar", user: user if user.is_user? current_user %>
-<%= render "users/change_cover", user: user if user.is_user? current_user %>
 <div class="render-form-user-skill-modal"></div>

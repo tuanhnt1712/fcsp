@@ -1,0 +1,9 @@
+en:
+  users:
+    advance_profile :
+      language: "Languages"
+      self_introduction: "Self Introduction"
+      skill: "Skills"
+      education: "Educations"
+      project: "Projects"
+      activities: "Activities"

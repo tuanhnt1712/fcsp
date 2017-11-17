@@ -1,7 +1,7 @@
 en:
   courses:
     course_details:
-      courses: "Courses"
+      home: "Home"
       subjects: "All subjects in "
     show:
       course_not_found: "Course not found"
@@ -13,7 +13,7 @@ en:
       user_not_found: "User not found"
     subject_details:
       content: "Content"
-      courses: "Courses"
+      home: "Home"
       name: "Name"
       status: "Status"
       tasks: "All tasks in "

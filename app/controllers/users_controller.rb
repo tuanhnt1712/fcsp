@@ -6,7 +6,10 @@ class UsersController < ApplicationController
 
   def show
     @user_object = Supports::ShowUser.new @user, current_user, params
-    @courses = @user.courses.includes :programming_language
+    @advance_profiles = {schools: @user.schools,
+      skills: @user.skill_users.includes(:skill),
+      languages: @user.user_languages.includes(:language),
+      courses: @user.courses.includes(:programming_language)}
 
     if request.xhr?
       if params[:suggest_jobs_page]
@@ -29,8 +32,9 @@ class UsersController < ApplicationController
       format.json {
         render json: {
           status: :success,
-          html: render_to_string(partial: "users/course_users", formats: :html,
-          locals: {user: @user, courses: @courses, subjects: @subjects}, layout: false)
+          html: render_to_string(partial: "users/advance_profile", formats: :html,
+          locals: {user: @user, advance_profiles: @advance_profiles},
+            layout: false)
         }
       }
       format.js
