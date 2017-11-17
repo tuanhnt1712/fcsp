@@ -1,5 +1,5 @@
 class CompaniesAvatarsController < ApplicationController
-  load_resource, only: %i(create update)
+  load_resource only: %i(create update)
 
   def create
     @image = @company.images.build picture: params[:picture]

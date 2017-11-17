@@ -106,15 +106,7 @@ namespace :db do
         birthday: FFaker::Time.date, occupation: "student", gender: "male"
 
       puts "Create jobs"
-      2.times do |i|
-        20.times do
-          title = FFaker::Lorem.sentence
-          describe = FFaker::Lorem.paragraph
-          Job.create! company_id: rand(1..2), title: title, describe: describe,
-            type_of_candidate: 1, who_can_apply: 1, status: i,
-            posting_time: Time.zone.now
-        end
-      end
+      Rake::Task["db:job"].invoke
 
       puts "Create Candidate"
       users = User.limit(20).pluck(:id)
