@@ -1,0 +1,41 @@
+<div class="modal fade" id="modal-edit" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title" id="ModalLabel"><%= t ".choose_user" %></h3>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <%= form_tag setting_share_profiles_path, method: :post do %>
+        <div class="modal-body">
+          <div class="form-group">
+            <label class="btn btn-primary title-modal"><%= t ".users" %></label>
+            <%= text_field_tag :search, "", id: "search",
+              class: "form-control", placeholder: t(".search_for_user") %>
+          </div>
+          <div class="form-group">
+            <ul class="list-users" id="list-users">
+              <li>
+                <label class="custom-label">
+                  <div class="col-md-1">
+                    <%= check_box_tag "select_all" %>
+                  </div>
+                  <div class="col-md-8 select-bold">
+                    <%= t ".select_all" %>
+                  </div>
+                </label>
+              </li>
+              <%= render partial: "setting/share_profiles/user", collection: users,
+                locals: {users: users} %>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-edit modal-footer">
+          <%= button_tag t(".cancel"), class: "btn btn-default", data: {dismiss: "modal"} %>
+          <%= submit_tag t(".save"), class: "btn btn-primary" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

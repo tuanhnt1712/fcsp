@@ -4,6 +4,8 @@ jp:
       click_to_change: "クリックして変更する"
       if_you_dont_want: "変更しない場合は、[キャンセル]をクリックします"
       update_success: "プロフィール更新"
+      index:
+        users_shared: "あなたのプロフィールを共有したユーザー"
       synchronize:
         refresh: "リフレッシュする"
         refresh_now: "今更新する"
@@ -14,3 +16,11 @@ jp:
         all_data_auto_sync: "このボタンを選択すると、毎日すべてのデータがTMSシステムと自動的に同期されます"
         synchronize: "同期する"
         you_can_sync: "ここでトレーニング管理システムとデータを同期させるか、毎日手動同期または自動同期を選択できます"
+    share_profiles:
+      modal_edit:
+        cancel: "キャンセル"
+        choose_user: "あなたのプロフィールを見ることができる人を選ぶ"
+        save: "セーブ"
+        search_for_user: "ユーザーを検索する..."
+        select_all: "すべて選択"
+        users: "ユーザー"

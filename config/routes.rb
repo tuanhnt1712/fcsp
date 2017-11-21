@@ -46,6 +46,7 @@ Rails.application.routes.draw do
 
   namespace :setting do
     root "profiles#index"
+    resource :share_profiles, only: :create
   end
 
   resources :jobs, only: %i(index show)

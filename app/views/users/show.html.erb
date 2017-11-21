@@ -10,7 +10,7 @@
                 <%= render "user_job", user: @user, user_object: @user_object %>
               </div>
             <% end %>
-            <% if check_permission_profile || @user.is_user?(current_user) %>
+            <% if check_permission_profile || @user.is_user?(current_user) || @user.share?(current_user) %>
               <div class="hide-tab active" id="tab-information">
               <%= render "advance_profile", advance_profiles: @advance_profiles %>
               </div>
