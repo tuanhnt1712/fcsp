@@ -60,6 +60,7 @@ Rails.application.routes.draw do
     member do
       post :follow
       delete :unfollow
+      patch :update_auto_synchronize
     end
   end
   resources :user_avatars, only: :create

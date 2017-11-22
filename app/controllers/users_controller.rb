@@ -41,8 +41,17 @@ class UsersController < ApplicationController
     end
   end
 
-
   def update
+    if current_user.update_attributes "#{params[:type]}": params[:input_info_user]
+      user_attribute = User.pluck_params_type params[:id], params[:type]
+      render json: {html: render_to_string(partial: "setting/profiles/type",
+        locals: {info_user: user_attribute}, layout: false), info_status: "success"}
+    else
+      render json: {message: current_user.errors.full_messages}
+    end
+  end
+
+  def update_auto_synchronize
     if current_user.update_attributes auto_synchronize: params[:auto_synchronize]
       flash[:success] = t ".auto_synchronize_success"
     else

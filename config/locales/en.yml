@@ -1054,10 +1054,8 @@ en:
       add: "Add"
       skills: "Skills"
     social_network:
-      about_me: "About me"
-      add_quote: "Add your favorite quote"
+      quote: "Quote"
       address: "Address"
-      edit: "Edit"
       facebook: "Facebook"
       google: "Google +"
       instagram: "Instagram"
@@ -1099,14 +1097,34 @@ en:
       send: "Send"
   setting:
     profiles:
+      if_you_dont_want: "If you don't want to change, click cancel"
+      click_to_change: "Click to change"
+      update_success: "Profile updated"
       index:
         something_wrong: "Something wrong happened. Please check again"
       left_navigation_col:
         basic_information: "Basic information"
         detail_information: "Detail information"
+      update_information:
+        basic_information: "Basic information"
+        detail_information: "Detail information"
+      basic_information:
+        username: "Username"
+      detail_information:
+        phone: "Phone"
+        gender: "Gender"
+        birthday: "Birthday"
+        occupation: "Occupation"
+        relationship: "Relationship status"
+        self_introduction: "Self introduction"
+        quote: "Quote"
+        ambition: "Ambition"
+        address: "Address"
+        country: "Country"
     layouts:
       setting_header:
         edit_profile: "Edit profile"
     shared:
-      cancel: "Cancel"
-      submit: "Submit"
+      button_group:
+        cancel: "Cancel"
+        submit: "Submit"

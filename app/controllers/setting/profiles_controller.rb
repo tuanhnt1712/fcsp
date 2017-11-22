@@ -1,6 +1,12 @@
 class Setting::ProfilesController < Setting::BaseController
+  before_action :retrieve_info_user
+
   def index
-    @user = User.find_by id: current_user.id
-    redirect_to root_path, flash: {danger: t(".something_wrong")} unless @user
+  end
+
+  private
+
+  def retrieve_info_user
+    @info_user = current_user.info_user
   end
 end

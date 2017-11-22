@@ -14,38 +14,27 @@ class InfoUsersController < ApplicationController
   end
 
   def update
-    if params[:info_statuses].present?
-      if update_info_status @info_user
-        respond_to do |format|
-          format.json{render json: {flash: t(".success"), status: 200}}
-        end
-      else
-        respond_to do |format|
-          format.json{render json: {flash: t(".fail"), status: 400}}
-        end
-      end
-    elsif @info_user.update_attributes info_user_params
-      respond_to do |format|
-        format.js
-      end
+    if @info_user.update_attributes "#{params[:type]}": params[:input_info_user]
+      info_user_attribute = InfoUser.pluck_params_type params[:id], params[:type]
+      render json: {html: render_to_string(partial: "setting/profiles/type",
+        locals: {info_user: info_user_attribute}, layout: false), info_status: "success"}
     else
-      render json: {errors: @info_user.errors}
+      render json: {message: @info_user.errors.full_messages}
     end
   end
 
   private
 
   def info_user_params
-    params.require(:info_user).permit :introduce, :ambition, :quote, :address,
-      :phone
+    params.require(:info_user).permit :relationship_status, :introduce, :quote,
+      :ambition, :phone, :address, :gender, :birthday, :occupation, :country
   end
 
   def find_info_user
     @info_user = current_user.info_user
-    unless @info_user
-      flash[:danger] = t ".infor_user_not_found"
-      redirect_to root_url
-    end
+    return if @info_user
+    flash[:danger] = t ".infor_user_not_found"
+    redirect_to root_url
   end
 
   def change_permission_info is_public

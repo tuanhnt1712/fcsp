@@ -15,4 +15,10 @@ class InfoUser < ApplicationRecord
   #validates :birthday, presence: true
   #validates :occupation, presence: true
   #validates :gender, presence: true
+
+  class << self
+    def pluck_params_type id, type
+      where(id: id).pluck(type).first
+    end
+  end
 end

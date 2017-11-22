@@ -132,6 +132,10 @@ class User < ApplicationRecord
         user.save
       end
     end
+
+    def pluck_params_type id, type
+      where(id: id).pluck(type).first
+    end
   end
 
   def is_user? user
