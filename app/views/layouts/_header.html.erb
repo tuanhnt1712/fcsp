@@ -48,9 +48,6 @@
         <% end %>
       </ul>
       <div class="i-con sign-in">
-        <% if user_signed_in? %>
-          <i class="fa fa-refresh" data-toggle="modal" data-target="#sync"></i>
-        <% end %>
         <span class="dropdown profile" id="none-responsive">
           <% if user_signed_in? %>
             <button class="dropdown-toggle" type="button" data-toggle="dropdown">
@@ -78,7 +75,4 @@
     </div>
   </div>
 </nav>
-<% if user_signed_in? %>
-  <%= render "companies/modal_create_company" %>
-  <%= render "layouts/modal_sync" %>
-<% end %>
+<%= render "companies/modal_create_company" %>
