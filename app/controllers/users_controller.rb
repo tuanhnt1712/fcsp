@@ -57,7 +57,7 @@ class UsersController < ApplicationController
     else
       flash[:error] = t ".auto_synchronize_error"
     end
-    redirect_to current_user
+    redirect_to setting_root_path
   end
 
   def follow
