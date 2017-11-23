@@ -41,6 +41,10 @@ class UsersController < ApplicationController
     end
   end
 
+  def edit
+    @info_user = current_user.info_user
+  end
+
   def update
     if current_user.update_attributes "#{params[:type]}": params[:input_info_user]
       user_attribute = User.pluck_params_type params[:id], params[:type]

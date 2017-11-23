@@ -1,37 +1,9 @@
 vi:
   setting:
-    layouts:
-      setting_header:
-        edit_profile: "Chỉnh sửa hồ sơ"
     profiles:
       click_to_change: "Bấm vào để thay đổi"
       if_you_dont_want: "Nếu bạn không muốn thay đổi, bâm vào nút hủy bỏ"
       update_success: "Hồ sơ đã được cập nhật"
-      index:
-        something_wrong: "Có lỗi đã xảy ra. Làm ơn kiểm tra lại!"
-      left_navigation_col:
-        synchronize: "Đồng bộ hóa"
-        basic_information: "Thông tin cơ bản"
-        detail_information: "Thông tin chi tiết"
-      update_information:
-        synchronize: "Đồng bộ hóa"
-        basic_information: "Thông tin cơ bản"
-        detail_information: "Thông tin chi tiết"
-      basic_information:
-        email_address: "Địa chỉ email"
-        username: "Tên người dùng"
-        password: "Mật khẩu"
-      detail_information:
-        phone: "Số điện thoại"
-        gender: "Giới tính"
-        birthday: "Ngày sinh"
-        occupation: "Nghề nghiệp"
-        relationship: "Tình trạng quan hệ"
-        self_introduction: "Giới thiệu bản thân"
-        quote: "Trích dẫn"
-        ambition: "Tham vọng"
-        address: "Địa chỉ"
-        country: "Quốc gia"
       synchronize:
         refresh: "Đồng bộ hóa dữ liệu"
         refresh_now: "Đồng bộ hóa dữ liệu ngay"
@@ -41,7 +13,4 @@ vi:
         all_data_sync_now: "Tất cả dữ liệu của bạn sẽ được đồng bộ hóa ngay lập tức với hệ thống TMS nếu bạn bấm vào nút này"
         all_data_auto_sync: "Tất cả dữ liệu của bạn sẽ được tự động đồng bộ hóa hàng ngày với hệ thống TMS nếu bạn bấm vào nút này"
         synchronize: "Đồng bộ hóa"
-    shared:
-      button_group:
-        cancel: "Hủy bỏ"
-        submit: "Xác nhận"
+        you_can_sync: "Bạn có thể đồng bộ hóa dữ liệu của bạn với hệ thống quản lý đào tạo ở đây hoặc bạn có thể chọn đồng bộ hóa thủ công hoặc tự động hàng ngày"

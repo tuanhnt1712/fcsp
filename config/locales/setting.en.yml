@@ -4,29 +4,6 @@ en:
       if_you_dont_want: "If you don't want to change, click cancel"
       click_to_change: "Click to change"
       update_success: "Profile updated"
-      index:
-        something_wrong: "Something wrong happened. Please check again"
-      left_navigation_col:
-        synchronize: "Synchronize"
-        basic_information: "Basic information"
-        detail_information: "Detail information"
-      update_information:
-        synchronize: "Synchronize"
-        basic_information: "Basic information"
-        detail_information: "Detail information"
-      basic_information:
-        username: "Username"
-      detail_information:
-        phone: "Phone"
-        gender: "Gender"
-        birthday: "Birthday"
-        occupation: "Occupation"
-        relationship: "Relationship status"
-        self_introduction: "Self introduction"
-        quote: "Quote"
-        ambition: "Ambition"
-        address: "Address"
-        country: "Country"
       synchronize:
         refresh: "Refresh"
         refresh_now: "Refresh now"
@@ -36,10 +13,4 @@ en:
         all_data_sync_now: "All your data will be synchronized with TMS system immediately when you click this button"
         all_data_auto_sync: "All your data wil be auto synchronized with TMS system everyday when you click this button"
         synchronize: "Synchronize"
-    layouts:
-      setting_header:
-        edit_profile: "Edit profile"
-    shared:
-      button_group:
-        cancel: "Cancel"
-        submit: "Submit"
+        you_can_sync: "You can sync your data with training management system here or you can choose manual sync or auto sync everyday"
