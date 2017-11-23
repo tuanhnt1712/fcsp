@@ -1,35 +1,9 @@
 jp:
   setting:
-    layouts:
-      setting_header:
-        edit_profile: "プロファイル編集"
     profiles:
       click_to_change: "クリックして変更する"
       if_you_dont_want: "変更しない場合は、[キャンセル]をクリックします"
       update_success: "プロフィール更新"
-      index:
-        something_wrong: "何かが間違っていた。 再度確認してください！"
-      left_navigation_col:
-        synchronize: "同期する"
-        basic_information: "基本情報"
-        detail_information: "詳細情報"
-      update_information:
-        synchronize: "同期する"
-        basic_information: "基本情報"
-        detail_information: "詳細情報"
-      basic_information:
-        username: "ユーザー名"
-      detail_information:
-        phone: "電話"
-        gender: "性別"
-        birthday: "お誕生日"
-        occupation: "職業"
-        relationship: "関係の状態"
-        self_introduction: "紹介する"
-        quote: "見積もり"
-        ambition: "野心"
-        address: "住所"
-        country: "国"
       synchronize:
         refresh: "リフレッシュする"
         refresh_now: "今更新する"
@@ -39,7 +13,4 @@ jp:
         all_data_sync_now: "このボタンをクリックすると、すぐにすべてのデータがTMSシステムと同期されます"
         all_data_auto_sync: "このボタンを選択すると、毎日すべてのデータがTMSシステムと自動的に同期されます"
         synchronize: "同期する"
-    shared:
-      button_group:
-        cancel: "キャンセル"
-        submit: "提出する"
+        you_can_sync: "ここでトレーニング管理システムとデータを同期させるか、毎日手動同期または自動同期を選択できます"

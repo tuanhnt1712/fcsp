@@ -247,6 +247,20 @@ jp:
     update_auto_synchronize:
       auto_synchronize_success: "自動同期状態の変更を成功させる"
       auto_synchronize_error: "自動同期ステータスを変更することはできません"
+    personal_information:
+      click_to_change: "クリックして変更する"
+      if_you_dont_want: "変更しない場合は、[キャンセル]をクリックします"
+      fullname: "フルネーム"
+      phone: "電話"
+      gender: "性別"
+      birthday: "お誕生日"
+      occupation: "職業"
+      relationship: "関係の状態"
+      self_introduction: "紹介する"
+      quote: "見積もり"
+      ambition: "野心"
+      address: "住所"
+      country: "国"
     social_network:
       quote: "見積もり"
       address: "住所"
@@ -272,3 +286,7 @@ jp:
   conversations:
     conversation:
       send: "送る"
+  shared:
+      button_group:
+        cancel: "キャンセル"
+        submit: "提出する"

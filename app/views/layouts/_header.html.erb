@@ -56,6 +56,7 @@
             </button>
             <ul class="dropdown-menu profile-box">
               <li><%= link_to t(".view_profile"), user_path(current_user) %></li>
+              <li><%= link_to t(".edit_profile"), edit_user_path(current_user) %></li>
               <li><%= link_to t(".settings"), setting_root_path %></li>
               <li>
                 <%= link_to t(".sign_out"), destroy_user_session_path,

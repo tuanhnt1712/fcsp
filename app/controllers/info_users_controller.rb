@@ -16,7 +16,7 @@ class InfoUsersController < ApplicationController
   def update
     if @info_user.update_attributes "#{params[:type]}": params[:input_info_user]
       info_user_attribute = InfoUser.pluck_params_type params[:id], params[:type]
-      render json: {html: render_to_string(partial: "setting/profiles/type",
+      render json: {html: render_to_string(partial: "users/type",
         locals: {info_user: info_user_attribute}, layout: false), info_status: "success"}
     else
       render json: {message: @info_user.errors.full_messages}

@@ -73,6 +73,7 @@ hr.hr-edit-user {
 
 .content-setting {
   background: white;
+  min-height: 1100px;
 }
 
 .left-navigation-col {
@@ -94,11 +95,14 @@ hr.hr-edit-user {
 
 .orange-text {
   color: $orange;
+  font-size: 1.5em;
+  font-weight: bold;
 }
 
 .black-text {
   color: black;
   overflow-wrap: break-word;
+  padding-top: 10px;
 }
 
 textarea.text-area-edit {
@@ -122,9 +126,16 @@ textarea.text-area-edit {
 .div-synchronize-setting {
   display: inline-block;
   margin: 10px 0 10px;
+  width: 100%;
 }
 
 #auto_sync {
   float: right;
   top: 0;
+}
+
+footer {
+  bottom: 0;
+  position: relative;
+  width: 100%;
 }
