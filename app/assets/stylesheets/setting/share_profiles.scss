@@ -1,0 +1,67 @@
+@import 'variables/color';
+
+.list-users {
+  height: 370px;
+  overflow-y: auto;
+
+  li {
+    border-bottom: 1px ridge;
+    height: 40px;
+    padding-top: 10px;
+
+    &:hover {
+      background: $gray;
+    };
+  }
+}
+
+.custom-label {
+  font-family: roboto;
+  font-weight: normal;
+  height: 40px;
+  line-height: 26px;
+  text-transform: none;
+  width: 853px;
+
+  .select-bold {
+    font-weight: bold !important;
+  }
+}
+
+.title-modal {
+  width: 100%;
+}
+
+.modal-dialog {
+  overflow-y: initial
+}
+
+.modal-body {
+  height: 450px;
+}
+
+.footer-edit {
+  border: none;
+  margin-top: 30px;
+}
+
+.button-edit{
+  float: right;
+}
+
+.user-share {
+  display: inline-flex;
+  padding: 15px 0 0 30px;
+
+  .avatar-share {
+    width: 30px;
+  }
+
+  .name-share {
+    margin-left: 15px;
+  }
+}
+
+.title-share {
+  padding-left: 28px;
+}

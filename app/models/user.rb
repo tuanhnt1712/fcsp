@@ -35,6 +35,12 @@ class User < ApplicationRecord
   has_many :courses, through: :user_courses
   has_many :online_contacts, dependent: :destroy
   has_many :user_tasks
+  has_many :active_shares, class_name: ShareProfile.name,
+    foreign_key: :user_shared_id, dependent: :destroy
+  has_many :passive_shares, class_name: ShareProfile.name,
+    foreign_key: :user_share_id, dependent: :destroy
+  has_many :user_shares, through: :active_shares, source: :user_share
+  has_many :shared, through: :passive_shares, source: :user_shared
 
   has_one :avatar, class_name: Image.name, foreign_key: :id,
     primary_key: :avatar_id
@@ -65,9 +71,13 @@ class User < ApplicationRecord
   end
 
   scope :recommend, ->job_id do
-    select("users.id, users.name, users.avatar_id").includes(:avatar)
+    select("users.id, users.name, users.avatar_id, users.email").includes(:avatar)
       .limit Settings.recommend.user_limit
   end
+
+  scope :user_all, (lambda do |id|
+    select("id, name, email").where("id != ?", id)
+  end)
 
   scope :filter_trainee, (lambda do |list_filter, sort_by, user_type, data_table|
     list_filter.map!{|element| element == "" ? nil : element}
@@ -91,6 +101,10 @@ class User < ApplicationRecord
   end)
 
   scope :want_auto_sync, ->{where auto_synchronize: true}
+
+  scope :search_user, (lambda do |name|
+    where "name LIKE ? ", "%#{name}%"
+  end)
 
   class << self
     def import file
@@ -140,5 +154,17 @@ class User < ApplicationRecord
 
   def is_user? user
     user == self
+  end
+
+  def add_share user
+    user_shares << user
+  end
+
+  def delete_share user
+    user_shares.delete user
+  end
+
+  def share? user
+    user_shares.include? user
   end
 end

@@ -4,6 +4,8 @@ vi:
       click_to_change: "Bấm vào để thay đổi"
       if_you_dont_want: "Nếu bạn không muốn thay đổi, bâm vào nút hủy bỏ"
       update_success: "Hồ sơ đã được cập nhật"
+      index:
+        users_shared: "Những người bạn đã chia sẻ trang cá nhân"
       synchronize:
         refresh: "Đồng bộ hóa dữ liệu"
         refresh_now: "Đồng bộ hóa dữ liệu ngay"
@@ -14,3 +16,11 @@ vi:
         all_data_auto_sync: "Tất cả dữ liệu của bạn sẽ được tự động đồng bộ hóa hàng ngày với hệ thống TMS nếu bạn bấm vào nút này"
         synchronize: "Đồng bộ hóa"
         you_can_sync: "Bạn có thể đồng bộ hóa dữ liệu của bạn với hệ thống quản lý đào tạo ở đây hoặc bạn có thể chọn đồng bộ hóa thủ công hoặc tự động hàng ngày"
+    share_profiles:
+      modal_edit:
+        cancel: "Hủy bỏ"
+        choose_user: "Chọn những người có thể nhìn thấy trang cá nhân của bạn"
+        save: "Lưu"
+        search_for_user: "Tìm kiếm theo người dùng"
+        select_all: "Tích vào ô để chọn hay bỏ chọn tất cả người dùng"
+        users: "Danh sách người dùng"

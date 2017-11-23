@@ -1,0 +1,13 @@
+<li class="li-users" id="<%= user.id %>">
+  <label class="custom-label">
+    <div class="col-md-1">
+      <%= check_box_tag "share_profile_id[]", user.id, current_user.share?(user) %>
+    </div>
+    <div class="col-md-4 search-name">
+      <%= user.name %>
+    </div>
+    <div class="col-md-6">
+      <%= user.email %>
+    </div>
+  </label>
+</li>

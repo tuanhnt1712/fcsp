@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171114064447) do
+ActiveRecord::Schema.define(version: 20171114071134) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -291,6 +291,16 @@ ActiveRecord::Schema.define(version: 20171114064447) do
     t.index ["shareable_id"], name: "index_share_jobs_on_shareable_id", using: :btree
     t.index ["user_id", "job_id"], name: "index_share_jobs_on_user_id_and_job_id", unique: true, using: :btree
     t.index ["user_id"], name: "index_share_jobs_on_user_id", using: :btree
+  end
+
+  create_table "share_profiles", force: :cascade do |t|
+    t.integer  "user_share_id"
+    t.integer  "user_shared_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.index ["user_share_id"], name: "index_share_profiles_on_user_share_id", using: :btree
+    t.index ["user_shared_id", "user_share_id"], name: "index_share_profiles_on_user_shared_id_and_user_share_id", unique: true, using: :btree
+    t.index ["user_shared_id"], name: "index_share_profiles_on_user_shared_id", using: :btree
   end
 
   create_table "skill_users", force: :cascade do |t|
