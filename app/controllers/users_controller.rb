@@ -7,6 +7,12 @@ class UsersController < ApplicationController
 
   def show
     @user_object = Supports::ShowUser.new @user, current_user, params
+    user_shares = @user.user_shares.includes(:avatar)
+    user_following = @user.following_users.includes(:avatar)
+    @users = {user_shares: user_shares,
+      limit_user_shares: user_shares.take(Settings.user.limit_user),
+      user_following: user_following,
+      limit_user_following: user_following.take(Settings.user.limit_user)}
     @advance_profiles = {schools: @user.schools,
       skills: @user.skill_users.includes(:skill),
       languages: @user.user_languages.includes(:language),

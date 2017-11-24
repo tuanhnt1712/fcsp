@@ -7,6 +7,23 @@ en:
       project: "Projects"
       self_introduction: "Self Introduction"
       skill: "Skills"
+      education: "Educations"
+      project: "Projects"
+      activities: "Activities"
+    basic_profile:
+      add_quote: "Add quote"
+      address: "Address"
+      contact_info: "Contact Information"
+      email: "Email"
+      following: "Following"
+      load_more: "Load more"
+      phone: "Phone"
+      quote: "Quote"
+      shared_for_user: "Shared profile for users"
+    modal_user_share:
+      user_shared: "Users you shared profile"
+    modal_user_following:
+      following: "Following"
     form_update_skill:
       name: "Skill name"
       years: "Years"
@@ -18,4 +35,3 @@ en:
       delete_success: "Delete successfully!"
       update_error: "Update error!"
       update_success: "Update successfully!"
-

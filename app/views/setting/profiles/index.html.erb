@@ -21,10 +21,11 @@
       </div>
     </div>
 
-    <div class="col-md-8">
+    <%= render "shared/avatar_cover_image", user: current_user %>
+    <div class="col-md-9">
       <%= render "synchronize" %>
     </div>
-    <div class="col-md-4">
+    <div class="col-md-3">
       <button class="fa fa-user-plus edit" data-toggle="modal" data-target="#modal-edit"></button>
       <span class="title-share"><%= t ".users_shared" %></span>
       <ul>

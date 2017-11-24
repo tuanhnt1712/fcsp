@@ -20,4 +20,7 @@ $(document).ready(function(){
       });
     }
   });
+  $('.toggle-info').click(function(){
+    $('#toggle-info-contact').toggle('slow');
+  });
 });

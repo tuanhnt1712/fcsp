@@ -1,0 +1,24 @@
+<div class="modal fade" id="modal_user_following" tabindex="-1" role="dialog"
+  aria-labelledby="ModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title" id="ModalLabel"><%= t ".following" %>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </h3>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <div class="row">
+            <ul id="list-users">
+              <%= render partial: "user_following", collection: user_following,
+                locals: {user_following: user_following}%>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
