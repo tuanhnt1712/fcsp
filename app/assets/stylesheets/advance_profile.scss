@@ -55,6 +55,7 @@
 
 .list-group {
   margin-bottom: 0px;
+  cursor: pointer;
 }
 
 .occupation {
@@ -66,4 +67,41 @@
   .fa {
     margin-right:10px;
   }
+}
+
+.edit-toggle {
+  cursor: pointer;
+}
+
+.short-form {
+  width: 60%;
+}
+
+.edit-form {
+  background-color: $gray-ece;
+  border-radius: 1px;
+  box-shadow: 1px 2px 2px 1px $sliver;
+  display: none;
+  padding: 10px;
+}
+
+.create-form {
+  display: none;
+  margin-top: 10px;
+}
+
+.show-form {
+  .button-edit {
+    color: blue;
+    display: none;
+    margin-left: 10px;
+  }
+}
+
+.row-margin-top {
+  margin-top: 10px;
+}
+
+.btn-tms-sync {
+  margin-top: -14px;
 }

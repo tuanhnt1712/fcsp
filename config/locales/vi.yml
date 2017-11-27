@@ -1083,5 +1083,9 @@ vi:
       send: "Gửi"
   shared:
     button_group:
-        cancel: "Hủy bỏ"
-        submit: "Xác nhận"
+      cancel: "Hủy bỏ"
+      submit: "Xác nhận"
+  button:
+    cancel: "Hủy bỏ"
+    delete: "Xóa"
+    save: "Lưu"

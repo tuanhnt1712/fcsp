@@ -1,9 +1,21 @@
 en:
   users:
     advance_profile :
+      activities: "Activities"
+      education: "Educations"
       language: "Languages"
+      project: "Projects"
       self_introduction: "Self Introduction"
       skill: "Skills"
-      education: "Educations"
-      project: "Projects"
-      activities: "Activities"
+    form_update_skill:
+      name: "Skill name"
+      years: "Years"
+    skill:
+      edit: "Edit"
+  setting:
+    notice:
+      delete_error: "Delete error!"
+      delete_success: "Delete successfully!"
+      update_error: "Update error!"
+      update_success: "Update successfully!"
+
