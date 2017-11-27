@@ -1039,7 +1039,6 @@ en:
       information: "Information"
       job_suggest: "Job Suggest"
       location: "Location"
-      message: "Message"
       new_feed: "New feed"
       posts: "Posts"
       skills: "Skills"
@@ -1061,6 +1060,7 @@ en:
     search_friend:
       search: "Enter your search"
     show:
+      message: "Message"
       blocked: "This user is blocked!"
       information: "Information"
       job_suggest: "Suggest job"
@@ -1068,9 +1068,8 @@ en:
       not_found: "User not found"
       page_error: "This is not the web page you are looking for"
       posts: "Posts"
-      private_profile: "Private Profile"
-      public_profile: "Public Profile"
-      edit_profile: "Edit Profile"
+      information: "Information"
+      list_trainees: "List trainees"
     skill_user:
       add: "Add"
       skills: "Skills"
@@ -1120,8 +1119,6 @@ en:
     button_group:
       cancel: "Cancel"
       submit: "Submit"
-    avatar_cover_image:
-      message: "Message"
   button:
     cancel: "Cancel"
     delete: "Delete"

@@ -115,3 +115,47 @@
 .btn-tms-sync {
   margin-top: -14px;
 }
+
+.nav-tabs-profile-user {
+  bottom: 20px;
+  font-weight: bold;
+  left: 290px;
+  position: absolute;
+}
+
+.style-italic {
+  font-style: italic;
+}
+
+.weight-bold {
+  font-weight: bold;
+}
+
+.white-color {
+  color: white;
+}
+
+.col-md-5-custom {
+  width: 30%;
+  float: left;
+}
+
+.col-md-7-custom {
+  float: left;
+  padding: 5px 5px 0 10px;
+  width: 70%;
+}
+
+.li-trainee {
+  box-shadow: 1px 2px 2px 1px $sliver;
+  height: 120px;
+}
+
+.show-trainee {
+  padding: 15px;
+  .message-button {
+    bottom: 16px;
+    margin-right: 0;
+    position: relative;
+  }
+}

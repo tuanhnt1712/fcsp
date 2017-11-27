@@ -125,9 +125,10 @@ $(document).ready(function(){
   });
 
   $('.container').on('click', '#user-follow', function(){
-    var url, data_method;
+    var url, data_method, user_id;
     url =  $(this).attr('href');
     data_method = $(this).attr('data-method');
+    user_id = $(this).parent().attr('id');
     $.ajax({
       url: url,
       method: data_method,
@@ -135,6 +136,7 @@ $(document).ready(function(){
     })
     .done(function(data){
       $('.follow-user').html(data.html);
+      $('#' + user_id).html(data.html);
     })
     return false;
   });

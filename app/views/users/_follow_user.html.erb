@@ -1,7 +1,7 @@
 <% if @object.following? user %>
-  <%= link_to t(".unfollow"), unfollow_user_path(user), id: "user-follow",
+  <%= link_to t(".unfollow"), unfollow_user_path(user), id: "user-follow", class: "white-text",
     method: :delete %>
 <% else %>
-  <%= link_to t(".follow"), follow_user_path(user), id: "user-follow",
+  <%= link_to t(".follow"), follow_user_path(user), id: "user-follow", class: "white-text",
     method: :post %>
 <% end %>
