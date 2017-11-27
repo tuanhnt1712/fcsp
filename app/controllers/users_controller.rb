@@ -3,6 +3,7 @@ class UsersController < ApplicationController
   before_action :authenticate_tms
   before_action :is_employer?, only: %i(show follow unfollow)
   load_resource only: %i(show follow unfollow)
+  autocomplete :skill, :name, full: true
 
   def show
     @user_object = Supports::ShowUser.new @user, current_user, params
@@ -43,12 +44,14 @@ class UsersController < ApplicationController
 
   def edit
     @info_user = current_user.info_user
+    @skill = Skill.new
+    @skills = current_user.skill_users.includes :skill
   end
 
   def update
     if current_user.update_attributes "#{params[:type]}": params[:input_info_user]
       user_attribute = User.pluck_params_type params[:id], params[:type]
-      render json: {html: render_to_string(partial: "setting/profiles/type",
+      render json: {html: render_to_string(partial: "users/type",
         locals: {info_user: user_attribute}, layout: false), info_status: "success"}
     else
       render json: {message: current_user.errors.full_messages}

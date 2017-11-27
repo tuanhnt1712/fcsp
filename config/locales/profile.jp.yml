@@ -7,3 +7,14 @@ jp:
       education: "教育"
       project: "プロジェクト"
       activities: "アクティビティ"
+    form_update_skill:
+      name: "スキル名"
+      years: "年"
+    skill:
+      edit: "編集"
+  setting:
+    notice:
+      delete_ero: "エラーを削除！"
+      delete_success: "削除は成功です！"
+      update_ero: "アップデートエラー！Update ero!"
+      update_success: "更新は成功しました！"

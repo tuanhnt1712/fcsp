@@ -48,16 +48,6 @@ hr.hr-edit-user {
   margin-top: 8px;
 }
 
-.submit-edit {
-  position: absolute;
-  right: 0;
-}
-
-.cancel-edit {
-  position: absolute;
-  right: 80px;
-}
-
 .setting-header {
   background: white;
   height: 70px;
@@ -109,18 +99,9 @@ textarea.text-area-edit {
   resize: none;
 }
 
-.col-md-9-edit-synchronize {
-  float: left;
-  width: 80%;
-}
-
-.col-md-3-edit-synchronize {
-  float: right;
-  width: 20%;
-}
-
 .synchronize-button {
   float: right;
+  margin-right: -15px;
 }
 
 .div-synchronize-setting {

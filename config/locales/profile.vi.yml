@@ -7,3 +7,14 @@ vi:
       education: "Trường học"
       project: "Project"
       activities: "Hoạt động"
+    form_update_skill:
+      name: "Tên kỹ năng"
+      years: "Số năm"
+    skill:
+      edit: "Chỉnh sửa"
+  setting:
+    notice:
+      delete_ero: "Xáy ra lỗi khi xóa bản ghi!"
+      delete_success: "Xóa bản ghi thành công!"
+      update_ero: "Xảy ra lỗi khi cập nhật bản ghi!"
+      update_success: "Cập nhật bản ghi thành công!"

@@ -76,7 +76,8 @@ module UsersHelper
 
   def tms_synchronize_button
     if cookies.signed[:tms_user]
-      link_to t(".refresh"), tms_synchronize_index_path, class: "btn btn-default synchronize-button"
+      link_to t(".refresh"), tms_synchronize_index_path,
+        class: "btn btn-sm btn-primary synchronize-button"
     end
   end
 

@@ -970,6 +970,9 @@ en:
       ambition: "Ambition"
       address: "Address"
       country: "Country"
+      skill: "Skill"
+      name: "Name"
+      years: "Years"
     update_auto_synchronize:
       auto_synchronize_success: "Change auto synchronize status success"
       auto_synchronize_error: "Can not change auto synchronize status"
@@ -1115,5 +1118,11 @@ en:
       send: "Send"
   shared:
     button_group:
-        cancel: "Cancel"
-        submit: "Submit"
+      cancel: "Cancel"
+      submit: "Submit"
+    avatar_cover_image:
+      message: "Message"
+  button:
+    cancel: "Cancel"
+    delete: "Delete"
+    save: "Save"
