@@ -1,10 +1,10 @@
 <div class="col_full">
-  <a href="#edit-name" class="edit-toggle" data-toggle="collapse">
+  <a class="edit-toggle">
     <span class="orange-text"><%= t ".fullname" %></span>
     <span class="top-right-edit"><%= t ".click_to_change" %></span>
   </a>
-  <div class="black-text" id="name"><%= current_user.name %></div>
-  <div id="edit-name" class="collapse">
+  <div class="black-text current-info" id="name"><%= current_user.name %></div>
+  <div id="edit-name" class="form-edit-profile">
     <span>
       <%= t ".if_you_dont_want" %>
     </span>
@@ -57,12 +57,12 @@
 </div>
 
 <div class="col_full">
-  <a href="#edit-phone" class="edit-toggle" data-toggle="collapse">
+  <a class="edit-toggle">
     <span class="orange-text"><%= t ".phone" %></span>
     <span class="top-right-edit"><%= t ".click_to_change" %></span>
   </a>
-  <div class="black-text" id="phone"><%= @info_user.phone %></div>
-  <div id="edit-phone" class="collapse">
+  <div class="black-text current-info" id="phone"><%= @info_user.phone %></div>
+  <div id="edit-phone" class="form-edit-profile">
     <span>
       <%= t ".if_you_dont_want" %>
     </span>
@@ -75,12 +75,12 @@
 </div>
 
 <div class="col_full">
-  <a href="#edit-gender" class="edit-toggle" data-toggle="collapse">
+  <a class="edit-toggle">
     <span class="orange-text"><%= t ".gender" %></span>
     <span class="top-right-edit"><%= t ".click_to_change" %></span>
   </a>
-  <div class="black-text" id="gender"><%= @info_user.gender %></div>
-  <div id="edit-gender" class="collapse">
+  <div class="black-text current-info" id="gender"><%= @info_user.gender %></div>
+  <div id="edit-gender" class="form-edit-profile">
     <span>
       <%= t ".if_you_dont_want" %>
     </span>
@@ -93,14 +93,14 @@
 </div>
 
 <div class="col_full">
-  <a href="#edit-birthday" class="edit-toggle" data-toggle="collapse">
+  <a class="edit-toggle">
     <span class="orange-text"><%= t ".birthday" %></span>
     <span class="top-right-edit"><%= t ".click_to_change" %></span>
   </a>
-  <div class="black-text" id="birthday">
-    <%= @info_user.birthday ? l(@info_user.birthday) : @info_user.birthday %>
+  <div class="black-text current-info" id="birthday">
+    <%= l @info_user.birthday, format: :format_date_eng %>
   </div>
-  <div id="edit-birthday" class="collapse">
+  <div id="edit-birthday" class="form-edit-profile">
     <span>
       <%= t ".if_you_dont_want" %>
     </span>
@@ -113,12 +113,12 @@
 </div>
 
 <div class="col_full">
-  <a href="#edit-occupation" class="edit-toggle" data-toggle="collapse">
+  <a class="edit-toggle">
     <span class="orange-text"><%= t ".occupation" %></span>
     <span class="top-right-edit"><%= t ".click_to_change" %></span>
   </a>
-  <div class="black-text" id="occupation"><%= @info_user.occupation %></div>
-  <div id="edit-occupation" class="collapse">
+  <div class="black-text current-info" id="occupation"><%= @info_user.occupation %></div>
+  <div id="edit-occupation" class="form-edit-profile">
     <span>
       <%= t ".if_you_dont_want" %>
     </span>
@@ -131,14 +131,14 @@
 </div>
 
 <div class="col_full">
-  <a href="#edit-relationship_status" class="edit-toggle" data-toggle="collapse">
+  <a class="edit-toggle">
     <span class="orange-text"><%= t ".relationship" %></span>
     <span class="top-right-edit"><%= t ".click_to_change" %></span>
   </a>
-  <div class="black-text" id="relationship_status">
+  <div class="black-text current-info" id="relationship_status">
     <%= @info_user.relationship_status %>
   </div>
-  <div id="edit-relationship_status" class="collapse">
+  <div id="edit-relationship_status" class="form-edit-profile">
     <span>
       <%= t ".if_you_dont_want" %>
     </span>
@@ -152,14 +152,14 @@
 </div>
 
 <div class="col_full">
-  <a href="#edit-introduction" class="edit-toggle" data-toggle="collapse">
+  <a class="edit-toggle">
     <span class="orange-text"><%= t ".self_introduction" %></span>
     <span class="top-right-edit"><%= t ".click_to_change" %></span>
   </a>
-  <div class="black-text" id="introduction">
+  <div class="black-text current-info" id="introduction">
     <%= @info_user.introduction %>
   </div>
-  <div id="edit-introduction" class="collapse">
+  <div id="edit-introduction" class="form-edit-profile">
     <span>
       <%= t ".if_you_dont_want" %>
     </span>
@@ -174,14 +174,14 @@
 </div>
 
 <div class="col_full">
-  <a href="#edit-quote" class="edit-toggle" data-toggle="collapse">
+  <a class="edit-toggle">
     <span class="orange-text"><%= t ".quote" %></span>
     <span class="top-right-edit"><%= t ".click_to_change" %></span>
   </a>
-  <div class="black-text" id="quote">
+  <div class="black-text current-info" id="quote">
     <%= @info_user.quote %>
   </div>
-  <div id="edit-quote" class="collapse">
+  <div id="edit-quote" class="form-edit-profile">
     <span>
       <%= t ".if_you_dont_want" %>
     </span>
@@ -195,14 +195,14 @@
 </div>
 
 <div class="col_full">
-  <a href="#edit-ambition" class="edit-toggle" data-toggle="collapse">
+  <a class="edit-toggle">
     <span class="orange-text"><%= t ".ambition" %></span>
     <span class="top-right-edit"><%= t ".click_to_change" %></span>
   </a>
-  <div class="black-text" id="ambition">
+  <div class="black-text current-info" id="ambition">
     <%= @info_user.ambition %>
   </div>
-  <div id="edit-ambition" class="collapse">
+  <div id="edit-ambition" class="form-edit-profile">
     <span>
       <%= t ".if_you_dont_want" %>
     </span>
@@ -216,14 +216,14 @@
 </div>
 
 <div class="col_full">
-  <a href="#edit-address" class="edit-toggle" data-toggle="collapse">
+  <a class="edit-toggle">
     <span class="orange-text"><%= t ".address" %></span>
     <span class="top-right-edit"><%= t ".click_to_change" %></span>
   </a>
-  <div class="black-text" id="address">
+  <div class="black-text current-info" id="address">
     <%= @info_user.address %>
   </div>
-  <div id="edit-address" class="collapse">
+  <div id="edit-address" class="form-edit-profile">
     <span>
       <%= t ".if_you_dont_want" %>
     </span>
@@ -236,14 +236,14 @@
 </div>
 
 <div class="col_full">
-  <a href="#edit-country" class="edit-toggle" data-toggle="collapse">
+  <a class="edit-toggle">
     <span class="orange-text"><%= t ".country" %></span>
     <span class="top-right-edit"><%= t ".click_to_change" %></span>
   </a>
-  <div class="black-text" id="country">
+  <div class="black- current-info" id="country">
     <%= @info_user.country %>
   </div>
-  <div id="edit-country" class="collapse">
+  <div id="edit-country" class="form-edit-profile">
     <span>
       <%= t ".if_you_dont_want" %>
     </span>
