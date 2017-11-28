@@ -21,7 +21,7 @@ default_company = Company.create! name: "Framgia VietNam",
   creator_id: default_user.id
 
 InfoUser.create! user_id: default_user.id,
-  introduce: FFaker::Lorem.paragraph,
+  introduction: FFaker::Lorem.paragraph,
   address: "Ha Noi, Viet Nam"
 
 companies.each do |name, founder|
@@ -43,7 +43,7 @@ users = {
 
 users.each do |email, name|
   user = User.create! name: name, email: email, password: "123456"
-  InfoUser.create! user_id: user.id, introduce: FFaker::Lorem.paragraph,
+  InfoUser.create! user_id: user.id, introduction: FFaker::Lorem.paragraph,
     address: "Da Nang, Viet Nam"
 end
 
@@ -60,21 +60,21 @@ trainees = {
 trainees.each do |email, name|
   trainee = User.create! name: name, email: email, password: "123456",
     role: "trainee"
-  InfoUser.create! user_id: trainee.id, introduce: FFaker::Lorem.paragraph,
+  InfoUser.create! user_id: trainee.id, introduction: FFaker::Lorem.paragraph,
     address: "Da Nang, Viet Nam"
 end
 
 edu_admin = User.create! name: "Education admin",
   password: "123456",
   email: "admin.education@framgia.com"
-InfoUser.create! user_id: edu_admin.id, introduce: FFaker::Lorem.paragraph,
+InfoUser.create! user_id: edu_admin.id, introduction: FFaker::Lorem.paragraph,
   address: "Da Nang, Viet Nam"
 
 user = User.create! name: "Adminprp",
   email: "admin@gmail.com",
   password: "123456",
   role: "admin"
-InfoUser.create! user_id: user.id, introduce: FFaker::Lorem.paragraph,
+InfoUser.create! user_id: user.id, introduction: FFaker::Lorem.paragraph,
   address: "Da Nang, Viet Nam"
 
 puts "Create jobs"
@@ -128,7 +128,7 @@ User.all.each do |user|
   skills = Skill.order("Random()").limit(2).pluck(:id)
   skills.each do |skill|
     SkillUser.create! user_id: user.id, skill_id: skill,
-    level: rand(1..6)
+    years: rand(1..3)
   end
 end
 
@@ -145,7 +145,7 @@ user = User.create! email: "tran.tuan.nghia@framgia.com",
   name: "Tran Tuan Nghia",
   password: "123456"
 
-InfoUser.create! user_id: user.id, introduce: "humman development",
+InfoUser.create! user_id: user.id, introduction: "humman development",
   ambition: "become to rich man", quote: "human", phone: "123456789",
   birthday: "1996-11-05", occupation: "student", gender: "male"
 

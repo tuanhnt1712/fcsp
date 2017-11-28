@@ -1,77 +1,55 @@
 $(document).ready(function() {
-  var sectionIds = {};
-  $('.row-edit').each(function(){
-    sectionIds[$(this).attr('id')] = $(this).first().offset().top - 140;
-  });
-
-  $(window).scroll(function(event){
-    var scrolled, row;
-    scrolled = $(this).scrollTop();
-    for (key in sectionIds){
-      if (scrolled >= sectionIds[key]){
-        $('.nav-btn').removeClass('orange-text');
-        row = $('[data-row-id=' + key + ']');
-        row.addClass('orange-text');
-      }
-    }
-  });
-
-  $('.nav-btn').click(function(){
-    var name, id, top;
-    $(this).addClass('orange-text');
-    name = $(this).attr('data-row-id');
-    id = '#' + name;
-    top = $(id).first().offset().top - 100;
-    $('html, body').animate({scrollTop: top + 'px'}, 300);
-  });
-
-  var previous_id, previous_value, value;
-
-  $('.edit-toggle').on('click', function(e) {
-    var id, black_text;
-    $('.collapse').removeClass('in');
-    $('.black-text').removeClass('hidden');
-    black_text = $(this).parent().children('.black-text');
-    black_text.addClass('hidden');
-    value = black_text.html();
-    id = black_text.attr('id');
-    $('#' + previous_id).parent().find('.form-control').val(previous_value);
-    previous_value = value;
-    previous_id = id;
-  });
-
   $('.cancel-edit').on('click', function() {
-    $('.collapse').removeClass('in');
-    $('.black-text').removeClass('hidden');
-    $(this).closest('.collapse').find('.form-control').val(value);
+    var class_col_full = $(this).closest('.col_full');
+    class_col_full.find('.current-info').toggle('slow');
+    class_col_full.find('.form-edit-profile').toggle('slow');
   });
 
   $('.submit-edit-ajax').on('click', function(e) {
     e.preventDefault();
-    var input_info_user, type, url;
-    type = $(this).closest('.collapse').attr('id').replace('edit-', '');
-    url = $(this).closest('form').attr('action');
-    input_info_user = $(this).closest('.collapse').find('.form-control').val();
+    var input_info_user, type, url, class_col_full;
+    class_col_full = $(this).closest('.col_full')
+    type = class_col_full.find('.form-edit-profile').attr('id').replace('edit-', '');
+    url = class_col_full.find('form').attr('action');
+    input_info_user = $(this).closest('.form-edit-profile').find('.form-control').val();
     $.ajax({
       url: url,
       method: 'PATCH',
       dataType: 'JSON',
-      data: {type, input_info_user}
+      data: {type :type, input_info_user: input_info_user}
     })
     .done(function(data) {
       if (data.info_status == 'success') {
         $('#' + type).html(data.html);
-        $('.collapse').removeClass('in');
-        $('.black-text').removeClass('hidden');
+        class_col_full.find('.form-edit-profile').toggle('slow');
+        class_col_full.find('.current-info').toggle();
         $.growl.notice({message: I18n.t('setting.profiles.update_success')});
-        previous_value = $('#' + type).html();
       } else {
         $.growl.error({message: data.message});
-        $('.collapse').removeClass('in');
-        $('.black-text').removeClass('hidden');
-        previous_value = $('#' + type).html();
       }
     })
     return false;
   });
+
+
+  $('body').on('click', '.edit-toggle', function(){
+    var edit_value, form_edit, all_form_edits, current_info, all_current_infos,
+      class_col_full;
+
+    edit_value = $(this).closest('.container').find('.edit_info_user, .edit_user');
+    for (var i = 0; i < edit_value.length; i++) {
+      edit_value[i].reset();
+    }
+
+    form_edit = $(this).closest('.col_full').find('.form-edit-profile');
+    all_form_edits = $(this).closest('.container').find('.form-edit-profile').not(form_edit).hide();
+
+    current_info = $(this).closest('.col_full').find('.current-info');
+    all_current_infos = $(this).closest('.container').find('.current-info').not(current_info).show();
+
+    class_col_full = $(this).closest('.col_full');
+    form_edit.toggle('slow');
+
+    class_col_full.find('.current-info').toggle();
+  })
 });
