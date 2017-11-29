@@ -9,9 +9,11 @@ $(document).ready(function() {
     e.preventDefault();
     var input_info_user, type, url, class_col_full;
     class_col_full = $(this).closest('.col_full')
-    type = class_col_full.find('.form-edit-profile').attr('id').replace('edit-', '');
+    type = class_col_full.find('.form-edit-profile').attr('id')
+      .replace('edit-', '');
     url = class_col_full.find('form').attr('action');
-    input_info_user = $(this).closest('.form-edit-profile').find('.form-control').val();
+    input_info_user = $(this).closest('.form-edit-profile')
+      .find('.form-control').val();
     $.ajax({
       url: url,
       method: 'PATCH',
@@ -21,6 +23,7 @@ $(document).ready(function() {
     .done(function(data) {
       if (data.info_status == 'success') {
         $('#' + type).html(data.html);
+        class_col_full.find('input.form-control')[0].defaultValue = data.html;
         class_col_full.find('.form-edit-profile').toggle('slow');
         class_col_full.find('.current-info').toggle();
         if (type == 'name') {
@@ -39,13 +42,14 @@ $(document).ready(function() {
     var edit_value, form_edit, all_form_edits, current_info, all_current_infos,
       class_col_full;
 
-    edit_value = $(this).closest('.container').find('.edit_info_user, .edit_user');
+    edit_value = $(this).closest('.container')
+      .find('.edit_info_user, .edit_user, .new_skill');
     for (var i = 0; i < edit_value.length; i++) {
       edit_value[i].reset();
     }
 
-    form_edit = $(this).closest('.col_full').find('.form-edit-profile');
-    all_form_edits = $(this).closest('.container').find('.form-edit-profile').not(form_edit).hide();
+    form_edit = $(this).closest('.col_full').find('.form-edit-profile, .create-form');
+    all_form_edits = $(this).closest('.container').find('.form-edit-profile, .create-form').not(form_edit).hide();
 
     current_info = $(this).closest('.col_full').find('.current-info');
     all_current_infos = $(this).closest('.container').find('.current-info').not(current_info).show();

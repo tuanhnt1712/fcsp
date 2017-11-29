@@ -98,7 +98,9 @@
     <span class="top-right-edit"><%= t ".click_to_change" %></span>
   </a>
   <div class="black-text current-info" id="birthday">
-    <%= l @info_user.birthday, format: :format_date_eng %>
+    <% if @info_user.birthday.present? %>
+      <%= l @info_user.birthday, format: :format_date_eng %>
+    <% end %>
   </div>
   <div id="edit-birthday" class="form-edit-profile">
     <span>
