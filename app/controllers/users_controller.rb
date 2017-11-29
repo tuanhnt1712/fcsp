@@ -17,7 +17,15 @@ class UsersController < ApplicationController
       skills: @user.skill_users.includes(:skill),
       languages: @user.user_languages.includes(:language),
       courses: @user.courses.includes(:programming_language)}
-    @trainees = User.includes(:avatar, :info_user).trainee
+    @trainees = User.includes(:avatar, :info_user).trainee.page(params[:page])
+      .per Settings.users.show.trainees_per_page
+
+    if request.xhr?
+      render json: {
+        trainees: render_to_string(partial: "users/trainees", layout: false),
+        paginate_trainees: render_to_string(partial: "users/paginate_trainees", layout: false)
+      }
+    end
   end
 
   def edit

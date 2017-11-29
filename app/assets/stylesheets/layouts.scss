@@ -69,7 +69,6 @@ hr.hr-edit-user {
 
 .content-setting {
   background: white;
-  min-height: 1100px;
 }
 
 .left-navigation-col {
@@ -128,6 +127,6 @@ textarea.text-area-edit {
 
 footer {
   bottom: 0;
-  position: relative;
+  position: fixed;
   width: 100%;
 }

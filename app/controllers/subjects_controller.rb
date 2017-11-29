@@ -5,7 +5,7 @@ class SubjectsController < ApplicationController
 
   def show
     @user_object = Supports::ShowUser.new @user, current_user, params
-    @user_tasks = @user.user_tasks.includes :task
+    @user_tasks = @user.user_tasks.includes(:task)
       .check_course_subject params[:course_id], @user_course_subject.subject_id
     user_shares = @user.user_shares.includes :avatar
     user_following = @user.following_users.includes :avatar
