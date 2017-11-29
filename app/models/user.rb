@@ -75,6 +75,11 @@ class User < ApplicationRecord
       .limit Settings.recommend.user_limit
   end)
 
+  scope :recommend_job, (lambda do |job_id|
+    select("users.id, users.name, users.avatar_id, users.email").includes(:avatar)
+      .limit Settings.recommend.user_limit
+  end)
+
   scope :user_all, (lambda do |id|
     select("id, name, email").where("id != ?", id)
   end)

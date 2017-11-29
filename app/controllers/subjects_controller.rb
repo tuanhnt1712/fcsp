@@ -5,8 +5,14 @@ class SubjectsController < ApplicationController
 
   def show
     @user_object = Supports::ShowUser.new @user, current_user, params
-    @user_tasks = @user.user_tasks.includes(:task)
+    @user_tasks = @user.user_tasks.includes :task
       .check_course_subject params[:course_id], @user_course_subject.subject_id
+    user_shares = @user.user_shares.includes :avatar
+    user_following = @user.following_users.includes :avatar
+    @users = {user_shares: user_shares,
+      limit_user_shares: user_shares.take(Settings.user.limit_user),
+      user_following: user_following,
+      limit_user_following: user_following.take(Settings.user.limit_user)}
 
     if request.xhr?
       render json: {

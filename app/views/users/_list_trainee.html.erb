@@ -19,9 +19,11 @@
               <div>
                 <%= trainees.info_user_introduction.truncate Settings.list_trainee.info_user_introduction %>
               </div>
-              <div class="btn btn-primary  message-button pull-right" id="follow-user-<%= trainees.id %>">
-                <%= render "follow_user", user: trainees %>
-              </div>
+              <% if !trainees.is_user?(current_user) && user_signed_in? %>
+                <div class="btn btn-primary  message-button pull-right" id="follow-user-<%= trainees.id %>">
+                  <%= render "follow_user", user: trainees %>
+                </div>
+              <% end %>
             </div>
           </li>
         </div>
