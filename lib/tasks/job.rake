@@ -27,6 +27,50 @@ namespace :db do
               <p>- Trực tiếp gặp gỡ, tiếp các nhà đầu tư tại công ty</p>
               <p>- Xây dựng mối quan hệ với các chuyên viên phân tích các công ty chứng khoán, chủ động trao đổi nhằm hạn chế tối đa việc sử dụng các thông tin không chính xác về công ty trong phân tích</p>
               <p>- Theo dõi các nguồn thông tin về FPT, và các báo cáo thị trường liên quan</p>"
+          },
+          {
+            title: "Software Developer ( Attractive Salary )",
+            describe: "<p>- Developing and maintaining Septeni Group's strategic products, responsible for writing maintainable, high performance and robust web based systems.</p>
+              <p>- Competitive and stable salary (up to 1000$), with performance review and bonus twice a year</p>
+              <p>- Company provided laptop (Macbook pro) and other necessary equipments or software</p>
+              <p>- On site works at Japan head quarter (Tokyo) or a trip to attend corporation Kickoff party for Employee of the year</p>
+              <p>- Working with excellent engineers from Vietnam and Japan on newest bleeding edge technologies</p>
+              <p>- Open culture that focus on self improvement and sharing.</p>
+              <p>- Baoviet Healthcare for all employees, company holiday trip and many other incentives</p>"
+          },
+          {
+            title: "[$2,500 - $3,500] 5 Full-stack Developer - Làm Việc Ở Nhật",
+            describe: "<p>- Bachelor degree in Information Technology, Computer Science, Electronics and Engineering</p>
+              <p>- At least 2 years experience in software development with Java, C＃, Ruby, PHP, Python, Jython, Objective-C,..</p>
+              <p>- Experience and expertise as a full-stack developer</p>
+              <p>- Be able to use some framework depending on the language</p>
+              <p>- OS: Windows, Linux, iOS, Android</p>
+              <p>- Database: At least MySQL, if possible then Oracle, SQLServer, NoSQL.</p>　　
+              <p>- Team development, development experience with Agile method such as Scrum</p>
+              <p>- Having interest in working in Japan</p>
+              <p>- Japanese language skill: N3 and above</p>"
+          },
+          {
+            title: "Urgent! Server Game Developer ★ Up to $1500 ★",
+            describe: "<p>YÊU CẦU CHUNG:</p>
+              <p>- Nắm rõ hệ thống trên nền linux , viết được shell và bash trong linux</p>
+              <p>- Thành thạo ngôn ngữ PHP trên nền Linux. Ưu tiên biết thêm một trong các ngôn ngữ sau: C++, Ruby,Python</p>
+              <p>- Có kiến thức về SQL và noSQL, DB design biết cài đặt cấu hình cơ sở dữ liệu (hiểu về các loại engine trong database)</p>
+              <p>- Có kiến thức về socket, state machine, process và thread</p>
+              <p>ƯU TIÊN:</p>
+              <p>- Có kinh nghiệm về AWS, GCP(Google Cloud Platform)</p>
+              <p>- Có khả năng đọc source code có sẵn để hiểu logic của phần mềm</p>"
+          },
+          {
+            title: "[$2,400 - $2,800] 10 Java Software Developer - Làm Việc Tại Nhật Bản",
+            describe: "<p>- Bachelor degree in Information Technology, Computer Science, Electronics and Engineering</p>
+              <p>- Highly motivated to work in Japan</p>
+              <p>- Prefer candidate who have 2-year experience in software development by Java, C#, Ruby, PHP, Python, Objective-C</p>
+              <p>- Expertise in Framework, OS (Windows, Linux, iOS, Android), Database (MySQL)</p>
+              <p>- Minimum Japanese level : N3</p>
+              <p>- Salary up to 8000$ (up to experience)</p>
+              <p>- Having experience to work in Japanese company or in Japan is an advantage</p>
+              <p>- Age limit: prefer under 35 years old</p>"
           }
         ]
       },
@@ -44,6 +88,35 @@ namespace :db do
           {
             title: "【～$2800】 Project Manager ( Japanese Skill )",
             describe: "<p> Tham gia vào việc xây dựng và phát triển Công ty</p><p> Quản lý các dự án trong Công ty: Ruby, iOS, Android, PHP, ...</p><p>• Trao đổi trực tiếp với Khách hàng về tình hình dự án</p><p>• Làm việc với các thành viên của đội dự án, đảm bảo đáp ứng các yêu cầu về chất lượng và thời hạn của dự án</p><p>• Báo cáo với Division Manager về tình hình dự án</p>"
+          },
+          {
+            title: "[ Tuyển Gấp ] Kỹ Sư Phần Mềm - Developer",
+            describe: "<p>Lập trình phát triển hệ thống.</p>
+              <p>Phân tích, thiết kế, tìm hiểu yêu cầu của khách hàng.</p>
+              <p>Phát triển hệ thống nghiệp vụ cơ bản đang được sử dụng ở các doanh nghiệp, chủ yếu là doanh nghiệp Nhật Bản.</p>"
+          },
+          {
+            title: "Software Developer ( Attractive Salary )",
+            describe: "<p>- Developing and maintaining Septeni Group's strategic products, responsible for writing maintainable, high performance and robust web based systems.</p>
+              <p>- Competitive and stable salary (up to 1000$), with performance review and bonus twice a year</p>
+              <p>- Company provided laptop (Macbook pro) and other necessary equipments or software</p>
+              <p>- On site works at Japan head quarter (Tokyo) or a trip to attend corporation Kickoff party for Employee of the year</p>
+              <p>- Working with excellent engineers from Vietnam and Japan on newest bleeding edge technologies</p>
+              <p>- Open culture that focus on self improvement and sharing.</p>
+              <p>- Baoviet Healthcare for all employees, company holiday trip and many other incentives</p>"
+          },
+          {
+            title: "Senior Back-end Developer [URGENT]",
+            describe: "<p>•  Vietnamese nationality;</p>
+              <p>• University degree;</p>
+              <p>• 3 – 4 years of working experience. </p>
+              <p>• Strong technical background; More than 2 years of experience in web
+              application development.</p>
+              <p>• Proficiency in Object Oriented Design and Design Patterns.</p>
+              <p>• Strong in JavaScript/CSS/HTML.</p>
+              <p>• Having experience with one of the following: Java, .NET (C#, ASP, WPF), Ruby, PHP.</p>
+              <p>• Strong knowledge about RDBMS, Mongodb/ Redis.</p>
+              <p>• Preferred if having experience in Cloud server development with Amazon AWS or Microsoft Azure.</p>"
           }
         ]
       }

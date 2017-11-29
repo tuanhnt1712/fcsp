@@ -6,6 +6,12 @@ class CoursesController < ApplicationController
     @user_object = Supports::ShowUser.new @user, current_user, params
     @user_course_subjects = @course.user_course_subjects.includes(:subject)
       .check_user current_user
+    user_shares = @user.user_shares.includes :avatar
+    user_following = @user.following_users.includes :avatar
+    @users = {user_shares: user_shares,
+      limit_user_shares: user_shares.take(Settings.user.limit_user),
+      user_following: user_following,
+      limit_user_following: user_following.take(Settings.user.limit_user)}
 
     if request.xhr?
       render json: {

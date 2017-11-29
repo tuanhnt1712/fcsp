@@ -35,7 +35,7 @@ module Supports
     end
 
     def recommend
-      User.recommend @job
+      User.recommend_job @job
     end
 
     def qualified_profile?
