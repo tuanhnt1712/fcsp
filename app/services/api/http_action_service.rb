@@ -9,11 +9,13 @@ class Api::HttpActionService
   end
 
   def get_data
-    http = Net::HTTP.new(@uri.host, @uri.port).start
+    http = Net::HTTP.new(@uri.host, @uri.port)
     request = Net::HTTP::Post.new(@uri.request_uri,
       "TMS-AUTH-TOKEN": @auth_token)
     data = {"emails[]": @emails}
     request.set_form_data data
+    http.use_ssl = true
+    http.start
     http.request request
   rescue StandardError
     false

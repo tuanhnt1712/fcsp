@@ -21,18 +21,20 @@
       </div>
     </div>
 
-    <%= render "shared/avatar_cover_image", user: current_user %>
-    <div class="col-md-9">
-      <%= render "synchronize" %>
-    </div>
-    <div class="col-md-3">
-      <button class="fa fa-user-plus edit" data-toggle="modal" data-target="#modal-edit"></button>
-      <span class="title-share"><%= t ".users_shared" %></span>
-      <ul>
-        <%= render partial: "limit_user", collection: @limit_users,
-          locals: {limit_users: @limit_users} %>
-      </ul>
-      <%= render "setting/share_profiles/modal_edit", users: @users %>
+
+    <div class="row">
+      <div class="col-md-9">
+        <%= render "synchronize" %>
+      </div>
+      <div class="col-md-3">
+        <button class="fa fa-user-plus edit" data-toggle="modal" data-target="#modal-edit"></button>
+        <span class="title-share"><%= t ".users_shared" %></span>
+        <ul>
+          <%= render partial: "limit_user", collection: @limit_users,
+            locals: {limit_users: @limit_users} %>
+        </ul>
+        <%= render "setting/share_profiles/modal_edit", users: @users %>
+      </div>
     </div>
   </div>
 </div>

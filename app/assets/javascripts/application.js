@@ -59,3 +59,4 @@
 //= require setting/skill
 //= require jquery-ui
 //= require autocomplete-rails
+//= require setting/synchronize
