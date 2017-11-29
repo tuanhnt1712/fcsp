@@ -1,8 +1,4 @@
 $(document).ready(function(){
-  $('body').on('click', '.edit-toggle', function(){
-    $(this).closest('.col_full').find('.create-form').toggle('slow');
-  });
-
   $('body').on('click', '.edit-form .cancel', function(){
     $(this).closest('.edit-form').find('#skill_id').val('');
     $(this).closest('.edit-form').toggle('slow');
@@ -98,8 +94,14 @@ $(document).ready(function(){
   });
 
   $('body').on('click', '.current-skills .show-form', function(){
-    $(this).closest('.current-skills').find('.edit-form').hide();
-    $(this).closest('.current-skills').find('.show-form').show();
+    var current_skill, edit_value;
+    current_skill = $(this).closest('.current-skills');
+    edit_value = current_skill.find('.edit_skill_user');
+    for (var i = 0; i < edit_value.length; i++) {
+      edit_value[i].reset();
+    }
+    current_skill.find('.edit-form').hide();
+    current_skill.find('.show-form').show();
     $(this).hide();
     $(this).next('.edit-form').show();
   });

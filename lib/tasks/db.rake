@@ -24,14 +24,14 @@ namespace :db do
         role: "employer"
 
       default_company = Company.create! name: "Framgia VietNam",
-        introduction: FFaker::Lorem.paragraph,
+        introduction: "ARE YOU READY TO MAKE IT AWESOME WITH US?",
         website: FFaker::Internet.domain_name,
         founder: "Kobayashi Taihei",
         company_size: 100, founder_on: FFaker::Time.datetime,
         creator_id: default_user.id
 
       InfoUser.create! user_id: default_user.id,
-        introduction: Faker::Lorem.paragraph,
+        introduction: "hello world, i am developer",
         address: "Ha Noi, Viet Nam",
         phone: "0123456789",
         birthday: "1990-01-01",
@@ -39,7 +39,8 @@ namespace :db do
         gender: "male"
 
       companies.each do |name, founder|
-        Company.create! name: name, introduction: FFaker::Lorem.paragraph,
+        Company.create! name: name,
+          introduction: "ARE YOU READY TO MAKE IT AWESOME WITH US?",
           website: FFaker::Internet.domain_name, founder: founder,
           company_size: 100, founder_on: FFaker::Time.datetime
       end
@@ -57,9 +58,10 @@ namespace :db do
 
       users.each do |email, name|
         user = User.create! name: name, email: email, password: "123456"
-        InfoUser.create! user_id: user.id, introduction: FFaker::Lorem.paragraph,
+        InfoUser.create! user_id: user.id,
+          introduction: "hello world, i am developer",
           address: "Da Nang, Viet Nam",
-          phone: FFaker::PhoneNumber.short_phone_number,
+          phone: "123456789",
           birthday: FFaker::Time.date, occupation: "student", gender: "male"
       end
 
@@ -78,7 +80,7 @@ namespace :db do
           role: "trainee"
         InfoUser.create! user_id: trainee.id,
           address: "Da Nang, Viet Nam",
-          phone: FFaker::PhoneNumber.short_phone_number,
+          phone: "123456789",
           birthday: FFaker::Time.date, occupation: "student", gender: "male",
           introduction: "i want become to development and help all people in the world!!"
       end
@@ -91,18 +93,20 @@ namespace :db do
       edu_admin = User.create! name: "Education admin",
         password: "123456",
         email: "admin.education@framgia.com"
-      InfoUser.create! user_id: edu_admin.id, introduction: FFaker::Lorem.paragraph,
+      InfoUser.create! user_id: edu_admin.id,
+        introduction: "hello world, i am developer",
         address: "Da Nang, Viet Nam",
-        phone: FFaker::PhoneNumber.short_phone_number,
+        phone: "123456789",
         birthday: FFaker::Time.date, occupation: "student", gender: "male"
 
       user = User.create! name: "Adminprp",
         email: "admin@gmail.com",
         password: "123456",
         role: "admin"
-      InfoUser.create! user_id: user.id, introduction: FFaker::Lorem.paragraph,
+      InfoUser.create! user_id: user.id,
+        introduction: "hello world, i am developer",
         address: "Da Nang, Viet Nam",
-        phone: FFaker::PhoneNumber.short_phone_number,
+        phone: "123456789",
         birthday: FFaker::Time.date, occupation: "student", gender: "male"
 
       puts "Create jobs"
