@@ -11,35 +11,7 @@ class UsersController < ApplicationController
       skills: @user.skill_users.includes(:skill),
       languages: @user.user_languages.includes(:language),
       courses: @user.courses.includes(:programming_language)}
-
-    if request.xhr?
-      if params[:suggest_jobs_page]
-        return render json: {
-          content: render_to_string(partial: "job_accordance", locals:
-            {jobs: @user_object.user_jobs, job_page: :suggest_jobs_page})
-        }
-      end
-
-      if params[:bookmarked_jobs_page]
-        return render json: {
-          content: render_to_string(partial: "job_accordance",
-            locals: {jobs: @user_object.bookmarked_jobs,
-            job_page: :bookmarked_jobs_page})
-        }
-      end
-    end
-    respond_to do |format|
-      format.html
-      format.json {
-        render json: {
-          status: :success,
-          html: render_to_string(partial: "users/advance_profile", formats: :html,
-          locals: {user: @user, advance_profiles: @advance_profiles},
-            layout: false)
-        }
-      }
-      format.js
-    end
+    @trainees = User.includes(:avatar, :info_user).trainee
   end
 
   def edit
@@ -52,7 +24,9 @@ class UsersController < ApplicationController
     if current_user.update_attributes "#{params[:type]}": params[:input_info_user]
       user_attribute = User.pluck_params_type params[:id], params[:type]
       render json: {html: render_to_string(partial: "users/type",
-        locals: {info_user: user_attribute}, layout: false), info_status: "success"}
+        locals: {info_user: user_attribute}, layout: false), info_status: "success",
+        html_site_name: render_to_string(partial: "users/type_site_name",
+          layout: false)}
     else
       render json: {message: current_user.errors.full_messages}
     end

@@ -1,6 +1,26 @@
 <div class="content-setting">
   <div class="container">
-    <%= render "shared/avatar_cover_image", user: current_user %>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <article class="show-header-user post header-avatar-edit">
+            <div class="cover-image">
+              <%= load_user_cover current_user, class: "img-cover" %>
+            </div>
+            <a class="navbar-brand avatar-user" href="#" data-toggle="modal"
+              data-target="#changeAvatarModal">
+              <%= load_user_avatar current_user, class: "img-avatar" %>
+            </a>
+            <span class="site-name"><strong><%= current_user.name %></strong></span>
+            <span class="occupation">
+              <i class="fa fa-briefcase"></i>
+              <%= current_user.info_user_occupation %>
+            </span>
+          </article>
+        </div>
+      </div>
+    </div>
+
     <div class="col-md-8">
       <%= render "synchronize" %>
     </div>

@@ -283,6 +283,9 @@ jp:
       follow: "フォローする"
       unfollow: "アンフォロー"
     show:
+      information: "情報"
+      list_trainees: "研修生をリストする"
+      message: "メッセージ"
   conversations:
     conversation:
       send: "送る"

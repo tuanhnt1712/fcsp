@@ -282,10 +282,11 @@ level_range: 50
 share_type: "Post"
 shared_post:
   content_max: 255
-setting_page: "http://localhost:3000/setting"
 personal_information:
   textarea_rows: 5
 validate:
   years:
     min: 0
     max: 100
+list_trainee:
+  info_user_introduction: 50

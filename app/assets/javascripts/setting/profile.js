@@ -23,6 +23,9 @@ $(document).ready(function() {
         $('#' + type).html(data.html);
         class_col_full.find('.form-edit-profile').toggle('slow');
         class_col_full.find('.current-info').toggle();
+        if (type == 'name') {
+          $('.site-name').html(data.html_site_name);
+        }
         $.growl.notice({message: I18n.t('setting.profiles.update_success')});
       } else {
         $.growl.error({message: data.message});
