@@ -29,6 +29,8 @@ en:
       years: "Years"
     skill:
       edit: "Edit"
+    edit:
+      comming_soon: "Comming Soon!"
   setting:
     notice:
       delete_error: "Delete error!"

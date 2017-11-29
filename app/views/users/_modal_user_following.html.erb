@@ -1,6 +1,6 @@
 <div class="modal fade" id="modal_user_following" tabindex="-1" role="dialog"
   aria-labelledby="ModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
+  <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <h3 class="modal-title" id="ModalLabel"><%= t ".following" %>
@@ -13,7 +13,7 @@
         <div class="form-group">
           <div class="row">
             <ul id="list-users">
-              <%= render partial: "user_following", collection: user_following,
+              <%= render partial: "users/user_following", collection: user_following,
                 locals: {user_following: user_following}%>
             </ul>
           </div>
