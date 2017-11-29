@@ -43,6 +43,12 @@ hr.hr-edit-user {
   top: 10px;
 }
 
+.toggle-synchronize {
+  .top-right-edit {
+    right: 120px;
+  }
+}
+
 .button-group-edit {
   margin-bottom: 50px;
   margin-top: 8px;
@@ -101,13 +107,18 @@ textarea.text-area-edit {
 
 .synchronize-button {
   float: right;
-  margin-right: -15px;
 }
 
 .div-synchronize-setting {
+  background-color: $gray-ece;
+  box-shadow: 1px 2px 2px 1px $sliver;
   display: inline-block;
-  margin: 10px 0 10px;
+  margin: 10px 0 0;
+  padding: 10px;
   width: 100%;
+  .button-group-edit {
+    margin: 24px 0 0px;
+  }
 }
 
 #auto_sync {
