@@ -36,7 +36,7 @@
   overflow-y: initial
 }
 
-.modal-body {
+.custom-body {
   height: 450px;
 }
 
@@ -52,6 +52,19 @@
 .user-share {
   display: inline-flex;
   padding: 15px 0 0 30px;
+
+  .avatar-share {
+    width: 30px;
+  }
+
+  .name-share {
+    margin-left: 15px;
+  }
+}
+
+.user-share-profile {
+  display: inline-flex;
+  padding-top: 5px;
 
   .avatar-share {
     width: 30px;

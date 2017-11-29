@@ -57,7 +57,9 @@
       </div>
       <div class="col-md-3">
         <article class="post show-tab-user">
-          <%= render "social_network", user: @user, info_user: @info_user, users: @users %>
+          <div class="clearfix">
+            <%= render "basic_profile", user: @user, info_user: @info_user, users: @users %>
+          </div>
         </article>
       </div>
     </div>

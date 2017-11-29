@@ -7,6 +7,20 @@ vi:
       education: "Trường học"
       project: "Project"
       activities: "Hoạt động"
+    basic_profile:
+      address: "Địa chỉ"
+      add_quote: "Thêm trích dẫn"
+      contact_info: "Thông tin liên hệ"
+      email: "Email"
+      following: "Những người đang theo dõi"
+      load_more: "Xem thêm"
+      phone: "Số điện thoại"
+      quote: "Trích dẫn"
+      shared_for_user: "Những người bạn đã chia sẻ trang cá nhân"
+    modal_user_share:
+      user_shared: "Những người bạn đã chia sẻ trang cá nhân"
+    modal_user_following:
+      following: "Những người bạn đang theo dõi"
     form_update_skill:
       name: "Tên kỹ năng"
       years: "Số năm"

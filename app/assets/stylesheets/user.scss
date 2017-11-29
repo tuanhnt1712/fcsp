@@ -308,8 +308,26 @@
   word-wrap: break-word;
 }
 
-.title-border-custom {
-  border-bottom: 2px solid $white-eee;
+q {
+  quotes: "“" "”" "‘" "’";
+
+  &:before {
+    content: open-quote;
+  }
+
+  &:after {
+    content: close-quote;
+  }
+}
+
+.load-more {
+  padding-bottom: 15px;
+
+  .link-load-more {
+    color: $orange;
+    cursor: pointer;
+    float: right;
+  }
 }
 
 .show-header-user {
@@ -511,4 +529,12 @@
 .white-text {
   color: $white !important;
   font-weight: bold;
+}
+
+.fancy-title {
+  margin-bottom: 12px;
+}
+
+.toggle-info {
+  cursor: pointer;
 }

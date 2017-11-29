@@ -7,6 +7,20 @@ jp:
       education: "教育"
       project: "プロジェクト"
       activities: "アクティビティ"
+    basic_profile:
+      add_quote: "見積もりを追加"
+      address: "住所"
+      contact_info: "連絡先情報"
+      email: "メール"
+      following: "以下"
+      load_more: "もっと読み込む"
+      phone: "電話"
+      quote: "見積もり"
+      shared_for_user: "あなたがプロフィールを共有した人"
+    modal_user_share:
+      user_shared: "あなたがプロフィールを共有した人"
+    modal_user_following:
+      following: "以下"
     form_update_skill:
       name: "スキル名"
       years: "年"

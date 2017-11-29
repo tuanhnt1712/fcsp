@@ -1,14 +1,16 @@
-<div class="modal fade" id="modal-edit" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
+<div class="modal fade" id="modal-edit" tabindex="-1" role="dialog"
+  aria-labelledby="ModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h3 class="modal-title" id="ModalLabel"><%= t ".choose_user" %></h3>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
+        <h3 class="modal-title" id="ModalLabel"><%= t ".choose_user" %>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </h3>
       </div>
       <%= form_tag setting_share_profiles_path, method: :post do %>
-        <div class="modal-body">
+        <div class="modal-body custom-body">
           <div class="form-group">
             <label class="btn btn-primary title-modal"><%= t ".users" %></label>
             <%= text_field_tag :search, "", id: "search",
