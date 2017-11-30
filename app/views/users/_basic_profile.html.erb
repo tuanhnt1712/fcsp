@@ -46,8 +46,7 @@
     <% end %>
   </div>
 <% end %>
-
-<% if @users[:user_shares].present? %>
+<% if @users[:user_shares].present? && current_user.is_user?(user)%>
   <div class="fancy-title top-cart-item">
     <h4><%= t ".shared_for_user" %></h4>
   </div>
@@ -66,7 +65,7 @@
       <%= t ".load_more" %>
     </a>
   </div>
-  <%= render "modal_user_share", user_shares: @users[:user_shares] %>
+  <%= render "users/modal_user_share", user_shares: @users[:user_shares] %>
 <% end %>
 
 <% if @users[:user_following].present? %>
@@ -88,5 +87,5 @@
       <%= t ".load_more" %>
     </a>
   </div>
-  <%= render "modal_user_following", user_following: @users[:user_following] %>
+  <%= render "users/modal_user_following", user_following: @users[:user_following] %>
 <% end %>
