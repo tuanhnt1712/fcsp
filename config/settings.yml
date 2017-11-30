@@ -290,4 +290,7 @@ validate:
     min: 0
     max: 100
 list_trainee:
-  info_user_introduction: 50
+  info_user_introduction: 40
+users:
+  show:
+    trainees_per_page: 10

@@ -23,7 +23,7 @@ $(document).ready(function() {
     .done(function(data) {
       if (data.info_status == 'success') {
         $('#' + type).html(data.html);
-        class_col_full.find('input.form-control')[0].defaultValue = data.html;
+        class_col_full.find('.form-control')[0].defaultValue = data.html;
         class_col_full.find('.form-edit-profile').toggle('slow');
         class_col_full.find('.current-info').toggle();
         if (type == 'name') {
