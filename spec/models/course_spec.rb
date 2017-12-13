@@ -7,10 +7,14 @@ RSpec.describe Course, type: :model do
     it{is_expected.to have_many :user_course_subjects}
     it{is_expected.to have_many(:subjects).through :user_course_subjects}
     it{is_expected.to belong_to :programming_language}
+    it{is_expected.to have_many :user_tasks}
   end
 
   context "enum" do
-    it{is_expected.to define_enum_for(:status)}
+    it do
+      is_expected.to define_enum_for(:status)
+        .with %i(init in_progress finished closed)
+    end
   end
 
   context "column_specifications" do
@@ -19,5 +23,6 @@ RSpec.describe Course, type: :model do
     it{is_expected.to have_db_column(:status).of_type :integer}
     it{is_expected.to have_db_column(:start_date).of_type :datetime}
     it{is_expected.to have_db_column(:end_date).of_type :datetime}
+    it{is_expected.to have_db_column(:description).of_type :string}
   end
 end
