@@ -57,28 +57,111 @@ RSpec.describe User, type: :model do
 
   describe "validations" do
     it{is_expected.to validate_presence_of :name}
+
     it do
       is_expected.to validate_length_of(:name)
         .is_at_most Settings.company.max_length_name
     end
+
     it{is_expected.to validate_presence_of :email}
+
     it do
       is_expected.to validate_inclusion_of(:auto_synchronize)
         .in_array [true, false]
     end
   end
 
-  describe "get newest user" do
-    let!(:user1){FactoryGirl.create :user, created_at: Time.now}
-    let!(:user2) do
-      FactoryGirl.create :user, created_at: Time.now + 1.hour
+  describe "testing scope" do
+    before(:context) do
+      @user1 = FactoryGirl.create :user,
+        role: "trainee", created_at: Time.now
+      @user2 = FactoryGirl.create :user,
+        role: "trainee", created_at: Time.now + 1.hour
+      @user3 = FactoryGirl.create :user,
+        role: "trainee", created_at: Time.now + 2.hours
     end
-    let!(:user3) do
-      FactoryGirl.create :user, created_at: Time.now + 2.hours
+
+    context "get newest user" do
+      let!(:users){User.newest}
+      it "returns ordered list" do
+        expect(users).to eq [@user3, @user2, @user1]
+      end
     end
-    users = User.newest
-    it "returns ordered list" do
-      expect(users).to eq [user3, user2, user1]
+
+    context "testing scope recommend" do
+      it "syntax sucessfully" do
+        qry = User.select("users.id, users.name, users.avatar_id, users.email")
+          .limit Settings.recommend.user_limit
+        expect(User.recommend).to eq qry
+      end
+    end
+
+    context "testing scope recommend_job" do
+      let!(:job){FactoryGirl.create :job}
+      qry = User.select("users.id, users.name, users.avatar_id, users.email")
+        .includes(:avatar).limit Settings.recommend.user_limit
+      it{expect(User.recommend_job(job)).to eq qry}
+    end
+
+    context "testing auto_synchronize" do
+      let!(:query){User.want_auto_sync}
+      let!(:filter){query.where_values_hash.symbolize_keys}
+      let!(:synchronize){{auto_synchronize: true}}
+
+      it{expect(filter).to eq(synchronize)}
+    end
+
+    context "testing filter_trainee_course" do
+      let!(:course){FactoryGirl.create :course}
+      let!(:user_course) do
+        FactoryGirl.create :user_course,
+          user_id: @user1.id, course_id: course.id
+      end
+
+      it "matching sucessfully" do
+        expect(User.left_outer_joins(:courses).filter_trainee_course(course.id))
+          .to include @user1
+      end
+
+      it"non-matching sucessfully" do
+        expect(User.left_outer_joins(:courses).filter_trainee_course(course.id))
+          .not_to include @user2
+      end
+    end
+
+    context "testing filter_trainee_programming_language" do
+      let!(:programming_language){FactoryGirl.create :programming_language}
+      let!(:course) do
+        FactoryGirl.create :course,
+          programming_language_id: programming_language.id
+      end
+
+      let!(:user_course) do
+        FactoryGirl.create :user_course, user_id: @user1.id,
+          course_id: course.id
+      end
+
+      it "matching sucessfully" do
+        expect(User.left_outer_joins(courses: :programming_language)
+          .filter_trainee_programming_language(programming_language.id))
+          .to include @user1
+      end
+
+      it"non-matching sucessfully" do
+        expect(User.left_outer_joins(courses: :programming_language)
+          .filter_trainee_programming_language(programming_language.id))
+          .not_to include @user2
+      end
+    end
+
+    context "testing scope user_all" do
+      it "matching sucessfully" do
+        expect(User.user_all(@user1.id)).to eq [@user2, @user3]
+      end
+
+      it "non-matching sucessfully" do
+        expect(User.user_all(@user1.id)).not_to include @user1
+      end
     end
   end
 end
