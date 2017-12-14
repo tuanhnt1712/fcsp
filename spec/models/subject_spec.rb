@@ -5,6 +5,7 @@ RSpec.describe Subject, type: :model do
     it{is_expected.to have_many :user_course_subjects}
     it{is_expected.to have_many(:courses).through :user_course_subjects}
     it{is_expected.to have_many :tasks}
+    it{is_expected.to have_many :user_tasks}
   end
 
   context "column_specifications" do
