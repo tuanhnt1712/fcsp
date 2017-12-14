@@ -1,6 +1,17 @@
 require "rails_helper"
 
 RSpec.describe User, type: :model do
+  before(:context) do
+    @user1 = FactoryGirl.create :user,
+      role: "trainee", created_at: Time.now
+    @user2 = FactoryGirl.create :user,
+      role: "trainee", created_at: Time.now + 1.hour
+    @user3 = FactoryGirl.create :user,
+      role: "trainee", created_at: Time.now + 2.hours
+    @users = [@user1, @user2, @user3]
+    @type = %i(name email role)
+  end
+
   describe "User validation" do
     context "association" do
       it{is_expected.to have_many(:user_groups).dependent :destroy}
@@ -71,16 +82,72 @@ RSpec.describe User, type: :model do
     end
   end
 
-  describe "testing scope" do
-    before(:context) do
-      @user1 = FactoryGirl.create :user,
-        role: "trainee", created_at: Time.now
-      @user2 = FactoryGirl.create :user,
-        role: "trainee", created_at: Time.now + 1.hour
-      @user3 = FactoryGirl.create :user,
-        role: "trainee", created_at: Time.now + 2.hours
+  describe "#accepts_nested_attributes_for" do
+    it do
+      is_expected.to accept_nested_attributes_for(:info_user)
+        .update_only true
+    end
+  end
+
+  describe "delegate" do
+    it "ambition" do
+      is_expected.to delegate_method(:ambition).to(:info_user).with_prefix true
     end
 
+    it "address" do
+      is_expected.to delegate_method(:address).to(:info_user).with_prefix true
+    end
+
+    it "phone" do
+      is_expected.to delegate_method(:phone).to(:info_user).with_prefix true
+    end
+
+    it "quote" do
+      is_expected.to delegate_method(:quote).to(:info_user).with_prefix true
+    end
+
+    it "info_statuses" do
+      is_expected.to delegate_method(:info_statuses)
+        .to(:info_user).with_prefix true
+    end
+
+    it "birthday" do
+      is_expected.to delegate_method(:birthday).to(:info_user).with_prefix true
+    end
+
+    it "relationship_status" do
+      is_expected.to delegate_method(:relationship_status)
+        .to(:info_user).with_prefix true
+    end
+
+    it "occupation" do
+      is_expected.to delegate_method(:occupation)
+        .to(:info_user).with_prefix true
+    end
+
+    it "country" do
+      is_expected.to delegate_method(:country).to(:info_user).with_prefix true
+    end
+
+    it "introduction" do
+      is_expected.to delegate_method(:introduction)
+        .to(:info_user).with_prefix true
+    end
+
+    it "gender" do
+      is_expected.to delegate_method(:gender).to(:info_user).with_prefix true
+    end
+
+    it "id" do
+      is_expected.to delegate_method(:id).to(:info_user).with_prefix true
+    end
+  end
+
+  describe "enumable" do
+    it{is_expected.to define_enum_for(:role).with %i(employer trainee admin)}
+  end
+
+  describe "testing scope" do
     context "get newest user" do
       let!(:users){User.newest}
       it "returns ordered list" do
@@ -100,7 +167,7 @@ RSpec.describe User, type: :model do
       let!(:job){FactoryGirl.create :job}
       qry = User.select("users.id, users.name, users.avatar_id, users.email")
         .includes(:avatar).limit Settings.recommend.user_limit
-      it{expect(User.recommend_job(job)).to eq qry}
+      it{expect(User.recommend_job job).to eq qry}
     end
 
     context "testing auto_synchronize" do
@@ -108,60 +175,120 @@ RSpec.describe User, type: :model do
       let!(:filter){query.where_values_hash.symbolize_keys}
       let!(:synchronize){{auto_synchronize: true}}
 
-      it{expect(filter).to eq(synchronize)}
+      it{expect(filter).to eq synchronize}
     end
 
     context "testing filter_trainee_course" do
       let!(:course){FactoryGirl.create :course}
-      let!(:user_course) do
-        FactoryGirl.create :user_course,
-          user_id: @user1.id, course_id: course.id
+
+      before do
+        FactoryGirl.create :user_course, user_id: @user1.id,
+          course_id: course.id
       end
 
       it "matching sucessfully" do
-        expect(User.left_outer_joins(:courses).filter_trainee_course(course.id))
+        expect(User.left_outer_joins(:courses).filter_trainee_course course.id)
           .to include @user1
       end
 
       it"non-matching sucessfully" do
-        expect(User.left_outer_joins(:courses).filter_trainee_course(course.id))
-          .not_to include @user2
+        expect(User.left_outer_joins(:courses).filter_trainee_course course.id)
+          .not_to include @user2, @user3
       end
     end
 
     context "testing filter_trainee_programming_language" do
       let!(:programming_language){FactoryGirl.create :programming_language}
+
       let!(:course) do
         FactoryGirl.create :course,
           programming_language_id: programming_language.id
       end
 
-      let!(:user_course) do
+      before do
         FactoryGirl.create :user_course, user_id: @user1.id,
           course_id: course.id
       end
 
       it "matching sucessfully" do
         expect(User.left_outer_joins(courses: :programming_language)
-          .filter_trainee_programming_language(programming_language.id))
+          .filter_trainee_programming_language programming_language.id)
           .to include @user1
       end
 
       it"non-matching sucessfully" do
         expect(User.left_outer_joins(courses: :programming_language)
-          .filter_trainee_programming_language(programming_language.id))
-          .not_to include @user2
+          .filter_trainee_programming_language programming_language.id)
+          .not_to include @user2, @user3
       end
     end
 
     context "testing scope user_all" do
       it "matching sucessfully" do
-        expect(User.user_all(@user1.id)).to eq [@user2, @user3]
+        expect(User.user_all @user1.id).to eq [@user2, @user3]
       end
 
       it "non-matching sucessfully" do
-        expect(User.user_all(@user1.id)).not_to include @user1
+        expect(User.user_all @user1.id).not_to include @user1
       end
+    end
+  end
+
+  describe "#pluck_params_type" do
+    let!(:type){@type.sample}
+    let!(:user){@users.sample}
+
+    context "when id is empty" do
+      it{expect(User.pluck_params_type nil, type).to eq nil}
+    end
+
+    context "when type is empty" do
+      it{expect(User.pluck_params_type user.id, "").to eq nil}
+    end
+
+    context "when type and id is valid" do
+      it{expect(User.pluck_params_type user.id, type).to eq user.try type}
+    end
+  end
+
+  describe "#is_user?" do
+    context "when params is unvalid" do
+      it{expect(@user1.is_user? nil).to eq false}
+    end
+
+    context "when params is valid" do
+      it{expect(@user1.is_user? @user1).to eq true}
+    end
+  end
+
+  describe "#add_share" do
+    let!(:user){FactoryGirl.create :user}
+    it{expect(user.add_share @user1).to eq [@user1]}
+  end
+
+  describe "#delete_share" do
+    let!(:user){FactoryGirl.create :user}
+
+    before do
+      user.user_shares << [@user1, @user2, @user3]
+      user.delete_share @user1
+    end
+
+    it "delete one user_share" do
+      expect(user.user_shares).to eq [@user2, @user3]
+    end
+  end
+
+  describe "#share?" do
+    let!(:user){FactoryGirl.create :user}
+    before{user.user_shares << [@user1, @user2]}
+
+    context "matching sucessfully" do
+      it{expect(user.share? @user1).to eq true}
+    end
+
+    context "non-matching sucessfully" do
+      it{expect(user.share? @user3).to eq false}
     end
   end
 end
