@@ -62,16 +62,8 @@ class User < ApplicationRecord
 
   scope :newest, ->{order created_at: :desc}
 
-  scope :not_in_object, ->object do
-    where("id NOT IN (?)", object.users.pluck(:user_id)) if object.users.any?
-  end
-
-  scope :in_object, ->object do
-    where("id IN (?)", object.users.pluck(:user_id))
-  end
-
   scope :recommend, (lambda do
-    select("users.id, users.name, users.avatar_id, users.email").includes(:avatar)
+    select("users.id, users.name, users.avatar_id, users.email")
       .limit Settings.recommend.user_limit
   end)
 
@@ -106,10 +98,6 @@ class User < ApplicationRecord
   end)
 
   scope :want_auto_sync, ->{where auto_synchronize: true}
-
-  scope :search_user, (lambda do |name|
-    where "name LIKE ? ", "%#{name}%"
-  end)
 
   class << self
     def import file
