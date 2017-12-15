@@ -13,7 +13,8 @@ class InfoUser < ApplicationRecord
 
   class << self
     def pluck_params_type id, type
-      where(id: id).pluck(type).first
+      return if id.blank? || type.blank?
+      find_by(id: id).try type
     end
   end
 end
