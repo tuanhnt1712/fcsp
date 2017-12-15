@@ -2,12 +2,12 @@ require "rails_helper"
 
 RSpec.describe Task, type: :model do
   context "association" do
-    it{is_expected.to have_many :user_tasks}
+    it{is_expected.to have_many(:user_tasks).dependent :destroy}
     it{is_expected.to belong_to :subject}
   end
 
   context "enum" do
-    it{is_expected.to define_enum_for :task_type}
+    it{is_expected.to define_enum_for(:task_type).with %i(assignments test)}
   end
 
   context "column_specifications" do
