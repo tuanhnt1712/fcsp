@@ -2,7 +2,7 @@ require "rails_helper"
 
 RSpec.describe InfoUser, type: :model do
   before(:context) do
-    @info_user = FactoryGirl.create :info_user
+    @info_user = FactoryBot.create :info_user
     @type = %i(quote phone address introduction gender birthday
       occupation relationship_status ambition country)
   end

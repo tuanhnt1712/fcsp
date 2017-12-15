@@ -4,7 +4,7 @@ describe Api::TmsDataService do
   let(:user_email){"chu.anh.tuan@framgia.com"}
   let(:password){"12345678"}
   let(:current_user) do
-    FactoryGirl.create :user,
+    FactoryBot.create :user,
       email: "bui.khanh.huyen@framgia.com"
   end
   let(:authenticate_service) do

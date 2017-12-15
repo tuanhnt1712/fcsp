@@ -1,9 +1,9 @@
 require "rails_helper"
 
 RSpec.describe Employer::JobsController, type: :controller do
-  let(:admin){FactoryGirl.create :user, role: 1}
-  let(:company){FactoryGirl.create :company}
-  let!(:job){FactoryGirl.create :job, company_id: company.id}
+  let(:admin){FactoryBot.create :user, role: "admin"}
+  let(:company){FactoryBot.create :company}
+  let!(:job){FactoryBot.create :job, company_id: company.id}
   arr_id_success = [1, 2]
   arr_id_fail = [998, 999]
 
@@ -41,14 +41,14 @@ RSpec.describe Employer::JobsController, type: :controller do
 
   describe "POST #create job" do
     it "create community job successfully" do
-      job_params = FactoryGirl.attributes_for :job
+      job_params = FactoryBot.attributes_for :job
       expect do
         post :create, params: {company_id: company, job: job_params}
       end.to change(Job, :count).by 1
     end
 
     it "create job only preview" do
-      job_params = FactoryGirl.attributes_for :job
+      job_params = FactoryBot.attributes_for :job
       expect do
         post :create, params: {company_id: company, preview: "Preview",
           job: job_params}
@@ -56,7 +56,7 @@ RSpec.describe Employer::JobsController, type: :controller do
     end
 
     it "create fail with title nil" do
-      job_params = FactoryGirl.attributes_for :job, title: nil
+      job_params = FactoryBot.attributes_for :job, title: nil
       expect do
         post :create, params: {company_id: company, job: job_params}
       end.to change(Job, :count).by 0
@@ -64,14 +64,14 @@ RSpec.describe Employer::JobsController, type: :controller do
 
     it "create fail by reaching length limitation" do
       title = "a" * 151
-      job_params = FactoryGirl.attributes_for :job, title: title
+      job_params = FactoryBot.attributes_for :job, title: title
       expect do
         post :create, params: {company_id: company, job: job_params}
       end.to change(Job, :count).by 0
     end
 
     it "create fail with describe nil" do
-      job_params = FactoryGirl.attributes_for :job, describe: nil
+      job_params = FactoryBot.attributes_for :job, describe: nil
       expect do
         post :create, params: {company_id: company, job: job_params}
       end.to change(Job, :count).by 0
@@ -80,7 +80,7 @@ RSpec.describe Employer::JobsController, type: :controller do
 
   describe "PUT #update" do
     it "update successfully with json" do
-      job_params = FactoryGirl.attributes_for :job, title: "something"
+      job_params = FactoryBot.attributes_for :job, title: "something"
       put :update, params: {company_id: company, id: job, job: job_params},
         xhr: true
       job.reload
@@ -88,7 +88,7 @@ RSpec.describe Employer::JobsController, type: :controller do
     end
 
     it "update successfully" do
-      job_params = FactoryGirl.attributes_for :job, title: "something"
+      job_params = FactoryBot.attributes_for :job, title: "something"
       put :update, params: {company_id: company, id: job, job: job_params},
         xhr: false
       job.reload
@@ -96,7 +96,7 @@ RSpec.describe Employer::JobsController, type: :controller do
     end
 
     it "update fail with title nil" do
-      job_params = FactoryGirl.attributes_for :job, title: nil
+      job_params = FactoryBot.attributes_for :job, title: nil
       put :update, params: {company_id: company, id: job, job: job_params},
         xhr: false
       job.reload

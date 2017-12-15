@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :programming_language do
     name "Ruby"
     description "Training Ruby"

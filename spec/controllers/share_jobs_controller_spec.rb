@@ -1,8 +1,8 @@
 require "rails_helper"
 
 RSpec.describe ShareJobsController, type: :controller do
-  let!(:user) {FactoryGirl.create :user}
-  let!(:job) {FactoryGirl.create :job}
+  let!(:user) {FactoryBot.create :user}
+  let!(:job) {FactoryBot.create :job}
 
   before :each do
     sign_in user
@@ -20,14 +20,14 @@ RSpec.describe ShareJobsController, type: :controller do
     end
 
     it "share job fail" do
-      FactoryGirl.create :share_job, user: user
+      FactoryBot.create :share_job, user: user
       post :create, params: {id: job}, xhr: true
       expect{response}.to change(ShareJob, :count).by 0
     end
   end
 
   describe "DELETE #destroy" do
-    let!(:share_job){FactoryGirl.create :share_job, user: user, shareable: job}
+    let!(:share_job){FactoryBot.create :share_job, user: user, shareable: job}
     context "delete successfully" do
       before{delete :destroy, params: {id: job}, xhr: true}
       it{expect{response.not_to change(ShareJob, :count)}}

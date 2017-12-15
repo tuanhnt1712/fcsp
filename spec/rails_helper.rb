@@ -8,6 +8,7 @@ require "rspec/rails"
 require "shoulda/matchers"
 require "capybara/rails"
 require_relative "support/database_cleaner"
+require "support/factory_bot"
 
 Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
 
@@ -30,7 +31,6 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
   config.include Devise::Test::ControllerHelpers, type: :controller
   config.include ControllerHelpers, type: :controller
-  config.include FactoryGirl::Syntax::Methods
 end
 
 Capybara.register_driver :selenium_chrome do |app|

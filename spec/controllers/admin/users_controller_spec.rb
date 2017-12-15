@@ -2,7 +2,7 @@ require "rails_helper"
 require "support/controller_helpers"
 
 RSpec.describe Admin::UsersController, type: :controller do
-  let!(:admin){FactoryGirl.create :user, role: 1}
+  let!(:admin){FactoryBot.create :user, role: "admin"}
   before :each do
     allow(controller).to receive(:current_user).and_return(admin)
     sign_in admin
@@ -17,7 +17,7 @@ RSpec.describe Admin::UsersController, type: :controller do
 
   describe "POST #create user" do
     it "create successfully" do
-      user_params = FactoryGirl.attributes_for(:user)
+      user_params = FactoryBot.attributes_for(:user)
       expect do
         post :create, params:
           {user: user_params}
@@ -26,7 +26,7 @@ RSpec.describe Admin::UsersController, type: :controller do
     end
 
     it "create fail with name nil" do
-      user_params = FactoryGirl.attributes_for(:user, name: nil)
+      user_params = FactoryBot.attributes_for(:user, name: nil)
       expect do
         post :create, params:
           {user: user_params}
@@ -37,7 +37,7 @@ RSpec.describe Admin::UsersController, type: :controller do
 
     it "create fail by reaching length limitation" do
       name = FFaker::Lorem.paragraph
-      user_params = FactoryGirl.attributes_for(:user, name: name)
+      user_params = FactoryBot.attributes_for(:user, name: name)
       expect do
         post :create, params:
           {user: user_params}
@@ -47,7 +47,7 @@ RSpec.describe Admin::UsersController, type: :controller do
     end
 
     it "create with email nil" do
-      user_params = FactoryGirl.attributes_for(:user, email: nil)
+      user_params = FactoryBot.attributes_for(:user, email: nil)
       expect do
         post :create, params:
           {user: user_params}
@@ -57,9 +57,9 @@ RSpec.describe Admin::UsersController, type: :controller do
     end
 
     it "create with email not unique" do
-      FactoryGirl.create :user, email: "a@gmail.com"
+      FactoryBot.create :user, email: "a@gmail.com"
       email = "a@gmail.com"
-      user_params = FactoryGirl.attributes_for(:user, email: email)
+      user_params = FactoryBot.attributes_for(:user, email: email)
       expect do
         post :create, params:
           {user: user_params}

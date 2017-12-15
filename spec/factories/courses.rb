@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :course do
     programming_language_id programming_language
     name "[KN] [OpenEducation] Ruby on Rails"

@@ -64,7 +64,7 @@ gem "valid_url"
 gem "validates_timeliness"
 group :development, :test do
   gem "byebug", platform: :mri
-  gem "factory_girl_rails"
+  gem "factory_bot_rails"
   gem "faker"
   gem "pry-rails"
   gem "rack-mini-profiler", require: false
@@ -89,7 +89,6 @@ group :test do
   gem "database_cleaner"
   gem "eslint-rails", git: "https://github.com/octoberstorm/eslint-rails"
   gem "rails-controller-testing"
-  gem "rails_best_practices"
   gem "reek"
   gem "rspec-activemodel-mocks"
   gem "rspec-collection_matchers"
