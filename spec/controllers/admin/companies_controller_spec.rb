@@ -2,7 +2,7 @@ require "rails_helper"
 require "support/controller_helpers"
 
 RSpec.describe Admin::CompaniesController, type: :controller do
-  let!(:admin){FactoryGirl.create :user, role: 1}
+  let!(:admin){FactoryBot.create :user, role: "admin"}
   before :each do
     allow(controller).to receive(:current_user).and_return(admin)
     sign_in admin
@@ -17,7 +17,7 @@ RSpec.describe Admin::CompaniesController, type: :controller do
 
   describe "POST #create company" do
     it "create successfully" do
-      company_params = FactoryGirl.attributes_for(:company)
+      company_params = FactoryBot.attributes_for(:company)
       expect do
         post :create, params:
           {company: company_params}
@@ -26,7 +26,7 @@ RSpec.describe Admin::CompaniesController, type: :controller do
     end
 
     it "create fail with name nil" do
-      company_params = FactoryGirl.attributes_for(:company, name: nil)
+      company_params = FactoryBot.attributes_for(:company, name: nil)
       expect do
         post :create, params:
           {company: company_params}
@@ -37,7 +37,7 @@ RSpec.describe Admin::CompaniesController, type: :controller do
 
     it "create fail by reaching length limitation" do
       name = FFaker::Lorem.paragraph
-      company_params = FactoryGirl.attributes_for(:company, name: name)
+      company_params = FactoryBot.attributes_for(:company, name: name)
       expect do
         post :create, params:
           {company: company_params}
@@ -47,7 +47,7 @@ RSpec.describe Admin::CompaniesController, type: :controller do
     end
 
     it "create fail with website nil" do
-      company_params = FactoryGirl.attributes_for(:company, website: nil)
+      company_params = FactoryBot.attributes_for(:company, website: nil)
       expect do
         post :create, params:
           {company: company_params}
@@ -57,7 +57,7 @@ RSpec.describe Admin::CompaniesController, type: :controller do
     end
 
     it "create fail with company size not numerical" do
-      company_params = FactoryGirl.attributes_for(:company, company_size: "a")
+      company_params = FactoryBot.attributes_for(:company, company_size: "a")
       expect do
         post :create, params:
           {company: company_params}
@@ -67,7 +67,7 @@ RSpec.describe Admin::CompaniesController, type: :controller do
     end
 
     it "create fail with company size negative" do
-      company_params = FactoryGirl.attributes_for(:company, company_size: -1)
+      company_params = FactoryBot.attributes_for(:company, company_size: -1)
       expect do
         post :create, params:
           {company: company_params}

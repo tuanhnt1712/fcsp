@@ -1,7 +1,7 @@
 require "rails_helper"
 
 RSpec.describe CompaniesCoverController, type: :controller do
-  let!(:company) {FactoryGirl.create :company}
+  let!(:company) {FactoryBot.create :company}
   let!(:image) do
     Rack::Test::UploadedFile
       .new(Rails.root.join("spec", "support", "education", "image", "test.jpg"))

@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :task do
     subject_id subject
     name "Ruby book in 2 days"

@@ -2,11 +2,11 @@ require "rails_helper"
 
 RSpec.describe User, type: :model do
   before(:context) do
-    @user1 = FactoryGirl.create :user,
+    @user1 = FactoryBot.create :user,
       role: "trainee", created_at: Time.now
-    @user2 = FactoryGirl.create :user,
+    @user2 = FactoryBot.create :user,
       role: "trainee", created_at: Time.now + 1.hour
-    @user3 = FactoryGirl.create :user,
+    @user3 = FactoryBot.create :user,
       role: "trainee", created_at: Time.now + 2.hours
     @users = [@user1, @user2, @user3]
     @type = %i(name email role)
@@ -164,7 +164,7 @@ RSpec.describe User, type: :model do
     end
 
     context "testing scope recommend_job" do
-      let!(:job){FactoryGirl.create :job}
+      let!(:job){FactoryBot.create :job}
       qry = User.select("users.id, users.name, users.avatar_id, users.email")
         .includes(:avatar).limit Settings.recommend.user_limit
       it{expect(User.recommend_job job).to eq qry}
@@ -179,10 +179,10 @@ RSpec.describe User, type: :model do
     end
 
     context "testing filter_trainee_course" do
-      let!(:course){FactoryGirl.create :course}
+      let!(:course){FactoryBot.create :course}
 
       before do
-        FactoryGirl.create :user_course, user_id: @user1.id,
+        FactoryBot.create :user_course, user_id: @user1.id,
           course_id: course.id
       end
 
@@ -198,15 +198,15 @@ RSpec.describe User, type: :model do
     end
 
     context "testing filter_trainee_programming_language" do
-      let!(:programming_language){FactoryGirl.create :programming_language}
+      let!(:programming_language){FactoryBot.create :programming_language}
 
       let!(:course) do
-        FactoryGirl.create :course,
+        FactoryBot.create :course,
           programming_language_id: programming_language.id
       end
 
       before do
-        FactoryGirl.create :user_course, user_id: @user1.id,
+        FactoryBot.create :user_course, user_id: @user1.id,
           course_id: course.id
       end
 
@@ -262,12 +262,12 @@ RSpec.describe User, type: :model do
   end
 
   describe "#add_share" do
-    let!(:user){FactoryGirl.create :user}
+    let!(:user){FactoryBot.create :user}
     it{expect(user.add_share @user1).to eq [@user1]}
   end
 
   describe "#delete_share" do
-    let!(:user){FactoryGirl.create :user}
+    let!(:user){FactoryBot.create :user}
 
     before do
       user.user_shares << [@user1, @user2, @user3]
@@ -280,7 +280,7 @@ RSpec.describe User, type: :model do
   end
 
   describe "#share?" do
-    let!(:user){FactoryGirl.create :user}
+    let!(:user){FactoryBot.create :user}
     before{user.user_shares << [@user1, @user2]}
 
     context "matching sucessfully" do

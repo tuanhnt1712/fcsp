@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :job do
     title{FFaker::Job.title}
     describe{FFaker::Lorem.sentence}

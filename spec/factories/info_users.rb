@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :info_user do
     relationship_status 0
     introduction FFaker::Lorem.paragraph

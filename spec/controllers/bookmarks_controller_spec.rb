@@ -1,9 +1,9 @@
 require "rails_helper"
 
 RSpec.describe BookmarksController, type: :controller do
-  let(:user) {FactoryGirl.create :user}
-  let!(:job) {FactoryGirl.create :job}
-  let!(:bookmark) {FactoryGirl.create :bookmark, user: user, job: job}
+  let(:user) {FactoryBot.create :user}
+  let!(:job) {FactoryBot.create :job}
+  let!(:bookmark) {FactoryBot.create :bookmark, user: user, job: job}
 
   before :each do
     sign_in user
@@ -16,7 +16,7 @@ RSpec.describe BookmarksController, type: :controller do
     end
 
     it "not bookmark job without job" do
-      bookmark_params = FactoryGirl.create :job, id: nil
+      bookmark_params = FactoryBot.create :job, id: nil
       post :create, params: {id: bookmark_params}
       expect{response}.to change(Bookmark, :count).by 0
     end
