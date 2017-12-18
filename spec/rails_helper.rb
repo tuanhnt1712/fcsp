@@ -9,6 +9,7 @@ require "shoulda/matchers"
 require "capybara/rails"
 require_relative "support/database_cleaner"
 require "support/factory_bot"
+require "support/shoulda_matchers_fix_serizalize_attributes"
 
 Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
 
